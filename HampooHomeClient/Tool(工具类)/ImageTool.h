@@ -66,5 +66,8 @@
 +(UIImage *) imageCompressForSize:(UIImage *)sourceImage targetSize:(CGSize)size;
 +(UIImage *) imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth;
 +(UIImage *) imageCompress:(UIImage *)sourceImage ForMaxWidth:(CGFloat)maxWidth AndMaxHeight:(CGFloat)maxHeight;
++ (UIImage *)thumbnailImage:(UIImage *)image size:(CGSize)asize;
+// 根据给定的尺寸，但是不改变图片的比例，返回图片缩略图
++ (UIImage *)thumbnailImageWithStableScale:(UIImage *)image size:(CGSize)asize;
 
 @end

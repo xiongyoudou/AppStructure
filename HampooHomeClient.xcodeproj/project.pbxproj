@@ -1106,6 +1106,7 @@
 				DEVELOPMENT_TEAM = H8J36KWCJF;
 				GCC_PREFIX_HEADER = "/Users/xiongyoudou/Desktop/HampooHomeClient/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.HampooHomeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1120,6 +1121,7 @@
 				DEVELOPMENT_TEAM = H8J36KWCJF;
 				GCC_PREFIX_HEADER = "/Users/xiongyoudou/Desktop/HampooHomeClient/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.HampooHomeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";

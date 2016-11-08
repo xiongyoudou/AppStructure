@@ -32,11 +32,8 @@ typedef enum {
     self = [super init];
     if (self) {
     }
-    
     return self;
 }
-
-
 
 -(void)showCommonHud:(UIView *)superView text:(NSString *)text workBlock:(void (^)())workBlock doneBlock:(void (^)())doneBlock{
     [self showHud:superView type:ShowHudType mode:MBProgressHUDModeIndeterminate text:text work:workBlock doneBlock:doneBlock hideAfterDelay:0];
@@ -99,13 +96,12 @@ typedef enum {
     if(progressHud){
         progressHud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
         progressHud.mode = MBProgressHUDModeCustomView;
-        progressHud.labelText = text;
-        [progressHud show:YES];
-        [progressHud hide:YES afterDelay:delay];
+        progressHud.label.text = text;
+        [progressHud showAnimated:YES];
+        [progressHud hideAnimated:YES afterDelay:delay];
         [self performSelector:@selector(hideAfterDelay) withObject:nil afterDelay:delay];
     }
 }
-
 
 -(void)showSimpleAlertView:(NSString *)text {
     [self removeProgressHud];
@@ -134,20 +130,19 @@ typedef enum {
             [self removeProgressHud];
             if (!progressHud) {
                 progressHud = [[MBProgressHUD alloc] initWithFrame:superView.bounds];
-                progressHud.dimBackground = NO;
                 progressHud.mode = mode;
-                progressHud.labelText = text;
+                progressHud.label.text = text;
                 progressHud.margin = 10.f;
                 //    globalHud.yOffset = 150.f;//再向下偏移150个点
                 [superView addSubview:progressHud];
-                [progressHud show:YES];
+                [progressHud showAnimated:YES];
             }
         }
             break;
         case ModifyHudType:{
             if (progressHud){
-                progressHud.labelText = text;
-                [progressHud show:YES];
+                progressHud.label.text = text;
+                [progressHud showAnimated:YES];
             }else {
                 [self showHud:superView type:ShowHudType mode:mode text:text work:workBlock doneBlock:doneBlock hideAfterDelay:delay];
                 return;
@@ -159,7 +154,7 @@ typedef enum {
     }
     
     if (delay != 0){
-        [progressHud hide:YES afterDelay:delay];
+        [progressHud hideAnimated:YES afterDelay:delay];
         [self performSelector:@selector(hideAfterDelay) withObject:nil afterDelay:delay];
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{

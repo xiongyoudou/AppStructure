@@ -42,7 +42,7 @@
         }
         
         if (isShow && errorInfo) {
-            [MyTool UseMainQueueDealWithBlock:^{
+            [MyTool dispatchMainQueueWithBlock:^{
                 [[DialogTool sharedInstance]modifyTextOnTextHud:errorInfo andSuperView:KShowingView dismissAfterDelay:kHudDelay andWorkDone:nil];
             }];
         }

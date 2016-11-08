@@ -12,30 +12,77 @@
 
 @implementation FileTool
 
-#pragma mark 写文件
-+ (void)writeDictDataToPlistFile:(NSMutableDictionary *)aSaveDic fileName:(NSString *)fileName
-{
+#pragma mark - 文件读写
+//  写文件
++ (void)writeDictDataToPlistFile:(NSMutableDictionary *)aSaveDic fileName:(NSString *)fileName {
     [aSaveDic writeToFile:[self getFileNamePath:fileName] atomically:YES];
 }
 
-+ (void)writeDict:(NSDictionary *)dict toPath:(NSString *)filePath
-{
++ (void)writeDict:(NSDictionary *)dict toPath:(NSString *)filePath {
     BOOL isSuccess = [dict writeToFile:filePath atomically:YES];
     NSLog(@"%d",isSuccess);
 }
 
-#pragma mark 取文件
-+ (NSMutableDictionary *)getPListFileData:(NSString *)fileName
-{
+// 读取文件
++ (NSMutableDictionary *)getPlistFileData:(NSString *)fileName {
     NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithContentsOfFile:[self getFileNamePath:fileName]];
     if (!dict) {
         dict = [NSMutableDictionary dictionary];
     }
-    
     return dict;
 }
 
-#pragma mark 获取文件路径/不存在即创建
+// 存储大文件至沙盒
++ (BOOL)writeDataToPath:(NSString*)filePath andAsset:(ALAsset*)asset {
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+    NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    if (!handle) {
+        return NO;
+    }
+    static const NSUInteger BufferSize = 1024*1024;
+    ALAssetRepresentation *rep = [asset defaultRepresentation];
+    uint8_t *buffer = calloc(BufferSize, sizeof(*buffer));
+    NSUInteger offset = 0, bytesRead = 0;
+    do {
+        @try {
+            bytesRead = [rep getBytes:buffer fromOffset:offset length:BufferSize error:nil];
+            [handle writeData:[NSData dataWithBytesNoCopy:buffer length:bytesRead freeWhenDone:NO]];
+            offset += bytesRead;
+        } @catch (NSException *exception) {
+            free(buffer);
+            return NO;
+        }
+    } while (bytesRead > 0);
+    free(buffer);
+    return YES;
+}
+
+// 验证resumeData是否依旧有效
++ (NSData *)isValidResumeData:(NSData *)data {
+    if (!data || [data length] < 1) return nil;
+    NSError *error;
+    NSDictionary *resumeDictionary = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:&error];
+    if (!resumeDictionary || error) return nil;
+    NSString *localFilePath = [resumeDictionary objectForKey:@"NSURLSessionResumeInfoLocalPath"]; // ios8上有该字段
+    if ([localFilePath length] < 1) {
+        NSString *tempFileName = [resumeDictionary objectForKey:@"NSURLSessionResumeInfoTempFileName"]; // ios9上有该字段
+        localFilePath = [NSString stringWithFormat:@"%@/%@",kTempPath,tempFileName];
+        if (localFilePath.length < 1) {
+            return nil;
+        }
+        BOOL isExists = [[NSFileManager defaultManager] fileExistsAtPath:localFilePath];
+        return isExists ? data : nil;
+    }else {
+        // 如果有该路径，需要将绝对路径替换成每次生成的路径
+        NSString *tempFileName = [MyTool getRearStrOn:localFilePath byDeleteStr:@"/tmp/"];
+        localFilePath = [NSString stringWithFormat:@"%@%@",kTempPath,tempFileName];
+        [resumeDictionary setValue:localFilePath forKey:@"NSURLSessionResumeInfoLocalPath"];
+        NSData *newResumeData = [NSPropertyListSerialization dataWithPropertyList:resumeDictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+        return newResumeData;
+    }
+}
+
+#pragma mark - 获取文件路径 & 根据路径判断文件是否存在
 
 + (void)createFilePahtIfNotExists:(NSString *)path {
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -44,8 +91,7 @@
     }
 }
 
-+ (NSString *)getFileNamePath:(NSString *)fileName
-{
++ (NSString *)getFileNamePath:(NSString *)fileName {
     NSString * filePath = [kDocumentsPath stringByAppendingPathComponent:fileName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         //不存在即创建，初始化contents（文件内容）、attributes（文件属性）为nil
@@ -54,9 +100,8 @@
     return filePath;
 }
 
-#pragma mark 获取文件夹路径/不存在即创建
-+ (NSString *)getFolderNamePath:(NSString *)folderName fileName:(NSString *)fileName PathExtension:(NSString *)pathExtension
-{
+// 获取文件夹路径/不存在即创建
++ (NSString *)getFolderNamePath:(NSString *)folderName fileName:(NSString *)fileName PathExtension:(NSString *)pathExtension {
     NSString * folderPath = [kDocumentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/",folderName]];
     if (![[NSFileManager defaultManager] fileExistsAtPath:folderPath]) {
         //不存在即创建，初始化contents（文件内容）、attributes（文件属性）为nil
@@ -69,25 +114,23 @@
     }
 }
 
-#pragma mark 沙盒是否存在此文件
-+ (BOOL)isExistAtDocumentFile:(NSString *)fileName
-{
++ (BOOL)isExistAtDocumentFile:(NSString *)fileName {
     NSString * filePath = [kDocumentsPath stringByAppendingPathComponent:fileName];
     return ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) ? YES : NO;
 }
 
-+ (BOOL)isExistAtPath:(NSString *)filePath
-{
++ (BOOL)isExistAtPath:(NSString *)filePath {
     return ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) ? YES : NO;
 }
 
-#pragma mark 沙盒文件删除
+#pragma  mark - 文件删除
+// 沙盒文件删除
 + (void)deleteDocumentFile:(NSString *)fileName
 {
     NSString * filePath = [kDocumentsPath stringByAppendingPathComponent:fileName];
     [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
 }
-#pragma mark 根据沙盒文件路径删除
+// 根据沙盒文件路径删除
 + (BOOL)deleteWithContentPath:(NSString *)path
 {
     NSError *error=nil;
@@ -102,75 +145,7 @@
     return YES;
 }
 
-/**
- *  返回文件类型
- *
- *  @param fileName 文件名
- *  @param isFolder 是否是文件夹
- *
- *  @return 文件类型
- */
-+ (FileType)getFileTypeWithFileName:(NSString *)fileName isFolder:(BOOL)isFolder {
-    if(isFolder) {
-        // 文件夹
-        return FileTypeFolder;
-    }else {
-        NSString *pathExtension = [fileName pathExtension];
-        if (!pathExtension)return FileTypeUnknown;
-        if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"jpg"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"gif"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"png"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"jpeg"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"jpg"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"gif"]) {
-            // 图片类型
-            return FileTypeImage;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"txt"]) {
-            return FileTypeTxt;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"doc"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"docx"]) {
-            return FileTypeMicroWord;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"xlsx"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"xls"]) {
-            return FileTypeMicroExcel;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"ppt"]) {
-            return FileTypePPT;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"zip"]) {
-            return FileTypeZip;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"mp4"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"avi"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"mov"]) {
-            return FileTypeMovie;
-        }else if ([MyTool isEqualCaseInsensitive:pathExtension otherStr:@"mp3"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"wav"] || [MyTool isEqualCaseInsensitive:pathExtension otherStr:@"wma"]) {
-            return FileTypeAudio;
-        }else if ([pathExtension isEqualToString:@"rar"]) {
-            return FileTypeRar;
-        }else if ([pathExtension isEqualToString:@"html"]) {
-            return FileTypeHtml;
-        }else if ([pathExtension isEqualToString:@"sqlite"] || [pathExtension isEqualToString:@"db"]) {
-            return FileTypeSqlite;
-        }else {
-            return FileTypeUnknown;
-        }
-    }
-}
-
-/**
- *  根据文件类型返回文件所应显示的ICon图标
- *
- *  @param fileType 文件类型
- *
- *  @return 返回对应图片对象
- */
-+ (UIImage *)getIconImageWithFileType:(FileType)fileType {
-    switch (fileType) {
-        case FileTypeFolder:return KFileFolderIcon;
-        case FileTypeImage:return KFileImageIcon;
-        case FileTypeTxt:return KFileTxtIcon;
-        case FileTypeMicroWord:return KFileMicroWordIcon;
-        case FileTypeMicroExcel:return KFileMicroExcelIcon;
-        case FileTypePPT:return KFilePPTIcon;
-        case FileTypeZip:return KFileZipIcon;
-        case FileTypeMovie:return KFileMovieIcon;
-        case FileTypeAudio:return KFileAudioIcon;
-        case FileTypeRar:return KFileRarIcon;
-        case FileTypeHtml:return KFileHtmlIcon;
-        case FileTypeSqlite:return KFileSqlIcon;
-        case FileTypeUnknown:return KFileUnknownIcon;
-        default:return KFileUnknownIcon;
-    }
-}
+#pragma mark - 文件大小相关 & 清理缓存
 
 // 根据实际字节大小调整显示内容
 + (NSString *)getFileSizeWithByteCounts:(long long)byteCounts {

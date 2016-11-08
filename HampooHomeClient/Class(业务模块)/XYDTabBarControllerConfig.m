@@ -34,7 +34,6 @@
     UIViewController *vctrl1 = [UIViewController new];
     UIViewController *vctrl2 = [UIViewController new];
     UIViewController *vctrl3 = [UIViewController new];
-    UIViewController *vctrl4 = [UIViewController new];
     
     CustomNavigationCtrl *nav1 = [CustomNavigationCtrl configNavigationCtrlwithRootVC:vctrl1     andImageName:nil OrColor:KNavBarColor];
     CustomNavigationCtrl *nav2 = [CustomNavigationCtrl configNavigationCtrlwithRootVC:vctrl2 andImageName:nil OrColor:KNavBarColor];
@@ -42,7 +41,7 @@
     
     /**
      * 以下两行代码目的在于手动设置让TabBarItem只显示图标，不显示文字，并让图标垂直居中。
-     * 等效于在 `-tabBarItemsAttributesForController` 方法中不传 `CYLTabBarItemTitle` 字段。
+     * 等效于在 `-tabBarItemsAttributesForController` 方法中不传 `XYDTabBarItemTitle` 字段。
      * 更推荐后一种做法。
      */
     //tabBarController.imageInsets = UIEdgeInsetsMake(4.5, 0, -4.5, 0);
@@ -79,7 +78,6 @@
  *  更多TabBar自定义设置：比如：tabBarItem 的选中和不选中文字和背景图片属性、tabbar 背景图片属性等等
  */
 - (void)customizeTabBarAppearance:(XYDTabBarController *)tabBarController {
-#warning CUSTOMIZE YOUR TABBAR APPEARANCE
     // Customize UITabBar height
     // 自定义 TabBar 高度
     // tabBarController.tabBarHeight = 40.f;

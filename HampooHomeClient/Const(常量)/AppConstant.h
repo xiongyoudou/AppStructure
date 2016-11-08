@@ -28,6 +28,5 @@ typedef NS_ENUM(NSInteger,FileType) {
 
 // 登录令牌
 extern NSString *myToken;
-extern NSInteger coreDataAutoIncreaseNum;
 
 @end

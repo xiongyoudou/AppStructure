@@ -75,4 +75,75 @@
     return leftBtn;
 }
 
+/**
+ *  返回文件类型
+ *
+ *  @param fileName 文件名
+ *  @param isFolder 是否是文件夹
+ *
+ *  @return 文件类型
+ */
++ (FileType)getFileTypeWithFileName:(NSString *)fileName isFolder:(BOOL)isFolder {
+    if(isFolder) {
+        // 文件夹
+        return FileTypeFolder;
+    }else {
+        NSString *pathExtension = [fileName pathExtension];
+        if (!pathExtension)return FileTypeUnknown;
+        if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"jpg"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"gif"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"png"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"jpeg"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"jpg"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"gif"]) {
+            // 图片类型
+            return FileTypeImage;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"txt"]) {
+            return FileTypeTxt;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"doc"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"docx"]) {
+            return FileTypeMicroWord;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"xlsx"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"xls"]) {
+            return FileTypeMicroExcel;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"ppt"]) {
+            return FileTypePPT;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"zip"]) {
+            return FileTypeZip;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"mp4"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"avi"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"mov"]) {
+            return FileTypeMovie;
+        }else if ([MyTool isEqualCaseInsensitive:pathExtension withStr:@"mp3"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"wav"] || [MyTool isEqualCaseInsensitive:pathExtension withStr:@"wma"]) {
+            return FileTypeAudio;
+        }else if ([pathExtension isEqualToString:@"rar"]) {
+            return FileTypeRar;
+        }else if ([pathExtension isEqualToString:@"html"]) {
+            return FileTypeHtml;
+        }else if ([pathExtension isEqualToString:@"sqlite"] || [pathExtension isEqualToString:@"db"]) {
+            return FileTypeSqlite;
+        }else {
+            return FileTypeUnknown;
+        }
+    }
+}
+
+/**
+ *  根据文件类型返回文件所应显示的ICon图标
+ *
+ *  @param fileType 文件类型
+ *
+ *  @return 返回对应图片对象
+ */
++ (UIImage *)getIconImageWithFileType:(FileType)fileType {
+    switch (fileType) {
+        case FileTypeFolder:return KFileFolderIcon;
+        case FileTypeImage:return KFileImageIcon;
+        case FileTypeTxt:return KFileTxtIcon;
+        case FileTypeMicroWord:return KFileMicroWordIcon;
+        case FileTypeMicroExcel:return KFileMicroExcelIcon;
+        case FileTypePPT:return KFilePPTIcon;
+        case FileTypeZip:return KFileZipIcon;
+        case FileTypeMovie:return KFileMovieIcon;
+        case FileTypeAudio:return KFileAudioIcon;
+        case FileTypeRar:return KFileRarIcon;
+        case FileTypeHtml:return KFileHtmlIcon;
+        case FileTypeSqlite:return KFileSqlIcon;
+        case FileTypeUnknown:return KFileUnknownIcon;
+        default:return KFileUnknownIcon;
+    }
+}
+
+
 @end

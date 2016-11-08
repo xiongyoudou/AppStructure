@@ -121,7 +121,7 @@ typedef void (^ReachabilityChangedBlock) (NSString * message);
  *
  *  @param url     请求路径
  *  @param params  请求参数
- *  @param formData  文件参数
+ *  @param formDataArray  文件参数
  *  @param success 请求成功后的回调
  *  @param failure 请求失败后的回调
  */

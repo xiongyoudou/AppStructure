@@ -11,7 +11,9 @@
 @interface FileTool : NSObject
 + (void)writeDictDataToPlistFile:(NSMutableDictionary *)aSaveDic fileName:(NSString *)fileName;
 + (void)writeDict:(NSDictionary *)dict toPath:(NSString *)filePath;
-+ (NSMutableDictionary *)getPListFileData:(NSString *)fileName;
++ (NSMutableDictionary *)getPlistFileData:(NSString *)fileName;
++ (BOOL)writeDataToPath:(NSString*)filePath andAsset:(ALAsset*)asset;
++ (NSData *)isValidResumeData:(NSData *)data;
 + (void)createFilePahtIfNotExists:(NSString *)path;
 + (NSString *)getFileNamePath:(NSString *)fileName;
 + (BOOL)isExistAtDocumentFile:(NSString *)fileName;
@@ -19,8 +21,6 @@
 + (void)deleteDocumentFile:(NSString *)fileName;
 + (NSString *)getFolderNamePath:(NSString *)folderName fileName:(NSString *)fileName PathExtension:(NSString *)pathExtension;
 + (BOOL)deleteWithContentPath:(NSString *)path;
-+ (FileType)getFileTypeWithFileName:(NSString *)fileName isFolder:(BOOL)isFolder;
-+ (UIImage *)getIconImageWithFileType:(FileType)fileType;
 + (NSString *)getFileSizeWithByteCounts:(long long)byteCounts;
 + (unsigned long long)fileSizeForPath:(NSString *)path;
 + (float)folderSizeAtPath:(NSString*) folderPath;

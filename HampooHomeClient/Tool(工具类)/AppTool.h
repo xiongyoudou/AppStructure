@@ -20,5 +20,7 @@
 + (UIButton *)getNaviBarBtn:(NSString *)title target:(id)target action:(SEL)selector frame:(CGRect)frame isLeft:(BOOL)isLeft;
 + (UIButton *)getNavigationBtnImage:(UIImage *)btnImage target:(id)target action:(SEL)selector frame:(CGRect)frame;
 + (UIButton *)getBackBtnImageN:(NSString *)imageN target:(id)target action:(SEL)selector;
++ (FileType)getFileTypeWithFileName:(NSString *)fileName isFolder:(BOOL)isFolder;
++ (UIImage *)getIconImageWithFileType:(FileType)fileType;
 
 @end

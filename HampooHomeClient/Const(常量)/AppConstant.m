@@ -11,6 +11,5 @@
 @implementation AppConstant
 
 NSString *myToken;
-NSInteger coreDataAutoIncreaseNum;
 
 @end
