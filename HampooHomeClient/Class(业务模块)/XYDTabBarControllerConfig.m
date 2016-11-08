@@ -7,10 +7,8 @@
 //
 
 #import "XYDTabBarControllerConfig.h"
-//#import "FirstVCtrl.h"
-//#import "SecondVCtrl.h"
-//#import "ThirdVCtrl.h"
-//#import "FourthVCtrl.h"
+#import "MainVCtrl.h"
+#import "MoreVCtrl.h"
 #import "XYDRoundCircularButton.h"
 #import "CustomNavigationCtrl.h"
 
@@ -31,8 +29,8 @@
 }
 
 - (NSArray *)viewControllers {
-    UIViewController *vctrl1 = [UIViewController new];
-    UIViewController *vctrl2 = [UIViewController new];
+    MainVCtrl *vctrl1 = [[MainVCtrl alloc] initWithNibName:@"MainVCtrl" bundle:nil];
+    MoreVCtrl *vctrl2 = [[MoreVCtrl alloc] initWithNibName:@"MainVCtrl" bundle:nil];
     UIViewController *vctrl3 = [UIViewController new];
     
     CustomNavigationCtrl *nav1 = [CustomNavigationCtrl configNavigationCtrlwithRootVC:vctrl1     andImageName:nil OrColor:KNavBarColor];

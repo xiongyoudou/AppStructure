@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49845F711DD1B24D0060DED5 /* MainVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F6F1DD1B24D0060DED5 /* MainVCtrl.m */; };
+		49845F721DD1B24D0060DED5 /* MainVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49845F701DD1B24D0060DED5 /* MainVCtrl.xib */; };
+		49845F791DD1B3600060DED5 /* MoreVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F771DD1B3600060DED5 /* MoreVCtrl.m */; };
+		49845F7A1DD1B3600060DED5 /* MoreVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49845F781DD1B3600060DED5 /* MoreVCtrl.xib */; };
+		49845F7E1DD1B8680060DED5 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F7D1DD1B8680060DED5 /* XYDBaseConversationVCtrl.m */; };
+		49845F811DD1B98E0060DED5 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F801DD1B98E0060DED5 /* XYDConversationVCtrl.m */; };
+		49845F871DD1BAC50060DED5 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F861DD1BAC50060DED5 /* XYDConversationViewModel.m */; };
+		49845F8D1DD1C3400060DED5 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49845F8A1DD1C3400060DED5 /* lame.framework */; };
+		49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */; };
+		49845F981DD1C69A0060DED5 /* XYDChatEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F941DD1C69A0060DED5 /* XYDChatEmotionView.m */; };
+		49845F991DD1C69A0060DED5 /* XYDChatInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F961DD1C69A0060DED5 /* XYDChatInputBar.m */; };
+		49845F9F1DD1C72A0060DED5 /* XYDChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F9E1DD1C72A0060DED5 /* XYDChatMoreView.m */; };
+		49845FA31DD1CDB50060DED5 /* LCCKSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845FA21DD1CDB50060DED5 /* LCCKSwipeView.m */; };
+		49845FA61DD1D2E80060DED5 /* XYDEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845FA51DD1D2E80060DED5 /* XYDEmotionPageView.m */; };
 		49B087F31DD01032003E6916 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087981DD01032003E6916 /* HttpHelper.m */; };
 		49B087F41DD01032003E6916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B0879B1DD01032003E6916 /* Assets.xcassets */; };
 		49B087F51DD01032003E6916 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B0879C1DD01032003E6916 /* LaunchScreen.storyboard */; };
@@ -137,6 +151,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49845F6E1DD1B24D0060DED5 /* MainVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVCtrl.h; sourceTree = "<group>"; };
+		49845F6F1DD1B24D0060DED5 /* MainVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVCtrl.m; sourceTree = "<group>"; };
+		49845F701DD1B24D0060DED5 /* MainVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainVCtrl.xib; sourceTree = "<group>"; };
+		49845F761DD1B3600060DED5 /* MoreVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreVCtrl.h; sourceTree = "<group>"; };
+		49845F771DD1B3600060DED5 /* MoreVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreVCtrl.m; sourceTree = "<group>"; };
+		49845F781DD1B3600060DED5 /* MoreVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreVCtrl.xib; sourceTree = "<group>"; };
+		49845F7C1DD1B8680060DED5 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
+		49845F7D1DD1B8680060DED5 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
+		49845F7F1DD1B98E0060DED5 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
+		49845F801DD1B98E0060DED5 /* XYDConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationVCtrl.m; sourceTree = "<group>"; };
+		49845F851DD1BAC50060DED5 /* XYDConversationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationViewModel.h; sourceTree = "<group>"; };
+		49845F861DD1BAC50060DED5 /* XYDConversationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationViewModel.m; sourceTree = "<group>"; };
+		49845F8A1DD1C3400060DED5 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
+		49845F8B1DD1C3400060DED5 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		49845F931DD1C69A0060DED5 /* XYDChatEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatEmotionView.h; sourceTree = "<group>"; };
+		49845F941DD1C69A0060DED5 /* XYDChatEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatEmotionView.m; sourceTree = "<group>"; };
+		49845F951DD1C69A0060DED5 /* XYDChatInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputBar.h; sourceTree = "<group>"; };
+		49845F961DD1C69A0060DED5 /* XYDChatInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputBar.m; sourceTree = "<group>"; };
+		49845F971DD1C69A0060DED5 /* XYDChatInputBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputBarDelegate.h; sourceTree = "<group>"; };
+		49845F9D1DD1C72A0060DED5 /* XYDChatMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMoreView.h; sourceTree = "<group>"; };
+		49845F9E1DD1C72A0060DED5 /* XYDChatMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMoreView.m; sourceTree = "<group>"; };
+		49845FA11DD1CDB50060DED5 /* LCCKSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCKSwipeView.h; sourceTree = "<group>"; };
+		49845FA21DD1CDB50060DED5 /* LCCKSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCKSwipeView.m; sourceTree = "<group>"; };
+		49845FA41DD1D2E80060DED5 /* XYDEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDEmotionPageView.h; sourceTree = "<group>"; };
+		49845FA51DD1D2E80060DED5 /* XYDEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDEmotionPageView.m; sourceTree = "<group>"; };
 		49B087741DD004E0003E6916 /* HampooHomeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HampooHomeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B087971DD01032003E6916 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		49B087981DD01032003E6916 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
@@ -320,12 +360,130 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */,
+				49845F8D1DD1C3400060DED5 /* lame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49845F691DD1B1C10060DED5 /* 更多 */ = {
+			isa = PBXGroup;
+			children = (
+				49845F731DD1B34D0060DED5 /* Controller */,
+				49845F741DD1B34D0060DED5 /* Model */,
+				49845F751DD1B34D0060DED5 /* View */,
+			);
+			path = "更多";
+			sourceTree = "<group>";
+		};
+		49845F6A1DD1B1C10060DED5 /* 主页 */ = {
+			isa = PBXGroup;
+			children = (
+				49845F6C1DD1B2300060DED5 /* View */,
+				49845F6D1DD1B2300060DED5 /* ViewModel */,
+				49845F6B1DD1B2300060DED5 /* Model */,
+			);
+			path = "主页";
+			sourceTree = "<group>";
+		};
+		49845F6B1DD1B2300060DED5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49845F6C1DD1B2300060DED5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49845F6E1DD1B24D0060DED5 /* MainVCtrl.h */,
+				49845F6F1DD1B24D0060DED5 /* MainVCtrl.m */,
+				49845F701DD1B24D0060DED5 /* MainVCtrl.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49845F6D1DD1B2300060DED5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		49845F731DD1B34D0060DED5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49845F761DD1B3600060DED5 /* MoreVCtrl.h */,
+				49845F771DD1B3600060DED5 /* MoreVCtrl.m */,
+				49845F781DD1B3600060DED5 /* MoreVCtrl.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49845F741DD1B34D0060DED5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49845F751DD1B34D0060DED5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49845F7B1DD1B7B30060DED5 /* XYDChat */ = {
+			isa = PBXGroup;
+			children = (
+				49845F7C1DD1B8680060DED5 /* XYDBaseConversationVCtrl.h */,
+				49845F7D1DD1B8680060DED5 /* XYDBaseConversationVCtrl.m */,
+				49845F7F1DD1B98E0060DED5 /* XYDConversationVCtrl.h */,
+				49845F801DD1B98E0060DED5 /* XYDConversationVCtrl.m */,
+				49845F851DD1BAC50060DED5 /* XYDConversationViewModel.h */,
+				49845F861DD1BAC50060DED5 /* XYDConversationViewModel.m */,
+				49845F921DD1C69A0060DED5 /* XYDChatInputBar */,
+			);
+			path = XYDChat;
+			sourceTree = "<group>";
+		};
+		49845F891DD1C3400060DED5 /* VoiceLib */ = {
+			isa = PBXGroup;
+			children = (
+				49845F8A1DD1C3400060DED5 /* lame.framework */,
+				49845F8B1DD1C3400060DED5 /* Mp3Recorder.h */,
+				49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */,
+			);
+			path = VoiceLib;
+			sourceTree = "<group>";
+		};
+		49845F921DD1C69A0060DED5 /* XYDChatInputBar */ = {
+			isa = PBXGroup;
+			children = (
+				49845F951DD1C69A0060DED5 /* XYDChatInputBar.h */,
+				49845F961DD1C69A0060DED5 /* XYDChatInputBar.m */,
+				49845F971DD1C69A0060DED5 /* XYDChatInputBarDelegate.h */,
+				49845F931DD1C69A0060DED5 /* XYDChatEmotionView.h */,
+				49845F941DD1C69A0060DED5 /* XYDChatEmotionView.m */,
+				49845F9D1DD1C72A0060DED5 /* XYDChatMoreView.h */,
+				49845F9E1DD1C72A0060DED5 /* XYDChatMoreView.m */,
+				49845FA41DD1D2E80060DED5 /* XYDEmotionPageView.h */,
+				49845FA51DD1D2E80060DED5 /* XYDEmotionPageView.m */,
+			);
+			path = XYDChatInputBar;
+			sourceTree = "<group>";
+		};
+		49845FA01DD1CDB50060DED5 /* LCCKSwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				49845FA11DD1CDB50060DED5 /* LCCKSwipeView.h */,
+				49845FA21DD1CDB50060DED5 /* LCCKSwipeView.m */,
+			);
+			path = LCCKSwipeView;
+			sourceTree = "<group>";
+		};
 		49B0876B1DD004E0003E6916 = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +527,8 @@
 				49B0883D1DD01FD4003E6916 /* BaseVCtrl.h */,
 				49B0883E1DD01FD4003E6916 /* BaseVCtrl.m */,
 				49B088641DD05153003E6916 /* Introduction(引导页) */,
+				49845F6A1DD1B1C10060DED5 /* 主页 */,
+				49845F691DD1B1C10060DED5 /* 更多 */,
 			);
 			path = "Class(业务模块)";
 			sourceTree = "<group>";
@@ -456,6 +616,9 @@
 		49B087AD1DD01032003E6916 /* Vendors(第三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				49845FA01DD1CDB50060DED5 /* LCCKSwipeView */,
+				49845F891DD1C3400060DED5 /* VoiceLib */,
+				49845F7B1DD1B7B30060DED5 /* XYDChat */,
 				49B0887F1DD06616003E6916 /* CustomNavigationCtrl */,
 				49B0887B1DD05DA5003E6916 /* DACircularProgressView */,
 				49B0886F1DD05C51003E6916 /* XYDBottomBar */,
@@ -868,8 +1031,10 @@
 				49B088F01DD0690B003E6916 /* 3_launch-5h@2x.png in Resources */,
 				49B0880F1DD01032003E6916 /* ImageSelectedOn@2x.png in Resources */,
 				49B088251DD01033003E6916 /* UIBarButtonItemArrowRight@2x.png in Resources */,
+				49845F721DD1B24D0060DED5 /* MainVCtrl.xib in Resources */,
 				49B088E81DD0690B003E6916 /* 1_launch-5h@2x.png in Resources */,
 				49B088111DD01033003E6916 /* ImageSelectedSmallOff.png in Resources */,
+				49845F7A1DD1B3600060DED5 /* MoreVCtrl.xib in Resources */,
 				49B088171DD01033003E6916 /* PlayButtonOverlayLarge.png in Resources */,
 				49B089091DD0690B003E6916 /* tab_transferlog_h@2x.png in Resources */,
 				49B088061DD01032003E6916 /* Checkmark.png in Resources */,
@@ -948,6 +1113,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B087FF1DD01032003E6916 /* MWGridViewController.m in Sources */,
+				49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */,
+				49845F871DD1BAC50060DED5 /* XYDConversationViewModel.m in Sources */,
 				49B088041DD01032003E6916 /* MWZoomingScrollView.m in Sources */,
 				49B087FB1DD01032003E6916 /* ImageTool.m in Sources */,
 				49B0886B1DD054E2003E6916 /* AppTool.m in Sources */,
@@ -955,21 +1122,28 @@
 				49B088781DD05C51003E6916 /* XYDBottomBarCell.m in Sources */,
 				49B087FE1DD01032003E6916 /* MWGridCell.m in Sources */,
 				49B087F91DD01032003E6916 /* FileTool.m in Sources */,
+				49845F811DD1B98E0060DED5 /* XYDConversationVCtrl.m in Sources */,
 				49B0883B1DD016E5003E6916 /* AppDelegate+RootController.m in Sources */,
 				49B088551DD02A08003E6916 /* XYDPlusButton.m in Sources */,
 				49B0886E1DD05545003E6916 /* DialogTool.m in Sources */,
+				49845FA61DD1D2E80060DED5 /* XYDEmotionPageView.m in Sources */,
 				49B088011DD01032003E6916 /* MWPhotoBrowser.m in Sources */,
 				49B088591DD02A08003E6916 /* XYDTabBarController.m in Sources */,
 				49B087F31DD01032003E6916 /* HttpHelper.m in Sources */,
 				49B087F81DD01032003E6916 /* main.m in Sources */,
 				49B0883A1DD016E5003E6916 /* AppDelegate+AppService.m in Sources */,
+				49845F711DD1B24D0060DED5 /* MainVCtrl.m in Sources */,
 				49B088561DD02A08003E6916 /* XYDRoundCircularButton.m in Sources */,
 				49B088581DD02A08003E6916 /* XYDTabBarButton.m in Sources */,
 				49B088681DD051CE003E6916 /* IntroductionVCtrl.m in Sources */,
+				49845F791DD1B3600060DED5 /* MoreVCtrl.m in Sources */,
 				49B088571DD02A08003E6916 /* XYDTabBar.m in Sources */,
+				49845F7E1DD1B8680060DED5 /* XYDBaseConversationVCtrl.m in Sources */,
 				49B0883F1DD01FD4003E6916 /* BaseVCtrl.m in Sources */,
+				49845F981DD1C69A0060DED5 /* XYDChatEmotionView.m in Sources */,
 				49B088771DD05C51003E6916 /* XYDBottomBar.m in Sources */,
 				49B0887A1DD05C51003E6916 /* XYDBottomBarData.m in Sources */,
+				49845F9F1DD1C72A0060DED5 /* XYDChatMoreView.m in Sources */,
 				49B088391DD016E5003E6916 /* AppDelegate+AppLifeCircle.m in Sources */,
 				49B088021DD01032003E6916 /* MWTapDetectingImageView.m in Sources */,
 				49B087FD1DD01032003E6916 /* MWCaptionView.m in Sources */,
@@ -978,8 +1152,10 @@
 				49B087FA1DD01032003E6916 /* HttpTool.m in Sources */,
 				49B0887E1DD05DA5003E6916 /* DACircularProgressView.m in Sources */,
 				49B0885F1DD04E7A003E6916 /* HttpConstant.m in Sources */,
+				49845F991DD1C69A0060DED5 /* XYDChatInputBar.m in Sources */,
 				49B088001DD01032003E6916 /* MWPhoto.m in Sources */,
 				49B087FC1DD01032003E6916 /* MyTool.m in Sources */,
+				49845FA31DD1CDB50060DED5 /* LCCKSwipeView.m in Sources */,
 				49B088051DD01032003E6916 /* UIImage+MWPhotoBrowser.m in Sources */,
 				49B0883C1DD016E5003E6916 /* AppDelegate.m in Sources */,
 				49B088421DD029A2003E6916 /* XYDTabBarControllerConfig.m in Sources */,
@@ -1104,7 +1280,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
-				GCC_PREFIX_HEADER = "/Users/xiongyoudou/Desktop/HampooHomeClient/HampooHomeClient/Other(其他)/PrefixHeader.pch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1119,7 +1299,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
-				GCC_PREFIX_HEADER = "/Users/xiongyoudou/Desktop/HampooHomeClient/HampooHomeClient/Other(其他)/PrefixHeader.pch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
