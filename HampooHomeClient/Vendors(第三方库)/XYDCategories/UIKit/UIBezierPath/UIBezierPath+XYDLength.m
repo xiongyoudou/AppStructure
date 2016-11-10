@@ -16,7 +16,7 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	block(element);
 }
 
-@implementation UIBezierPath (JKLength)
+@implementation UIBezierPath (XYDLength)
 
 #pragma mark - Internal
 
@@ -39,7 +39,7 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	return count;
 }
 
-- (void)extractSubpaths:(JKBezierSubpath*)subpathArray
+- (void)extractSubpaths:(XYDBezierSubpath*)subpathArray
 {
 	__block CGPoint currentPoint = CGPointZero;
 	__block NSUInteger i = 0;
@@ -114,7 +114,7 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	}
 }
 
-- (CGPoint)pointAtPercent:(CGFloat)t ofSubpath:(JKBezierSubpath)subpath {
+- (CGPoint)pointAtPercent:(CGFloat)t ofSubpath:(XYDBezierSubpath)subpath {
 	
 	CGPoint p = CGPointZero;
 	switch (subpath.type) {

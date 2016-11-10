@@ -12,7 +12,7 @@
 // Key for the dictionary of sounds for control events.
 static char const * const xyd_kSoundsKey = "xyd_kSoundsKey";
 
-@implementation UIControl (JKSound)
+@implementation UIControl (XYDSound)
 
 - (void)xyd_setSoundNamed:(NSString *)name forControlEvent:(UIControlEvents)controlEvent
 {

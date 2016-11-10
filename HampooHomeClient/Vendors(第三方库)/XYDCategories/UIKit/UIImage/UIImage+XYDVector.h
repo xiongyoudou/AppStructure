@@ -22,7 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage(JKVector)
+@interface UIImage(XYDVector)
 
 /**
  Create a UIImage from an icon font.

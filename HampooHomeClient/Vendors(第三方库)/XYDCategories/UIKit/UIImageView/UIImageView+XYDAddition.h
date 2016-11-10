@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (JKAddition)
+@interface UIImageView (XYDAddition)
 /**
  *  @brief  根据bundle中的图片名创建imageview
  *

@@ -8,7 +8,7 @@
 
 #import "MKMapView+XYDMoveLogo.h"
 
-@implementation MKMapView (JKMoveLogo)
+@implementation MKMapView (XYDMoveLogo)
 
 - (void)xyd_moveLogoByOffset:(CGPoint)offset {
     UIView* logo = [self xyd_logo];

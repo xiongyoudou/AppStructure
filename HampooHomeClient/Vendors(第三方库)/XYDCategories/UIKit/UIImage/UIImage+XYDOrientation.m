@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDOrientation.h"
 
-@implementation UIImage (JKOrientation)
+@implementation UIImage (XYDOrientation)
 /**
  *  @brief  修正图片的方向
  *

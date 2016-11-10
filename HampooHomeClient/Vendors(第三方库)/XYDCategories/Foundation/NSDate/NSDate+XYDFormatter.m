@@ -8,7 +8,7 @@
 
 #import "NSDate+XYDFormatter.h"
 
-@implementation NSDate (JKFormatter)
+@implementation NSDate (XYDFormatter)
 +(NSDateFormatter *)xyd_formatter {
     
     static NSDateFormatter *formatter = nil;

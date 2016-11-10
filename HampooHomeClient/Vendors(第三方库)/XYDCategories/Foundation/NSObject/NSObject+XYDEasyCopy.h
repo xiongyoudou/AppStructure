@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 // a copy category for NSObject 
-@interface NSObject (JKEasyCopy)
+@interface NSObject (XYDEasyCopy)
 
 /**
  *  浅复制目标的所有属性

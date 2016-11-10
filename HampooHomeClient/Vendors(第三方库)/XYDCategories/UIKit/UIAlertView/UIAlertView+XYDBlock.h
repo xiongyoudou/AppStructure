@@ -10,7 +10,7 @@
 
 typedef void(^UIAlertViewJKCallBackBlock)(NSInteger buttonIndex);
 
-@interface UIAlertView (JKBlock)<UIAlertViewDelegate>
+@interface UIAlertView (XYDBlock)<UIAlertViewDelegate>
 
 @property (nonatomic, copy) UIAlertViewJKCallBackBlock xyd_alertViewCallBackBlock;
 

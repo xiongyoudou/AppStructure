@@ -8,7 +8,7 @@
 
 #import "UIWebView+XYDMetaParser.h"
 
-@implementation UIWebView (JKMetaParser)
+@implementation UIWebView (XYDMetaParser)
 /**
  *  @brief  获取网页meta信息
  *

@@ -9,7 +9,7 @@
 #import "NSObject+XYDEasyCopy.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (JKEasyCopy)
+@implementation NSObject (XYDEasyCopy)
 
 - (BOOL)xyd_easyShallowCopy:(NSObject *)instance
 {

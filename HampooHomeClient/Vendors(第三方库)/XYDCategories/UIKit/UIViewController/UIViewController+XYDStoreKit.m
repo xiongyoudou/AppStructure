@@ -29,7 +29,7 @@ NSString* const xyd_iTunesAppleString = @"itunes.apple.com";
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Implementation
 
-@implementation UIViewController (JKStoreKit)
+@implementation UIViewController (XYDStoreKit)
 
 - (void)xyd_presentStoreKitItemWithIdentifier:(NSInteger)itemIdentifier
 {

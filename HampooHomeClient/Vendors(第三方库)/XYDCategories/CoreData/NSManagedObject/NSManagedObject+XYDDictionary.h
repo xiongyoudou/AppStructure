@@ -29,7 +29,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObject (JKDictionary)
+@interface NSManagedObject (XYDDictionary)
 /**
  *  @author JKCategories
  *

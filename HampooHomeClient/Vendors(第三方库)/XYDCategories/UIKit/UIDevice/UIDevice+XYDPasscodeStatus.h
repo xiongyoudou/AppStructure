@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, JKPasscodeStatus){
     JKPasscodeStatusDisabled  = 2
 };
 
-@interface UIDevice (JKPasscodeStatus)
+@interface UIDevice (XYDPasscodeStatus)
 
 /**
  *  Determines if the device supports the `passcodeStatus` check. Passcode check is only supported on iOS 8.

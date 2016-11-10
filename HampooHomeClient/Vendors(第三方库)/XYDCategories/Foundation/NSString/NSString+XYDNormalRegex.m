@@ -9,7 +9,7 @@
 
 #import "NSString+XYDNormalRegex.h"
 
-@implementation NSString (JKNormalRegex)
+@implementation NSString (XYDNormalRegex)
 #pragma mark - 正则相关
 - (BOOL)xyd_isValidateByRegex:(NSString *)regex{
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];

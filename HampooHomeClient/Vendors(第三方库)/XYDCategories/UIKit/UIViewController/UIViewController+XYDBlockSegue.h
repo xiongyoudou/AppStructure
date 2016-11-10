@@ -31,7 +31,7 @@
 
 typedef void (^UIViewControllerJKSegueBlock) (id sender, id destinationVC, UIStoryboardSegue *segue);
 
-@interface UIViewController (JKBlockSegue)
+@interface UIViewController (XYDBlockSegue)
 
 -(void)xyd_configureSegue:(NSString *)identifier withBlock:(UIViewControllerJKSegueBlock)block;
 -(void)xyd_performSegueWithIdentifier:(NSString *)identifier sender:(id)sender withBlock:(UIViewControllerJKSegueBlock)block;

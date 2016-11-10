@@ -7,7 +7,7 @@
 
 #import "NSManagedObjectContext+XYDObjectClear.h"
 
-@implementation NSManagedObjectContext (JKObjectClear)
+@implementation NSManagedObjectContext (XYDObjectClear)
 #pragma mark - Utils
 - (void)xyd_deleteObjects:(id <NSFastEnumeration>)objects
 {

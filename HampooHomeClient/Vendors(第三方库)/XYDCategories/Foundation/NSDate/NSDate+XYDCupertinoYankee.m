@@ -22,7 +22,7 @@
 
 #import "NSDate+XYDCupertinoYankee.h"
 
-@implementation NSDate (JKCupertinoYankee)
+@implementation NSDate (XYDCupertinoYankee)
 
 - (NSDate *)xyd_beginningOfDay {
     NSCalendar *calendar = [NSCalendar currentCalendar];

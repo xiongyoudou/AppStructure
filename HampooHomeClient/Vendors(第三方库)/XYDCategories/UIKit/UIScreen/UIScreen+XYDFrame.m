@@ -8,7 +8,7 @@
 
 #import "UIScreen+XYDFrame.h"
 
-@implementation UIScreen (JKFrame)
+@implementation UIScreen (XYDFrame)
 + (CGSize)xyd_size
 {
     return [[UIScreen mainScreen] bounds].size;

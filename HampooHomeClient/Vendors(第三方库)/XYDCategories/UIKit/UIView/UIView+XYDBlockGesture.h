@@ -9,17 +9,17 @@
 #import <UIKit/UIKit.h>
 typedef void (^JKGestureActionBlock)(UIGestureRecognizer *gestureRecoginzer);
 
-@interface UIView (JKBlockGesture)
+@interface UIView (XYDBlockGesture)
 /**
  *  @brief  添加tap手势
  *
  *  @param block 代码块
  */
-- (void)xyd_addTapActionWithBlock:(JKGestureActionBlock)block;
+- (void)xyd_addTapActionWithBlock:(XYDGestureActionBlock)block;
 /**
  *  @brief  添加长按手势
  *
  *  @param block 代码块
  */
-- (void)xyd_addLongPressActionWithBlock:(JKGestureActionBlock)block;
+- (void)xyd_addLongPressActionWithBlock:(XYDGestureActionBlock)block;
 @end

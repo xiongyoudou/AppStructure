@@ -21,7 +21,7 @@
 #import <mach/mach_host.h>
 #import <mach/processor_info.h>
 
-@implementation UIDevice (JKHardware)
+@implementation UIDevice (XYDHardware)
 + (NSString *)xyd_platform{
     size_t size;
     sysctlbyname("hw.machine", NULL, &size, NULL, 0);

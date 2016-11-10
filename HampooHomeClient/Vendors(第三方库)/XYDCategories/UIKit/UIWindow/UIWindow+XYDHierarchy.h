@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWindow (JKHierarchy)
+@interface UIWindow (XYDHierarchy)
 /*!
  @method topMostController
  

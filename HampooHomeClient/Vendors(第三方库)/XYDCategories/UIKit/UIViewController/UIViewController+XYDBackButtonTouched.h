@@ -7,7 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 typedef void (^JKBackButtonHandler)(UIViewController *vc);
-@interface UIViewController (JKBackButtonTouched)
+@interface UIViewController (XYDBackButtonTouched)
 /**
  *  @author JKCategories
  *
@@ -15,5 +15,5 @@ typedef void (^JKBackButtonHandler)(UIViewController *vc);
  *
  *  @param backButtonHandler <#backButtonHandler description#>
  */
--(void)xyd_backButtonTouched:(JKBackButtonHandler)backButtonHandler;
+-(void)xyd_backButtonTouched:(XYDBackButtonHandler)backButtonHandler;
 @end

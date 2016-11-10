@@ -8,7 +8,7 @@
 
 #import "UIView+XYDShake.h"
 
-@implementation UIView (JKShake)
+@implementation UIView (XYDShake)
 
 - (void)xyd_shake {
     [self _xyd_shake:10 direction:1 currentTimes:0 withDelta:5 speed:0.03 shakeDirection:JKShakeDirectionHorizontal completion:nil];
@@ -30,15 +30,15 @@
     [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:JKShakeDirectionHorizontal completion:handler];
 }
 
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection {
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection {
     [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:shakeDirection completion:nil];
 }
 
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection completion:(void (^)(void))completion {
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection completion:(void (^)(void))completion {
     [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:shakeDirection completion:completion];
 }
 
-- (void)_xyd_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection completion:(void (^)(void))completionHandler {
+- (void)_xyd_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection completion:(void (^)(void))completionHandler {
     [UIView animateWithDuration:interval animations:^{
         self.layer.affineTransform = (shakeDirection == JKShakeDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
     } completion:^(BOOL finished) {

@@ -10,6 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface MKMapView (JKBetterMaps)
+@interface MKMapView (XYDBetterMaps)
 - (void)xyd_zoomToFitAnnotationsAnimated:(BOOL)animated;
 @end

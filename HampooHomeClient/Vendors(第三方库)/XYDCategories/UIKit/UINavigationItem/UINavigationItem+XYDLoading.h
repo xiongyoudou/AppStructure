@@ -41,14 +41,14 @@ typedef NS_ENUM(NSUInteger, JKNavBarLoaderPosition){
     JKNavBarLoaderPositionRight
 };
 
-@interface UINavigationItem (JKLoading)
+@interface UINavigationItem (XYDLoading)
 
 /**
  *  Add UIActivityIndicatorView to view hierarchy and start animating immediately
  *
  *  @param position Left, center or right
  */
-- (void)xyd_startAnimatingAt:(JKNavBarLoaderPosition)position;
+- (void)xyd_startAnimatingAt:(XYDNavBarLoaderPosition)position;
 
 /**
  *  Stop animating, remove UIActivityIndicatorView from view hierarchy and restore item

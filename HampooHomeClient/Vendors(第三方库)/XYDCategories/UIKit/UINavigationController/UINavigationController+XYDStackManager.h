@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (JKStackManager)
+@interface UINavigationController (XYDStackManager)
 /**
  *  @brief  寻找Navigation中的某个viewcontroler对象
  *

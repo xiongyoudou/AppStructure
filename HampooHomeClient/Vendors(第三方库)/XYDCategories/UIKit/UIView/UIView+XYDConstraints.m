@@ -8,7 +8,7 @@
 
 #import "UIView+XYDConstraints.h"
 
-@implementation UIView (JKConstraints)
+@implementation UIView (XYDConstraints)
 -(NSLayoutConstraint *)xyd_constraintForAttribute:(NSLayoutAttribute)attribute {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstAttribute = %d && (firstItem = %@ || secondItem = %@)", attribute, self, self];
     NSArray *constraintArray = [self.superview constraints];

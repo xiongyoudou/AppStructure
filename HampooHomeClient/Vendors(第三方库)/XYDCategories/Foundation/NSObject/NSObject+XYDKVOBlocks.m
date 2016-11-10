@@ -28,13 +28,13 @@
 #import "NSObject+XYDKVOBlocks.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (JKKVOBlocks)
+@implementation NSObject (XYDKVOBlocks)
 
 -(void)xyd_addObserver:(NSObject *)observer
         forKeyPath:(NSString *)keyPath
            options:(NSKeyValueObservingOptions)options
            context:(void *)context
-         withBlock:(JKKVOBlock)block {
+         withBlock:(XYDKVOBlock)block {
     
     objc_setAssociatedObject(observer, (__bridge const void *)(keyPath), block, OBJC_ASSOCIATION_COPY);
     [self addObserver:observer forKeyPath:keyPath options:options context:context];
@@ -58,7 +58,7 @@
 -(void)xyd_addObserverForKeyPath:(NSString *)keyPath
                      options:(NSKeyValueObservingOptions)options
                      context:(void *)context
-                   withBlock:(JKKVOBlock)block {
+                   withBlock:(XYDKVOBlock)block {
     
     [self xyd_addObserver:self forKeyPath:keyPath options:options context:context withBlock:block];
 }

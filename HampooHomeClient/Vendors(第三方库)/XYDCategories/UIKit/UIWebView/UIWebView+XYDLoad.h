@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKLoad)
+@interface UIWebView (XYDLoad)
 /**
  *  @brief  读取一个网页地址
  *

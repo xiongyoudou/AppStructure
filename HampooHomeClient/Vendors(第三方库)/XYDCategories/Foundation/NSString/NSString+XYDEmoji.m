@@ -8,7 +8,7 @@
 
 #import "NSString+XYDEmoji.h"
 
-@implementation NSString (JKEmoji)
+@implementation NSString (XYDEmoji)
 
 static NSDictionary * xyd_s_unicodeToCheatCodes = nil;
 static NSDictionary * xyd_s_cheatCodesToUnicode = nil;

@@ -8,7 +8,7 @@
 
 #import "UITableViewCell+XYDDelaysContentTouches.h"
 
-@implementation UITableViewCell (JKDelaysContentTouches)
+@implementation UITableViewCell (XYDDelaysContentTouches)
 
 - (UIScrollView*) xyd_scrollView
 {

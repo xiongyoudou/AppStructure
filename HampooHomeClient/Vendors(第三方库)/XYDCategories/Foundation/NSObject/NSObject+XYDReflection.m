@@ -9,7 +9,7 @@
 #import "NSObject+XYDReflection.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (JKReflection)
+@implementation NSObject (XYDReflection)
 - (NSString *)xyd_className
 {
     return NSStringFromClass([self class]);

@@ -15,7 +15,7 @@
 // Down     1.2  1.2   1.2   1.3   1.2
 // Up       1.2  1.3   1.3   1.4   1.3
 // Bankers  1.2  1.2   1.2   1.4   1.3
-@interface NSDecimalNumber (JKExtensions)
+@interface NSDecimalNumber (XYDExtensions)
 /**
  *  @brief  四舍五入 NSRoundPlain
  *

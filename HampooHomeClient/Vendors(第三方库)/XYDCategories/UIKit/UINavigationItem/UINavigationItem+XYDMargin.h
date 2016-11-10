@@ -27,7 +27,7 @@
 FOUNDATION_EXPORT double UINavigationItem_MarginVersionNumber;
 FOUNDATION_EXPORT const unsigned char UINavigationItem_MarginVersionString[];
 
-@interface UINavigationItem (JKMargin)
+@interface UINavigationItem (XYDMargin)
 
 @property (nonatomic, assign) CGFloat xyd_leftMargin;
 @property (nonatomic, assign) CGFloat xyd_rightMargin;

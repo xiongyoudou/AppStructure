@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Interface
 
-@interface UIViewController (JKStoreKit)
+@interface UIViewController (XYDStoreKit)
 
 @property NSString *xyd_campaignToken;
 @property (nonatomic, copy) void (^xyd_loadingStoreKitItemBlock)(void);

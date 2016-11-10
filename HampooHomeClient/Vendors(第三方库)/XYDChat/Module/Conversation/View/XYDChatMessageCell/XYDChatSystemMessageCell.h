@@ -8,6 +8,6 @@
 
 #import "XYDChatMessageCell.h"
 
-@interface XYDChatSystemMessageCell : XYDChatMessageCell
+@interface XYDChatSystemMessageCell : XYDChatMessageCell<XYDChatMessageCellSubclassing>
 
 @end

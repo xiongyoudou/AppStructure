@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (JKAppInfo)
+@interface NSObject (XYDAppInfo)
 -(NSString *)xyd_version;
 -(NSInteger)xyd_build;
 -(NSString *)xyd_identifier;

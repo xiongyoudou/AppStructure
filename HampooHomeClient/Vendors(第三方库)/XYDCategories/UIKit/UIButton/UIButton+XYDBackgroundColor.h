@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (JKBackgroundColor)
+@interface UIButton (XYDBackgroundColor)
 /**
  *  @brief  使用颜色设置按钮背景
  *

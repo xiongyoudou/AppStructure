@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNotificationCenter (JKMainThread)
+@interface NSNotificationCenter (XYDMainThread)
 /**
  *  @brief  在主线程中发送一条通知
  *

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIResponder (JKChain)
+@interface UIResponder (XYDChain)
 /**
  *  @brief  响应者链
  *

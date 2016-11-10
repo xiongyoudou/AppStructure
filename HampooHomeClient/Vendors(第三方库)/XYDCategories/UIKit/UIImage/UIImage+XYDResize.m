@@ -16,7 +16,7 @@
 - (CGAffineTransform)xyd_transformForOrientation:(CGSize)newSize;
 @end
 
-@implementation UIImage (JKResize)
+@implementation UIImage (XYDResize)
 
 // Returns a copy of this image that is cropped to the given bounds.
 // The bounds will be adjusted using CGRectIntegral.
@@ -99,6 +99,31 @@
     CGSize newSize = CGSizeMake(round(self.size.width * ratio), round(self.size.height * ratio));
     
     return [self xyd_resizedImage:newSize interpolationQuality:quality];
+}
+
+- (UIImage *)xyd_imageByScalingAspectFillWithLimitSize:(CGSize)limitSize {
+    CGSize originSize = ({
+        CGFloat width = self.size.width;
+        CGFloat height = self.size.height;
+        CGSize size = CGSizeMake(width, height);
+        size;
+    });
+    if (originSize.width == 0 || originSize.height == 0) {
+        return self;
+    }
+    CGFloat aspectRatio = originSize.width / originSize.height;
+    CGFloat width;
+    CGFloat height;
+    //胖照片
+    if (limitSize.width / aspectRatio <= limitSize.height) {
+        width = limitSize.width;
+        height = limitSize.width / aspectRatio;
+    } else {
+        //瘦照片
+        width = limitSize.height * aspectRatio;
+        height = limitSize.height;
+    }
+    return [self xyd_scaledToSize:CGSizeMake(width, height)];
 }
 
 #pragma mark -
@@ -196,5 +221,17 @@
     
     return transform;
 }
+
+- (UIImage *)xyd_scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [self drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 
 @end

@@ -8,7 +8,7 @@
 
 #import "UIResponder+XYDChain.h"
 
-@implementation UIResponder (JKChain)
+@implementation UIResponder (XYDChain)
 /**
  *  @brief  响应者链
  *

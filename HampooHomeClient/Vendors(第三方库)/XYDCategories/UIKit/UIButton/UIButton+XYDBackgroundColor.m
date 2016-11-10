@@ -8,7 +8,7 @@
 
 #import "UIButton+XYDBackgroundColor.h"
 
-@implementation UIButton (JKBackgroundColor)
+@implementation UIButton (XYDBackgroundColor)
 /**
  *  @brief  使用颜色设置按钮背景
  *

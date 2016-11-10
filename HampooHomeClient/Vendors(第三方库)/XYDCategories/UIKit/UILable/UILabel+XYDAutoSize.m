@@ -8,7 +8,7 @@
 
 #import "UILabel+XYDAutoSize.h"
 
-@implementation UILabel (JKAutoSize)
+@implementation UILabel (XYDAutoSize)
 -(UILabel *)xyd_resizeLabelHorizontal{
     return [self xyd_resizeLabelHorizontal:0];
 }

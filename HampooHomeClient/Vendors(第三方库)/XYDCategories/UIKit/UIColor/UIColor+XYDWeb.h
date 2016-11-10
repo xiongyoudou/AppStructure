@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (JKWeb)
+@interface UIColor (XYDWeb)
 /**
  *  @brief  获取canvas用的颜色字符串
  *

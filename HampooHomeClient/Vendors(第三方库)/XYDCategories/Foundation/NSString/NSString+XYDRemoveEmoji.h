@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKRemoveEmoji)
+@interface NSString (XYDRemoveEmoji)
 /**
  *  @brief  是否包含emoji
  *

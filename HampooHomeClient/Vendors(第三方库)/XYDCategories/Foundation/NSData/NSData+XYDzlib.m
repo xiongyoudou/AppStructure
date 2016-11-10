@@ -10,7 +10,7 @@ static const uInt CHUNK_SIZE = 65536;
 NSString *const JKZlibErrorDomain = @"se.bitba.JKZlibErrorDomain";
 NSString *const JKZlibErrorInfoKey = @"zerror";
 
-@implementation NSData (JKzlib)
+@implementation NSData (XYDzlib)
 static void *xyd_zlibOpen()
 {
     static void *libz;

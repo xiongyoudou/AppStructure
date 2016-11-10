@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKTrims)
+@interface NSString (XYDTrims)
 /**
  *  @brief  清除html标签
  *

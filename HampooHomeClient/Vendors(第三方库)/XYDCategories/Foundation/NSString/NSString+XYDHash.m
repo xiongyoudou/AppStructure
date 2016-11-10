@@ -9,7 +9,7 @@
 #import "NSString+XYDHash.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
-@implementation NSString (JKHash)
+@implementation NSString (XYDHash)
 - (NSString *)xyd_md5String
 {
     const char *string = self.UTF8String;

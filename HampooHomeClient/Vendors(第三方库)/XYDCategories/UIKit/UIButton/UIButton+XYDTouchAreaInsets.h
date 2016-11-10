@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (JKTouchAreaInsets)
+@interface UIButton (XYDTouchAreaInsets)
 /**
  *  @brief  设置按钮额外热区
  */

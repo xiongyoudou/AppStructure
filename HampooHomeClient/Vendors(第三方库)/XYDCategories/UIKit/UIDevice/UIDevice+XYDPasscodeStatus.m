@@ -12,7 +12,7 @@
 NSString * const UIDevicePasscodeKeychainService = @"UIDevice-PasscodeStatus_KeychainService";
 NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_KeychainAccount";
 
-@implementation UIDevice (JKPasscodeStatus)
+@implementation UIDevice (XYDPasscodeStatus)
 
 - (BOOL)xyd_passcodeStatusSupported
 {
@@ -27,7 +27,7 @@ NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_Key
 #endif
 }
 
-- (JKPasscodeStatus)xyd_passcodeStatus
+- (XYDPasscodeStatus)xyd_passcodeStatus
 {
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"-[%@ %@] - not supported in simulator", NSStringFromClass([self class]), NSStringFromSelector(_cmd));

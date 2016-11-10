@@ -8,7 +8,7 @@
 
 #import "UITextView+XYDPlaceHolder.h"
 static const char *xyd_placeHolderTextView = "xyd_placeHolderTextView";
-@implementation UITextView (JKPlaceHolder)
+@implementation UITextView (XYDPlaceHolder)
 - (UITextView *)xyd_placeHolderTextView {
     return objc_getAssociatedObject(self, xyd_placeHolderTextView);
 }

@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface NSObject (JKBlocks)
+@interface NSObject (XYDBlocks)
 + (id)xyd_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
 + (id)xyd_performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay;
 - (id)xyd_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;

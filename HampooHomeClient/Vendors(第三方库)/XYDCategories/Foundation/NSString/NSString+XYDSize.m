@@ -8,7 +8,7 @@
 
 #import "NSString+XYDSize.h"
 
-@implementation NSString (JKSize)
+@implementation NSString (XYDSize)
 /**
  *  @brief 计算文字的高度
  *

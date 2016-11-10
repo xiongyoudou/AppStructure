@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NSDictionary (JKSafeAccess)
+@interface NSDictionary (XYDSafeAccess)
 - (BOOL)xyd_hasKey:(NSString *)key;
 
 - (NSString*)xyd_stringForKey:(id)key;

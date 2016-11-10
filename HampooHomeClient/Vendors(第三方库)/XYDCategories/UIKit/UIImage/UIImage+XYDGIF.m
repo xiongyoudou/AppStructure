@@ -9,7 +9,7 @@
 #import "UIImage+XYDGIF.h"
 #import <ImageIO/ImageIO.h>
 
-@implementation UIImage (JKGIF)
+@implementation UIImage (XYDGIF)
 
 + (UIImage *)xyd_animatedGIFWithData:(NSData *)data {
     if (!data) {

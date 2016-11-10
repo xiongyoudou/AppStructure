@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JKDraggable)
+@interface UIView (XYDDraggable)
 
 /**-----------------------------------------------------------------------------
  * @name UIView+draggable Properties

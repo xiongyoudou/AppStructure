@@ -11,7 +11,7 @@
 
 #import <MapKit/MapKit.h>
 
-@interface MKMapView (JKMoveLogo)
+@interface MKMapView (XYDMoveLogo)
 
 - (void)xyd_moveLogoByOffset:(CGPoint)offset;
 - (void)xyd_moveLogoToPoint:(CGPoint)point;

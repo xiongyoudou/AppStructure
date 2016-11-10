@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, JKShakedDirection) {
     JKShakedDirectionVertical
 };
 
-@interface UITextField (JKShake)
+@interface UITextField (XYDShake)
 
 /**-----------------------------------------------------------------------------
  * @name UITextField+Shake
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, JKShakedDirection) {
  * @param interval The duration of one shake
  * @param direction of the shake
  */
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakedDirection)shakeDirection;
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection;
 
 /** Shake the UITextField at a custom speed
  *
@@ -89,6 +89,6 @@ typedef NS_ENUM(NSInteger, JKShakedDirection) {
  * @param direction of the shake
  * @param handler A block object to be executed when the shake sequence ends
  */
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakedDirection)shakeDirection completion:(void((^)()))handler;
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection completion:(void((^)()))handler;
 
 @end

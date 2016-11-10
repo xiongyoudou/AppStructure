@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-@interface UITextView (JKPlaceHolder) <UITextViewDelegate>
+@interface UITextView (XYDPlaceHolder) <UITextViewDelegate>
 @property (nonatomic, strong) UITextView *xyd_placeHolderTextView;
 //@property (nonatomic, assign) id <UITextViewDelegate> textViewDelegate;
 - (void)xyd_addPlaceHolder:(NSString *)placeHolder;

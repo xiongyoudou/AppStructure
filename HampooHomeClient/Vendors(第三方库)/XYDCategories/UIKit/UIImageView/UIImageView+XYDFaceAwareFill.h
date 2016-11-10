@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (JKFaceAwareFill)
+@interface UIImageView (XYDFaceAwareFill)
 
 //Ask the image to perform an "Aspect Fill" but centering the image to the detected faces
 //Not the simple center of the image

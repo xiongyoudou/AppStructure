@@ -18,7 +18,7 @@ typedef NS_OPTIONS(NSUInteger, JKExcludePoint) {
 };
 
 
-@interface UIView (JKCustomBorder)
+@interface UIView (XYDCustomBorder)
 
 - (void)xyd_addTopBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth;
 - (void)xyd_addLeftBorderWithColor: (UIColor *) color width:(CGFloat) borderWidth;
@@ -31,8 +31,8 @@ typedef NS_OPTIONS(NSUInteger, JKExcludePoint) {
 - (void)xyd_removeRightBorder;
 
 
-- (void)xyd_addTopBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge;
-- (void)xyd_addLeftBorderWithColor: (UIColor *) color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge;
-- (void)xyd_addBottomBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge;
-- (void)xyd_addRightBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge;
+- (void)xyd_addTopBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge;
+- (void)xyd_addLeftBorderWithColor: (UIColor *) color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge;
+- (void)xyd_addBottomBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge;
+- (void)xyd_addRightBorderWithColor:(UIColor *)color width:(CGFloat) borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge;
 @end

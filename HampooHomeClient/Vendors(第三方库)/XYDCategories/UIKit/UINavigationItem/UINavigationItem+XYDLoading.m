@@ -26,9 +26,9 @@
 static void *JKLoaderPositionAssociationKey = &JKLoaderPositionAssociationKey;
 static void *JKSubstitutedViewAssociationKey = &JKSubstitutedViewAssociationKey;
 
-@implementation UINavigationItem (JKLoading)
+@implementation UINavigationItem (XYDLoading)
 
-- (void)xyd_startAnimatingAt:(JKNavBarLoaderPosition)position {
+- (void)xyd_startAnimatingAt:(XYDNavBarLoaderPosition)position {
     // stop previous if animated
     [self xyd_stopAnimating];
     

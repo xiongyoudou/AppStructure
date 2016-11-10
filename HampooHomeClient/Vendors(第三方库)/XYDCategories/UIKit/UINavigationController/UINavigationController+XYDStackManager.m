@@ -8,7 +8,7 @@
 
 #import "UINavigationController+XYDStackManager.h"
 
-@implementation UINavigationController (JKStackManager)
+@implementation UINavigationController (XYDStackManager)
 /**
  *  @brief  寻找Navigation中的某个viewcontroler对象
  *

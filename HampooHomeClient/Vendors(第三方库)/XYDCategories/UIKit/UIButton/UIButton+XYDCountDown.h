@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (JKCountDown)
+@interface UIButton (XYDCountDown)
 -(void)xyd_startTime:(NSInteger )timeout title:(NSString *)tittle waitTittle:(NSString *)waitTittle;
 @end

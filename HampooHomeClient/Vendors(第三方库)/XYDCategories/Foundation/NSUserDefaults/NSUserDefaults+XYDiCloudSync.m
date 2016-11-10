@@ -9,7 +9,7 @@
 #import "NSUserDefaults+XYDiCloudSync.h"
 
 
-@implementation NSUserDefaults (JKiCloudSync)
+@implementation NSUserDefaults (XYDiCloudSync)
 
 
 -(void)xyd_setValue:(id)value forKey:(NSString *)key iCloudSync:(BOOL)sync

@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     RightBorder = 40000
 };
 
-@implementation UIView (JKCustomBorder)
+@implementation UIView (XYDCustomBorder)
 
 
 - (void)xyd_removeTopBorder {
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 }
 
 
-- (void)xyd_addTopBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
+- (void)xyd_addTopBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge {
     [self xyd_removeTopBorder];
     
     UIView *border = [[UIView alloc] init];
@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 }
 
 
-- (void)xyd_addLeftBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
+- (void)xyd_addLeftBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge {
     [self xyd_removeLeftBorder];
     
     UIView *border = [[UIView alloc] init];
@@ -146,7 +146,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
 }
 
 
-- (void)xyd_addBottomBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
+- (void)xyd_addBottomBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge {
     [self xyd_removeBottomBorder];
     
     UIView *border = [[UIView alloc] init];
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:border attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:borderWidth]];
 }
 
-- (void)xyd_addRightBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(JKExcludePoint)edge {
+- (void)xyd_addRightBorderWithColor:(UIColor *)color width:(CGFloat)borderWidth excludePoint:(CGFloat)point edgeType:(XYDExcludePoint)edge {
     [self xyd_removeRightBorder];
     
     UIView *border = [[UIView alloc] init];

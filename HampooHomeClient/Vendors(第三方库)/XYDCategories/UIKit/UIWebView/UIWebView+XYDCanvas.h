@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKCanvas)
+@interface UIWebView (XYDCanvas)
 /// 创建一个指定大小的画布
 - (void)xyd_createCanvas:(NSString *)canvasId
                width:(NSInteger)width

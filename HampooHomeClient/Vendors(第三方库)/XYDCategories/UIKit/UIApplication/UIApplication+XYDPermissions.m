@@ -36,7 +36,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 
 
 #pragma mark - Check permissions
--(JKPermissionAccess)hasAccessToBluetoothLE {
+-(XYDPermissionAccess)hasAccessToBluetoothLE {
     switch ([[[CBCentralManager alloc] init] state]) {
         case CBCentralManagerStateUnsupported:
             return JKPermissionAccessUnsupported;
@@ -52,7 +52,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(JKPermissionAccess)hasAccessToCalendar {
+-(XYDPermissionAccess)hasAccessToCalendar {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent]) {
         case EKAuthorizationStatusAuthorized:
             return JKPermissionAccessGranted;
@@ -72,7 +72,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(JKPermissionAccess)hasAccessToContacts {
+-(XYDPermissionAccess)hasAccessToContacts {
     switch (ABAddressBookGetAuthorizationStatus()) {
         case kABAuthorizationStatusAuthorized:
             return JKPermissionAccessGranted;
@@ -92,7 +92,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(JKPermissionAccess)hasAccessToLocation {
+-(XYDPermissionAccess)hasAccessToLocation {
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusAuthorized:
             return JKPermissionAccessGranted;
@@ -113,7 +113,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     return JKPermissionAccessUnknown;
 }
 
--(JKPermissionAccess)hasAccessToPhotos {
+-(XYDPermissionAccess)hasAccessToPhotos {
     switch ([ALAssetsLibrary authorizationStatus]) {
         case ALAuthorizationStatusAuthorized:
             return JKPermissionAccessGranted;
@@ -133,7 +133,7 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(JKPermissionAccess)hasAccessToReminders {
+-(XYDPermissionAccess)hasAccessToReminders {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder]) {
         case EKAuthorizationStatusAuthorized:
             return JKPermissionAccessGranted;
@@ -255,19 +255,19 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
     objc_setAssociatedObject(self, &JKPermissionsLocationManagerPropertyKey, manager, OBJC_ASSOCIATION_RETAIN);
 }
 
--(JKLocationSuccessCallback)locationSuccessCallbackProperty {
+-(XYDLocationSuccessCallback)locationSuccessCallbackProperty {
     return objc_getAssociatedObject(self, &JKPermissionsLocationBlockSuccessPropertyKey);
 }
 
--(void)setxyd_locationSuccessCallbackProperty:(JKLocationSuccessCallback)locationCallbackProperty {
+-(void)setxyd_locationSuccessCallbackProperty:(XYDLocationSuccessCallback)locationCallbackProperty {
     objc_setAssociatedObject(self, &JKPermissionsLocationBlockSuccessPropertyKey, locationCallbackProperty, OBJC_ASSOCIATION_COPY);
 }
 
--(JKLocationFailureCallback)locationFailureCallbackProperty {
+-(XYDLocationFailureCallback)locationFailureCallbackProperty {
     return objc_getAssociatedObject(self, &JKPermissionsLocationBlockFailurePropertyKey);
 }
 
--(void)setxyd_locationFailureCallbackProperty:(JKLocationFailureCallback)locationFailureCallbackProperty {
+-(void)setxyd_locationFailureCallbackProperty:(XYDLocationFailureCallback)locationFailureCallbackProperty {
     objc_setAssociatedObject(self, &JKPermissionsLocationBlockFailurePropertyKey, locationFailureCallbackProperty, OBJC_ASSOCIATION_COPY);
 }
 

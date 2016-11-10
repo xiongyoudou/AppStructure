@@ -8,7 +8,7 @@
 
 #import "NSDictionary+XYDMerge.h"
 
-@implementation NSDictionary (JKMerge)
+@implementation NSDictionary (XYDMerge)
 /**
  *  @brief  合并两个NSDictionary
  *

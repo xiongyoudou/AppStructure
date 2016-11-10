@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^JKSubviewBlock) (UIView* view);
 typedef void (^JKSuperviewBlock) (UIView* superview);
-@interface UIView (JKRecursion)
+@interface UIView (XYDRecursion)
 
 /**
  *  @brief  寻找子视图
@@ -22,8 +22,8 @@ typedef void (^JKSuperviewBlock) (UIView* superview);
 - (UIView*)xyd_findViewRecursively:(BOOL(^)(UIView* subview, BOOL* stop))recurse;
 
 
--(void)xyd_runBlockOnAllSubviews:(JKSubviewBlock)block;
--(void)xyd_runBlockOnAllSuperviews:(JKSuperviewBlock)block;
+-(void)xyd_runBlockOnAllSubviews:(XYDSubviewBlock)block;
+-(void)xyd_runBlockOnAllSuperviews:(XYDSuperviewBlock)block;
 -(void)xyd_enableAllControlsInViewHierarchy;
 -(void)xyd_disableAllControlsInViewHierarchy;
 @end

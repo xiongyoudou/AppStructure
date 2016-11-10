@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface NSString (JKStringPages)
+@interface NSString (XYDStringPages)
 /**
  *  根据字符串进行分页
  *

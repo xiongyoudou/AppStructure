@@ -12,7 +12,7 @@
 
 #import "UIImageView+XYDGeometryConversion.h"
 
-@implementation UIImageView (JKGeometryConversion)
+@implementation UIImageView (XYDGeometryConversion)
 
 - (CGPoint)xyd_convertPointFromImage:(CGPoint)imagePoint {
     CGPoint viewPoint = imagePoint;

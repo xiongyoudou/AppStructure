@@ -17,7 +17,7 @@
 
 @end
 
-@implementation NSString (JKXMLDictionary)
+@implementation NSString (XYDXMLDictionary)
 /**
  *  @brief  xml字符串转换成NSDictionary
  *

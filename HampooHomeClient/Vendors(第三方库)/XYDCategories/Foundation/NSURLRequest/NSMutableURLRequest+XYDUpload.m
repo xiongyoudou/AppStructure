@@ -8,7 +8,7 @@
 
 #import "NSMutableURLRequest+XYDUpload.h"
 
-@implementation NSMutableURLRequest (JKUpload)
+@implementation NSMutableURLRequest (XYDUpload)
 
 + (instancetype)xyd_requestWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL name:(NSString *)name {
     return [self xyd_requestWithURL:URL fileURLs:@[fileURL] name:name];

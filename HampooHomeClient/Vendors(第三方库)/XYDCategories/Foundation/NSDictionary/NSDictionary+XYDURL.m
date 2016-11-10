@@ -8,7 +8,7 @@
 
 #import "NSDictionary+XYDURL.h"
 
-@implementation NSDictionary (JKURI)
+@implementation NSDictionary (XYDURI)
 /**
  *  @brief  将url参数转换成NSDictionary
  *

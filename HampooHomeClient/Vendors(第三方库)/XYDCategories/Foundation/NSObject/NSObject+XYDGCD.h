@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface NSObject (JKGCD)
+@interface NSObject (XYDGCD)
 /**
  *  @brief  异步执行代码块
  *

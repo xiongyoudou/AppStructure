@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (JKReflection)
+@interface NSObject (XYDReflection)
 //类名
 - (NSString *)xyd_className;
 + (NSString *)xyd_className;

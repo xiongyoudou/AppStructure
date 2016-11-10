@@ -8,7 +8,7 @@
 
 #import "UIView+XYDScreenshot.h"
 #import <QuartzCore/QuartzCore.h>
-@implementation UIView (JKScreenshot)
+@implementation UIView (XYDScreenshot)
 /**
  *  @brief  view截图
  *

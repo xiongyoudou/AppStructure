@@ -8,7 +8,7 @@
 
 #import "UILabel+XYDSuggestSize.h"
 
-@implementation UILabel (JKSuggestSize)
+@implementation UILabel (XYDSuggestSize)
 
 - (CGSize)xyd_suggestedSizeForWidth:(CGFloat)width {
     if (self.attributedText)

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (JKFormatter)
+@interface NSDate (XYDFormatter)
 
 +(NSDateFormatter *)xyd_formatter;
 +(NSDateFormatter *)xyd_formatterWithoutTime;

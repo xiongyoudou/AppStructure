@@ -10,7 +10,7 @@
 #import "NSData+XYDEncrypt.h"
 #import "NSData+XYDBase64.h"
 
-@implementation NSString (JKEncrypt)
+@implementation NSString (XYDEncrypt)
 -(NSString*)xyd_encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {
     NSData *encrypted = [[self dataUsingEncoding:NSUTF8StringEncoding] xyd_encryptedWithAESUsingKey:key andIV:iv];
     NSString *encryptedString = [encrypted xyd_base64EncodedString];

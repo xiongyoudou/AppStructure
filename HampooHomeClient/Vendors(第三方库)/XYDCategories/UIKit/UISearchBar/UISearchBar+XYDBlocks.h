@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UISearchBar (JKBlocks)
+@interface UISearchBar (XYDBlocks)
 
 @property (copy, nonatomic) BOOL (^xyd_completionShouldBeginEditingBlock)(UISearchBar *searchbar);
 @property (copy, nonatomic) void (^xyd_completionTextDidBeginEditingBlock)(UISearchBar *searchBar);

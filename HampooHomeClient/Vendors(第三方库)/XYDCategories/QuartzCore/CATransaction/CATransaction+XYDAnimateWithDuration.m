@@ -8,7 +8,7 @@
 
 #import "CATransaction+XYDAnimateWithDuration.h"
 
-@implementation CATransaction (JKAnimateWithDuration)
+@implementation CATransaction (XYDAnimateWithDuration)
 /**
  *  @author Denys Telezhkin
  *

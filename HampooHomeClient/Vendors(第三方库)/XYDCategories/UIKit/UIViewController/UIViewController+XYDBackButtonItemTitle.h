@@ -15,6 +15,6 @@
 
 @end
 
-@interface UIViewController (JKBackButtonItemTitle) <JKBackButtonItemTitleProtocol>
+@interface UIViewController (XYDBackButtonItemTitle) <JKBackButtonItemTitleProtocol>
 
 @end

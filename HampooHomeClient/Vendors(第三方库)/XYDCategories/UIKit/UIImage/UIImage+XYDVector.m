@@ -9,7 +9,7 @@
 #import "UIImage+XYDVector.h"
 #import <CoreText/CoreText.h>
 
-@implementation UIImage(JKVector)
+@implementation UIImage(XYDVector)
 
 + (NSCache *)xyd_cache{
     static NSCache *cache = nil;

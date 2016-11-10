@@ -21,7 +21,7 @@ typedef void (^DeallocExecutorBlock)(void);
 @end;
 
 
-@interface NSObject (JKAssociatedObject)
+@interface NSObject (XYDAssociatedObject)
 /**
  *  @brief  附加一个stong对象
  *

@@ -9,7 +9,7 @@
 //https://github.com/adi-li/NSDecimalNumber-StringCalculation
 #import <Foundation/Foundation.h>
 
-@interface NSDecimalNumber (JKCalculatingByString)
+@interface NSDecimalNumber (XYDCalculatingByString)
 /**
  *  @author JKCategories
  *

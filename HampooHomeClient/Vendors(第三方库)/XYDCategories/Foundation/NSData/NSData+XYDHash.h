@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (JKHash)
+@interface NSData (XYDHash)
 /**
  *  @brief  md5 NSData
  */

@@ -23,6 +23,10 @@
 
 #import "UIButton+WebCache.h"
 #import "UIImageView+WebCache.h"
+#import "UIColor+XYDHEX.h"
+#import "UIImage+XYDResize.h"
+#import "NSFileManager+XYDPaths.h"
+#import "NSString+XYDHash.h"
 
 #import "XYDImageManager.h"
 

@@ -20,7 +20,7 @@ _format.mFramesPerPacket = 1;
 _format.mSampleRate = 8000.0f;
 */
 
-@interface NSData (JKPCM)
+@interface NSData (XYDPCM)
 /**
  *  format wav data
  *

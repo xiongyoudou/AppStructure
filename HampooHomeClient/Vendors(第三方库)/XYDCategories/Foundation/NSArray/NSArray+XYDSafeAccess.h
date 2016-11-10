@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NSArray (JKSafeAccess)
+@interface NSArray (XYDSafeAccess)
 -(id)xyd_objectWithIndex:(NSUInteger)index;
 
 - (NSString*)xyd_stringWithIndex:(NSUInteger)index;
@@ -56,7 +56,7 @@
 
 #pragma --mark NSMutableArray setter
 
-@interface NSMutableArray(JKSafeAccess)
+@interface NSMutableArray(XYDSafeAccess)
 
 -(void)xyd_addObj:(id)i;
 

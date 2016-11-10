@@ -17,7 +17,7 @@
 */
 #import <UIKit/UIKit.h>
 
-@interface UITextView (JKPinchZoom)
+@interface UITextView (XYDPinchZoom)
 
 @property (nonatomic) CGFloat xyd_maxFontSize, xyd_minFontSize;
 

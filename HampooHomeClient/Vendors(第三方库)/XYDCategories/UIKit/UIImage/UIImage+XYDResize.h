@@ -6,7 +6,7 @@
 // Extends the UIImage class to support resizing/cropping
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKResize)
+@interface UIImage (XYDResize)
 
 - (UIImage *)xyd_croppedImage:(CGRect)bounds;
 - (UIImage *)xyd_thumbnailImage:(NSInteger)thumbnailSize
@@ -18,4 +18,5 @@
 - (UIImage *)xyd_resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality;
+- (UIImage *)xyd_imageByScalingAspectFillWithLimitSize:(CGSize)limitSize;
 @end

@@ -8,7 +8,7 @@
 
 #import "NSManagedObject+XYDExtensions.h"
 
-@implementation NSManagedObject (JKExtensions)
+@implementation NSManagedObject (XYDExtensions)
 
 + (id)xyd_create:(NSManagedObjectContext*)context {
   return [NSEntityDescription insertNewObjectForEntityForName:[self xyd_entityName] inManagedObjectContext:context];

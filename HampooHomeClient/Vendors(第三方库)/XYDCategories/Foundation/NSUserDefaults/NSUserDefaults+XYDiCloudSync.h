@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSUserDefaults (JKiCloudSync)
+@interface NSUserDefaults (XYDiCloudSync)
 
 -(void)xyd_setValue:(id)value  forKey:(NSString *)key iCloudSync:(BOOL)sync;
 -(void)xyd_setObject:(id)value forKey:(NSString *)key iCloudSync:(BOOL)sync;

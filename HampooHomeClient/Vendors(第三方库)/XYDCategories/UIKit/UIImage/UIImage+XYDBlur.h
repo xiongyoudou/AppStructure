@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 FOUNDATION_EXPORT double ImageEffectsVersionNumber;
 FOUNDATION_EXPORT const unsigned char ImageEffectsVersionString[];
-@interface UIImage (JKBlur)
+@interface UIImage (XYDBlur)
 
 - (UIImage *)xyd_lightImage;
 - (UIImage *)xyd_extraLightImage;

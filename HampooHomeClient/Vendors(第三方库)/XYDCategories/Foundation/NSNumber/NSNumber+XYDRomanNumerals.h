@@ -8,7 +8,7 @@
 //https://github.com/pzearfoss/NSNumber-RomanNumerals
 #import <Foundation/Foundation.h>
 
-@interface NSNumber (JKRomanNumerals)
+@interface NSNumber (XYDRomanNumerals)
 /**
  *  @author JKCategories
  *

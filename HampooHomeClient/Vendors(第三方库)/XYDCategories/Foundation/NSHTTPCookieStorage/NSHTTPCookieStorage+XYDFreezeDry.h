@@ -29,7 +29,7 @@
 */
 #import <Foundation/Foundation.h>
 
-@interface NSHTTPCookieStorage (JKFreezeDry)
+@interface NSHTTPCookieStorage (XYDFreezeDry)
 /**
  *  @brief 存储 UIWebView cookies到磁盘目录
  */

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDateFormatter (JKMake)
+@interface NSDateFormatter (XYDMake)
 +(NSDateFormatter *)xyd_dateFormatterWithFormat:(NSString *)format;
 +(NSDateFormatter *)xyd_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
 +(NSDateFormatter *)xyd_dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;

@@ -11,7 +11,7 @@
 #define JKCGPointWithOffset(originPoint, offsetPoint) \
   CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 
-@implementation UIBezierPath (JKSymbol)
+@implementation UIBezierPath (XYDSymbol)
 
 // plus
 //
@@ -192,7 +192,7 @@
 + (UIBezierPath *)xyd_customBezierPathOfArrowSymbolWithRect:(CGRect)rect
                                                   scale:(CGFloat)scale
                                                   thick:(CGFloat)thick
-                                              direction:(JKUIBezierPathArrowDirection)direction {
+                                              direction:(XYDUIBezierPathArrowDirection)direction {
   CGFloat height     = CGRectGetHeight(rect) * scale;
   CGFloat width      = CGRectGetWidth(rect)  * scale;
   CGFloat halfHeight = height / 2.f;

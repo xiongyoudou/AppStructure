@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBezierPath (JKBasicShapes)
+@interface UIBezierPath (XYDBasicShapes)
 
 + (UIBezierPath *)xyd_heartShape:(CGRect)originalFrame;
 + (UIBezierPath *)xyd_userShape:(CGRect)originalFrame;

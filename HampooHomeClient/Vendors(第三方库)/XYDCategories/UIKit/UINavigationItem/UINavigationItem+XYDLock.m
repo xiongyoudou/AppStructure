@@ -8,7 +8,7 @@
 
 #import "UINavigationItem+XYDLock.h"
 
-@implementation UINavigationItem (JKLock)
+@implementation UINavigationItem (XYDLock)
 - (void)xyd_lockRightItem:(BOOL)lock
 {
     NSArray *rightBarItems = self.rightBarButtonItems;

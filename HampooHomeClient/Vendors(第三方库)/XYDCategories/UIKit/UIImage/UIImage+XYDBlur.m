@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDBlur.h"
 #import <Accelerate/Accelerate.h>
-@implementation UIImage (JKBlur)
+@implementation UIImage (XYDBlur)
 #pragma mark -
 #pragma mark - Effects
 

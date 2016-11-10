@@ -8,7 +8,7 @@
 
 #import "UIColor+XYDWeb.h"
 
-@implementation UIColor (JKWeb)
+@implementation UIColor (XYDWeb)
 /**
  *  @brief  获取canvas用的颜色字符串
  *

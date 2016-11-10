@@ -13,7 +13,7 @@
 
 #import "NSURLRequest+XYDParamsFromDictionary.h"
 
-@implementation NSURLRequest (JKParamsFromDictionary)
+@implementation NSURLRequest (XYDParamsFromDictionary)
 
 +(NSURLRequest *)xyd_requestGETWithURL:(NSURL *)url parameters:(NSDictionary *)params {
     //This code is ARC only.

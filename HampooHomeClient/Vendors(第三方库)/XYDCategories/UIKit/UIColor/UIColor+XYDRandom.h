@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (JKRandom)
+@interface UIColor (XYDRandom)
 /**
  *  @brief  随机颜色
  *

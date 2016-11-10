@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JKFind)
+@interface UIView (XYDFind)
 /**
  *  @brief  找到指定类名的SubVie对象
  *

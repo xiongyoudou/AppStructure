@@ -9,7 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "NSManagedObjectContext+XYDExtensions.h"
 
-@interface NSManagedObject (JKExtensions)
+@interface NSManagedObject (XYDExtensions)
 
 + (id)xyd_create:(NSManagedObjectContext*)context;
 + (id)xyd_create:(NSDictionary*)dict inContext:(NSManagedObjectContext*)context;

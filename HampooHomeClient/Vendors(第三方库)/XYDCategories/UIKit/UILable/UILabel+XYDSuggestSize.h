@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (JKSuggestSize)
+@interface UILabel (XYDSuggestSize)
 
 - (CGSize)xyd_suggestedSizeForWidth:(CGFloat)width;
 - (CGSize)xyd_suggestSizeForAttributedString:(NSAttributedString *)string width:(CGFloat)width;

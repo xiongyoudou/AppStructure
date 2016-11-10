@@ -8,7 +8,7 @@
 
 #import "NSDictionary+XYDBlock.h"
 
-@implementation NSDictionary (JKBlock)
+@implementation NSDictionary (XYDBlock)
 
 
 #pragma mark - RX

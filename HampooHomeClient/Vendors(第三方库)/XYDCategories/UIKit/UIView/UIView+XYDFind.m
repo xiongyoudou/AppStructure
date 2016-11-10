@@ -8,7 +8,7 @@
 
 #import "UIView+XYDFind.h"
 
-@implementation UIView (JKFind)
+@implementation UIView (XYDFind)
 /**
  *  @brief  找到指定类名的view对象
  *

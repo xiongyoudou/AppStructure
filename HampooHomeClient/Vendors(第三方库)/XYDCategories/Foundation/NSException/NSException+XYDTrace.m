@@ -9,7 +9,7 @@
 #import "NSException+XYDTrace.h"
 #include <execinfo.h>
 
-@implementation NSException (JKTrace)
+@implementation NSException (XYDTrace)
 - (NSArray *)xyd_backtrace
 {
     NSArray *addresses = self.callStackReturnAddresses;

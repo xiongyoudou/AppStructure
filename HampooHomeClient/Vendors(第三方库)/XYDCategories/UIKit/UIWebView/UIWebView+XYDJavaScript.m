@@ -8,7 +8,7 @@
 
 #import "UIWebView+XYDJavaScript.h"
 #import "UIColor+XYDWeb.h"
-@implementation UIWebView (JKJavaScript)
+@implementation UIWebView (XYDJavaScript)
 #pragma mark -
 #pragma mark 获取网页中的数据
 /// 获取某个标签的结点个数

@@ -8,7 +8,7 @@
 
 #import "UIImageView+XYDAddition.h"
 
-@implementation UIImageView (JKAddition)
+@implementation UIImageView (XYDAddition)
 + (id)xyd_imageViewWithImageNamed:(NSString*)imageName
 {
     return [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];

@@ -8,7 +8,7 @@
 //https://github.com/arbalest/NSFileHandle-readLine
 #import <Foundation/Foundation.h>
 
-@interface NSFileHandle (JKReadLine)
+@interface NSFileHandle (XYDReadLine)
 /**
  *  @brief   A Cocoa / Objective-C NSFileHandle category that adds the ability to read a file line by line.
 

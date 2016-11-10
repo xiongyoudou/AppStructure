@@ -8,7 +8,7 @@
 
 #import "NSData+XYDPCM.h"
 
-@implementation NSData (JKPCM)
+@implementation NSData (XYDPCM)
 /**
  *  format wav data
  *

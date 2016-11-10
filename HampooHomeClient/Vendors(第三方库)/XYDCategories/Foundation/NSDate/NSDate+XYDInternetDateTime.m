@@ -13,7 +13,7 @@ static NSDateFormatter *_internetDateTimeFormatter = nil;
 
 // Good info on internet dates here:
 // http://developer.apple.com/iphone/library/qa/qa2010/qa1480.html
-@implementation NSDate (JKInternetDateTime)
+@implementation NSDate (XYDInternetDateTime)
 
 // Instantiate single date formatter
 + (NSDateFormatter *)xyd_internetDateTimeFormatter {

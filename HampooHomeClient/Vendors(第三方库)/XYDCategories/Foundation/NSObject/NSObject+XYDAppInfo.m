@@ -8,7 +8,7 @@
 
 #import "NSObject+XYDAppInfo.h"
 #import <sys/utsname.h>
-@implementation NSObject (JKAppInfo)
+@implementation NSObject (XYDAppInfo)
 
 -(NSString *)xyd_version{
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];

@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, UILabelJKlinkingMode)
     UILabelJKlinkingModeAlways
 };
 
-@interface UILabel (JKAutomaticWriting)
+@interface UILabel (XYDAutomaticWriting)
 
 @property (strong, nonatomic) NSOperationQueue *xyd_automaticWritingOperationQueue;
 @property (assign, nonatomic) UIEdgeInsets xyd_edgeInsets;

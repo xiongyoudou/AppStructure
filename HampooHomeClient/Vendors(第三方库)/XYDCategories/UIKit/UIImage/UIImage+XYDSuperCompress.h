@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKSuperCompress)
+@interface UIImage (XYDSuperCompress)
 /**
  *  压缩上传图片到指定字节
  *

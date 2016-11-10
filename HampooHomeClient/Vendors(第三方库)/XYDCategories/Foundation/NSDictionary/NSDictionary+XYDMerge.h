@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (JKMerge)
+@interface NSDictionary (XYDMerge)
 /**
  *  @brief  合并两个NSDictionary
  *

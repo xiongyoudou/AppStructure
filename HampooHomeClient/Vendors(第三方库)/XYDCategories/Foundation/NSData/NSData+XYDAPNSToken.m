@@ -8,7 +8,7 @@
 
 #import "NSData+XYDAPNSToken.h"
 
-@implementation NSData (JKAPNSToken)
+@implementation NSData (XYDAPNSToken)
 /**
  *  @brief  将APNS NSData类型token 格式化成字符串
  *

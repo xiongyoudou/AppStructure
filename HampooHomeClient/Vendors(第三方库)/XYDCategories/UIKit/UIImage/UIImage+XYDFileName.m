@@ -8,7 +8,7 @@
 #import "UIImage+XYDFileName.h"
 
 
-@implementation UIImage (JKFileName)
+@implementation UIImage (XYDFileName)
 /**
  *  @brief  根据bundle中的文件名读取图片
  *

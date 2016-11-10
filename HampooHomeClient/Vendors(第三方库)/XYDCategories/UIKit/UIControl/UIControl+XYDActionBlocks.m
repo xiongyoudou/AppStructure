@@ -21,7 +21,7 @@ static const void *UIControlJKActionBlockArray = &UIControlJKActionBlockArray;
 @end
 
 
-@implementation UIControl (JKActionBlocks)
+@implementation UIControl (XYDActionBlocks)
 -(void)xyd_handleControlEvents:(UIControlEvents)controlEvents withBlock:(UIControlJKActionBlock)actionBlock {
     NSMutableArray *actionBlocksArray = [self xyd_actionBlocksArray];
     

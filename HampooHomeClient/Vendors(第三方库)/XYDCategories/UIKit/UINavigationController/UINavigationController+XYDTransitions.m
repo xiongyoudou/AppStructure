@@ -28,7 +28,7 @@
 
 #import "UINavigationController+XYDTransitions.h"
 
-@implementation UINavigationController (JKTransitions)
+@implementation UINavigationController (XYDTransitions)
 
 - (void)xyd_pushViewController:(UIViewController *)controller withTransition:(UIViewAnimationTransition)transition {
     [UIView beginAnimations:nil context:NULL];

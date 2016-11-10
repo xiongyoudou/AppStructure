@@ -6,8 +6,43 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
+#import "XYDUserDelegate.h"
 #ifndef XYDChatConstant_h
 #define XYDChatConstant_h
+
+#pragma mark - Base ViewController Life Time Block
+///=============================================================================
+/// @name Base ViewController Life Time Block
+///=============================================================================
+
+//Callback with Custom type
+typedef void (^XYDChatUserResultsCallBack)(NSArray<id<XYDUserDelegate>> *users, NSError *error);
+typedef void (^XYDChatUserResultCallBack)(id<XYDUserDelegate> user, NSError *error);
+//Callback with Foundation type
+typedef void (^XYDChatBooleanResultBlock)(BOOL succeeded, NSError *error);
+typedef void (^XYDChatViewControllerBooleanResultBlock)(__kindof UIViewController *viewController, BOOL succeeded, NSError *error);
+
+typedef void (^XYDChatIntegerResultBlock)(NSInteger number, NSError *error);
+typedef void (^XYDChatStringResultBlock)(NSString *string, NSError *error);
+typedef void (^XYDChatDictionaryResultBlock)(NSDictionary * dict, NSError *error);
+typedef void (^XYDChatArrayResultBlock)(NSArray *objects, NSError *error);
+typedef void (^XYDChatSetResultBlock)(NSSet *channels, NSError *error);
+typedef void (^XYDChatDataResultBlock)(NSData *data, NSError *error);
+typedef void (^XYDChatIdResultBlock)(id object, NSError *error);
+typedef void (^XYDChatIdBoolResultBlock)(BOOL succeeded, id object, NSError *error);
+typedef void (^XYDChatRequestAuthorizationBoolResultBlock)(BOOL granted, NSError *error);
+
+//Callback with Function object
+typedef void (^XYDChatVoidBlock)(void);
+typedef void (^XYDChatErrorBlock)(NSError *error);
+typedef void (^XYDChatImageResultBlock)(UIImage * image, NSError *error);
+typedef void (^XYDChatProgressBlock)(NSInteger percentDone);
+
+#pragma mark - Conversation Enum : Message Type and operation
+///=============================================================================
+/// @name Conversation Enum : Message Type and operation
+///=============================================================================
+
 
 typedef int8_t XYDChatMessageMediaType;
 //SDK定义的消息类型，自定义类型使用大于0的值

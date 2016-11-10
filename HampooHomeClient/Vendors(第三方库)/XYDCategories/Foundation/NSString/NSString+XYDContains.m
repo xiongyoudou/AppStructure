@@ -8,7 +8,7 @@
 
 #import "NSString+XYDContains.h"
 
-@implementation NSString (JKContains)
+@implementation NSString (XYDContains)
 
 /**
  *  @brief  判断URL中是否包含中文

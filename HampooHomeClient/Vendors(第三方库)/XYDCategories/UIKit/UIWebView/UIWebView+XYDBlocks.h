@@ -12,7 +12,7 @@
  UIWebView+Blocks is a simple Block implementation for UIWebView created by Shai Mishali.
  This class currently doesn't support simultaneous UIWebViews in the the same view.
  */
-@interface UIWebView (JKBlock) <UIWebViewDelegate>
+@interface UIWebView (XYDBlock) <UIWebViewDelegate>
 
 /**
  Set TRUE_END_REPORT to YES to get notified only when the page has *fully* loaded, and not when every single element loads. (still not fully tested). When this is set to NO, it will work exactly like the UIWebViewDelegate. (Default behavior)

@@ -19,7 +19,7 @@
 
 static CIDetector *xyd_detector;
 
-@implementation UIImageView (JKBetterFace)
+@implementation UIImageView (XYDBetterFace)
 
 void xyd_hack_uiimageview_bf(){
     Method oriSetImgMethod = class_getInstanceMethod([UIImageView class], @selector(setImage:));

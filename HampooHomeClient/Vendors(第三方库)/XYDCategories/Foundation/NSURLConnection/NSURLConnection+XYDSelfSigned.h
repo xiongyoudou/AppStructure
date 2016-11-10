@@ -9,7 +9,7 @@
 //https://github.com/yuriy128/NSURLConnection-SelfSigned
 #import <Foundation/Foundation.h>
 
-@interface NSURLConnection (JKSelfSigned)
+@interface NSURLConnection (XYDSelfSigned)
 /**
  *  @author JKCategories
  *

@@ -12,7 +12,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURLRequest (JKParamsFromDictionary)
+@interface NSURLRequest (XYDParamsFromDictionary)
 /**
  *  @author JKCategories
  *

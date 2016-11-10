@@ -7,7 +7,7 @@
 
 #import "NSNumber+XYDRomanNumerals.h"
 
-@implementation NSNumber (JKRomanNumerals)
+@implementation NSNumber (XYDRomanNumerals)
 
 - (NSString *)xyd_romanNumeral
 {

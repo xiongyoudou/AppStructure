@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, JKImagePosition) {
     LXMImagePositionBottom = 3,            //图片在下，文字在上
 };
 
-@interface UIButton (JKImagePosition)
+@interface UIButton (XYDImagePosition)
 
 /**
  *  利用UIButton的titleEdgeInsets和imageEdgeInsets来实现文字和图片的自由排列
@@ -24,6 +24,6 @@ typedef NS_ENUM(NSInteger, JKImagePosition) {
  *
  *  @param spacing 图片和文字的间隔
  */
-- (void)xyd_setImagePosition:(JKImagePosition)postion spacing:(CGFloat)spacing;
+- (void)xyd_setImagePosition:(XYDImagePosition)postion spacing:(CGFloat)spacing;
 
 @end

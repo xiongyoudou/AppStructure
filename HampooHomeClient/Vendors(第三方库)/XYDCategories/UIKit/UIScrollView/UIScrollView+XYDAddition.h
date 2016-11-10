@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, JKScrollDirection) {
     JKScrollDirectionWTF
 };
 
-@interface UIScrollView (JKAddition)
+@interface UIScrollView (XYDAddition)
 @property(nonatomic) CGFloat xyd_contentWidth;
 @property(nonatomic) CGFloat xyd_contentHeight;
 @property(nonatomic) CGFloat xyd_contentOffsetX;
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, JKScrollDirection) {
 - (CGPoint)xyd_leftContentOffset;
 - (CGPoint)xyd_rightContentOffset;
 
-- (JKScrollDirection)xyd_ScrollDirection;
+- (XYDScrollDirection)xyd_ScrollDirection;
 
 - (BOOL)xyd_isScrolledToTop;
 - (BOOL)xyd_isScrolledToBottom;

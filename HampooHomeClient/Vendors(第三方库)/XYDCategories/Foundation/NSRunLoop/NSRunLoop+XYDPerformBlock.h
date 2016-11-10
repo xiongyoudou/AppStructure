@@ -33,7 +33,7 @@
 
 extern NSString *const NSRunloopTimeoutException;
 
-@interface NSRunLoop (JKPerformBlock)
+@interface NSRunLoop (XYDPerformBlock)
 /**
  *  @author ishkawa
  *

@@ -6,11 +6,11 @@
 #import "UIImage+XYDAlpha.h"
 
 // Private helper methods
-@interface UIImage (JKAlphaPrivateMethods)
+@interface UIImage (XYDAlphaPrivateMethods)
 - (CGImageRef)xyd_newBorderMask:(NSUInteger)borderSize size:(CGSize)size;
 @end
 
-@implementation UIImage (JKAlpha)
+@implementation UIImage (XYDAlpha)
 /**
  *  @brief  是否有alpha通道
  *

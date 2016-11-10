@@ -33,7 +33,7 @@
 #import <objc/runtime.h>
 #pragma GCC diagnostic ignored "-Wgnu"
 static NSString *const JKAutocodingException = @"JKAutocodingException";
-@implementation NSObject (JKAutoCoding)
+@implementation NSObject (XYDAutoCoding)
 + (BOOL)supportsSecureCoding
 {
     return YES;

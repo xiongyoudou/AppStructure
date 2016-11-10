@@ -10,7 +10,7 @@
 #import <zlib.h>
 #import <dlfcn.h>
 
-@implementation NSData (JKGzip)
+@implementation NSData (XYDGzip)
 
 static void *xyd_libzOpen()
 {

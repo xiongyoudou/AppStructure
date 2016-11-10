@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKDictionaryValue)
+@interface NSString (XYDDictionaryValue)
 /**
  *  @brief  JSON字符串转成NSDictionary
  *

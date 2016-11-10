@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface UIView (JKNib)
+@interface UIView (XYDNib)
 + (UINib *)xyd_loadNib;
 + (UINib *)xyd_loadNibNamed:(NSString*)nibName;
 + (UINib *)xyd_loadNibNamed:(NSString*)nibName bundle:(NSBundle *)bundle;

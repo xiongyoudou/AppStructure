@@ -7,7 +7,7 @@
 #import "UIBezierPath+XYDThroughPointsBezier.h"
 #import <objc/runtime.h>
 
-@implementation UIBezierPath (JKThroughPointsBezier)
+@implementation UIBezierPath (XYDThroughPointsBezier)
 
 - (void)setxyd_contractionFactor:(CGFloat)contractionFactor
 {

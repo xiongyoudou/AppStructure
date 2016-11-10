@@ -9,7 +9,7 @@
 
 #import "NSString+XYDURLEncode.h"
 
-@implementation NSString (JKURLEncode)
+@implementation NSString (XYDURLEncode)
 /**
  *  @brief  urlEncode
  *

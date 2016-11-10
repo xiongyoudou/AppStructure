@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JKConstraints)
+@interface UIView (XYDConstraints)
 - (NSLayoutConstraint *)xyd_constraintForAttribute:(NSLayoutAttribute)attribute;
 
 - (NSLayoutConstraint *)xyd_leftConstraint;

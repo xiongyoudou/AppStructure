@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface UIControl (JKSound)
+@interface UIControl (XYDSound)
 
 /// Set the sound for a particular control event (or events).
 /// @param name The name of the file. The method looks for an image with the specified name in the application’s main bundle.

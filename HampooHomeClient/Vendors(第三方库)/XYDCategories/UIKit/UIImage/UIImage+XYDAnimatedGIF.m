@@ -9,7 +9,7 @@
 #define fromCF (id)
 #endif
 
-@implementation UIImage (JKAnimatedGIF)
+@implementation UIImage (XYDAnimatedGIF)
 
 static int xyd_delayCentisecondsForImageAtIndex(CGImageSourceRef const source, size_t const i) {
     int delayCentiseconds = 1;

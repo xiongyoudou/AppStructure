@@ -16,7 +16,7 @@ typedef void (^xyd_UISearchBarSearchTextBlock) (UISearchBar *searchBar,NSString 
 typedef BOOL (^xyd_UISearchBarInRangeReplacementTextBlock) (UISearchBar *searchBar,NSRange range,NSString *text);
 typedef void (^xyd_UISearchBarScopeIndexBlock)(UISearchBar *searchBar, NSInteger selectedScope);
 
-@implementation UISearchBar (JKBlocks)
+@implementation UISearchBar (XYDBlocks)
 
 
 static const void *xyd_UISearchBarDelegateKey                                = &xyd_UISearchBarDelegateKey;

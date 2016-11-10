@@ -8,7 +8,7 @@
 
 #import "NSTimer+XYDAddition.h"
 
-@implementation NSTimer (JKAddition)
+@implementation NSTimer (XYDAddition)
 /**
  *  @brief  暂停NSTimer
  */

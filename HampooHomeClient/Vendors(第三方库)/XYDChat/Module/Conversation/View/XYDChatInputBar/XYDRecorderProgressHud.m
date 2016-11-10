@@ -7,7 +7,6 @@
 //
 
 #import "XYDRecorderProgressHud.h"
-#import "XYDEmotionHelper.h"
 
 @interface XYDRecorderProgressHud ()
 

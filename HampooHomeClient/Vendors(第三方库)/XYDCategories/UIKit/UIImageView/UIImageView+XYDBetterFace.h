@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (JKBetterFace)
+@interface UIImageView (XYDBetterFace)
 
 @property (nonatomic) BOOL xyd_needsBetterFace;
 @property (nonatomic) BOOL xyd_fast;

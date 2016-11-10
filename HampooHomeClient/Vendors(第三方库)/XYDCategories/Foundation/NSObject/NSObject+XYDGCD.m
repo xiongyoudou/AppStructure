@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+XYDGCD.h"
-@implementation NSObject (JKGCD)
+@implementation NSObject (XYDGCD)
 /**
  *  @brief  异步执行代码块
  *

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (JKExtension)
+@interface NSDate (XYDExtension)
 
 
 /**

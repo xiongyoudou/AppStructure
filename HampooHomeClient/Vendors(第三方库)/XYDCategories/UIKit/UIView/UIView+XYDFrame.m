@@ -8,7 +8,7 @@
 
 #import "UIView+XYDFrame.h"
 
-@implementation UIView (JKFrame)
+@implementation UIView (XYDFrame)
 #pragma mark - Shortcuts for the coords
 
 - (CGFloat)xyd_top

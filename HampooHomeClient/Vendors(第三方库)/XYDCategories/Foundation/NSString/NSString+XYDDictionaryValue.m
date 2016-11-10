@@ -8,7 +8,7 @@
 
 #import "NSString+XYDDictionaryValue.h"
 
-@implementation NSString (JKDictionaryValue)
+@implementation NSString (XYDDictionaryValue)
 /**
  *  @brief  JSON字符串转成NSDictionary
  *

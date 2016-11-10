@@ -7,7 +7,7 @@
 
 #import "NSNumber+XYDCGFloat.h"
 
-@implementation NSNumber (JKCGFloat)
+@implementation NSNumber (XYDCGFloat)
 
 - (CGFloat)xyd_CGFloatValue
 {

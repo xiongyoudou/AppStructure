@@ -17,7 +17,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (JKAdjustableLabel)
+@interface UILabel (XYDAdjustableLabel)
 
 // General method. If minSize is set to CGSizeZero then
 // it is ignored

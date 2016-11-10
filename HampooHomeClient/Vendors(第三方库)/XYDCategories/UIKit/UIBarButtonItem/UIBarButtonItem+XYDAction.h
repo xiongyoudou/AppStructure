@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^BarButtonJKActionBlock)();
 
-@interface UIBarButtonItem (JKAction)
+@interface UIBarButtonItem (XYDAction)
 
 /// A block that is run when the UIBarButtonItem is tapped.
 //@property (nonatomic, copy) dispatch_block_t actionBlock;

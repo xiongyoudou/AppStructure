@@ -13,8 +13,8 @@ static char xyd_kActionHandlerTapGestureKey;
 static char xyd_kActionHandlerLongPressBlockKey;
 static char xyd_kActionHandlerLongPressGestureKey;
 
-@implementation UIView (JKBlockGesture)
-- (void)xyd_addTapActionWithBlock:(JKGestureActionBlock)block
+@implementation UIView (XYDBlockGesture)
+- (void)xyd_addTapActionWithBlock:(XYDGestureActionBlock)block
 {
     UITapGestureRecognizer *gesture = objc_getAssociatedObject(self, &xyd_kActionHandlerTapGestureKey);
     if (!gesture)
@@ -36,7 +36,7 @@ static char xyd_kActionHandlerLongPressGestureKey;
         }
     }
 }
-- (void)xyd_addLongPressActionWithBlock:(JKGestureActionBlock)block
+- (void)xyd_addLongPressActionWithBlock:(XYDGestureActionBlock)block
 {
     UILongPressGestureRecognizer *gesture = objc_getAssociatedObject(self, &xyd_kActionHandlerLongPressGestureKey);
     if (!gesture)

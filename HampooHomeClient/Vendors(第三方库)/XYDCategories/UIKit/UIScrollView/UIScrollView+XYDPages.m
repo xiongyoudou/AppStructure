@@ -8,7 +8,7 @@
 
 #import "UIScrollView+XYDPages.h"
 
-@implementation UIScrollView (JKPages)
+@implementation UIScrollView (XYDPages)
 - (NSInteger)xyd_pages{
     NSInteger pages = self.contentSize.width/self.frame.size.width;
     return pages;

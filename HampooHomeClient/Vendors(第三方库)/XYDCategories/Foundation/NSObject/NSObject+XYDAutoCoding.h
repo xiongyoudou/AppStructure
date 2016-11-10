@@ -29,7 +29,7 @@
 // 3. This notice may not be removed or altered from any source distribution.
 //
 #import <Foundation/Foundation.h>
-@interface NSObject (JKAutoCoding) <NSSecureCoding>
+@interface NSObject (XYDAutoCoding) <NSSecureCoding>
 //coding
 + (NSDictionary *)xyd_codableProperties;
 - (void)xyd_setWithCoder:(NSCoder *)aDecoder;

@@ -10,7 +10,7 @@
 
 NSString *const NSRunloopTimeoutException = @"NSRunloopTimeoutException";
 
-@implementation NSRunLoop (JKPerformBlock)
+@implementation NSRunLoop (XYDPerformBlock)
 
 - (void)xyd_performBlockAndWait:(void (^)(BOOL *))block
 {

@@ -8,7 +8,7 @@
 
 #import "NSDateFormatter+XYDMake.h"
 
-@implementation NSDateFormatter (JKMake)
+@implementation NSDateFormatter (XYDMake)
 
 +(NSDateFormatter *)xyd_dateFormatterWithFormat:(NSString *)format {
     return [self xyd_dateFormatterWithFormat:format timeZone:nil];

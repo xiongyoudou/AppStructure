@@ -7,7 +7,7 @@
 
 #import "NSString+XYDMatcher.h"
 
-@implementation NSString(JKMatcher)
+@implementation NSString(XYDMatcher)
 
 
 - (NSArray *)xyd_matchWithRegex:(NSString *)regex

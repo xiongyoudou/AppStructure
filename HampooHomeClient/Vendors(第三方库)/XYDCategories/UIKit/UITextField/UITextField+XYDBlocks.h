@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface UITextField (JKBlocks)
+@interface UITextField (XYDBlocks)
 @property (copy, nonatomic) BOOL (^xyd_shouldBegindEditingBlock)(UITextField *textField);
 @property (copy, nonatomic) BOOL (^xyd_shouldEndEditingBlock)(UITextField *textField);
 @property (copy, nonatomic) void (^xyd_didBeginEditingBlock)(UITextField *textField);

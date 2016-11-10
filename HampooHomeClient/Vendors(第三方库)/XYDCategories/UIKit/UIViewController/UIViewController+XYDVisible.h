@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (JKVisible)
+@interface UIViewController (XYDVisible)
 - (BOOL)xyd_isVisible;
 
 @end

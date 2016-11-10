@@ -58,7 +58,7 @@ NSString * const JKToastPositionTop             = @"top";
 NSString * const JKToastPositionCenter          = @"center";
 NSString * const JKToastPositionBottom          = @"bottom";
 
-@interface UIView (JKToastPrivate)
+@interface UIView (XYDToastPrivate)
 
 - (void)xyd_hideToast:(UIView *)toast;
 - (void)xyd_toastTimerDidFinish:(NSTimer *)timer;
@@ -70,7 +70,7 @@ NSString * const JKToastPositionBottom          = @"bottom";
 @end
 
 
-@implementation UIView (JKToast)
+@implementation UIView (XYDToast)
 
 #pragma mark - Toast Methods
 
@@ -115,7 +115,7 @@ NSString * const JKToastPositionBottom          = @"bottom";
     toast.center = [self xyd_centerPointForPosition:position withToast:toast];
     toast.alpha = 0.0;
     
-    if (JKToastHidesOnTap) {
+    if (XYDToastHidesOnTap) {
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:toast action:@selector(xyd_handleToastTapped:)];
         [toast addGestureRecognizer:recognizer];
         toast.userInteractionEnabled = YES;
@@ -184,7 +184,7 @@ NSString * const JKToastPositionBottom          = @"bottom";
     activityView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
     activityView.layer.cornerRadius = JKToastCornerRadius;
     
-    if (JKToastDisplayShadow) {
+    if (XYDToastDisplayShadow) {
         activityView.layer.shadowColor = [UIColor blackColor].CGColor;
         activityView.layer.shadowOpacity = JKToastShadowOpacity;
         activityView.layer.shadowRadius = JKToastShadowRadius;
@@ -270,7 +270,7 @@ NSString * const JKToastPositionBottom          = @"bottom";
     wrapperView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
     wrapperView.layer.cornerRadius = JKToastCornerRadius;
     
-    if (JKToastDisplayShadow) {
+    if (XYDToastDisplayShadow) {
         wrapperView.layer.shadowColor = [UIColor blackColor].CGColor;
         wrapperView.layer.shadowOpacity = JKToastShadowOpacity;
         wrapperView.layer.shadowRadius = JKToastShadowRadius;
@@ -282,7 +282,7 @@ NSString * const JKToastPositionBottom          = @"bottom";
     if(image != nil) {
         imageView = [[UIImageView alloc] initWithImage:image];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.frame = CGRectMake(JKToastHorizontalPadding, JKToastVerticalPadding, JKToastImageViewWidth, JKToastImageViewHeight);
+        imageView.frame = CGRectMake(XYDToastHorizontalPadding, JKToastVerticalPadding, JKToastImageViewWidth, JKToastImageViewHeight);
     }
     
     CGFloat imageWidth, imageHeight, imageLeft;
@@ -357,8 +357,8 @@ NSString * const JKToastPositionBottom          = @"bottom";
     CGFloat longerLeft = MAX(titleLeft, messageLeft);
     
     // wrapper width uses the longerWidth or the image width, whatever is larger. same logic applies to the wrapper height
-    CGFloat wrapperWidth = MAX((imageWidth + (JKToastHorizontalPadding * 2)), (longerLeft + longerWidth + JKToastHorizontalPadding));    
-    CGFloat wrapperHeight = MAX((messageTop + messageHeight + JKToastVerticalPadding), (imageHeight + (JKToastVerticalPadding * 2)));
+    CGFloat wrapperWidth = MAX((imageWidth + (XYDToastHorizontalPadding * 2)), (longerLeft + longerWidth + JKToastHorizontalPadding));    
+    CGFloat wrapperHeight = MAX((messageTop + messageHeight + JKToastVerticalPadding), (imageHeight + (XYDToastVerticalPadding * 2)));
                          
     wrapperView.frame = CGRectMake(0.0, 0.0, wrapperWidth, wrapperHeight);
     

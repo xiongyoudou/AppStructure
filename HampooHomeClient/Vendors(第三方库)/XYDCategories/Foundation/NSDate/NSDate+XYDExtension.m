@@ -8,7 +8,7 @@
 
 #import "NSDate+XYDExtension.h"
 
-@implementation NSDate (JKExtension)
+@implementation NSDate (XYDExtension)
 
 - (NSUInteger)xyd_day {
     return [NSDate xyd_day:self];

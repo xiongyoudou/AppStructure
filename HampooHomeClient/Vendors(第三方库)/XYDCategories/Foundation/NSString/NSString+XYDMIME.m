@@ -8,7 +8,7 @@
 
 #import "NSString+XYDMIME.h"
 
-@implementation NSString (JKMIME)
+@implementation NSString (XYDMIME)
 /**
  *  @brief  根据文件url后缀 返回对应的MIMEType
  *

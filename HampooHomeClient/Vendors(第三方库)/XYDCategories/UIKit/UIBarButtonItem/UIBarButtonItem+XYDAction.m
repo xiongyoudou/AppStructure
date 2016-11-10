@@ -10,7 +10,7 @@ char * const UIBarButtonItemJKActionBlock = "UIBarButtonItemJKActionBlock";
 #import "UIBarButtonItem+XYDAction.h"
 #import <objc/runtime.h>
 
-@implementation UIBarButtonItem (JKAction)
+@implementation UIBarButtonItem (XYDAction)
 
 - (void)xyd_performActionBlock {
     

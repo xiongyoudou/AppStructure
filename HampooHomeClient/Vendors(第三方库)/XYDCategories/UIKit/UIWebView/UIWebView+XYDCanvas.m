@@ -8,7 +8,7 @@
 
 #import "UIWebView+XYDCanvas.h"
 #import "UIColor+XYDWeb.h"
-@implementation UIWebView (JKCanvas)
+@implementation UIWebView (XYDCanvas)
 /// 创建一个指定大小的透明画布
 - (void)xyd_createCanvas:(NSString *)canvasId width:(NSInteger)width height:(NSInteger)height
 {

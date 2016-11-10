@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSUserDefaults (JKSafeAccess)
+@interface NSUserDefaults (XYDSafeAccess)
 + (NSString *)xyd_stringForKey:(NSString *)defaultName;
 
 + (NSArray *)xyd_arrayForKey:(NSString *)defaultName;

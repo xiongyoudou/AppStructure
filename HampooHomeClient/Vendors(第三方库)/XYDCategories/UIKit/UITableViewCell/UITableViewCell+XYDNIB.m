@@ -8,7 +8,7 @@
 
 #import "UITableViewCell+XYDNIB.h"
 
-@implementation UITableViewCell (JKNIB)
+@implementation UITableViewCell (XYDNIB)
 /**
  *  @brief  加载同类名的nib
  *

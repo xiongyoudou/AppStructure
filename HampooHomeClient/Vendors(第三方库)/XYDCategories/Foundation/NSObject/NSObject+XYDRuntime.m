@@ -95,7 +95,7 @@ void xyd_method_replace(Class toClass, Class fromClass, SEL selector)
     class_replaceMethod(toClass, method_getName(method), method_getImplementation(method), method_getTypeEncoding(method));
 }
 
-@implementation NSObject (JKRuntime)
+@implementation NSObject (XYDRuntime)
 
 + (void)xyd_swizzleMethod:(SEL)originalMethod withMethod:(SEL)newMethod
 {

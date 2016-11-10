@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSInvocation (JKBb)
+@interface NSInvocation (XYDBb)
 
 
 + (id)xyd_doInstanceMethodTarget:(id)target

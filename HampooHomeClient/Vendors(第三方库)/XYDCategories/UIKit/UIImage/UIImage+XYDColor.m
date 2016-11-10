@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDColor.h"
 
-@implementation UIImage (JKColor)
+@implementation UIImage (XYDColor)
 /**
  *  @brief  根据颜色生成纯色图片
  *

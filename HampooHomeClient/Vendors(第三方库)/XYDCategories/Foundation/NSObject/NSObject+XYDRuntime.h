@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (JKRuntime)
+@interface NSObject (XYDRuntime)
 
 /**
  Exchange methods' implementations.

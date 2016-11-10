@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSSet (JKBlock)
+@interface NSSet (XYDBlock)
 - (void)xyd_each:(void (^)(id))block;
 - (void)xyd_eachWithIndex:(void (^)(id, int))block;
 - (NSArray *)xyd_map:(id (^)(id object))block;

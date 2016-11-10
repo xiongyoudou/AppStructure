@@ -14,7 +14,7 @@ static BOOL (^__xyd_shouldLoadBlock)(UIWebView *webView, NSURLRequest *request, 
 
 static uint __xyd_loadedWebItems;
 
-@implementation UIWebView (JKBlock)
+@implementation UIWebView (XYDBlock)
 
 #pragma mark - UIWebView+Blocks
 

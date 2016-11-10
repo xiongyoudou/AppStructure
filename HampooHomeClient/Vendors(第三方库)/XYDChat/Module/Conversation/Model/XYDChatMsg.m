@@ -7,6 +7,7 @@
 //
 
 #import "XYDChatMsg.h"
+#import "XYDUserDelegate.h"
 
 @interface XYDChatMsg ()
 @property (nonatomic, copy)  NSString *text;

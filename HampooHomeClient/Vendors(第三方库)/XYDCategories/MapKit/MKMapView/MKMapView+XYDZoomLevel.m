@@ -13,7 +13,7 @@
 #define xyd_MERCATOR_OFFSET 268435456
 #define xyd_MERCATOR_RADIUS 85445659.44705395
 
-@implementation MKMapView (JKZoomLevel)
+@implementation MKMapView (XYDZoomLevel)
 
 #pragma mark -
 #pragma mark Map conversion methods

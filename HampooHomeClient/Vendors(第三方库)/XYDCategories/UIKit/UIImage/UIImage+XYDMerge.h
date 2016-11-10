@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKMerge)
+@interface UIImage (XYDMerge)
 /**
  *  @brief  合并两个图片
  *

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMsg.h"
 #import "MLLinkLabel.h"
+#import "XYDChatContentView.h"
+#import "XYDMessageSendStateV.h"
 
 @class XYDChatMessageCell;
 
@@ -40,7 +42,7 @@
 + (void)registerCustomMessageCell;
 + (void)registerSubclass;
 - (void)addGeneralView;
-@property (nonatomic, strong, readonly) LCCKMessage *message;
+@property (nonatomic, strong, readonly) XYDChatMsg *message;
 
 //FIXME:retain cycle
 @property (nonatomic, strong) UITableView *tableView;
@@ -59,7 +61,7 @@
 /**
  *  显示用户消息主体的View,所有的消息用到的textView,imageView都会被添加到这个view中 -> LCCKContentView 自带一个CAShapeLayer的蒙版
  */
-@property (nonatomic, strong) LCCKContentView *messageContentView;
+@property (nonatomic, strong) XYDChatContentView *messageContentView;
 
 /**
  *  显示消息阅读状态的UIImageView -> 主要用于VoiceMessage
@@ -69,7 +71,7 @@
 /**
  *  显示消息发送状态的UIImageView -> 用于消息发送不成功时显示
  */
-@property (nonatomic, strong) LCCKMessageSendStateView *messageSendStateView;
+@property (nonatomic, strong) XYDMessageSendStateV *messageSendStateView;
 
 /**
  *  messageContentView的背景层
@@ -81,27 +83,27 @@
 /**
  *  消息的类型,只读类型,会根据自己的具体实例类型进行判断
  */
-@property (nonatomic, assign, readonly) AVIMMessageMediaType mediaType;
+@property (nonatomic, assign, readonly) XYDChatMessageMediaType mediaType;
 
 /**
  *  消息的所有者,只读类型,会根据自己的reuseIdentifier进行判断
  */
-@property (nonatomic, assign, readonly) LCCKMessageOwnerType messageOwner;
+@property (nonatomic, assign, readonly) XYDChatMessageOwnerType messageOwner;
 
 /**
  *  消息群组类型,只读类型,根据reuseIdentifier判断
  */
-@property (nonatomic, assign) LCCKConversationType messageChatType;
+@property (nonatomic, assign) XYDChatConversationType messageChatType;
 
 /**
  *  消息发送状态,当状态为LCCKMessageSendFail或LCCKMessageSendStateSending时,LCCKmessageSendStateImageView显示
  */
-@property (nonatomic, assign) LCCKMessageSendState messageSendState;
+@property (nonatomic, assign) XYDChatMessageSendState messageSendState;
 
 /**
  *  消息阅读状态,当状态为LCCKMessageUnRead时,LCCKmessageReadStateImageView显示
  */
-@property (nonatomic, assign) LCCKMessageReadState messageReadState;
+@property (nonatomic, assign) XYDChatMessageReadState messageReadState;
 
 #pragma mark - Public Methods
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JKScreenshot)
+@interface UIView (XYDScreenshot)
 /**
  *  @brief  view截图
  *

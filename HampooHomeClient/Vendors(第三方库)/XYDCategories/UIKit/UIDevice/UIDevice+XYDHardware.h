@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UIDevice (JKHardware)
+@interface UIDevice (XYDHardware)
 + (NSString *)xyd_platform;
 + (NSString *)xyd_platformString;
 

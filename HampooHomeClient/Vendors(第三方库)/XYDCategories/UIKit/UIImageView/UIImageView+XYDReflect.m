@@ -8,7 +8,7 @@
 
 #import "UIImageView+XYDReflect.h"
 
-@implementation UIImageView (JKReflect)
+@implementation UIImageView (XYDReflect)
 /**
  *  @brief  倒影
  */

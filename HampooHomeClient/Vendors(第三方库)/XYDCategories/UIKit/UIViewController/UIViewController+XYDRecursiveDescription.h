@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (JKRecursiveDescription)
+@interface UIViewController (XYDRecursiveDescription)
 /**
  *  @brief  视图层级
  *

@@ -12,7 +12,7 @@
 
 @end
 
-@implementation UIWebView (JKSwipeGesture)
+@implementation UIWebView (XYDSwipeGesture)
 
 - (void)xyd_useSwipeGesture {
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(xyd_swipeRight:)];

@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITextField (JKHistory)
+@interface UITextField (XYDHistory)
 
 /**
  *  identity of this textfield

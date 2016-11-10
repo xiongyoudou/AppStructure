@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKJavaScript)
+@interface UIWebView (XYDJavaScript)
 
 #pragma mark -
 #pragma mark 获取网页中的数据

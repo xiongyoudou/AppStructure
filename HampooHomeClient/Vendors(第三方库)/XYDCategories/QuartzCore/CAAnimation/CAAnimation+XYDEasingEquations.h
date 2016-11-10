@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, CAAnimationEasingFunction) {
     CAAnimationEasingFunctionEaseInOutBounce
 };
 
-@interface CAAnimation (JKEasingEquations)
+@interface CAAnimation (XYDEasingEquations)
 + (CAKeyframeAnimation*)xyd_transformAnimationWithDuration:(CGFloat)duration
                                                   from:(CATransform3D)startValue
                                                     to:(CATransform3D)endValue

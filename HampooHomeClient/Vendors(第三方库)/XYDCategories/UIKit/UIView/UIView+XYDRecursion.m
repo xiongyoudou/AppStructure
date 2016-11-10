@@ -8,7 +8,7 @@
 
 #import "UIView+XYDRecursion.h"
 
-@implementation UIView (JKRecursion)
+@implementation UIView (XYDRecursion)
 /**
  *  @brief  寻找子视图
  *
@@ -32,7 +32,7 @@
 }
 
 
--(void)xyd_runBlockOnAllSubviews:(JKSubviewBlock)block
+-(void)xyd_runBlockOnAllSubviews:(XYDSubviewBlock)block
 {
     block(self);
     for (UIView* view in [self subviews])
@@ -41,7 +41,7 @@
     }
 }
 
--(void)xyd_runBlockOnAllSuperviews:(JKSuperviewBlock)block
+-(void)xyd_runBlockOnAllSuperviews:(XYDSuperviewBlock)block
 {
     block(self);
     if (self.superview)

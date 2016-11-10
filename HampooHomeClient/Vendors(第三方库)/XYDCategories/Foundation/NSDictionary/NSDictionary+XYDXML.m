@@ -8,7 +8,7 @@
 
 #import "NSDictionary+XYDXML.h"
 
-@implementation NSDictionary (JKXML)
+@implementation NSDictionary (XYDXML)
 /**
  *  @brief  将NSDictionary转换成XML 字符串
  *

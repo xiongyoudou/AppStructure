@@ -28,7 +28,7 @@ static char kAutomaticWritingOperationQueueKey;
 static char kAutomaticWritingEdgeInsetsKey;
 
 
-@implementation UILabel (JKAutomaticWriting)
+@implementation UILabel (XYDAutomaticWriting)
 
 @dynamic xyd_automaticWritingOperationQueue, xyd_edgeInsets;
 

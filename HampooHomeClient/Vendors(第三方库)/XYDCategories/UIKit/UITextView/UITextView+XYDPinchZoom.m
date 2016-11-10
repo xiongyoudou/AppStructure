@@ -11,7 +11,7 @@ static int xyd_minFontSizeKey;
 static int xyd_maxFontSizeKey;
 static int xyd_zoomEnabledKey;
 
-@implementation UITextView (JKPinchZoom)
+@implementation UITextView (XYDPinchZoom)
 
 - (void)setxyd_maxFontSize:(CGFloat)maxFontSize
 {

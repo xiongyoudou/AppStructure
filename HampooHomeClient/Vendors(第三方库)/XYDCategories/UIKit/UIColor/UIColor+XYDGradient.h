@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (JKGradient)
+@interface UIColor (XYDGradient)
 /**
  *  @brief  渐变颜色
  *

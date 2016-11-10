@@ -6,7 +6,7 @@
 //
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObjectContext (JKObjectClear)
+@interface NSManagedObjectContext (XYDObjectClear)
 /* Delete all given objects*/
 - (void)xyd_deleteObjects:(id <NSFastEnumeration>)objects;
 @end

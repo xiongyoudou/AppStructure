@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKEncrypt)
+@interface NSString (XYDEncrypt)
 - (NSString*)xyd_encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv;
 - (NSString*)xyd_decryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv;
 

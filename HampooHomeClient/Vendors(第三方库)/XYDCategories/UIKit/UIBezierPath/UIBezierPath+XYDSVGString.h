@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBezierPath (JKSVGString)
+@interface UIBezierPath (XYDSVGString)
 /**
  *  @brief  UIBezierPath转成SVG
  *

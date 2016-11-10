@@ -9,7 +9,7 @@
 #import "UIView+XYDDraggable.h"
 #import <objc/runtime.h>
 
-@implementation UIView (JKDraggable)
+@implementation UIView (XYDDraggable)
 
 - (void)setxyd_panGesture:(UIPanGestureRecognizer*)panGesture
 {

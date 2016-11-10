@@ -8,6 +8,8 @@
 
 #import "XYDChatMessageCell.h"
 
-@interface XYDChatVoiceMessageCell : XYDChatMessageCell
+@interface XYDChatVoiceMessageCell : XYDChatMessageCell<XYDChatMessageCellSubclassing>
+
+@property (nonatomic, assign) XYDChatVoiceMessageState voiceMessageState;
 
 @end

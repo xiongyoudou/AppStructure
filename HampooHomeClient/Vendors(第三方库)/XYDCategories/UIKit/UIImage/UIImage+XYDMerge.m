@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDMerge.h"
 
-@implementation UIImage (JKMerge)
+@implementation UIImage (XYDMerge)
 /**
  *  @brief  合并两个图片
  *

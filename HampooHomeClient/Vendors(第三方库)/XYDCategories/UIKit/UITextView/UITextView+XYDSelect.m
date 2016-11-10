@@ -8,7 +8,7 @@
 
 #import "UITextView+XYDSelect.h"
 
-@implementation UITextView (JKSelect)
+@implementation UITextView (XYDSelect)
 /**
  *  @brief  当前选中的字符串范围
  *

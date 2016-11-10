@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (JKParam)
+@interface NSURL (XYDParam)
 /**
  *  @brief  url参数转字典
  *

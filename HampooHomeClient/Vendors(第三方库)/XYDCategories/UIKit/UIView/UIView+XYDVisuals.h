@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface UIView (JKVisuals)
+@interface UIView (XYDVisuals)
 
 /*
  *  Sets a corners with radius, given stroke size & color

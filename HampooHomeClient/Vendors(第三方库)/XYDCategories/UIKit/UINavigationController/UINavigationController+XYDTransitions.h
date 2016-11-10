@@ -28,7 +28,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (JKTransitions)
+@interface UINavigationController (XYDTransitions)
 
 - (void)xyd_pushViewController:(UIViewController *)controller withTransition:(UIViewAnimationTransition)transition;
 - (UIViewController *)xyd_popViewControllerWithTransition:(UIViewAnimationTransition)transition;

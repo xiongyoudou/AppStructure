@@ -7,7 +7,7 @@
 //
 //https://github.com/damienromito/NSString-Matcher
 #import <Foundation/Foundation.h>
-@interface NSString(JKMatcher)
+@interface NSString(XYDMatcher)
 - (NSArray *)xyd_matchWithRegex:(NSString *)regex;
 - (NSString *)xyd_matchWithRegex:(NSString *)regex atIndex:(NSUInteger)index;
 - (NSString *)xyd_firstMatchedGroupWithRegex:(NSString *)regex;

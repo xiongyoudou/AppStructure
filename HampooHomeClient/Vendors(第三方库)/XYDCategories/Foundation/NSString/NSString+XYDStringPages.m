@@ -8,7 +8,7 @@
 
 #import "NSString+XYDStringPages.h"
 
-@implementation NSString (JKStringPages)
+@implementation NSString (XYDStringPages)
 
 - (NSArray *)xyd_getPagesOfString:(NSString *)cache
                      withFont:(UIFont*)font

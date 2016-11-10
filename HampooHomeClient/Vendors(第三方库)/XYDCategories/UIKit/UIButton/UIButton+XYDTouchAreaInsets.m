@@ -25,7 +25,7 @@
 #import <objc/runtime.h>
 #import "UIButton+XYDTouchAreaInsets.h"
 
-@implementation UIButton (JKTouchAreaInsets)
+@implementation UIButton (XYDTouchAreaInsets)
 
 - (UIEdgeInsets)xyd_touchAreaInsets
 {

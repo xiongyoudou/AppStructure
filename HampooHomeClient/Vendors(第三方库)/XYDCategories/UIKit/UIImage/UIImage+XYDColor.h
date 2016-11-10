@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKColor)
+@interface UIImage (XYDColor)
 /**
  *  @brief  根据颜色生成纯色图片
  *

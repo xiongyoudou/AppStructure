@@ -14,7 +14,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSTimer (JKBlocks)
+@interface NSTimer (XYDBlocks)
 +(id)xyd_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)())inBlock repeats:(BOOL)inRepeats;
 +(id)xyd_timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)())inBlock repeats:(BOOL)inRepeats;
 @end

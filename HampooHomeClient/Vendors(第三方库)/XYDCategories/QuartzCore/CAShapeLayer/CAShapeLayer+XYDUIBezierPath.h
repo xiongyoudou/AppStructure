@@ -35,7 +35,7 @@
 /**
  Category on `CAShapeLayer`, that allows setting and getting UIBezierPath on CAShapeLayer.
  */
-@interface CAShapeLayer (JKUIBezierPath)
+@interface CAShapeLayer (XYDUIBezierPath)
 
 /**
  Update CAShapeLayer with UIBezierPath.

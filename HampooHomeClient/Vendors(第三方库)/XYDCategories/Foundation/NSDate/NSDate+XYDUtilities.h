@@ -12,7 +12,7 @@
 #define D_DAY	86400
 #define D_WEEK	604800
 #define D_YEAR	31556926
-@interface NSDate (JKUtilities)
+@interface NSDate (XYDUtilities)
 
 + (NSCalendar *)xyd_currentCalendar; // avoid bottlenecks
 

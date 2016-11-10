@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSFileManager (JKPaths)
+@interface NSFileManager (XYDPaths)
 
 /**
  Get URL of Documents directory.

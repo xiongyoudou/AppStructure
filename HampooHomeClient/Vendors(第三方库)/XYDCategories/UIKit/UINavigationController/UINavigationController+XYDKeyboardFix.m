@@ -8,7 +8,7 @@
 
 #import "UINavigationController+XYDKeyboardFix.h"
 
-@implementation UINavigationController (JKKeyboardFix)
+@implementation UINavigationController (XYDKeyboardFix)
 
 // This fixes an issue with the keyboard not dismissing on the iPad's login screen.
 // http://stackoverflow.com/questions/3372333/ipad-keyboard-will-not-dismiss-if-modal-view-controller-presentation-style-is-ui/3386768#3386768

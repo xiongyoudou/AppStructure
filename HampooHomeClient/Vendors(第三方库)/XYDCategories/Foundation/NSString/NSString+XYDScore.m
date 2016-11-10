@@ -9,7 +9,7 @@
 
 #import "NSString+XYDScore.h"
 
-@implementation NSString (JKScore)
+@implementation NSString (XYDScore)
 
 - (CGFloat)xyd_scoreAgainst:(NSString *)otherString{
     return [self xyd_scoreAgainst:otherString fuzziness:nil];

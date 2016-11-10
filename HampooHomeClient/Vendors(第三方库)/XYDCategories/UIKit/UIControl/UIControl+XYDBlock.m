@@ -55,7 +55,7 @@
 
 @end
 
-@implementation UIControl (JKBlock)
+@implementation UIControl (XYDBlock)
 
 xyd_UICONTROL_EVENT(xyd_touchDown, TouchDown)
 xyd_UICONTROL_EVENT(xyd_touchDownRepeat, TouchDownRepeat)

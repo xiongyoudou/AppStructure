@@ -8,7 +8,7 @@
 
 #import "NSArray+XYDSafeAccess.h"
 
-@implementation NSArray (JKSafeAccess)
+@implementation NSArray (XYDSafeAccess)
 -(id)xyd_objectWithIndex:(NSUInteger)index{
     if (index <self.count) {
         return self[index];
@@ -300,7 +300,7 @@
 
 
 #pragma --mark NSMutableArray setter
-@implementation NSMutableArray (JKSafeAccess)
+@implementation NSMutableArray (XYDSafeAccess)
 -(void)xyd_addObj:(id)i{
     if (i!=nil) {
         [self addObject:i];

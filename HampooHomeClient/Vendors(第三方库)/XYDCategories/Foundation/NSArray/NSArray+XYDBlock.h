@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (JKBlock)
+@interface NSArray (XYDBlock)
 - (void)xyd_each:(void (^)(id object))block;
 - (void)xyd_eachWithIndex:(void (^)(id object, NSUInteger index))block;
 - (NSArray *)xyd_map:(id (^)(id object))block;

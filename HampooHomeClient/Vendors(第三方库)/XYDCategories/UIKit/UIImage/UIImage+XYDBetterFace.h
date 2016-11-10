@@ -15,9 +15,9 @@ typedef NS_ENUM(NSUInteger, JKAccuracy) {
     JKAccuracyHigh,
 };
 
-@interface UIImage (JKBetterFace)
+@interface UIImage (XYDBetterFace)
 
 - (UIImage *)xyd_betterFaceImageForSize:(CGSize)size
-                           accuracy:(JKAccuracy)accurary;
+                           accuracy:(XYDAccuracy)accurary;
 
 @end

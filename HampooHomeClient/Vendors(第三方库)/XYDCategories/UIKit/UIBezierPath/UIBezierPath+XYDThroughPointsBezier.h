@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBezierPath (JKThroughPointsBezier)
+@interface UIBezierPath (XYDThroughPointsBezier)
 
 /**
  *  The curve‘s bend level. The good value is about 0.6 ~ 0.8. The default and recommended value is 0.7.

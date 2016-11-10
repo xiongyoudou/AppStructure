@@ -27,7 +27,7 @@
 typedef BOOL (^JKUITextFieldReturnBlock) (UITextField *textField);
 typedef void (^JKUITextFieldVoidBlock) (UITextField *textField);
 typedef BOOL (^JKUITextFieldCharacterChangeBlock) (UITextField *textField, NSRange range, NSString *replacementString);
-@implementation UITextField (JKBlocks)
+@implementation UITextField (XYDBlocks)
 static const void *JKUITextFieldDelegateKey = &JKUITextFieldDelegateKey;
 static const void *JKUITextFieldShouldBeginEditingKey = &JKUITextFieldShouldBeginEditingKey;
 static const void *JKUITextFieldShouldEndEditingKey = &JKUITextFieldShouldEndEditingKey;

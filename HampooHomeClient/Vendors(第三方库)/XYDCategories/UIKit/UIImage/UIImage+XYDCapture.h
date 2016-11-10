@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKCapture)
+@interface UIImage (XYDCapture)
 /**
  *  @brief  截图指定view成图片
  *

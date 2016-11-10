@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDCapture.h"
 #import <QuartzCore/QuartzCore.h>
-@implementation UIImage (JKCapture)
+@implementation UIImage (XYDCapture)
 /**
  *  @brief  截图指定view成图片
  *

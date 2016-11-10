@@ -30,7 +30,7 @@
 
 static const void *UIViewControllerDictionaryBlockKey = &UIViewControllerDictionaryBlockKey;
 
-@implementation UIViewController (JKBlockSegue)
+@implementation UIViewController (XYDBlockSegue)
 
 __attribute__((constructor))
 void JKBlockSegue(void) {

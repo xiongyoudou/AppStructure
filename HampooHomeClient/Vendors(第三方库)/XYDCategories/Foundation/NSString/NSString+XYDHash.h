@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface NSString (JKHash)
+@interface NSString (XYDHash)
 @property (readonly) NSString *xyd_md5String;
 @property (readonly) NSString *xyd_sha1String;
 @property (readonly) NSString *xyd_sha256String;

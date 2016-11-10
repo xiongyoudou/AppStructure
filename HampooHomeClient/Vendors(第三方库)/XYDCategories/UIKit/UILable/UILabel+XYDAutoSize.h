@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (JKAutoSize)
+@interface UILabel (XYDAutoSize)
 /**
  * 垂直方向固定获取动态宽度的UILabel的方法
  *

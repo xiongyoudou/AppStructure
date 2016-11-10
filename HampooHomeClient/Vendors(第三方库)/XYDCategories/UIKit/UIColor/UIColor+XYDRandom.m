@@ -8,7 +8,7 @@
 
 #import "UIColor+XYDRandom.h"
 
-@implementation UIColor (JKRandom)
+@implementation UIColor (XYDRandom)
 + (UIColor *)xyd_randomColor {
     NSInteger aRedValue = arc4random() % 255;
     NSInteger aGreenValue = arc4random() % 255;

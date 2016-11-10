@@ -32,15 +32,15 @@ typedef enum {
     JKPermissionAccessMissingFramework, //Developer didn't import the required framework to the project
 } JKPermissionAccess;
 
-@interface UIApplication (JKPermissions)
+@interface UIApplication (XYDPermissions)
 
 //Check permission of service. Cannot check microphone or motion without asking user for permission
--(JKPermissionAccess)xyd_hasAccessToBluetoothLE;
--(JKPermissionAccess)xyd_hasAccessToCalendar;
--(JKPermissionAccess)xyd_hasAccessToContacts;
--(JKPermissionAccess)xyd_hasAccessToLocation;
--(JKPermissionAccess)xyd_hasAccessToPhotos;
--(JKPermissionAccess)xyd_hasAccessToReminders;
+-(XYDPermissionAccess)xyd_hasAccessToBluetoothLE;
+-(XYDPermissionAccess)xyd_hasAccessToCalendar;
+-(XYDPermissionAccess)xyd_hasAccessToContacts;
+-(XYDPermissionAccess)xyd_hasAccessToLocation;
+-(XYDPermissionAccess)xyd_hasAccessToPhotos;
+-(XYDPermissionAccess)xyd_hasAccessToReminders;
 
 //Request permission with callback
 -(void)xyd_requestAccessToCalendarWithSuccess:(void(^)())accessGranted andFailure:(void(^)())accessDenied;

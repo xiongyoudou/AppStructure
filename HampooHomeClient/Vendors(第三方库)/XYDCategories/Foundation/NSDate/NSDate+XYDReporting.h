@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface NSDate (JKReporting)
+@interface NSDate (XYDReporting)
 
 // Return a date with a specified year, month and day.
 + (NSDate *)xyd_dateWithYear:(int)year month:(int)month day:(int)day;

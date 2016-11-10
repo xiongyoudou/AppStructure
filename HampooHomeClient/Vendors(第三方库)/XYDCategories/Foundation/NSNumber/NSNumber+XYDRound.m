@@ -8,7 +8,7 @@
 
 #import "NSNumber+XYDRound.h"
 
-@implementation NSNumber (JKRound)
+@implementation NSNumber (XYDRound)
 #pragma mark - Display
 - (NSString*)xyd_toDisplayNumberWithDigit:(NSInteger)digit
 {

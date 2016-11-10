@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSData (JKDataCache)
+@interface NSData (XYDDataCache)
 
 /**
  *  将URL作为key保存到磁盘里缓存起来

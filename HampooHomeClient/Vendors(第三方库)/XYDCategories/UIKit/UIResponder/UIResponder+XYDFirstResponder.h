@@ -27,7 +27,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIResponder (JKFirstResponder)
+@interface UIResponder (XYDFirstResponder)
 /**
  *  @brief  当前第一响应者
  *

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (JKPages)
+@interface UIScrollView (XYDPages)
 - (NSInteger)xyd_pages;
 - (NSInteger)xyd_currentPage;
 - (CGFloat)xyd_scrollPercent;

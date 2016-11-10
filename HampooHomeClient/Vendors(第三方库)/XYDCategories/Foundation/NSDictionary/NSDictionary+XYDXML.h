@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (JKXML)
+@interface NSDictionary (XYDXML)
 /**
  *  @brief  将NSDictionary转换成XML 字符串
  *

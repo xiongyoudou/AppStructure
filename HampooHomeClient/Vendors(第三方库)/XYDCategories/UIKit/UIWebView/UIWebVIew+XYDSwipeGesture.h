@@ -22,7 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKSwipeGesture)
+@interface UIWebView (XYDSwipeGesture)
 
 - (void)xyd_useSwipeGesture;
 

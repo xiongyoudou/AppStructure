@@ -15,7 +15,7 @@ typedef NS_OPTIONS(NSUInteger, NSStringJKScoreOption) {
 };
 
 //模糊匹配字符串 查找某两个字符串的相似程度
-@interface NSString (JKScore)
+@interface NSString (XYDScore)
 
 - (CGFloat)xyd_scoreAgainst:(NSString *)otherString;
 - (CGFloat)xyd_scoreAgainst:(NSString *)otherString fuzziness:(NSNumber *)fuzziness;

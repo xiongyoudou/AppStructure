@@ -16,7 +16,7 @@ float xyd_radiansForDegrees(int degrees) {
 }
 
 
-@implementation UIView (JKAnimation)
+@implementation UIView (XYDAnimation)
 
 #pragma mark - Moves
 

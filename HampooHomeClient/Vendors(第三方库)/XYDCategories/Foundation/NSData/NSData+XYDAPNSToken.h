@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (JKAPNSToken)
+@interface NSData (XYDAPNSToken)
 /**
  *  @brief  将APNS NSData类型token 格式化成字符串
  *

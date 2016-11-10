@@ -8,7 +8,7 @@
 
 #import "NSDecimalNumber+XYDExtensions.h"
 
-@implementation NSDecimalNumber (JKExtensions)
+@implementation NSDecimalNumber (XYDExtensions)
 /**
  *  @brief  四舍五入 NSRoundPlain
  *

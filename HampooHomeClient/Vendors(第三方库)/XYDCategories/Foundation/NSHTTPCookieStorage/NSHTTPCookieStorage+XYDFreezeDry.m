@@ -23,7 +23,7 @@
 
 #import "NSHTTPCookieStorage+XYDFreezeDry.h"
 
-@implementation NSHTTPCookieStorage (JKFreezeDry)
+@implementation NSHTTPCookieStorage (XYDFreezeDry)
 /**
  *  @brief  /Persists UIWebView cookies to disk
  */

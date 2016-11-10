@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (JKURL)
+@interface NSDictionary (XYDURL)
 /**
  *  @brief  将url参数转换成NSDictionary
  *

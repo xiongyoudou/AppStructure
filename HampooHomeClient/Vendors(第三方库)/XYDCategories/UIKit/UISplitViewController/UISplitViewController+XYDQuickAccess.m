@@ -10,7 +10,7 @@
 
 #import "UISplitViewController+XYDQuickAccess.h"
 
-@implementation UISplitViewController (JKQuickAccess)
+@implementation UISplitViewController (XYDQuickAccess)
 
 - (UIViewController *)xyd_leftController {
     UIViewController * leftVC = [[self viewControllers] objectAtIndex:0];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (JKEncrypt)
+@interface NSData (XYDEncrypt)
 
 /**
  *  利用AES加密数据

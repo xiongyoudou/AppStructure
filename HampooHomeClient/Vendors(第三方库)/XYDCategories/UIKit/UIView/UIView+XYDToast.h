@@ -32,7 +32,7 @@ extern NSString * const JKToastPositionTop;
 extern NSString * const JKToastPositionCenter;
 extern NSString * const JKToastPositionBottom;
 
-@interface UIView (JKToast)
+@interface UIView (XYDToast)
 
 // each makeToast method creates a view and displays it as toast
 - (void)xyd_makeToast:(NSString *)message;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationItem (JKLock)
+@interface UINavigationItem (XYDLock)
 /**
  *  @brief  锁定RightItem
  *

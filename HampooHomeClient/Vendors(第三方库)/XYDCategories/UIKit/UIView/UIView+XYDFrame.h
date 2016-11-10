@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JKFrame)
+@interface UIView (XYDFrame)
 // shortcuts for frame properties
 @property (nonatomic, assign) CGPoint xyd_origin;
 @property (nonatomic, assign) CGSize xyd_size;

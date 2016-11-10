@@ -17,7 +17,7 @@
 
 #import "UILabel+XYDAdjustableLabel.h"
 
-@implementation UILabel (JKAdjustableLabel)
+@implementation UILabel (XYDAdjustableLabel)
 
 // General method. If minSize is set to CGSizeZero then
 // it is ignored.

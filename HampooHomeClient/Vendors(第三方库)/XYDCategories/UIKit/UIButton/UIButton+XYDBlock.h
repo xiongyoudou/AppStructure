@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 typedef void (^JKTouchedButtonBlock)(NSInteger tag);
 
-@interface UIButton (JKBlock)
--(void)xyd_addActionHandler:(JKTouchedButtonBlock)touchHandler;
+@interface UIButton (XYDBlock)
+-(void)xyd_addActionHandler:(XYDTouchedButtonBlock)touchHandler;
 @end

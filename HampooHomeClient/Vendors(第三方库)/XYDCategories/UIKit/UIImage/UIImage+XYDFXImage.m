@@ -32,7 +32,7 @@
 
 #import "UIImage+XYDFXImage.h"
 
-@implementation UIImage (JKFXImage)
+@implementation UIImage (XYDFXImage)
 
 - (UIImage *)xyd_imageCroppedToRect:(CGRect)rect
 {

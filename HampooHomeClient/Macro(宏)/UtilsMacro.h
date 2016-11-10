@@ -73,7 +73,8 @@
 #define KApplication (UIApplication *)[UIApplication sharedApplication]
 
 // 功能区
-#define KStretch_Image(image, edgeInsets) (KCurrentSyetemVersion < 6.0 ? [image stretchableImageWithLeftCapWidth:edgeInsets.left topCapHeight:edgeInsets.top] : [image resizableImageWithCapInsets:edgeInsets resizingMode:UIImageResizingModeStretch])
+// image STRETCH
+#define STRETCH_IMAGE(image, edgeInsets) [image resizableImageWithCapInsets:edgeInsets resizingMode:UIImageResizingModeStretch]
 #define KMax(a,b) (a)>(b)?(a):(b);
 
 // 正则表达式

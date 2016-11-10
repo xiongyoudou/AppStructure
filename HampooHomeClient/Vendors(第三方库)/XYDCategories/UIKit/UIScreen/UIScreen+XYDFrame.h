@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScreen (JKFrame)
+@interface UIScreen (XYDFrame)
 + (CGSize)xyd_size;
 + (CGFloat)xyd_width;
 + (CGFloat)xyd_height;

@@ -8,7 +8,7 @@
 
 #import "UIView+XYDNib.h"
 
-@implementation UIView (JKNib)
+@implementation UIView (XYDNib)
 #pragma mark - Nibs
 + (UINib *)xyd_loadNib
 {

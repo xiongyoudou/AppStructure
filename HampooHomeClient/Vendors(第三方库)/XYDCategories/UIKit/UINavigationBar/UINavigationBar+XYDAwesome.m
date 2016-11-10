@@ -9,7 +9,7 @@
 #import "UINavigationBar+XYDAwesome.h"
 #import <objc/runtime.h>
 
-@implementation UINavigationBar (JKAwesome)
+@implementation UINavigationBar (XYDAwesome)
 static char xyd_overlayKey;
 
 - (UIView *)xyd_overlay

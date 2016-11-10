@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKFileName)
+@interface UIImage (XYDFileName)
 /**
  *  @brief  根据main bundle中的文件名读取图片
  *

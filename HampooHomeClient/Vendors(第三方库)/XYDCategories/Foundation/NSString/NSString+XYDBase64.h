@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKBase64)
+@interface NSString (XYDBase64)
 + (NSString *)xyd_stringWithBase64EncodedString:(NSString *)string;
 - (NSString *)xyd_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)xyd_base64EncodedString;

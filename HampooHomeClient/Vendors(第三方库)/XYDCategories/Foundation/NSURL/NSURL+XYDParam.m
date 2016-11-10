@@ -8,7 +8,7 @@
 
 #import "NSURL+XYDParam.h"
 
-@implementation NSURL (JKParam)
+@implementation NSURL (XYDParam)
 /**
  *  @brief  url参数转字典
  *

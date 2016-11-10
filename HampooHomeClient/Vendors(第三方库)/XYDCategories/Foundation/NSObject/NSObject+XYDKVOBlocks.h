@@ -27,13 +27,13 @@
 #import <Foundation/Foundation.h>
 typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
 
-@interface NSObject (JKKVOBlocks)
+@interface NSObject (XYDKVOBlocks)
 
 - (void)xyd_addObserver:(NSObject *)observer
          forKeyPath:(NSString *)keyPath
             options:(NSKeyValueObservingOptions)options
             context:(void *)context
-          withBlock:(JKKVOBlock)block;
+          withBlock:(XYDKVOBlock)block;
 
 -(void)xyd_removeBlockObserver:(NSObject *)observer
                 forKeyPath:(NSString *)keyPath;
@@ -41,7 +41,7 @@ typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
 -(void)xyd_addObserverForKeyPath:(NSString *)keyPath
                      options:(NSKeyValueObservingOptions)options
                      context:(void *)context
-                   withBlock:(JKKVOBlock)block;
+                   withBlock:(XYDKVOBlock)block;
 
 -(void)xyd_removeBlockObserverForKeyPath:(NSString *)keyPath;
 

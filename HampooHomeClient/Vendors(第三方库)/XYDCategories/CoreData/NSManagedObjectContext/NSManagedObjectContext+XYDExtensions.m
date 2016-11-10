@@ -7,7 +7,7 @@
 
 #import "NSManagedObjectContext+XYDExtensions.h"
 
-@implementation NSManagedObjectContext(JKExtensions)
+@implementation NSManagedObjectContext(XYDExtensions)
 
 - (NSManagedObjectModel *)xyd_objectModel
 {

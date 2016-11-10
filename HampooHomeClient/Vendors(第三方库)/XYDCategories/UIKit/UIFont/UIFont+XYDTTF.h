@@ -34,7 +34,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIFont (JKTTF)
+@interface UIFont (XYDTTF)
 
 /**
  *  @brief  Obtain a UIFont from a TTF file. If the path to the font is not valid, an exception will be raised,

@@ -16,10 +16,10 @@
 #define BFLog(format...)
 #endif
 
-@implementation UIImage (JKBetterFace)
+@implementation UIImage (XYDBetterFace)
 
 - (UIImage *)xyd_betterFaceImageForSize:(CGSize)size
-                           accuracy:(JKAccuracy)accurary;
+                           accuracy:(XYDAccuracy)accurary;
 {
     NSArray *features = [UIImage _xyd_faceFeaturesInImage:self accuracy:accurary];
     
@@ -96,7 +96,7 @@
 
 #pragma mark - Util
 
-+ (NSArray *)_xyd_faceFeaturesInImage:(UIImage *)image accuracy:(JKAccuracy)accurary
++ (NSArray *)_xyd_faceFeaturesInImage:(UIImage *)image accuracy:(XYDAccuracy)accurary
 {
     CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
     NSString *accuraryStr = (accurary == JKAccuracyLow) ? CIDetectorAccuracyLow : CIDetectorAccuracyHigh;

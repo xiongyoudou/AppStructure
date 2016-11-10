@@ -8,7 +8,7 @@
 
 #import "UIWebView+XYDLoad.h"
 
-@implementation UIWebView (JKLoad)
+@implementation UIWebView (XYDLoad)
 /**
  *  @brief  读取一个网页地址
  *

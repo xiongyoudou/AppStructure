@@ -8,7 +8,7 @@
 
 #import "NSSet+XYDBlock.h"
 
-@implementation NSSet (JKBlock)
+@implementation NSSet (XYDBlock)
 - (void)xyd_each:(void (^)(id))block {
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         block(obj);

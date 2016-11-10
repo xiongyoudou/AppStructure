@@ -9,7 +9,7 @@
 #import "NSData+XYDEncrypt.h"
 #import <CommonCrypto/CommonCryptor.h>
 
-@implementation NSData (JKEncrypt)
+@implementation NSData (XYDEncrypt)
 /**
  *  利用AES加密数据
  *

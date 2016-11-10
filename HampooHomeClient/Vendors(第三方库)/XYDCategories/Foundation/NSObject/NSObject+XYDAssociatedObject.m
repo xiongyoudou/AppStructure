@@ -8,7 +8,7 @@
 
 #import "NSObject+XYDAssociatedObject.h"
 #import  <objc/runtime.h>
-@implementation NSObject (JKAssociatedObject)
+@implementation NSObject (XYDAssociatedObject)
 /**
  *  @brief  附加一个stong对象
  *

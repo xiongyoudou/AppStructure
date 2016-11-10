@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (JKSubmitting)
+@interface UIButton (XYDSubmitting)
 
 /**
  *  @author foxsofter, 15-04-02 15:04:59

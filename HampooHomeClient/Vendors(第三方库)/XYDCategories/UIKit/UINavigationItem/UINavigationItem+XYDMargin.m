@@ -26,7 +26,7 @@
 
 #import "UINavigationItem+XYDMargin.h"
 
-@implementation UINavigationItem (JKMargin)
+@implementation UINavigationItem (XYDMargin)
 
 + (void)load
 {

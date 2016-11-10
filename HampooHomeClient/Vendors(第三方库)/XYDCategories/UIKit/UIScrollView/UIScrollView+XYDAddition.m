@@ -8,7 +8,7 @@
 
 #import "UIScrollView+XYDAddition.h"
 
-@implementation UIScrollView (JKAddition)
+@implementation UIScrollView (XYDAddition)
 //frame
 - (CGFloat)xyd_contentWidth {
     return self.contentSize.width;
@@ -53,7 +53,7 @@
 {
     return CGPointMake(self.contentSize.width + self.contentInset.right - self.bounds.size.width, 0.0f);
 }
-- (JKScrollDirection)xyd_ScrollDirection
+- (XYDScrollDirection)xyd_ScrollDirection
 {
     JKScrollDirection direction;
     

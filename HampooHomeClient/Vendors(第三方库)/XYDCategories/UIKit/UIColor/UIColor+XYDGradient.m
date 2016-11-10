@@ -8,7 +8,7 @@
 
 #import "UIColor+XYDGradient.h"
 
-@implementation UIColor (JKGradient)
+@implementation UIColor (XYDGradient)
 
 #pragma mark - Gradient Color
 /**

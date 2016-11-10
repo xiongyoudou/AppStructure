@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKMIME)
+@interface NSString (XYDMIME)
 /**
  *  @brief  根据文件url 返回对应的MIMEType
  *

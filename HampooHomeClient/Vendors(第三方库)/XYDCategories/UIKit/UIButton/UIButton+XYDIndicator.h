@@ -29,7 +29,7 @@ SOFTWARE.
  Simple category that lets you replace the text of a button with an activity indicator.
  */
 
-@interface UIButton (JKIndicator)
+@interface UIButton (XYDIndicator)
 
 /**
  This method will show the activity indicator in place of the button text.

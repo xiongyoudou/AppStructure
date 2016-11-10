@@ -8,7 +8,7 @@
 
 #import "UIViewController+XYDVisible.h"
 
-@implementation UIViewController (JKVisible)
+@implementation UIViewController (XYDVisible)
 - (BOOL)xyd_isVisible {
     return [self isViewLoaded] && self.view.window;
 }

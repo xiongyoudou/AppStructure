@@ -12,7 +12,7 @@ typedef NS_ENUM(NSInteger, JKShakeDirection) {
     JKShakeDirectionVertical
 };
 
-@interface UIView (JKShake)
+@interface UIView (XYDShake)
 
 /**-----------------------------------------------------------------------------
  * @name UIView+Shake
@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, JKShakeDirection) {
  * @param interval The duration of one shake
  * @param direction of the shake
  */
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection;
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection;
 
 /** Shake the UIView at a custom speed
  *
@@ -86,6 +86,6 @@ typedef NS_ENUM(NSInteger, JKShakeDirection) {
  * @param direction of the shake
  * @param completion to be called when the view is done shaking
  */
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakeDirection)shakeDirection completion:(void(^)(void))completion;
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection completion:(void(^)(void))completion;
 
 @end

@@ -33,7 +33,7 @@
 + (NSDate *)xyd_firstDayOfQuarterFromDate:(NSDate *)date;
 @end
 
-@implementation NSDate (JKReporting)
+@implementation NSDate (XYDReporting)
 
 + (NSDate *)xyd_dateWithYear:(int)year month:(int)month day:(int)day {
     NSDateComponents *components = [[NSDateComponents alloc] init];

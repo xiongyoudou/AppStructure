@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface NSBundle (JKAppIcon)
+@interface NSBundle (XYDExtionsion)
 - (NSString*)xyd_appIconPath ;
 - (UIImage*)xyd_appIcon ;
++ (NSString *)xyd_bundlePathForBundleName:(NSString *)bundleName class:(Class)aClass;
++ (NSBundle *)xyd_bundleForName:(NSString *)bundleName class:(Class)aClass;
 @end

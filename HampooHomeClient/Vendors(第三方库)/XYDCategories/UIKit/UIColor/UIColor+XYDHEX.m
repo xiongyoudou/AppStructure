@@ -16,7 +16,7 @@ CGFloat xyd_colorComponentFrom(NSString *string, NSUInteger start, NSUInteger le
     return hexComponent / 255.0;
 }
 
-@implementation UIColor (JKHEX)
+@implementation UIColor (XYDHEX)
 + (UIColor *)xyd_colorWithHex:(UInt32)hex{
     return [UIColor xyd_colorWithHex:hex andAlpha:1];
 }

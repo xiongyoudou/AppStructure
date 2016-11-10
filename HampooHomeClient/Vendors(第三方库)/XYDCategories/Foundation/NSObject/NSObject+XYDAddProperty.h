@@ -12,7 +12,7 @@
 //static char IntegerProperty;
 //@selector(methodName:)
 
-@interface NSObject (JKAddProperty)
+@interface NSObject (XYDAddProperty)
 /**
  *  @brief  catgory runtime实现get set方法增加一个字符串属性
  */

@@ -10,7 +10,7 @@
 
 float xyd_radiansForDegrees(int degrees);
 
-@interface UIView (JKAnimation)
+@interface UIView (XYDAnimation)
 
 // Moves
 - (void)xyd_moveTo:(CGPoint)destination duration:(float)secs option:(UIViewAnimationOptions)option;

@@ -8,7 +8,7 @@
 
 #import "NSString+XYDTrims.h"
 
-@implementation NSString (JKTrims)
+@implementation NSString (XYDTrims)
 /**
  *  @brief  清除html标签
  *

@@ -16,7 +16,7 @@ typedef enum {
 } DateFormatHint;
 
 // A category to parse internet date & time strings
-@interface NSDate (JKInternetDateTime)
+@interface NSDate (XYDInternetDateTime)
 
 // Get date from RFC3339 or RFC822 string
 // - A format/specification hint can be used to speed up, 

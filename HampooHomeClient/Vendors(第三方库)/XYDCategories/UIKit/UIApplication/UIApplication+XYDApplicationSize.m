@@ -8,7 +8,7 @@
 
 #import "UIApplication+XYDApplicationSize.h"
 
-@implementation UIApplication (JKApplicationSize)
+@implementation UIApplication (XYDApplicationSize)
 
 - (NSString *)xyd_applicationSize {
     unsigned long long docSize   =  [self xyd_sizeOfFolder:[self xyd_documentPath]];

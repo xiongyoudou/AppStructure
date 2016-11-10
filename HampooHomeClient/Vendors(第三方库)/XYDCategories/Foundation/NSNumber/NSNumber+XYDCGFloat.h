@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface NSNumber (JKCGFloat)
+@interface NSNumber (XYDCGFloat)
 
 - (CGFloat)xyd_CGFloatValue;
 

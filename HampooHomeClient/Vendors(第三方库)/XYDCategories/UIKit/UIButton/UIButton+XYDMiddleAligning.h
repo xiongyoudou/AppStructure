@@ -13,7 +13,7 @@
 /**
  A category on UIButton that provides a simple yet powerful interface to middle aligning imageView and titleLabel
  */
-@interface UIButton (JKMiddleAligning)
+@interface UIButton (XYDMiddleAligning)
 
 /**
  @param spacing The middle spacing between imageView and titleLabel.

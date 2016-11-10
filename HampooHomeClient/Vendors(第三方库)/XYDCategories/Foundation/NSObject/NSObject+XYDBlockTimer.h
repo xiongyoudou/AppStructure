@@ -36,6 +36,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (JKBlockTimer)
+@interface NSObject (XYDBlockTimer)
 -(void)xyd_logTimeTakenToRunBlock:(void (^)(void)) block withPrefix:(NSString*) prefixString;
 @end

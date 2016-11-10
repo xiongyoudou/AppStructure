@@ -10,7 +10,7 @@
 
 #import <MapKit/MapKit.h>
 
-@interface MKMapView (JKZoomLevel)
+@interface MKMapView (XYDZoomLevel)
 
 - (void)xyd_setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
                   zoomLevel:(NSUInteger)zoomLevel

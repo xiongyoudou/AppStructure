@@ -7,7 +7,7 @@
 
 #import "NSFetchRequest+XYDExtensions.h"
 
-@implementation NSFetchRequest(JKExtensions)
+@implementation NSFetchRequest(XYDExtensions)
 + (id)xyd_fetchRequestWithEntity:(NSEntityDescription *)entity
 {
   return [[self alloc] initWithEntity:entity predicate:nil sortDescriptors:nil];

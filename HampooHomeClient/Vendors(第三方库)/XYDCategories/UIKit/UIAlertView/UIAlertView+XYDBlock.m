@@ -11,7 +11,7 @@
 
 static NSString *UIAlertViewKey = @"UIAlertViewKey";
 
-@implementation UIAlertView (JKBlock)
+@implementation UIAlertView (XYDBlock)
 
 /**
  

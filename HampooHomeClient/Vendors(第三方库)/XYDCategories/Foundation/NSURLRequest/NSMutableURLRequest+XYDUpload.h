@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableURLRequest (JKUpload)
+@interface NSMutableURLRequest (XYDUpload)
 
 /**
  *  生成单文件上传的 multipart/form-data 请求

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKStyle)
+@interface UIWebView (XYDStyle)
 /**
  *  @brief  是否显示阴影
  *

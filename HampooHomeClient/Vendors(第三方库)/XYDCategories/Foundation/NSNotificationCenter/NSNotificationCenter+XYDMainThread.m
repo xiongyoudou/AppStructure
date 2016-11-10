@@ -8,7 +8,7 @@
 
 #import "NSNotificationCenter+XYDMainThread.h"
 
-@implementation NSNotificationCenter (JKMainThread)
+@implementation NSNotificationCenter (XYDMainThread)
 /**
  *  @brief  在主线程中发送一条通知
  *

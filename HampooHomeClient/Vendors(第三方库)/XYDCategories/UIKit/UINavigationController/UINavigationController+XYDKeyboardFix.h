@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (JKKeyboardFix)
+@interface UINavigationController (XYDKeyboardFix)
 
 @end

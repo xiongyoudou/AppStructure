@@ -8,7 +8,7 @@
 
 #import "UIImage+XYDSuperCompress.h"
 
-@implementation UIImage (JKSuperCompress)
+@implementation UIImage (XYDSuperCompress)
 + (UIImage*)xyd_resizableHalfImage:(NSString *)name
 {
     UIImage *normal = [UIImage imageNamed:name];

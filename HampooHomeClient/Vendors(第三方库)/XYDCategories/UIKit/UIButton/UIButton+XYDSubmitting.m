@@ -17,7 +17,7 @@
 
 @end
 
-@implementation UIButton (JKSubmitting)
+@implementation UIButton (XYDSubmitting)
 
 - (void)xyd_beginSubmitting:(NSString *)title {
     [self xyd_endSubmitting];

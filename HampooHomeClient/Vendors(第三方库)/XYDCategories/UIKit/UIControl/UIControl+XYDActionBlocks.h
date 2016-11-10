@@ -18,7 +18,7 @@ typedef void (^UIControlJKActionBlock)(id weakSender);
 
 
 
-@interface UIControl (JKActionBlocks)
+@interface UIControl (XYDActionBlocks)
 - (void)xyd_handleControlEvents:(UIControlEvents)controlEvents withBlock:(UIControlJKActionBlock)actionBlock;
 - (void)xyd_removeActionBlocksForControlEvents:(UIControlEvents)controlEvents;
 @end

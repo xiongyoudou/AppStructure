@@ -8,7 +8,7 @@
 
 #import "UITextField+XYDShake.h"
 
-@implementation UITextField (JKShake)
+@implementation UITextField (XYDShake)
 
 - (void)xyd_shake {
     [self xyd_shake:10 withDelta:5 completion:nil];
@@ -30,15 +30,15 @@
     [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:JKShakedDirectionHorizontal completion:handler];
 }
 
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakedDirection)shakeDirection {
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection {
     [self xyd_shake:times withDelta:delta speed:interval shakeDirection:shakeDirection completion:nil];
 }
 
-- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakedDirection)shakeDirection completion:(void(^)())handler {
+- (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection completion:(void(^)())handler {
     [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:shakeDirection completion:handler];
 }
 
-- (void)_xyd_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(JKShakedDirection)shakeDirection completion:(void(^)())handler {
+- (void)_xyd_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection completion:(void(^)())handler {
     [UIView animateWithDuration:interval animations:^{
         self.transform = (shakeDirection == JKShakedDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
     } completion:^(BOOL finished) {

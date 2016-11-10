@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSTimer (JKAddition)
+@interface NSTimer (XYDAddition)
 /**
  *  @brief  暂停NSTimer
  */

@@ -10,7 +10,7 @@
 #pragma GCC diagnostic ignored "-Wselector"
 #import <Availability.h>
 
-@implementation NSData (JKBase64)
+@implementation NSData (XYDBase64)
 /**
  *  @brief  字符串base64后转data
  *

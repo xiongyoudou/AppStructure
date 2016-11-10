@@ -13,7 +13,7 @@
 static const void *JKStringProperty = &JKStringProperty;
 static const void *JKIntegerProperty = &JKIntegerProperty;
 //static char IntegerProperty;
-@implementation NSObject (JKAddProperty)
+@implementation NSObject (XYDAddProperty)
 
 @dynamic xyd_stringProperty;
 @dynamic xyd_integerProperty;

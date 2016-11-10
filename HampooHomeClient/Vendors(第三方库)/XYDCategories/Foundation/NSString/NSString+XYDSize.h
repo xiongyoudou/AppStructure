@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface NSString (JKSize)
+@interface NSString (XYDSize)
 /**
  *  @brief 计算文字的高度
  *

@@ -8,7 +8,7 @@
 
 #import "UIWindow+XYDHierarchy.h"
 
-@implementation UIWindow (JKHierarchy)
+@implementation UIWindow (XYDHierarchy)
 - (UIViewController*)xyd_topMostController
 {
     UIViewController *topController = [self rootViewController];

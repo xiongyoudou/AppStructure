@@ -23,7 +23,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWebView (JKMetaParser)
+@interface UIWebView (XYDMetaParser)
 /**
  *  @brief  获取网页meta信息
  *

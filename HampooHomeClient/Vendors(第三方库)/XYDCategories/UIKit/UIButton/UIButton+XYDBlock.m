@@ -11,7 +11,7 @@
 static const void *xyd_UIButtonBlockKey = &xyd_UIButtonBlockKey;
 
 @implementation UIButton (xyd_Block)
--(void)xyd_addActionHandler:(JKTouchedButtonBlock)touchHandler{
+-(void)xyd_addActionHandler:(XYDTouchedButtonBlock)touchHandler{
     objc_setAssociatedObject(self, xyd_UIButtonBlockKey, touchHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self addTarget:self action:@selector(xyd_blockActionTouched:) forControlEvents:UIControlEventTouchUpInside];
 }

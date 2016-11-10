@@ -35,7 +35,7 @@
 #import "NSObject+XYDBlockTimer.h"
 
 
-@implementation NSObject (JKBlockTimer)
+@implementation NSObject (XYDBlockTimer)
 
 -(void)xyd_logTimeTakenToRunBlock:(void (^)(void)) block withPrefix:(NSString*) prefixString {
 	

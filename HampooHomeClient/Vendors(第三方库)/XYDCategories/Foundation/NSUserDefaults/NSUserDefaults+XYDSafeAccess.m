@@ -8,7 +8,7 @@
 
 #import "NSUserDefaults+XYDSafeAccess.h"
 
-@implementation NSUserDefaults (JKSafeAccess)
+@implementation NSUserDefaults (XYDSafeAccess)
 + (NSString *)xyd_stringForKey:(NSString *)defaultName {
     return [[NSUserDefaults standardUserDefaults] stringForKey:defaultName];
 }

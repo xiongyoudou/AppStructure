@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKContains)
+@interface NSString (XYDContains)
 /**
  *  @brief  判断URL中是否包含中文
  *

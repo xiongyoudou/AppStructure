@@ -16,7 +16,7 @@ static char *kSizeRequestCompletionKey = "NSURL.sizeRequestCompletion";
 
 typedef uint32_t dword;
 
-@interface NSURL (JKRemoteSize)
+@interface NSURL (XYDRemoteSize)
 @property (nonatomic, strong) NSMutableData *xyd_sizeRequestData;
 @property (nonatomic, strong) NSString *xyd_sizeRequestType;
 @property (nonatomic, copy) JKUIImageSizeRequestCompleted xyd_sizeRequestCompletion;
@@ -24,11 +24,11 @@ typedef uint32_t dword;
 
 @implementation NSURL (RemoteSize)
 
-- (void)setxyd_sizeRequestCompletion: (JKUIImageSizeRequestCompleted) block {
+- (void)setxyd_sizeRequestCompletion: (XYDUIImageSizeRequestCompleted) block {
     objc_setAssociatedObject(self, &kSizeRequestCompletionKey, block, OBJC_ASSOCIATION_COPY);
 }
 
-- (JKUIImageSizeRequestCompleted)xyd_sizeRequestCompletion {
+- (XYDUIImageSizeRequestCompleted)xyd_sizeRequestCompletion {
     return objc_getAssociatedObject(self, &kSizeRequestCompletionKey);
 }
 
@@ -241,7 +241,7 @@ typedef uint32_t dword;
 
 @implementation UIImage (RemoteSize)
 
-+ (void)requestSizeNoHeader:(NSURL*)imgURL completion:(JKUIImageSizeRequestCompleted)completion{
++ (void)requestSizeNoHeader:(NSURL*)imgURL completion:(XYDUIImageSizeRequestCompleted)completion{
     
     if([imgURL isFileURL] ) {
         //Load from file stream
@@ -257,7 +257,7 @@ typedef uint32_t dword;
 }
 
 
-+ (void)requestSizeWithHeader:(NSURL*)imgURL completion:(JKUIImageSizeRequestCompleted)completion{
++ (void)requestSizeWithHeader:(NSURL*)imgURL completion:(XYDUIImageSizeRequestCompleted)completion{
 //        NSURLRequest* request = [NSURLRequest requestWithURL:imgURL];
 //
 //        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *resp, NSData *d, NSError *e) {

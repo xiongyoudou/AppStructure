@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIApplication (JKKeyboardFrame)
+@interface UIApplication (XYDKeyboardFrame)
 - (CGRect)xyd_keyboardFrame;
 @end

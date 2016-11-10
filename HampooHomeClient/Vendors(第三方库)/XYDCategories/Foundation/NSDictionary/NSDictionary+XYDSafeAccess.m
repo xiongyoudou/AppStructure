@@ -8,7 +8,7 @@
 
 #import "NSDictionary+XYDSafeAccess.h"
 
-@implementation NSDictionary (JKSafeAccess)
+@implementation NSDictionary (XYDSafeAccess)
 - (BOOL)xyd_hasKey:(NSString *)key
 {
     return [self objectForKey:key] != nil;
@@ -301,7 +301,7 @@
 @end
 
 #pragma --mark NSMutableDictionary setter
-@implementation NSMutableDictionary (JKSafeAccess)
+@implementation NSMutableDictionary (XYDSafeAccess)
 -(void)xyd_setObj:(id)i forKey:(NSString*)key{
     if (i!=nil) {
         self[key] = i;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNumber (JKRound)
+@interface NSNumber (XYDRound)
 /* 展示 */
 - (NSString*)xyd_toDisplayNumberWithDigit:(NSInteger)digit;
 - (NSString*)xyd_toDisplayPercentageWithDigit:(NSInteger)digit;

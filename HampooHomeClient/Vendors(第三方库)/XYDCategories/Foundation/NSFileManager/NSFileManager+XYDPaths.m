@@ -9,7 +9,7 @@
 #import "NSFileManager+XYDPaths.h"
 #include <sys/xattr.h>
 
-@implementation NSFileManager (JKPaths)
+@implementation NSFileManager (XYDPaths)
 + (NSURL *)xyd_URLForDirectory:(NSSearchPathDirectory)directory
 {
     return [self.defaultManager URLsForDirectory:directory inDomains:NSUserDomainMask].lastObject;

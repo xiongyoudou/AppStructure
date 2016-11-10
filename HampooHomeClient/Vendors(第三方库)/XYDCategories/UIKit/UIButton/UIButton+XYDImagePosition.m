@@ -8,9 +8,9 @@
 
 #import "UIButton+XYDImagePosition.h"
 
-@implementation UIButton (JKImagePosition)
+@implementation UIButton (XYDImagePosition)
 
-- (void)xyd_setImagePosition:(JKImagePosition)postion spacing:(CGFloat)spacing {
+- (void)xyd_setImagePosition:(XYDImagePosition)postion spacing:(CGFloat)spacing {
     CGFloat imageWith = self.imageView.image.size.width;
     CGFloat imageHeight = self.imageView.image.size.height;
 #pragma clang diagnostic push

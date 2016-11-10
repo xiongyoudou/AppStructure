@@ -11,7 +11,7 @@
 
 #define kSDMaxCacheFileAmount 100
 
-@implementation NSData (JKDataCache)
+@implementation NSData (XYDDataCache)
 
 + (NSString *)xyd_cachePath
 {

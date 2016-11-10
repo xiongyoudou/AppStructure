@@ -8,7 +8,7 @@
 
 #import "MKMapView+XYDBetterMaps.h"
 
-@implementation MKMapView (JKBetterMaps)
+@implementation MKMapView (XYDBetterMaps)
 
 - (void)xyd_zoomToFitAnnotationsAnimated:(BOOL)animated {
     MKMapRect zoomRect = MKMapRectNull;

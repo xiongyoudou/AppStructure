@@ -7,7 +7,7 @@
 
 #import "NSTimer+XYDBlocks.h"
 
-@implementation NSTimer (JKBlocks)
+@implementation NSTimer (XYDBlocks)
 
 +(id)xyd_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)())inBlock repeats:(BOOL)inRepeats
 {

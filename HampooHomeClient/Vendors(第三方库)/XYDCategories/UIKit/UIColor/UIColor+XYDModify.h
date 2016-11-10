@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (JKModify)
+@interface UIColor (XYDModify)
 - (UIColor *)xyd_invertedColor;
 - (UIColor *)xyd_colorForTranslucency;
 - (UIColor *)xyd_lightenColor:(CGFloat)lighten;

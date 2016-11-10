@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (JKBase64)
+@interface NSData (XYDBase64)
 /**
  *  @brief  字符串base64后转data
  *

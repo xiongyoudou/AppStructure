@@ -8,7 +8,7 @@
 
 #import "UIColor+XYDModify.h"
 
-@implementation UIColor (JKModify)
+@implementation UIColor (XYDModify)
 - (UIColor *)xyd_invertedColor{
     NSArray *components = [self xyd_componentArray];
     return [UIColor colorWithRed:1-[components[0] doubleValue] green:1-[components[1] doubleValue] blue:1-[components[2] doubleValue] alpha:[components[3] doubleValue]];

@@ -8,7 +8,7 @@
 
 #import "NSString+XYDPinyin.h"
 
-@implementation NSString (JKPinyin)
+@implementation NSString (XYDPinyin)
 
 - (NSString*)xyd_pinyinWithPhoneticSymbol{
     NSMutableString *pinyin = [NSMutableString stringWithString:self];

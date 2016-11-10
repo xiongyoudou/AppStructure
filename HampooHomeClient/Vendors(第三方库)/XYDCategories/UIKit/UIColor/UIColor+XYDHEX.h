@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (JKHEX)
+@interface UIColor (XYDHEX)
 + (UIColor *)xyd_colorWithHex:(UInt32)hex;
 + (UIColor *)xyd_colorWithHex:(UInt32)hex andAlpha:(CGFloat)alpha;
 + (UIColor *)xyd_colorWithHexString:(NSString *)hexString;

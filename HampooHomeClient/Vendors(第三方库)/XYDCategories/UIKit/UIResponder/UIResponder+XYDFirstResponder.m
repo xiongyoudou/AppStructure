@@ -28,7 +28,7 @@
 
 static __weak id xyd_currentFirstResponder;
 
-@implementation UIResponder (JKFirstResponder)
+@implementation UIResponder (XYDFirstResponder)
 /**
  *  @brief  当前第一响应者
  *

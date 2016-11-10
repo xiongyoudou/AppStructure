@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (JKGIF)
+@interface UIImage (XYDGIF)
 
 + (UIImage *)xyd_animatedGIFNamed:(NSString *)name;
 

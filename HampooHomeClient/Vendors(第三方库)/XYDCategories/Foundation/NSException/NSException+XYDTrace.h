@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSException (JKTrace)
+@interface NSException (XYDTrace)
 - (NSArray *)xyd_backtrace;
 @end

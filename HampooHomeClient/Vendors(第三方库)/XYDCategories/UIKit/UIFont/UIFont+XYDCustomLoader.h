@@ -25,7 +25,7 @@
  You can use `UIFont+WDCustomLoader` category to load custom fonts for your
  application without worring about plist or real font names.
  */
-@interface UIFont (JKCustomLoader)
+@interface UIFont (XYDCustomLoader)
 
 /// @name Implicit registration and font loading
 

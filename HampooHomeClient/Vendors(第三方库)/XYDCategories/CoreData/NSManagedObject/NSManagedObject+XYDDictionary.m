@@ -25,7 +25,7 @@
 #import <objc/runtime.h>
 #import "NSManagedObject+XYDDictionary.h"
 
-@implementation NSManagedObject (JKDictionaryt)
+@implementation NSManagedObject (XYDDictionaryt)
 
 - (NSDictionary *)xyd_toDictionary {
     unsigned int count;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYDChatConstant.h"
 
 @protocol XYDUserDelegate;
 
@@ -30,7 +31,7 @@
 /*!
  * 消息发送状态
  */
-@property (nonatomic, assign) LCCKMessageSendState sendStatus;
+@property (nonatomic, assign) XYDChatMessageSendState sendStatus;
 
 /*!
  * 所属会话
@@ -45,7 +46,7 @@
 /*!
  * 用来判断消息是否是对外发送
  */
-@property (nonatomic, assign) LCCKMessageOwnerType ownerType;
+@property (nonatomic, assign) XYDChatMessageOwnerType ownerType;
 
 /*!
  * 消息自己是否已读，可用在多媒体消息，语音视频消息

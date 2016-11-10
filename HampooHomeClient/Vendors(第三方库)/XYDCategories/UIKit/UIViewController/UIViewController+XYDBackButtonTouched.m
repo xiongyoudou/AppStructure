@@ -10,11 +10,11 @@
 #import <objc/runtime.h>
 static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
 
-@implementation UIViewController (JKBackButtonTouched)
--(void)xyd_backButtonTouched:(JKBackButtonHandler)backButtonHandler{
+@implementation UIViewController (XYDBackButtonTouched)
+-(void)xyd_backButtonTouched:(XYDBackButtonHandler)backButtonHandler{
     objc_setAssociatedObject(self, JKBackButtonHandlerKey, backButtonHandler, OBJC_ASSOCIATION_COPY);
 }
-- (JKBackButtonHandler)xyd_backButtonTouched
+- (XYDBackButtonHandler)xyd_backButtonTouched
 {
     return objc_getAssociatedObject(self, JKBackButtonHandlerKey);
 }

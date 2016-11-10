@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (JKBlock)
+@interface NSDictionary (XYDBlock)
 
 #pragma mark - RX
 - (void)xyd_each:(void (^)(id k, id v))block;

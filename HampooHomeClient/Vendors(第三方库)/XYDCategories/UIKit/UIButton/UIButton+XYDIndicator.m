@@ -12,7 +12,7 @@
 static NSString *const xyd_IndicatorViewKey = @"indicatorView";
 static NSString *const xyd_ButtonTextObjectKey = @"buttonTextObject";
 
-@implementation UIButton (JKIndicator)
+@implementation UIButton (XYDIndicator)
 
 - (void)xyd_showIndicator {
     

@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JKPinyin)
+@interface NSString (XYDPinyin)
 
 - (NSString*)xyd_pinyinWithPhoneticSymbol;
 - (NSString*)xyd_pinyin;
