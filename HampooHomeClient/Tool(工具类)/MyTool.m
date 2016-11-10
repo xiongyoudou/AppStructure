@@ -17,6 +17,32 @@
 @implementation MyTool
 
 #pragma mark - 视图相关
+
+/**
+ *  创建tableView
+ *
+ *  @param style cell的XIB名字
+ *  @param ctrl  tableView所在的控制器
+ *  @return 返回创建的tableView
+ */
++ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:( UIViewController <UITableViewDelegate,UITableViewDataSource> *)ctrl {
+    UITableView *tableView = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:style];
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (style == UITableViewStyleGrouped) {
+        UIView *backgroundView = [[UIView alloc] initWithFrame:tableView.bounds];
+        backgroundView.backgroundColor = tableView.backgroundColor;
+        tableView.backgroundView = backgroundView;
+    }
+    tableView.delegate = ctrl;
+    tableView.dataSource = ctrl;
+    tableView.tableFooterView = [[UIView alloc] init];
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [ctrl.view addSubview:tableView];
+    return tableView;
+}
+
 /**
  *  给tableView注册cell
  *
@@ -366,5 +392,20 @@ static NSString *remainTime;
     return obj;
 }
 
++ (NSArray *)getScaleArray {
+    static NSArray *scales;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGFloat screenScale = [UIScreen mainScreen].scale;
+        if (screenScale <= 1) {
+            scales = @[ @1,@2,@3 ];
+        } else if (screenScale <= 2) {
+            scales = @[ @2,@3,@1 ];
+        } else {
+            scales = @[ @3,@2,@1 ];
+        }
+    });
+    return scales;
+}
 
 @end

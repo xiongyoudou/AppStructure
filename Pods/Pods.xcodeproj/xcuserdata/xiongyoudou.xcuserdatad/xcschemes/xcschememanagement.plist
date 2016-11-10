@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CYLTabBarController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -25,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,12 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C1D89EAE68EF4D4ABEDB611EC44AAB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3E66E354B1D229BD5AB9711EFBC32D24</key>
+		<key>3B2BAF108340B20FAC8CAD60D9116D4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>847EE9A4C47150CFA58DF8B586795985</key>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B6A9E141C140477D1789A95957E8129</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF21C121704D5243381D458DE8C2A053</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>D1EC2572C5166CE2498C72FAF128EABE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4309F142B068587D41ED0EF9E4D11D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

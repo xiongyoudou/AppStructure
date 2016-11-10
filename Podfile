@@ -5,7 +5,7 @@ pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'Masonry'
-pod 'CYLTabBarController'
 pod 'SSKeychain'
+pod 'MJRefresh'
 end
 

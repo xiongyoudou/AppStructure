@@ -18,6 +18,7 @@
 
 
 #pragma mark - 视图相关
++ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:( UIViewController <UITableViewDelegate,UITableViewDataSource> *)ctrl;
 + (void)registeCellWithCellXib:(NSString *)XIBName andTable:(UITableView *)table;
 // 隐藏tableview多余的分割线
 + (void)hideExtraTableviewSeparatedLine:(UITableView *)tableview;
@@ -87,5 +88,6 @@
 
 // 对象是否有效
 + (id)isValidObj:(id)obj;
++ (NSArray *)getScaleArray;
 
 @end
