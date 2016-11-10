@@ -17,6 +17,7 @@
 #import "XYDChatSystemMessageCell.h"
 #import "XYDChatVoiceMessageCell.h"
 #import "XYDChatContentView.h"
+#import "XYDMessageSendStateView.h"
 
 NSMutableDictionary const *LCCKChatMessageCellMediaTypeDict = nil;
 static CGFloat const kAvatarImageViewWidth = 50.f;
@@ -381,12 +382,14 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+        /*
         LCCKAvatarImageViewCornerRadiusBlock avatarImageViewCornerRadiusBlock = [LCChatKit sharedInstance].avatarImageViewCornerRadiusBlock;
         if (avatarImageViewCornerRadiusBlock) {
             CGSize avatarImageViewSize = CGSizeMake(kAvatarImageViewWidth, kAvatarImageViewHeight);
             CGFloat avatarImageViewCornerRadius = avatarImageViewCornerRadiusBlock(avatarImageViewSize);
             self.avatarImageView.lcck_cornerRadius = avatarImageViewCornerRadius;
         }
+         */
         [self bringSubviewToFront:_avatarImageView];
     }
     return _avatarImageView;
@@ -403,9 +406,9 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     return _nickNameLabel;
 }
 
-- (LCCKContentView *)messageContentView {
+- (XYDChatContentView *)messageContentView {
     if (!_messageContentView) {
-        _messageContentView = [[LCCKContentView alloc] init];
+        _messageContentView = [[XYDChatContentView alloc] init];
     }
     return _messageContentView;
 }

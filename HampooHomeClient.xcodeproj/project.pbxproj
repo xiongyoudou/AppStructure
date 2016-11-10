@@ -375,8 +375,6 @@
 		49D7FA7B1DD30A2A0096B966 /* XYDChatSystemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA7A1DD30A2A0096B966 /* XYDChatSystemMessageCell.m */; };
 		49D7FA7E1DD30A3C0096B966 /* XYDChatTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA7D1DD30A3C0096B966 /* XYDChatTextMessageCell.m */; };
 		49D7FA811DD30A4B0096B966 /* XYDChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA801DD30A4B0096B966 /* XYDChatVoiceMessageCell.m */; };
-		49D7FA841DD30A7A0096B966 /* XYDChatContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA831DD30A7A0096B966 /* XYDChatContentView.m */; };
-		49D7FA871DD30A9D0096B966 /* XYDMessageSendStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA861DD30A9D0096B966 /* XYDMessageSendStateView.m */; };
 		49D7FE081DD3198A0096B966 /* XYDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE001DD3198A0096B966 /* XYDFile.m */; };
 		49D7FE091DD3198A0096B966 /* XYDGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE041DD3198A0096B966 /* XYDGeoPoint.m */; };
 		49D7FE0A1DD3198A0096B966 /* XYDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE071DD3198A0096B966 /* XYDLocationManager.m */; };
@@ -398,9 +396,9 @@
 		49D7FE491DD407B70096B966 /* XYDChatSessionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE481DD407B70096B966 /* XYDChatSessionService.m */; };
 		49D7FE4C1DD407D90096B966 /* XYDChatConversationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */; };
 		49D7FE521DD40C840096B966 /* XYDChatContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE511DD40C840096B966 /* XYDChatContentView.m */; };
-		49D7FE551DD40CA40096B966 /* XYDMessageSendStateV.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE541DD40CA40096B966 /* XYDMessageSendStateV.m */; };
 		49D7FE581DD418760096B966 /* XYDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE571DD418760096B966 /* XYDAudioPlayer.m */; };
-		49D7FE5B1DD41DF20096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5A1DD41DF20096B966 /* XYDChatMenuItem.m */; };
+		49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */; };
+		49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */; };
 		B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */; };
 /* End PBXBuildFile section */
 
@@ -1057,10 +1055,6 @@
 		49D7FA7D1DD30A3C0096B966 /* XYDChatTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatTextMessageCell.m; sourceTree = "<group>"; };
 		49D7FA7F1DD30A4B0096B966 /* XYDChatVoiceMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatVoiceMessageCell.h; sourceTree = "<group>"; };
 		49D7FA801DD30A4B0096B966 /* XYDChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatVoiceMessageCell.m; sourceTree = "<group>"; };
-		49D7FA821DD30A7A0096B966 /* XYDChatContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatContentView.h; sourceTree = "<group>"; };
-		49D7FA831DD30A7A0096B966 /* XYDChatContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatContentView.m; sourceTree = "<group>"; };
-		49D7FA851DD30A9D0096B966 /* XYDMessageSendStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendStateView.h; sourceTree = "<group>"; };
-		49D7FA861DD30A9D0096B966 /* XYDMessageSendStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateView.m; sourceTree = "<group>"; };
 		49D7FDFF1DD3198A0096B966 /* XYDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDFile.h; sourceTree = "<group>"; };
 		49D7FE001DD3198A0096B966 /* XYDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDFile.m; sourceTree = "<group>"; };
 		49D7FE011DD3198A0096B966 /* XYDFile_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDFile_Internal.h; sourceTree = "<group>"; };
@@ -1109,12 +1103,12 @@
 		49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatConversationService.m; sourceTree = "<group>"; };
 		49D7FE501DD40C840096B966 /* XYDChatContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatContentView.h; sourceTree = "<group>"; };
 		49D7FE511DD40C840096B966 /* XYDChatContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatContentView.m; sourceTree = "<group>"; };
-		49D7FE531DD40CA40096B966 /* XYDMessageSendStateV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendStateV.h; sourceTree = "<group>"; };
-		49D7FE541DD40CA40096B966 /* XYDMessageSendStateV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateV.m; sourceTree = "<group>"; };
 		49D7FE561DD418760096B966 /* XYDAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDAudioPlayer.h; sourceTree = "<group>"; };
 		49D7FE571DD418760096B966 /* XYDAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDAudioPlayer.m; sourceTree = "<group>"; };
-		49D7FE591DD41DF20096B966 /* XYDChatMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMenuItem.h; sourceTree = "<group>"; };
-		49D7FE5A1DD41DF20096B966 /* XYDChatMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMenuItem.m; sourceTree = "<group>"; };
+		49D7FE5C1DD425790096B966 /* XYDChatMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMenuItem.h; sourceTree = "<group>"; };
+		49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMenuItem.m; sourceTree = "<group>"; };
+		49D7FE5E1DD425790096B966 /* XYDMessageSendStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendStateView.h; sourceTree = "<group>"; };
+		49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateView.m; sourceTree = "<group>"; };
 		61BFDBB61361496476F203DA /* Pods-HampooHomeClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.debug.xcconfig"; sourceTree = "<group>"; };
 		700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HampooHomeClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03AB257B03FE963C251CB31 /* Pods-HampooHomeClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -2695,10 +2689,6 @@
 			children = (
 				49D7FE501DD40C840096B966 /* XYDChatContentView.h */,
 				49D7FE511DD40C840096B966 /* XYDChatContentView.m */,
-				49D7FE531DD40CA40096B966 /* XYDMessageSendStateV.h */,
-				49D7FE541DD40CA40096B966 /* XYDMessageSendStateV.m */,
-				49D7FE591DD41DF20096B966 /* XYDChatMenuItem.h */,
-				49D7FE5A1DD41DF20096B966 /* XYDChatMenuItem.m */,
 				49D7FA321DD309280096B966 /* XYDChatInputBar */,
 				49D7FA421DD309280096B966 /* XYDChatMessageCell */,
 				49D7FA431DD309280096B966 /* XYDConversationRefreshHeader.h */,
@@ -2730,6 +2720,10 @@
 		49D7FA421DD309280096B966 /* XYDChatMessageCell */ = {
 			isa = PBXGroup;
 			children = (
+				49D7FE5C1DD425790096B966 /* XYDChatMenuItem.h */,
+				49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */,
+				49D7FE5E1DD425790096B966 /* XYDMessageSendStateView.h */,
+				49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */,
 				49D7FA701DD309850096B966 /* XYDChatMessageCell.h */,
 				49D7FA711DD309850096B966 /* XYDChatMessageCell.m */,
 				49D7FA7C1DD30A3C0096B966 /* XYDChatTextMessageCell.h */,
@@ -2742,10 +2736,6 @@
 				49D7FA7A1DD30A2A0096B966 /* XYDChatSystemMessageCell.m */,
 				49D7FA7F1DD30A4B0096B966 /* XYDChatVoiceMessageCell.h */,
 				49D7FA801DD30A4B0096B966 /* XYDChatVoiceMessageCell.m */,
-				49D7FA821DD30A7A0096B966 /* XYDChatContentView.h */,
-				49D7FA831DD30A7A0096B966 /* XYDChatContentView.m */,
-				49D7FA851DD30A9D0096B966 /* XYDMessageSendStateView.h */,
-				49D7FA861DD30A9D0096B966 /* XYDMessageSendStateView.m */,
 			);
 			path = XYDChatMessageCell;
 			sourceTree = "<group>";
@@ -3145,7 +3135,7 @@
 				49D7FA811DD30A4B0096B966 /* XYDChatVoiceMessageCell.m in Sources */,
 				49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */,
 				49D7FE2D1DD3262B0096B966 /* MLLinkLabel.m in Sources */,
-				49D7FE551DD40CA40096B966 /* XYDMessageSendStateV.m in Sources */,
+				49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */,
 				49896ECC1DD2C7BE006C50C9 /* UIView+XYDFrame.m in Sources */,
 				49896E4C1DD2C7BE006C50C9 /* NSObject+XYDRuntime.m in Sources */,
 				49896ED31DD2C7BE006C50C9 /* UIViewController+XYDBackButtonItemTitle.m in Sources */,
@@ -3188,7 +3178,6 @@
 				49896EBD1DD2C7BE006C50C9 /* UITableViewCell+XYDDelaysContentTouches.m in Sources */,
 				49896E811DD2C7BE006C50C9 /* UIButton+XYDImagePosition.m in Sources */,
 				49896E361DD2C7BE006C50C9 /* NSFileHandle+XYDReadLine.m in Sources */,
-				49D7FA871DD30A9D0096B966 /* XYDMessageSendStateView.m in Sources */,
 				49B088781DD05C51003E6916 /* XYDBottomBarCell.m in Sources */,
 				49896EBA1DD2C7BE006C50C9 /* UISearchBar+XYDBlocks.m in Sources */,
 				49D7FE0A1DD3198A0096B966 /* XYDLocationManager.m in Sources */,
@@ -3213,6 +3202,7 @@
 				49896E331DD2C7BE006C50C9 /* NSDictionary+XYDURL.m in Sources */,
 				49896E821DD2C7BE006C50C9 /* UIButton+XYDIndicator.m in Sources */,
 				49D7FE261DD3262B0096B966 /* NSString+MLLabel.m in Sources */,
+				49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */,
 				49896E491DD2C7BE006C50C9 /* NSObject+XYDGCD.m in Sources */,
 				49896E1B1DD2C7BE006C50C9 /* NSManagedObjectContext+XYDObjectClear.m in Sources */,
 				49896E7A1DD2C7BE006C50C9 /* UIBezierPath+XYDLength.m in Sources */,
@@ -3358,7 +3348,6 @@
 				49896E501DD2C7BE006C50C9 /* NSString+XYDContains.m in Sources */,
 				49D7FE2B1DD3262B0096B966 /* MLLabelLayoutManager.m in Sources */,
 				49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */,
-				49D7FE5B1DD41DF20096B966 /* XYDChatMenuItem.m in Sources */,
 				49896E1C1DD2C7BE006C50C9 /* CLLocation+XYDCH1903.m in Sources */,
 				49896E6B1DD2C7BE006C50C9 /* MKMapView+XYDMoveLogo.m in Sources */,
 				49B0885F1DD04E7A003E6916 /* HttpConstant.m in Sources */,
@@ -3394,7 +3383,6 @@
 				49896E201DD2C7BE006C50C9 /* NSData+XYDAPNSToken.m in Sources */,
 				49896EC41DD2C7BE006C50C9 /* UITextView+XYDPlaceHolder.m in Sources */,
 				49896E871DD2C7BE006C50C9 /* UIColor+XYDHEX.m in Sources */,
-				49D7FA841DD30A7A0096B966 /* XYDChatContentView.m in Sources */,
 				49896EBB1DD2C7BE006C50C9 /* UISplitViewController+XYDQuickAccess.m in Sources */,
 				49896E561DD2C7BE006C50C9 /* NSString+XYDMIME.m in Sources */,
 				49896E381DD2C7BE006C50C9 /* NSHTTPCookieStorage+XYDFreezeDry.m in Sources */,
