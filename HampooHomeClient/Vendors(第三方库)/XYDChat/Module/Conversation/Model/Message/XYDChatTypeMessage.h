@@ -8,6 +8,7 @@
 
 #import "XYDChatMessage.h"
 #import "XYDChatConstant.h"
+#import "XYDChatTypeMessageDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 
 @class XYDFile;
@@ -40,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  多媒体类型消息的基类
  */
-@interface XYDChatTypeMessage : XYDChatMessage
+@interface XYDChatTypeMessage : XYDChatMessage<XYDChatTypeMessageDelegate>
 
 @property (nonatomic, assign)                     XYDChatMessageMediaType  mediaType;  // 消息类型，可自定义
 @property (nonatomic,   copy, nullable)           NSString             *text;       // 消息文本
