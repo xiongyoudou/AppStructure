@@ -1,52 +1,126 @@
 //
-//  XYDChatMsgModel.m
+//  XYDChatTypeMessage.m
 //  HampooHomeClient
 //
 //  Created by xiongyoudou on 2016/11/9.
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatMsg.h"
-#import "XYDUserDelegate.h"
-#import "XYDChatSettingService.h"
+#import "XYDChatTypeMessage.h"
+#import "XYDFile.h"
+#import "XYDGeoPoint.h"
 
-@interface XYDChatMsg ()
-@property (nonatomic, copy)  NSString *text;
-@property (nonatomic, copy) NSString *systemText;
-@property (nonatomic, copy)  NSString *photoPath;
-@property (nonatomic, strong)  NSURL *thumbnailURL;
-@property (nonatomic, strong)  NSURL *originPhotoURL;
-@property (nonatomic, strong)  UIImage *videoConverPhoto;
-@property (nonatomic, copy)  NSString *videoPath;
-@property (nonatomic, strong)  NSURL *videoURL;
+NSMutableDictionary const *_typeDict = nil;
 
-@property (nonatomic, copy)  NSString *voicePath;
-@property (nonatomic, strong)  NSURL *voiceURL;
-@property (nonatomic, copy)  NSString *voiceDuration;
+@interface XYDChatTypeMessage ()
 
-@property (nonatomic, copy)  NSString *emotionName;
-@property (nonatomic, copy)  NSString *emotionPath;
 
-@property (nonatomic, strong)  UIImage *localPositionPhoto;
-@property (nonatomic, copy)  NSString *geolocations;
-@property (nonatomic, strong)  CLLocation *location;
-
-//@property (nonatomic, copy)  NSString *sender;
-//@property (nonatomic, copy) NSString *name;
-
-@property (nonatomic, assign)  XYDChatMessageMediaType mediaType;
-
-@property (nonatomic, assign)  XYDChatMessageReadState messageReadState;
-
-@property (nonatomic, assign, getter=hasRead) BOOL read;
 @end
 
-@implementation XYDChatMsg
-@synthesize sender = _sender;
-@synthesize senderId = _senderId;
-@synthesize sendStatus = _sendStatus;
-@synthesize conversationId = _conversationId;
-@synthesize ownerType = _ownerType;
+@implementation XYDChatTypeMessage
+
++ (void)registerSubclass {
+    if ([self conformsToProtocol:@protocol(XYDChatTypedMessageSubclassing)]) {
+        Class<XYDChatTypedMessageSubclassing> class = self;
+        XYDChatMessageMediaType mediaType = [class classMediaType];
+        [self registerClass:class forMediaType:mediaType];
+    }
+}
+
++ (Class)classForMediaType:(XYDChatMessageMediaType)mediaType {
+    Class class = [_typeDict objectForKey:@(mediaType)];
+    if (!class) {
+        class = [XYDChatTypeMessage class];
+    }
+    return class;
+}
+
++ (void)registerClass:(Class)class forMediaType:(XYDChatMessageMediaType)mediaType {
+    if (!_typeDict) {
+        _typeDict = [[NSMutableDictionary alloc] init];
+    }
+    Class c = [_typeDict objectForKey:@(mediaType)];
+    if (!c || [class isSubclassOfClass:c]) {
+        [_typeDict setObject:class forKey:@(mediaType)];
+    }
+}
+
++ (instancetype)messageWithText:(NSString *)text
+                      mediaType:(XYDChatMessageMediaType)mediaType
+               attachedFilePath:(NSString *)attachedFilePath
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.mediaType = mediaType;
+    message.attributes = attributes;
+    message.attachedFilePath = attachedFilePath;
+    return message;
+}
+
++ (instancetype)messageWithText:(NSString *)text
+               attachedFilePath:(NSString *)attachedFilePath
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.attributes = attributes;
+    message.attachedFilePath = attachedFilePath;
+    return message;
+}
+
++ (instancetype)messageWithText:(NSString *)text
+                           file:(XYDFile *)file
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.attributes = attributes;
+    message.file = file;
+    return message;
+}
+
++ (XYDFile *)fileFromDictionary:(NSDictionary *)dictionary {
+    return dictionary ? [XYDFile fileFromDictionary:dictionary] : nil;
+}
+
++ (XYDGeoPoint *)locationFromDictionary:(NSDictionary *)dictionary {
+    if (dictionary) {
+        return nil;
+    } else {
+        return nil;
+    }
+}
+
+#pragma mark - 归档
+
+- (id)copyWithZone:(NSZone *)zone {
+    return nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    
+}
+
+- (instancetype)init {
+    if (![self conformsToProtocol:@protocol(XYDChatTypedMessageSubclassing)]) {
+        [NSException raise:@"XYDChatNotSubclassException" format:@"Class does not conform XYDChatTypedMessageSubclassing protocol."];
+    }
+    if ((self = [super init])) {
+        self.mediaType = [[self class] classMediaType];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    if ((self = [super initWithCoder:coder])) {
+        
+    }
+    return self;
+}
+
+
+
+- (NSString *)payload {
+  
+}
 
 - (instancetype)initWithText:(NSString *)text
                     senderId:(NSString *)senderId
@@ -78,8 +152,8 @@
 - (NSString *)localDisplayName {
     NSString *localDisplayName = self.sender.name ?: self.senderId;
     if (!self.sender.name && [XYDChatSettingService sharedInstance].isDisablePreviewUserId) {
-//        NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
-//        localDisplayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
+        //        NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
+        //        localDisplayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
     }
     return localDisplayName;
 }

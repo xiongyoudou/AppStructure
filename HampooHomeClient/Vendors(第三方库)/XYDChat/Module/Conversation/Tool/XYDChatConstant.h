@@ -88,18 +88,6 @@ typedef NS_ENUM(NSUInteger, XYDChatInputViewPluginType) {
     //    XYDChatInputViewPluginTypeVoice = -2,             /**< 语音输入 */
 };
 
-//SDK定义的消息类型，自定义类型使用大于0的值
-enum : XYDChatMessageMediaType {
-    XYDChatMessageMediaTypeNone = 0,
-    XYDChatMessageMediaTypeText = -1,
-    XYDChatMessageMediaTypeImage = -2,
-    XYDChatMessageMediaTypeAudio = -3,
-    XYDChatMessageMediaTypeVideo = -4,
-    XYDChatMessageMediaTypeLocation = -5,
-    XYDChatMessageMediaTypeFile = -6,
-    XYDChatMessageMediaTypeSystem = -7,
-};
-
 /**
  *  消息聊天类型
  */

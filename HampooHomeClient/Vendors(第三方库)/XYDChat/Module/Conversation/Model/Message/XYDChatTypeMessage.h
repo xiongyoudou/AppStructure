@@ -1,46 +1,53 @@
 //
-//  XYDChatMsgModel.h
+//  XYDChatTypeMessage.h
 //  HampooHomeClient
 //
 //  Created by xiongyoudou on 2016/11/9.
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
-#import "XYDChatMsgDelegate.h"
+#import "XYDChatMessage.h"
 #import "XYDChatConstant.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface XYDChatMsg : NSObject <NSCoding, NSCopying, XYDChatMsgDelegate>
+@class XYDFile;
+@class XYDGeoPoint;
 
-@property (nonatomic, copy, readonly) NSString *text;
-@property (nonatomic, copy, readonly) NSString *systemText;
-@property (nonatomic, strong, readwrite) UIImage *photo;
-@property (nonatomic, strong, readwrite) UIImage *thumbnailPhoto;
-@property (nonatomic, copy, readonly) NSString *photoPath;
-@property (nonatomic, strong, readonly) NSURL *thumbnailURL;
-@property (nonatomic, strong, readonly) NSURL *originPhotoURL;
-@property (nonatomic, strong, readonly) UIImage *videoConverPhoto;
-@property (nonatomic, copy, readonly) NSString *videoPath;
-@property (nonatomic, strong, readonly) NSURL *videoURL;
+typedef int8_t XYDChatMessageMediaType;
+//SDK定义的消息类型，自定义类型使用大于0的值
+enum : XYDChatMessageMediaType {
+    XYDChatMessageMediaTypeNone = 0,
+    XYDChatMessageMediaTypeText = -1,
+    XYDChatMessageMediaTypeImage = -2,
+    XYDChatMessageMediaTypeAudio = -3,
+    XYDChatMessageMediaTypeVideo = -4,
+    XYDChatMessageMediaTypeLocation = -5,
+    XYDChatMessageMediaTypeFile = -6,
+    XYDChatMessageMediaTypeSystem = -7,
+};
 
-@property (nonatomic, copy, readonly) NSString *voicePath;
-@property (nonatomic, strong, readonly) NSURL *voiceURL;
-@property (nonatomic, copy, readonly) NSString *voiceDuration;
+NS_ASSUME_NONNULL_BEGIN
 
-//@property (nonatomic, copy, readonly) NSString *emotionName;
-//@property (nonatomic, copy, readonly) NSString *emotionPath;
+@protocol XYDChatTypedMessageSubclassing <NSObject>
+@required
+/*!
+ 子类实现此方法用于返回该类对应的消息类型
+ @return 消息类型
+ */
++ (XYDChatMessageMediaType)classMediaType;
+@end
 
-@property (nonatomic, strong, readonly) UIImage *localPositionPhoto;
-@property (nonatomic, copy, readonly) NSString *geolocations;
-@property (nonatomic, strong, readonly) CLLocation *location;
+/**
+ *  多媒体类型消息的基类
+ */
+@interface XYDChatTypeMessage : XYDChatMessage
 
-@property (nonatomic, assign, readonly) XYDChatMessageMediaType mediaType;
-//@property (nonatomic, assign) LCCKConversationType messageGroupType;
-@property (nonatomic, assign, readonly) XYDChatMessageReadState messageReadState;
+@property (nonatomic, assign)                     XYDChatMessageMediaType  mediaType;  // 消息类型，可自定义
+@property (nonatomic,   copy, nullable)           NSString             *text;       // 消息文本
+@property (nonatomic, strong, nullable)           NSDictionary         *attributes; // 自定义属性
 @property (nonatomic, copy, readonly) NSString *serverMessageId;
 @property (nonatomic, assign) NSTimeInterval timestamp;
-
+@property (nonatomic, assign, readonly) XYDChatMessageReadState messageReadState;
 /*!
  * 有localMessageId且没有serviceMessageId的属于localMessage，其中
  * systemMessage不属于localMessage，localFeedbackText属于。
@@ -52,6 +59,34 @@
 @property (nonatomic, copy, readwrite) NSString *localMessageId;
 
 @property (nonatomic, copy, readonly) NSString *localDisplayName;
+
+
+@property(nonatomic, strong)NSString *attachedFilePath;  //附件
+
+/**
+ *  子类调用此方法进行注册，一般可在子类的 [+(void)load] 方法里面调用
+ */
++ (void)registerSubclass;
+
+/*!
+ 使用本地文件，创建消息。
+ @param text － 消息文本。
+ @param attachedFilePath － 本地文件路径。
+ @param attributes － 用户附加属性。
+ */
++ (instancetype)messageWithText:(NSString *)text
+               attachedFilePath:(NSString *)attachedFilePath
+                     attributes:(nullable NSDictionary *)attributes;
+
+/*!
+ 使用 XYDFile，创建消息。
+ @param text － 消息文本。
+ @param file － AVFile 对象。
+ @param attributes － 用户附加属性。
+ */
++ (instancetype)messageWithText:(NSString *)text
+                           file:(XYDFile *)file
+                     attributes:(nullable NSDictionary *)attributes;
 
 - (instancetype)initWithText:(NSString *)text
                     senderId:(NSString *)senderId
@@ -154,3 +189,5 @@
                            serverMessageId:(NSString *)serverMessageId;
 
 @end
+
+NS_ASSUME_NONNULL_END

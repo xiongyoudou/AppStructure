@@ -10,6 +10,7 @@
 #import "NSObject+XYDAssociatedObject.h"
 #import "XYDAudioPlayer.h"
 #import "XYDChatHelper.h"
+#import "XYDChatAudioMessage.h"
 
 static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&LCCKChatVoiceMessageCellVoiceMessageStateContext;
 
@@ -125,9 +126,9 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
     }
 }
 
-- (void)configureCellWithData:(XYDChatMsg *)message {
+- (void)configureCellWithData:(XYDChatAudioMessage *)message {
     [super configureCellWithData:message];
-    NSUInteger voiceDuration = [message.voiceDuration integerValue];
+    NSUInteger voiceDuration = message.duration;
     NSString *voiceDurationString = [NSString stringWithFormat:@"%@", @(voiceDuration)];
     self.messageVoiceSecondsLabel.text = [NSString stringWithFormat:@"%@''", voiceDurationString];
     //设置正确的voiceMessageCell播放状态

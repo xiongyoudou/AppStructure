@@ -9,6 +9,7 @@
 #import "XYDChatLocationMessageCell.h"
 #import "XYDChatSettingService.h"
 #import "XYDChatHelper.h"
+#import "XYDChatLocationMessage.h"
 
 @interface XYDChatLocationMessageCell ()
 @property (nonatomic, strong) UIImageView *locationImageView;
@@ -20,9 +21,9 @@
 
 #pragma mark - Override Methods
 
-- (void)configureCellWithData:(XYDChatMsg *)message {
+- (void)configureCellWithData:(XYDChatLocationMessage *)message {
     [super configureCellWithData:message];
-    self.locationAddressLabel.text = message.geolocations;
+    self.locationAddressLabel.text = [NSString stringWithFormat:@"%f",message.latitude];
 }
 
 #pragma mark - Public Methods

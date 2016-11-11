@@ -39,7 +39,7 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 
 @interface XYDChatMessageCell ()
 
-@property (nonatomic, strong, readwrite) XYDChatMsg *message;
+@property (nonatomic, strong, readwrite) XYDChatTypeMessage *message;
 @property (nonatomic, assign, readwrite) XYDChatMessageMediaType mediaType;
 @property (nonatomic, strong) UIColor *conversationViewSenderNameTextColor;
 

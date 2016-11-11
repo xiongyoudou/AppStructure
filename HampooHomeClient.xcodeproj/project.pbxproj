@@ -218,6 +218,15 @@
 		49896EDE1DD2C7BE006C50C9 /* UIWebView+XYDStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896E081DD2C7BE006C50C9 /* UIWebView+XYDStyle.m */; };
 		49896EDF1DD2C7BE006C50C9 /* UIWebVIew+XYDSwipeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896E0A1DD2C7BE006C50C9 /* UIWebVIew+XYDSwipeGesture.m */; };
 		49896EE01DD2C7BE006C50C9 /* UIWindow+XYDHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896E0D1DD2C7BE006C50C9 /* UIWindow+XYDHierarchy.m */; };
+		499709AF1DD5C0A800352E8F /* XYDChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709AD1DD5C0A800352E8F /* XYDChatMessage.m */; };
+		499709B01DD5C0A800352E8F /* XYDChatTypeMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709AE1DD5C0A800352E8F /* XYDChatTypeMessage.m */; };
+		499709B41DD5C20A00352E8F /* XYDChatTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709B31DD5C20A00352E8F /* XYDChatTextMessage.m */; };
+		499709B71DD5C23000352E8F /* XYDChatImageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709B61DD5C23000352E8F /* XYDChatImageMessage.m */; };
+		499709BA1DD5C25200352E8F /* XYDChatLocationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709B91DD5C25200352E8F /* XYDChatLocationMessage.m */; };
+		499709BD1DD5C26400352E8F /* XYDChatFileMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709BC1DD5C26400352E8F /* XYDChatFileMessage.m */; };
+		499709C01DD5C27D00352E8F /* XYDChatAudioMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709BF1DD5C27D00352E8F /* XYDChatAudioMessage.m */; };
+		499709C31DD5C29300352E8F /* XYDChatVideoMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */; };
+		499709CA1DD5CAA900352E8F /* XYDChatSystemMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 499709C91DD5CAA900352E8F /* XYDChatSystemMessage.m */; };
 		49B087F31DD01032003E6916 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087981DD01032003E6916 /* HttpHelper.m */; };
 		49B087F41DD01032003E6916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B0879B1DD01032003E6916 /* Assets.xcassets */; };
 		49B087F51DD01032003E6916 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B0879C1DD01032003E6916 /* LaunchScreen.storyboard */; };
@@ -385,7 +394,6 @@
 		49D7FE2B1DD3262B0096B966 /* MLLabelLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE1F1DD3262B0096B966 /* MLLabelLayoutManager.m */; };
 		49D7FE2C1DD3262B0096B966 /* MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE211DD3262B0096B966 /* MLLabel.m */; };
 		49D7FE2D1DD3262B0096B966 /* MLLinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE231DD3262B0096B966 /* MLLinkLabel.m */; };
-		49D7FE301DD328E00096B966 /* XYDChatMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE2F1DD328E00096B966 /* XYDChatMsg.m */; };
 		49D7FE361DD3FA490096B966 /* XYDSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE351DD3FA490096B966 /* XYDSingleton.m */; };
 		49D7FE3E1DD405960096B966 /* XYDChatKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE3D1DD405960096B966 /* XYDChatKit.m */; };
 		49D7FE431DD407010096B966 /* XYDChatSettingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE421DD407010096B966 /* XYDChatSettingService.m */; };
@@ -835,6 +843,26 @@
 		49896E121DD2C7BE006C50C9 /* XYDMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMapKit.h; sourceTree = "<group>"; };
 		49896E131DD2C7BE006C50C9 /* XYDQuartzCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDQuartzCore.h; sourceTree = "<group>"; };
 		49896E141DD2C7BE006C50C9 /* XYDUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDUIKit.h; sourceTree = "<group>"; };
+		499709AB1DD5C0A800352E8F /* XYDChatMessage_interal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessage_interal.h; sourceTree = "<group>"; };
+		499709AC1DD5C0A800352E8F /* XYDChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessage.h; sourceTree = "<group>"; };
+		499709AD1DD5C0A800352E8F /* XYDChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMessage.m; sourceTree = "<group>"; };
+		499709AE1DD5C0A800352E8F /* XYDChatTypeMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatTypeMessage.m; sourceTree = "<group>"; };
+		499709B11DD5C0AF00352E8F /* XYDChatTypeMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatTypeMessage.h; sourceTree = "<group>"; };
+		499709B21DD5C20A00352E8F /* XYDChatTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatTextMessage.h; sourceTree = "<group>"; };
+		499709B31DD5C20A00352E8F /* XYDChatTextMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatTextMessage.m; sourceTree = "<group>"; };
+		499709B51DD5C23000352E8F /* XYDChatImageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatImageMessage.h; sourceTree = "<group>"; };
+		499709B61DD5C23000352E8F /* XYDChatImageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatImageMessage.m; sourceTree = "<group>"; };
+		499709B81DD5C25200352E8F /* XYDChatLocationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatLocationMessage.h; sourceTree = "<group>"; };
+		499709B91DD5C25200352E8F /* XYDChatLocationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatLocationMessage.m; sourceTree = "<group>"; };
+		499709BB1DD5C26400352E8F /* XYDChatFileMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatFileMessage.h; sourceTree = "<group>"; };
+		499709BC1DD5C26400352E8F /* XYDChatFileMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatFileMessage.m; sourceTree = "<group>"; };
+		499709BE1DD5C27D00352E8F /* XYDChatAudioMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatAudioMessage.h; sourceTree = "<group>"; };
+		499709BF1DD5C27D00352E8F /* XYDChatAudioMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatAudioMessage.m; sourceTree = "<group>"; };
+		499709C11DD5C29300352E8F /* XYDChatVideoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatVideoMessage.h; sourceTree = "<group>"; };
+		499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatVideoMessage.m; sourceTree = "<group>"; };
+		499709C51DD5C58200352E8F /* XYDChatTypeMessage_interal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatTypeMessage_interal.h; sourceTree = "<group>"; };
+		499709C81DD5CAA900352E8F /* XYDChatSystemMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSystemMessage.h; sourceTree = "<group>"; };
+		499709C91DD5CAA900352E8F /* XYDChatSystemMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSystemMessage.m; sourceTree = "<group>"; };
 		49B087741DD004E0003E6916 /* HampooHomeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HampooHomeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B087971DD01032003E6916 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		49B087981DD01032003E6916 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
@@ -1084,9 +1112,6 @@
 		49D7FE211DD3262B0096B966 /* MLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLabel.m; sourceTree = "<group>"; };
 		49D7FE221DD3262B0096B966 /* MLLinkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLinkLabel.h; sourceTree = "<group>"; };
 		49D7FE231DD3262B0096B966 /* MLLinkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLinkLabel.m; sourceTree = "<group>"; };
-		49D7FE2E1DD328E00096B966 /* XYDChatMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMsg.h; sourceTree = "<group>"; };
-		49D7FE2F1DD328E00096B966 /* XYDChatMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMsg.m; sourceTree = "<group>"; };
-		49D7FE311DD329420096B966 /* XYDChatMsgDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMsgDelegate.h; sourceTree = "<group>"; };
 		49D7FE321DD329D70096B966 /* XYDUserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDUserDelegate.h; sourceTree = "<group>"; };
 		49D7FE341DD3FA490096B966 /* XYDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDSingleton.h; sourceTree = "<group>"; };
 		49D7FE351DD3FA490096B966 /* XYDSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDSingleton.m; sourceTree = "<group>"; };
@@ -2215,6 +2240,33 @@
 			path = UIWindow;
 			sourceTree = "<group>";
 		};
+		499709AA1DD5C07A00352E8F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				499709AB1DD5C0A800352E8F /* XYDChatMessage_interal.h */,
+				499709AC1DD5C0A800352E8F /* XYDChatMessage.h */,
+				499709AD1DD5C0A800352E8F /* XYDChatMessage.m */,
+				499709B11DD5C0AF00352E8F /* XYDChatTypeMessage.h */,
+				499709AE1DD5C0A800352E8F /* XYDChatTypeMessage.m */,
+				499709C51DD5C58200352E8F /* XYDChatTypeMessage_interal.h */,
+				499709B21DD5C20A00352E8F /* XYDChatTextMessage.h */,
+				499709B31DD5C20A00352E8F /* XYDChatTextMessage.m */,
+				499709C81DD5CAA900352E8F /* XYDChatSystemMessage.h */,
+				499709C91DD5CAA900352E8F /* XYDChatSystemMessage.m */,
+				499709B51DD5C23000352E8F /* XYDChatImageMessage.h */,
+				499709B61DD5C23000352E8F /* XYDChatImageMessage.m */,
+				499709B81DD5C25200352E8F /* XYDChatLocationMessage.h */,
+				499709B91DD5C25200352E8F /* XYDChatLocationMessage.m */,
+				499709BB1DD5C26400352E8F /* XYDChatFileMessage.h */,
+				499709BC1DD5C26400352E8F /* XYDChatFileMessage.m */,
+				499709BE1DD5C27D00352E8F /* XYDChatAudioMessage.h */,
+				499709BF1DD5C27D00352E8F /* XYDChatAudioMessage.m */,
+				499709C11DD5C29300352E8F /* XYDChatVideoMessage.h */,
+				499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		49B0876B1DD004E0003E6916 = {
 			isa = PBXGroup;
 			children = (
@@ -2669,14 +2721,11 @@
 		49D7FA2A1DD309280096B966 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				49D7FE3B1DD3FC5D0096B966 /* Media */,
+				499709AA1DD5C07A00352E8F /* Message */,
 				49D7FDFE1DD3198A0096B966 /* File */,
 				49D7FE021DD3198A0096B966 /* Geo */,
 				49D7FA2B1DD309280096B966 /* XYDConversationViewModel.h */,
 				49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */,
-				49D7FE2E1DD328E00096B966 /* XYDChatMsg.h */,
-				49D7FE2F1DD328E00096B966 /* XYDChatMsg.m */,
-				49D7FE311DD329420096B966 /* XYDChatMsgDelegate.h */,
 				49D7FE321DD329D70096B966 /* XYDUserDelegate.h */,
 				49E5C2B21DD5734D00A32241 /* XYDConversation.h */,
 				49E5C2B31DD5734D00A32241 /* XYDConversation.m */,
@@ -2881,13 +2930,6 @@
 				49D7FE351DD3FA490096B966 /* XYDSingleton.m */,
 			);
 			path = XYDSingleton;
-			sourceTree = "<group>";
-		};
-		49D7FE3B1DD3FC5D0096B966 /* Media */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Media;
 			sourceTree = "<group>";
 		};
 		49D7FE3F1DD407010096B966 /* Service */ = {
@@ -3232,6 +3274,7 @@
 				49D7FE261DD3262B0096B966 /* NSString+MLLabel.m in Sources */,
 				49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */,
 				49896E491DD2C7BE006C50C9 /* NSObject+XYDGCD.m in Sources */,
+				499709AF1DD5C0A800352E8F /* XYDChatMessage.m in Sources */,
 				49896E1B1DD2C7BE006C50C9 /* NSManagedObjectContext+XYDObjectClear.m in Sources */,
 				49896E7A1DD2C7BE006C50C9 /* UIBezierPath+XYDLength.m in Sources */,
 				49D7FA621DD309280096B966 /* XYDConversationRefreshHeader.m in Sources */,
@@ -3283,7 +3326,6 @@
 				49896E861DD2C7BE006C50C9 /* UIColor+XYDGradient.m in Sources */,
 				49896E621DD2C7BE006C50C9 /* NSTimer+XYDBlocks.m in Sources */,
 				49896E1D1DD2C7BE006C50C9 /* NSArray+XYDBlock.m in Sources */,
-				49D7FE301DD328E00096B966 /* XYDChatMsg.m in Sources */,
 				49B087F81DD01032003E6916 /* main.m in Sources */,
 				49896E2F1DD2C7BE006C50C9 /* NSDictionary+XYDBlock.m in Sources */,
 				498965FC1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m in Sources */,
@@ -3291,11 +3333,13 @@
 				49845F711DD1B24D0060DED5 /* MainVCtrl.m in Sources */,
 				49896E831DD2C7BE006C50C9 /* UIButton+XYDMiddleAligning.m in Sources */,
 				49896EC51DD2C7BE006C50C9 /* UITextView+XYDSelect.m in Sources */,
+				499709B41DD5C20A00352E8F /* XYDChatTextMessage.m in Sources */,
 				49B088561DD02A08003E6916 /* XYDRoundCircularButton.m in Sources */,
 				49896E251DD2C7BE006C50C9 /* NSData+XYDHash.m in Sources */,
 				49896E631DD2C7BE006C50C9 /* NSURL+XYDParam.m in Sources */,
 				49896EC61DD2C7BE006C50C9 /* UIView+XYDAnimation.m in Sources */,
 				49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */,
+				499709C01DD5C27D00352E8F /* XYDChatAudioMessage.m in Sources */,
 				49D7FE521DD40C840096B966 /* XYDChatContentView.m in Sources */,
 				49896E3F1DD2C7BE006C50C9 /* NSNumber+XYDCGFloat.m in Sources */,
 				49896EC91DD2C7BE006C50C9 /* UIView+XYDCustomBorder.m in Sources */,
@@ -3336,6 +3380,7 @@
 				49896E901DD2C7BE006C50C9 /* UIFont+XYDCustomLoader.m in Sources */,
 				49896ED71DD2C7BE006C50C9 /* UIViewController+XYDStoreKit.m in Sources */,
 				49B0883F1DD01FD4003E6916 /* BaseVCtrl.m in Sources */,
+				499709BD1DD5C26400352E8F /* XYDChatFileMessage.m in Sources */,
 				49896E8D1DD2C7BE006C50C9 /* UIControl+XYDSound.m in Sources */,
 				49896E941DD2C7BE006C50C9 /* UIImage+XYDAnimatedGIF.m in Sources */,
 				49D7FA5D1DD309280096B966 /* XYDChatMoreView.m in Sources */,
@@ -3344,12 +3389,14 @@
 				49896E671DD2C7BE006C50C9 /* NSURLRequest+XYDParamsFromDictionary.m in Sources */,
 				49896E791DD2C7BE006C50C9 /* UIBezierPath+XYDBasicShapes.m in Sources */,
 				49896E531DD2C7BE006C50C9 /* NSString+XYDEncrypt.m in Sources */,
+				499709BA1DD5C25200352E8F /* XYDChatLocationMessage.m in Sources */,
 				49D7FA6F1DD309280096B966 /* LCCKSwipeView.m in Sources */,
 				49896E231DD2C7BE006C50C9 /* NSData+XYDEncrypt.m in Sources */,
 				49896EDB1DD2C7BE006C50C9 /* UIWebView+XYDJavaScript.m in Sources */,
 				49B088391DD016E5003E6916 /* AppDelegate+AppLifeCircle.m in Sources */,
 				49896E601DD2C7BE006C50C9 /* NSString+XYDXMLDictionary.m in Sources */,
 				49896EAF1DD2C7BE006C50C9 /* UINavigationController+XYDStackManager.m in Sources */,
+				499709B71DD5C23000352E8F /* XYDChatImageMessage.m in Sources */,
 				49D7FE271DD3262B0096B966 /* MLExpressionManager.m in Sources */,
 				49896E711DD2C7BE006C50C9 /* CAShapeLayer+XYDUIBezierPath.m in Sources */,
 				49896E801DD2C7BE006C50C9 /* UIButton+XYDCountDown.m in Sources */,
@@ -3388,6 +3435,7 @@
 				49896EE01DD2C7BE006C50C9 /* UIWindow+XYDHierarchy.m in Sources */,
 				49896EB21DD2C7BE006C50C9 /* UINavigationItem+XYDLock.m in Sources */,
 				49D7FA5B1DD309280096B966 /* XYDChatEmotionView.m in Sources */,
+				499709C31DD5C29300352E8F /* XYDChatVideoMessage.m in Sources */,
 				49896E951DD2C7BE006C50C9 /* UIImage+XYDBetterFace.m in Sources */,
 				49D7FE3E1DD405960096B966 /* XYDChatKit.m in Sources */,
 				49896E411DD2C7BE006C50C9 /* NSNumber+XYDRound.m in Sources */,
@@ -3409,6 +3457,7 @@
 				49896E6C1DD2C7BE006C50C9 /* MKMapView+XYDZoomLevel.m in Sources */,
 				49B087FC1DD01032003E6916 /* MyTool.m in Sources */,
 				49896E2E1DD2C7BE006C50C9 /* NSDateFormatter+XYDMake.m in Sources */,
+				499709CA1DD5CAA900352E8F /* XYDChatSystemMessage.m in Sources */,
 				49896E8A1DD2C7BE006C50C9 /* UIColor+XYDWeb.m in Sources */,
 				49896E201DD2C7BE006C50C9 /* NSData+XYDAPNSToken.m in Sources */,
 				49896EC41DD2C7BE006C50C9 /* UITextView+XYDPlaceHolder.m in Sources */,
@@ -3434,6 +3483,7 @@
 				49896E841DD2C7BE006C50C9 /* UIButton+XYDSubmitting.m in Sources */,
 				49896E551DD2C7BE006C50C9 /* NSString+XYDMatcher.m in Sources */,
 				49896E8C1DD2C7BE006C50C9 /* UIControl+XYDBlock.m in Sources */,
+				499709B01DD5C0A800352E8F /* XYDChatTypeMessage.m in Sources */,
 				49896E6D1DD2C7BE006C50C9 /* CAAnimation+Blocks.m in Sources */,
 				49896EBF1DD2C7BE006C50C9 /* UITextField+XYDBlocks.m in Sources */,
 				49D7FE2C1DD3262B0096B966 /* MLLabel.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "MainVCtrl.h"
+#import "XYDConversationVCtrl.h"
 
 @interface MainVCtrl ()
 
@@ -20,7 +21,7 @@
 }
 
 - (IBAction)clickBtn:(id)sender {
-    
+    XYDConversationVCtrl *ctrl = 
 }
 
 
