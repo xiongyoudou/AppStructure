@@ -26,19 +26,19 @@
 /**
  *  Position to show UIActivityIndicatorView in a navigation bar
  */
-typedef NS_ENUM(NSUInteger, JKNavBarLoaderPosition){
+typedef NS_ENUM(NSUInteger, XYDNavBarLoaderPosition){
     /**
      *  Will show UIActivityIndicatorView in place of title view
      */
-    JKNavBarLoaderPositionCenter = 0,
+    XYDNavBarLoaderPositionCenter = 0,
     /**
      *  Will show UIActivityIndicatorView in place of left item
      */
-    JKNavBarLoaderPositionLeft,
+    XYDNavBarLoaderPositionLeft,
     /**
      *  Will show UIActivityIndicatorView in place of right item
      */
-    JKNavBarLoaderPositionRight
+    XYDNavBarLoaderPositionRight
 };
 
 @interface UINavigationItem (XYDLoading)

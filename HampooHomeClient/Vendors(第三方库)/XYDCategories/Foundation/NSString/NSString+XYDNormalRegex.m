@@ -1,6 +1,6 @@
 //
 //  NSString+XYDNormalRegex.h
-//  JKCategories
+//  XYDCategories
 //
 //  Created by KevinHM on 15/6/24.
 //  Copyright (c) 2015年 KevinHM. All rights reserved.

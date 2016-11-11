@@ -7,9 +7,9 @@
 //  https://github.com/andreamazz/UIView-Shake
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-typedef NS_ENUM(NSInteger, JKShakeDirection) {
-    JKShakeDirectionHorizontal = 0,
-    JKShakeDirectionVertical
+typedef NS_ENUM(NSInteger, XYDShakeDirection) {
+    XYDShakeDirectionHorizontal = 0,
+    XYDShakeDirectionVertical
 };
 
 @interface UIView (XYDShake)
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, JKShakeDirection) {
  * @param times The number of shakes
  * @param delta The width of the shake
  * @param interval The duration of one shake
- * @param direction of the shake
+ * @param shakeDirection of the shake
  */
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection;
 
@@ -83,7 +83,7 @@ typedef NS_ENUM(NSInteger, JKShakeDirection) {
  * @param times The number of shakes
  * @param delta The width of the shake
  * @param interval The duration of one shake
- * @param direction of the shake
+ * @param shakeDirection of the shake
  * @param completion to be called when the view is done shaking
  */
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakeDirection)shakeDirection completion:(void(^)(void))completion;

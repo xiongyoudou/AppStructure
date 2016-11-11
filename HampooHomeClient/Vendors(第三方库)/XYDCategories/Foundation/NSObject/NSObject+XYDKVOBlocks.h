@@ -25,7 +25,7 @@
 // This class is based on NSObject+KVOBlocks (MIT licensed) by Stephan Leroux.
 // See here: https://github.com/sleroux/KVO-Blocks
 #import <Foundation/Foundation.h>
-typedef void (^JKKVOBlock)(NSDictionary *change, void *context);
+typedef void (^XYDKVOBlock)(NSDictionary *change, void *context);
 
 @interface NSObject (XYDKVOBlocks)
 

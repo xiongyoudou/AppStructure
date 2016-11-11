@@ -11,7 +11,6 @@
 		49845F721DD1B24D0060DED5 /* MainVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49845F701DD1B24D0060DED5 /* MainVCtrl.xib */; };
 		49845F791DD1B3600060DED5 /* MoreVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F771DD1B3600060DED5 /* MoreVCtrl.m */; };
 		49845F7A1DD1B3600060DED5 /* MoreVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49845F781DD1B3600060DED5 /* MoreVCtrl.xib */; };
-		49845F8D1DD1C3400060DED5 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49845F8A1DD1C3400060DED5 /* lame.framework */; };
 		49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */; };
 		498965F31DD2B69A006C50C9 /* XYDImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 498965F21DD2B69A006C50C9 /* XYDImageManager.m */; };
 		498965FC1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 498965FB1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m */; };
@@ -63,7 +62,6 @@
 		49896E411DD2C7BE006C50C9 /* NSNumber+XYDRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA01DD2C7BD006C50C9 /* NSNumber+XYDRound.m */; };
 		49896E421DD2C7BE006C50C9 /* NSObject+XYDAddProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA31DD2C7BD006C50C9 /* NSObject+XYDAddProperty.m */; };
 		49896E431DD2C7BE006C50C9 /* NSObject+XYDAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA51DD2C7BD006C50C9 /* NSObject+XYDAppInfo.m */; };
-		49896E441DD2C7BE006C50C9 /* NSObject+XYDAssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA71DD2C7BD006C50C9 /* NSObject+XYDAssociatedObject.m */; };
 		49896E451DD2C7BE006C50C9 /* NSObject+XYDAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA91DD2C7BD006C50C9 /* NSObject+XYDAutoCoding.m */; };
 		49896E461DD2C7BE006C50C9 /* NSObject+XYDBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CAB1DD2C7BD006C50C9 /* NSObject+XYDBlocks.m */; };
 		49896E471DD2C7BE006C50C9 /* NSObject+XYDBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CAD1DD2C7BD006C50C9 /* NSObject+XYDBlockTimer.m */; };
@@ -226,7 +224,6 @@
 		49B087F61DD01032003E6916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B0879E1DD01032003E6916 /* Main.storyboard */; };
 		49B087F71DD01032003E6916 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49B087A01DD01032003E6916 /* Info.plist */; };
 		49B087F81DD01032003E6916 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087A11DD01032003E6916 /* main.m */; };
-		49B087F91DD01032003E6916 /* FileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087A61DD01032003E6916 /* FileTool.m */; };
 		49B087FA1DD01032003E6916 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087A81DD01032003E6916 /* HttpTool.m */; };
 		49B087FB1DD01032003E6916 /* ImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087AA1DD01032003E6916 /* ImageTool.m */; };
 		49B087FC1DD01032003E6916 /* MyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B087AC1DD01032003E6916 /* MyTool.m */; };
@@ -399,6 +396,12 @@
 		49D7FE581DD418760096B966 /* XYDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE571DD418760096B966 /* XYDAudioPlayer.m */; };
 		49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */; };
 		49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */; };
+		49E5C2AD1DD55CE700A32241 /* NSError+XYDErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */; };
+		49E5C2B01DD5647300A32241 /* XYDInputViewPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */; };
+		49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B31DD5734D00A32241 /* XYDConversation.m */; };
+		49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */; };
+		49E5C2B91DD575CD00A32241 /* XYDConversationListVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */; };
+		49E5C2BE1DD59BA500A32241 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E5C2BD1DD59BA500A32241 /* lame.framework */; };
 		B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */; };
 /* End PBXBuildFile section */
 
@@ -409,7 +412,6 @@
 		49845F761DD1B3600060DED5 /* MoreVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreVCtrl.h; sourceTree = "<group>"; };
 		49845F771DD1B3600060DED5 /* MoreVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreVCtrl.m; sourceTree = "<group>"; };
 		49845F781DD1B3600060DED5 /* MoreVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreVCtrl.xib; sourceTree = "<group>"; };
-		49845F8A1DD1C3400060DED5 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
 		49845F8B1DD1C3400060DED5 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
 		49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
 		498965F11DD2B69A006C50C9 /* XYDImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDImageManager.h; sourceTree = "<group>"; };
@@ -842,8 +844,6 @@
 		49B087A01DD01032003E6916 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B087A11DD01032003E6916 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49B087A21DD01032003E6916 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		49B087A51DD01032003E6916 /* FileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTool.h; sourceTree = "<group>"; };
-		49B087A61DD01032003E6916 /* FileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTool.m; sourceTree = "<group>"; };
 		49B087A71DD01032003E6916 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		49B087A81DD01032003E6916 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		49B087A91DD01032003E6916 /* ImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTool.h; sourceTree = "<group>"; };
@@ -1109,6 +1109,17 @@
 		49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMenuItem.m; sourceTree = "<group>"; };
 		49D7FE5E1DD425790096B966 /* XYDMessageSendStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendStateView.h; sourceTree = "<group>"; };
 		49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateView.m; sourceTree = "<group>"; };
+		49E5C2AB1DD55CE700A32241 /* NSError+XYDErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XYDErrorCode.h"; sourceTree = "<group>"; };
+		49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XYDErrorCode.m"; sourceTree = "<group>"; };
+		49E5C2AE1DD5647300A32241 /* XYDInputViewPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDInputViewPlugin.h; sourceTree = "<group>"; };
+		49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDInputViewPlugin.m; sourceTree = "<group>"; };
+		49E5C2B11DD56EB900A32241 /* XYDChatServiceDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatServiceDefinition.h; sourceTree = "<group>"; };
+		49E5C2B21DD5734D00A32241 /* XYDConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversation.h; sourceTree = "<group>"; };
+		49E5C2B31DD5734D00A32241 /* XYDConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversation.m; sourceTree = "<group>"; };
+		49E5C2B51DD575CD00A32241 /* XYDConversationListVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationListVCtrl.h; sourceTree = "<group>"; };
+		49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationListVCtrl.m; sourceTree = "<group>"; };
+		49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYDConversationListVCtrl.xib; sourceTree = "<group>"; };
+		49E5C2BD1DD59BA500A32241 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
 		61BFDBB61361496476F203DA /* Pods-HampooHomeClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.debug.xcconfig"; sourceTree = "<group>"; };
 		700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HampooHomeClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03AB257B03FE963C251CB31 /* Pods-HampooHomeClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -1120,7 +1131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */,
-				49845F8D1DD1C3400060DED5 /* lame.framework in Frameworks */,
+				49E5C2BE1DD59BA500A32241 /* lame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,7 +1221,7 @@
 		49845F891DD1C3400060DED5 /* VoiceLib */ = {
 			isa = PBXGroup;
 			children = (
-				49845F8A1DD1C3400060DED5 /* lame.framework */,
+				49E5C2BD1DD59BA500A32241 /* lame.framework */,
 				49845F8B1DD1C3400060DED5 /* Mp3Recorder.h */,
 				49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */,
 			);
@@ -1322,6 +1333,7 @@
 		49896C481DD2C7BD006C50C9 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				49E5C2AA1DD55C7400A32241 /* NSError */,
 				49896C491DD2C7BD006C50C9 /* NSArray */,
 				49896C4E1DD2C7BD006C50C9 /* NSBundle */,
 				49896C511DD2C7BD006C50C9 /* NSData */,
@@ -2322,8 +2334,6 @@
 				49B0886D1DD05545003E6916 /* DialogTool.m */,
 				49B088691DD054E2003E6916 /* AppTool.h */,
 				49B0886A1DD054E2003E6916 /* AppTool.m */,
-				49B087A51DD01032003E6916 /* FileTool.h */,
-				49B087A61DD01032003E6916 /* FileTool.m */,
 				49B087A71DD01032003E6916 /* HttpTool.h */,
 				49B087A81DD01032003E6916 /* HttpTool.m */,
 				49B087A91DD01032003E6916 /* ImageTool.h */,
@@ -2668,6 +2678,8 @@
 				49D7FE2F1DD328E00096B966 /* XYDChatMsg.m */,
 				49D7FE311DD329420096B966 /* XYDChatMsgDelegate.h */,
 				49D7FE321DD329D70096B966 /* XYDUserDelegate.h */,
+				49E5C2B21DD5734D00A32241 /* XYDConversation.h */,
+				49E5C2B31DD5734D00A32241 /* XYDConversation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2707,6 +2719,8 @@
 				49D7FA371DD309280096B966 /* XYDChatInputBarDelegate.h */,
 				49D7FA381DD309280096B966 /* XYDChatMoreView.h */,
 				49D7FA391DD309280096B966 /* XYDChatMoreView.m */,
+				49E5C2AE1DD5647300A32241 /* XYDInputViewPlugin.h */,
+				49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */,
 				49D7FA3C1DD309280096B966 /* XYDEmotionManager.h */,
 				49D7FA3D1DD309280096B966 /* XYDEmotionManager.m */,
 				49D7FA3E1DD309280096B966 /* XYDEmotionPageView.h */,
@@ -2743,6 +2757,9 @@
 		49D7FA451DD309280096B966 /* ConversationList */ = {
 			isa = PBXGroup;
 			children = (
+				49E5C2B51DD575CD00A32241 /* XYDConversationListVCtrl.h */,
+				49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */,
+				49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */,
 			);
 			path = ConversationList;
 			sourceTree = "<group>";
@@ -2876,6 +2893,7 @@
 		49D7FE3F1DD407010096B966 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				49E5C2B11DD56EB900A32241 /* XYDChatServiceDefinition.h */,
 				49D7FE401DD407010096B966 /* XYDChatSettingProtocol.h */,
 				49D7FE411DD407010096B966 /* XYDChatSettingService.h */,
 				49D7FE421DD407010096B966 /* XYDChatSettingService.m */,
@@ -2887,6 +2905,15 @@
 				49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		49E5C2AA1DD55C7400A32241 /* NSError */ = {
+			isa = PBXGroup;
+			children = (
+				49E5C2AB1DD55CE700A32241 /* NSError+XYDErrorCode.h */,
+				49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */,
+			);
+			path = NSError;
 			sourceTree = "<group>";
 		};
 		53B675090A7334FDD28AE446 /* Pods */ = {
@@ -3018,6 +3045,7 @@
 				49B0881C1DD01033003E6916 /* PlayButtonOverlayLargeTap@3x.png in Resources */,
 				49B089051DD0690B003E6916 /* tab_onlinedisk_h@2x.png in Resources */,
 				49B088221DD01033003E6916 /* UIBarButtonItemArrowOutlineRight.png in Resources */,
+				49E5C2B91DD575CD00A32241 /* XYDConversationListVCtrl.xib in Resources */,
 				49B087F41DD01032003E6916 /* Assets.xcassets in Resources */,
 				49B0882A1DD01033003E6916 /* UIBarButtonItemGridiOS6.png in Resources */,
 				49B088F51DD0690B003E6916 /* 4_launch@2x.png in Resources */,
@@ -3136,6 +3164,7 @@
 				49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */,
 				49D7FE2D1DD3262B0096B966 /* MLLinkLabel.m in Sources */,
 				49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */,
+				49E5C2AD1DD55CE700A32241 /* NSError+XYDErrorCode.m in Sources */,
 				49896ECC1DD2C7BE006C50C9 /* UIView+XYDFrame.m in Sources */,
 				49896E4C1DD2C7BE006C50C9 /* NSObject+XYDRuntime.m in Sources */,
 				49896ED31DD2C7BE006C50C9 /* UIViewController+XYDBackButtonItemTitle.m in Sources */,
@@ -3190,7 +3219,6 @@
 				49896E8B1DD2C7BE006C50C9 /* UIControl+XYDActionBlocks.m in Sources */,
 				49896EBC1DD2C7BE006C50C9 /* UITableView+XYDiOS7Style.m in Sources */,
 				49896E5E1DD2C7BE006C50C9 /* NSString+XYDURLEncode.m in Sources */,
-				49B087F91DD01032003E6916 /* FileTool.m in Sources */,
 				49896E4E1DD2C7BE006C50C9 /* NSSet+XYDBlock.m in Sources */,
 				49896ECF1DD2C7BE006C50C9 /* UIView+XYDScreenshot.m in Sources */,
 				49896E401DD2C7BE006C50C9 /* NSNumber+XYDRomanNumerals.m in Sources */,
@@ -3267,6 +3295,7 @@
 				49896E251DD2C7BE006C50C9 /* NSData+XYDHash.m in Sources */,
 				49896E631DD2C7BE006C50C9 /* NSURL+XYDParam.m in Sources */,
 				49896EC61DD2C7BE006C50C9 /* UIView+XYDAnimation.m in Sources */,
+				49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */,
 				49D7FE521DD40C840096B966 /* XYDChatContentView.m in Sources */,
 				49896E3F1DD2C7BE006C50C9 /* NSNumber+XYDCGFloat.m in Sources */,
 				49896EC91DD2C7BE006C50C9 /* UIView+XYDCustomBorder.m in Sources */,
@@ -3374,6 +3403,7 @@
 				49896E781DD2C7BE006C50C9 /* UIBarButtonItem+XYDAction.m in Sources */,
 				49896EDA1DD2C7BE006C50C9 /* UIWebView+XYDCanvas.m in Sources */,
 				49D7FE461DD407A70096B966 /* XYDChatUIService.m in Sources */,
+				49E5C2B01DD5647300A32241 /* XYDInputViewPlugin.m in Sources */,
 				49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */,
 				49896E741DD2C7BE006C50C9 /* UIApplication+XYDApplicationSize.m in Sources */,
 				49896E6C1DD2C7BE006C50C9 /* MKMapView+XYDZoomLevel.m in Sources */,
@@ -3396,8 +3426,8 @@
 				49896E981DD2C7BE006C50C9 /* UIImage+XYDColor.m in Sources */,
 				49896E591DD2C7BE006C50C9 /* NSString+XYDRemoveEmoji.m in Sources */,
 				49896E391DD2C7BE006C50C9 /* NSIndexPath+XYDOffset.m in Sources */,
-				49896E441DD2C7BE006C50C9 /* NSObject+XYDAssociatedObject.m in Sources */,
 				49B088421DD029A2003E6916 /* XYDTabBarControllerConfig.m in Sources */,
+				49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */,
 				49896E431DD2C7BE006C50C9 /* NSObject+XYDAppInfo.m in Sources */,
 				49896E751DD2C7BE006C50C9 /* UIApplication+XYDKeyboardFrame.m in Sources */,
 				49896EB61DD2C7BE006C50C9 /* UIResponder+XYDFirstResponder.m in Sources */,
@@ -3542,8 +3572,41 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"EAIntroView\"",
+					"-l\"EARestrictedScrollView\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SSKeychain\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.HampooHomeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -3561,8 +3624,41 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"EAIntroView\"",
+					"-l\"EARestrictedScrollView\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SSKeychain\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.HampooHomeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

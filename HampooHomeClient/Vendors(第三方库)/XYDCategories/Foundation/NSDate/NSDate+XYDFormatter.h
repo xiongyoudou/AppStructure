@@ -1,6 +1,6 @@
 //
 //  NSDate+Formatter.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Copyright (C) 2013 by Christopher Meyer
 //  http://schwiiz.org/

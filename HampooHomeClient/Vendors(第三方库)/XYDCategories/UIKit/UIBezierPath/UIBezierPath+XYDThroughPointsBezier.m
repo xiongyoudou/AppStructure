@@ -9,7 +9,7 @@
 
 @implementation UIBezierPath (XYDThroughPointsBezier)
 
-- (void)setxyd_contractionFactor:(CGFloat)contractionFactor
+- (void)setXyd_contractionFactor:(CGFloat)contractionFactor
 {
     objc_setAssociatedObject(self, @selector(xyd_contractionFactor), @(contractionFactor), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

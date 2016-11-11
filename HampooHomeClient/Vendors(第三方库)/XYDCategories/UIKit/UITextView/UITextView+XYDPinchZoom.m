@@ -13,7 +13,7 @@ static int xyd_zoomEnabledKey;
 
 @implementation UITextView (XYDPinchZoom)
 
-- (void)setxyd_maxFontSize:(CGFloat)maxFontSize
+- (void)setXyd_maxFontSize:(CGFloat)maxFontSize
 {
     objc_setAssociatedObject(self, &xyd_maxFontSizeKey, [NSNumber numberWithFloat:maxFontSize],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -24,7 +24,7 @@ static int xyd_zoomEnabledKey;
     return [objc_getAssociatedObject(self, &xyd_maxFontSizeKey) floatValue];
 }
 
-- (void)setxyd_minFontSize:(CGFloat)maxFontSize
+- (void)setXyd_minFontSize:(CGFloat)maxFontSize
 {
     objc_setAssociatedObject(self, &xyd_minFontSizeKey, [NSNumber numberWithFloat:maxFontSize],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -47,7 +47,7 @@ static int xyd_zoomEnabledKey;
 }
 
 
-- (void)setxyd_zoomEnabled:(BOOL)zoomEnabled
+- (void)setXyd_zoomEnabled:(BOOL)zoomEnabled
 {
     objc_setAssociatedObject(self, &xyd_zoomEnabledKey, [NSNumber numberWithBool:zoomEnabled],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);

@@ -1,6 +1,6 @@
 //
 //  UITextView+PlaceHolder.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/15.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -12,7 +12,7 @@ static const char *xyd_placeHolderTextView = "xyd_placeHolderTextView";
 - (UITextView *)xyd_placeHolderTextView {
     return objc_getAssociatedObject(self, xyd_placeHolderTextView);
 }
-- (void)setxyd_placeHolderTextView:(UITextView *)placeHolderTextView {
+- (void)setXyd_placeHolderTextView:(UITextView *)placeHolderTextView {
     objc_setAssociatedObject(self, xyd_placeHolderTextView, placeHolderTextView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)xyd_addPlaceHolder:(NSString *)placeHolder {
@@ -26,7 +26,7 @@ static const char *xyd_placeHolderTextView = "xyd_placeHolderTextView";
         textView.userInteractionEnabled = NO;
         textView.text = placeHolder;
         [self addSubview:textView];
-        [self setxyd_placeHolderTextView:textView];
+        [self setXyd_placeHolderTextView:textView];
     }
 }
 # pragma mark -

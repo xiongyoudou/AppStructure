@@ -1,6 +1,6 @@
 //
 //  UIImage+RemoteSize.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 15/1/27.
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^JKUIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
+typedef void (^XYDUIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 
 @interface UIImage (XYDRemoteSize)
 /**

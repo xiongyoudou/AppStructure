@@ -31,7 +31,7 @@ NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_Key
 {
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"-[%@ %@] - not supported in simulator", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    return JKPasscodeStatusUnknown;
+    return XYDPasscodeStatusUnknown;
 #endif
     
 #ifdef __IPHONE_8_0
@@ -56,7 +56,7 @@ NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_Key
         
         // unable to create the access control item.
         if (sacObject == NULL || sacError != NULL) {
-            return JKPasscodeStatusUnknown;
+            return XYDPasscodeStatusUnknown;
         }
         
         
@@ -69,24 +69,24 @@ NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_Key
         
         // if it failed to add the item.
         if (status == errSecDecode) {
-            return JKPasscodeStatusDisabled;
+            return XYDPasscodeStatusDisabled;
         }
         
         status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
         
         // it managed to retrieve data successfully
         if (status == errSecSuccess) {
-            return JKPasscodeStatusEnabled;
+            return XYDPasscodeStatusEnabled;
         }
         
         // not sure what happened, returning unknown
-        return JKPasscodeStatusUnknown;
+        return XYDPasscodeStatusUnknown;
         
     } else {
-        return JKPasscodeStatusUnknown;
+        return XYDPasscodeStatusUnknown;
     }
 #else
-    return JKPasscodeStatusUnknown;
+    return XYDPasscodeStatusUnknown;
 #endif
 }
 

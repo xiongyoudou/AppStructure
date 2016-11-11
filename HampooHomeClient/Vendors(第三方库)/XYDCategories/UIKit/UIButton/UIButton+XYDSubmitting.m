@@ -67,37 +67,37 @@
 }
 
 - (NSNumber *)isJKSubmitting {
-    return objc_getAssociatedObject(self, @selector(setxyd_submitting:));
+    return objc_getAssociatedObject(self, @selector(setXyd_submitting:));
 }
 
-- (void)setxyd_submitting:(NSNumber *)submitting {
-    objc_setAssociatedObject(self, @selector(setxyd_submitting:), submitting, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setXyd_submitting:(NSNumber *)submitting {
+    objc_setAssociatedObject(self, @selector(setXyd_submitting:), submitting, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
 }
 
 - (UIActivityIndicatorView *)xyd_spinnerView {
-    return objc_getAssociatedObject(self, @selector(setxyd_spinnerView:));
+    return objc_getAssociatedObject(self, @selector(setXyd_spinnerView:));
 }
 
-- (void)setxyd_spinnerView:(UIActivityIndicatorView *)spinnerView {
-    objc_setAssociatedObject(self, @selector(setxyd_spinnerView:), spinnerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setXyd_spinnerView:(UIActivityIndicatorView *)spinnerView {
+    objc_setAssociatedObject(self, @selector(setXyd_spinnerView:), spinnerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIView *)xyd_modalView {
-    return objc_getAssociatedObject(self, @selector(setxyd_modalView:));
+    return objc_getAssociatedObject(self, @selector(setXyd_modalView:));
 
 }
 
-- (void)setxyd_modalView:(UIView *)modalView {
-    objc_setAssociatedObject(self, @selector(setxyd_modalView:), modalView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setXyd_modalView:(UIView *)modalView {
+    objc_setAssociatedObject(self, @selector(setXyd_modalView:), modalView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UILabel *)xyd_spinnerTitleLabel {
-    return objc_getAssociatedObject(self, @selector(setxyd_spinnerTitleLabel:));
+    return objc_getAssociatedObject(self, @selector(setXyd_spinnerTitleLabel:));
 }
 
-- (void)setxyd_spinnerTitleLabel:(UILabel *)spinnerTitleLabel {
-    objc_setAssociatedObject(self, @selector(setxyd_spinnerTitleLabel:), spinnerTitleLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setXyd_spinnerTitleLabel:(UILabel *)spinnerTitleLabel {
+    objc_setAssociatedObject(self, @selector(setXyd_spinnerTitleLabel:), spinnerTitleLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

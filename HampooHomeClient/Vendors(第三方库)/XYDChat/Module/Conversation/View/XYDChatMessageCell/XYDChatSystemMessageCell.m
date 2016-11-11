@@ -101,7 +101,7 @@
 }
 
 + (XYDChatMessageMediaType)classMediaType {
-    return kAVIMMessageMediaTypeSystem;
+    return XYDChatMessageMediaTypeSystem;
 }
 
 - (UIColor *)conversationViewTimeLineTextColor {

@@ -10,7 +10,7 @@
 
 @interface NSNumber (XYDRomanNumerals)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *   A category on NSNumber that returns the value as a roman numeral 
  *

@@ -18,17 +18,17 @@
 #import <CoreMotion/CoreMotion.h>
 #import <EventKit/EventKit.h>
 
-typedef void (^JKLocationSuccessCallback)();
-typedef void (^JKLocationFailureCallback)();
+typedef void (^XYDLocationSuccessCallback)();
+typedef void (^XYDLocationFailureCallback)();
 
-static char JKPermissionsLocationManagerPropertyKey;
-static char JKPermissionsLocationBlockSuccessPropertyKey;
-static char JKPermissionsLocationBlockFailurePropertyKey;
+static char XYDPermissionsLocationManagerPropertyKey;
+static char XYDPermissionsLocationBlockSuccessPropertyKey;
+static char XYDPermissionsLocationBlockFailurePropertyKey;
 
 @interface UIApplication () <CLLocationManagerDelegate>
 @property (nonatomic, retain) CLLocationManager *xyd_permissionsLocationManager;
-@property (nonatomic, copy) JKLocationSuccessCallback xyd_locationSuccessCallbackProperty;
-@property (nonatomic, copy) JKLocationFailureCallback xyd_locationFailureCallbackProperty;
+@property (nonatomic, copy) XYDLocationSuccessCallback xyd_locationSuccessCallbackProperty;
+@property (nonatomic, copy) XYDLocationFailureCallback xyd_locationFailureCallbackProperty;
 @end
 
 
@@ -39,15 +39,15 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 -(XYDPermissionAccess)hasAccessToBluetoothLE {
     switch ([[[CBCentralManager alloc] init] state]) {
         case CBCentralManagerStateUnsupported:
-            return JKPermissionAccessUnsupported;
+            return XYDPermissionAccessUnsupported;
             break;
             
         case CBCentralManagerStateUnauthorized:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         default:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
     }
 }
@@ -55,19 +55,19 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 -(XYDPermissionAccess)hasAccessToCalendar {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent]) {
         case EKAuthorizationStatusAuthorized:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
             
         case EKAuthorizationStatusDenied:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         case EKAuthorizationStatusRestricted:
-            return JKPermissionAccessRestricted;
+            return XYDPermissionAccessRestricted;
             break;
             
         default:
-            return JKPermissionAccessUnknown;
+            return XYDPermissionAccessUnknown;
             break;
     }
 }
@@ -75,19 +75,19 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 -(XYDPermissionAccess)hasAccessToContacts {
     switch (ABAddressBookGetAuthorizationStatus()) {
         case kABAuthorizationStatusAuthorized:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
             
         case kABAuthorizationStatusDenied:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         case kABAuthorizationStatusRestricted:
-            return JKPermissionAccessRestricted;
+            return XYDPermissionAccessRestricted;
             break;
             
         default:
-            return JKPermissionAccessUnknown;
+            return XYDPermissionAccessUnknown;
             break;
     }
 }
@@ -95,40 +95,40 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 -(XYDPermissionAccess)hasAccessToLocation {
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusAuthorized:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
             
         case kCLAuthorizationStatusDenied:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         case kCLAuthorizationStatusRestricted:
-            return JKPermissionAccessRestricted;
+            return XYDPermissionAccessRestricted;
             break;
             
         default:
-            return JKPermissionAccessUnknown;
+            return XYDPermissionAccessUnknown;
             break;
     }
-    return JKPermissionAccessUnknown;
+    return XYDPermissionAccessUnknown;
 }
 
 -(XYDPermissionAccess)hasAccessToPhotos {
     switch ([ALAssetsLibrary authorizationStatus]) {
         case ALAuthorizationStatusAuthorized:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
             
         case ALAuthorizationStatusDenied:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         case ALAuthorizationStatusRestricted:
-            return JKPermissionAccessRestricted;
+            return XYDPermissionAccessRestricted;
             break;
             
         default:
-            return JKPermissionAccessUnknown;
+            return XYDPermissionAccessUnknown;
             break;
     }
 }
@@ -136,22 +136,22 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 -(XYDPermissionAccess)hasAccessToReminders {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder]) {
         case EKAuthorizationStatusAuthorized:
-            return JKPermissionAccessGranted;
+            return XYDPermissionAccessGranted;
             break;
             
         case EKAuthorizationStatusDenied:
-            return JKPermissionAccessDenied;
+            return XYDPermissionAccessDenied;
             break;
             
         case EKAuthorizationStatusRestricted:
-            return JKPermissionAccessRestricted;
+            return XYDPermissionAccessRestricted;
             break;
             
         default:
-            return JKPermissionAccessUnknown;
+            return XYDPermissionAccessUnknown;
             break;
     }
-    return JKPermissionAccessUnknown;
+    return XYDPermissionAccessUnknown;
 }
 
 
@@ -248,27 +248,27 @@ static char JKPermissionsLocationBlockFailurePropertyKey;
 
 #pragma mark - Location manager injection
 -(CLLocationManager *)xyd_permissionsLocationManager {
-    return objc_getAssociatedObject(self, &JKPermissionsLocationManagerPropertyKey);
+    return objc_getAssociatedObject(self, &XYDPermissionsLocationManagerPropertyKey);
 }
 
--(void)setxyd_permissionsLocationManager:(CLLocationManager *)manager {
-    objc_setAssociatedObject(self, &JKPermissionsLocationManagerPropertyKey, manager, OBJC_ASSOCIATION_RETAIN);
+-(void)setXyd_permissionsLocationManager:(CLLocationManager *)manager {
+    objc_setAssociatedObject(self, &XYDPermissionsLocationManagerPropertyKey, manager, OBJC_ASSOCIATION_RETAIN);
 }
 
 -(XYDLocationSuccessCallback)locationSuccessCallbackProperty {
-    return objc_getAssociatedObject(self, &JKPermissionsLocationBlockSuccessPropertyKey);
+    return objc_getAssociatedObject(self, &XYDPermissionsLocationBlockSuccessPropertyKey);
 }
 
--(void)setxyd_locationSuccessCallbackProperty:(XYDLocationSuccessCallback)locationCallbackProperty {
-    objc_setAssociatedObject(self, &JKPermissionsLocationBlockSuccessPropertyKey, locationCallbackProperty, OBJC_ASSOCIATION_COPY);
+-(void)setXyd_locationSuccessCallbackProperty:(XYDLocationSuccessCallback)locationCallbackProperty {
+    objc_setAssociatedObject(self, &XYDPermissionsLocationBlockSuccessPropertyKey, locationCallbackProperty, OBJC_ASSOCIATION_COPY);
 }
 
 -(XYDLocationFailureCallback)locationFailureCallbackProperty {
-    return objc_getAssociatedObject(self, &JKPermissionsLocationBlockFailurePropertyKey);
+    return objc_getAssociatedObject(self, &XYDPermissionsLocationBlockFailurePropertyKey);
 }
 
--(void)setxyd_locationFailureCallbackProperty:(XYDLocationFailureCallback)locationFailureCallbackProperty {
-    objc_setAssociatedObject(self, &JKPermissionsLocationBlockFailurePropertyKey, locationFailureCallbackProperty, OBJC_ASSOCIATION_COPY);
+-(void)setXyd_locationFailureCallbackProperty:(XYDLocationFailureCallback)locationFailureCallbackProperty {
+    objc_setAssociatedObject(self, &XYDPermissionsLocationBlockFailurePropertyKey, locationFailureCallbackProperty, OBJC_ASSOCIATION_COPY);
 }
 
 

@@ -28,7 +28,7 @@ void xyd_hack_uiimageview_bf(){
 }
 
 - (void)xyd_setBetterFaceImage:(UIImage *)image{
-    [self setxyd_needsBetterFace:image];
+    [self setXyd_needsBetterFace:image];
     if (![self xyd_needsBetterFace]) {
         return;
     }
@@ -37,7 +37,7 @@ void xyd_hack_uiimageview_bf(){
 }
 
 char nbfKey;
-- (void)setxyd_needsBetterFace:(BOOL)needsBetterFace{
+- (void)setXyd_needsBetterFace:(BOOL)needsBetterFace{
     objc_setAssociatedObject(self,
                              &nbfKey,
                              [NSNumber numberWithBool:needsBetterFace],
@@ -50,7 +50,7 @@ char nbfKey;
 }
 
 char fastSpeedKey;
-- (void)setxyd_fast:(BOOL)fast{
+- (void)setXyd_fast:(BOOL)fast{
     objc_setAssociatedObject(self,
                              &fastSpeedKey,
                              [NSNumber numberWithBool:fast],
@@ -58,7 +58,7 @@ char fastSpeedKey;
 }
 
 char detectorKey;
-- (void)setxyd_detector:(CIDetector *)detector{
+- (void)setXyd_detector:(CIDetector *)detector{
     objc_setAssociatedObject(self,
                              &detectorKey,
                              detector,

@@ -408,4 +408,26 @@ static NSString *remainTime;
     return scales;
 }
 
++ (void)warnMainThreadIfNecessary {
+    if (getenv("GHUNIT_CLI")) return;
+    
+    if ([NSThread isMainThread]) {
+        NSLog(@"Warning: A long-running Paas operation is being executed on the main thread.");
+    }
+}
+
++(void)performSelectorIfCould:(id)target
+                     selector:(SEL)selector
+                       object:(id)arg1
+                       object:(id)arg2
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    if ([target respondsToSelector:selector])
+    {
+        [target performSelector:selector withObject:arg1 withObject:arg2];
+    }
+#pragma clang diagnostic pop
+}
+
 @end

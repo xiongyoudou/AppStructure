@@ -1,6 +1,6 @@
 //
 //  UIView+UIView_BlockGesture.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -29,7 +29,7 @@ static char xyd_kActionHandlerLongPressGestureKey;
 {
     if (gesture.state == UIGestureRecognizerStateRecognized)
     {
-        JKGestureActionBlock block = objc_getAssociatedObject(self, &xyd_kActionHandlerTapBlockKey);
+        XYDGestureActionBlock block = objc_getAssociatedObject(self, &xyd_kActionHandlerTapBlockKey);
         if (block)
         {
             block(gesture);
@@ -51,7 +51,7 @@ static char xyd_kActionHandlerLongPressGestureKey;
 {
     if (gesture.state == UIGestureRecognizerStateRecognized)
     {
-        JKGestureActionBlock block = objc_getAssociatedObject(self, &xyd_kActionHandlerLongPressBlockKey);
+        XYDGestureActionBlock block = objc_getAssociatedObject(self, &xyd_kActionHandlerLongPressBlockKey);
         if (block)
         {
             block(gesture);

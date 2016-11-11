@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol JKBackButtonItemTitleProtocol <NSObject>
+@protocol XYDBackButtonItemTitleProtocol <NSObject>
 
 @optional
 - (NSString *)xyd_navigationItemBackBarButtonTitle; //The length of the text is limited, otherwise it will be set to "Back"
 
 @end
 
-@interface UIViewController (XYDBackButtonItemTitle) <JKBackButtonItemTitleProtocol>
+@interface UIViewController (XYDBackButtonItemTitle) <XYDBackButtonItemTitleProtocol>
 
 @end

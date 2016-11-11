@@ -110,34 +110,34 @@ NSString* const xyd_iTunesAppleString = @"itunes.apple.com";
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Associated objects
 
-- (void)setxyd_campaignToken:(NSString*)campaignToken
+- (void)setXyd_campaignToken:(NSString*)campaignToken
 {
-    objc_setAssociatedObject(self, @selector(setxyd_campaignToken:), campaignToken, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(setXyd_campaignToken:), campaignToken, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSString*)xyd_campaignToken
 {
-    return objc_getAssociatedObject(self, @selector(setxyd_campaignToken:));
+    return objc_getAssociatedObject(self, @selector(setXyd_campaignToken:));
 }
 
-- (void)setxyd_loadingStoreKitItemBlock:(void (^)(void))loadingStoreKitItemBlock
+- (void)setXyd_loadingStoreKitItemBlock:(void (^)(void))loadingStoreKitItemBlock
 {
-    objc_setAssociatedObject(self, @selector(setxyd_loadingStoreKitItemBlock:), loadingStoreKitItemBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(setXyd_loadingStoreKitItemBlock:), loadingStoreKitItemBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void (^)(void))xyd_loadingStoreKitItemBlock
 {
-    return objc_getAssociatedObject(self, @selector(setxyd_loadingStoreKitItemBlock:));
+    return objc_getAssociatedObject(self, @selector(setXyd_loadingStoreKitItemBlock:));
 }
 
-- (void)setxyd_loadedStoreKitItemBlock:(void (^)(void))loadedStoreKitItemBlock
+- (void)setXyd_loadedStoreKitItemBlock:(void (^)(void))loadedStoreKitItemBlock
 {
-    objc_setAssociatedObject(self, @selector(setxyd_loadedStoreKitItemBlock:), loadedStoreKitItemBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(setXyd_loadedStoreKitItemBlock:), loadedStoreKitItemBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void (^)(void))xyd_loadedStoreKitItemBlock
 {
-    return objc_getAssociatedObject(self, @selector(setxyd_loadedStoreKitItemBlock:));
+    return objc_getAssociatedObject(self, @selector(setXyd_loadedStoreKitItemBlock:));
 }
 
 @end

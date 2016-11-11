@@ -89,5 +89,10 @@
 // 对象是否有效
 + (id)isValidObj:(id)obj;
 + (NSArray *)getScaleArray;
++ (void)warnMainThreadIfNecessary;
++(void)performSelectorIfCould:(id)target
+                     selector:(SEL)selector
+                       object:(id)arg1
+                       object:(id)arg2;
 
 @end

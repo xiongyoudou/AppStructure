@@ -1,13 +1,13 @@
 //
-//  JKFoundation.h
-//  JKCategories
+//  XYDFoundation.h
+//  XYDCategories
 //
 //  Created by Jakey on 16/5/29.
 //  Copyright © 2016年 www.skyfox.org. All rights reserved.
 //
 
-#ifndef JKFoundation_h
-#define JKFoundation_h
+#ifndef XYDFoundation_h
+#define XYDFoundation_h
 
 #import "NSArray+XYDBlock.h"
 #import "NSArray+XYDSafeAccess.h"
@@ -87,4 +87,4 @@
 #import "NSUserDefaults+XYDiCloudSync.h"
 #import "NSUserDefaults+XYDSafeAccess.h"
 
-#endif /* JKFoundation_h */
+#endif /* XYDFoundation_h */

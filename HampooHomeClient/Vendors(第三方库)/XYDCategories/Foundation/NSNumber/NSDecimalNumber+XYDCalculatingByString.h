@@ -11,7 +11,7 @@
 
 @interface NSDecimalNumber (XYDCalculatingByString)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *   use string calculation for nsdecimalnumber, for simplicity when doing much calculation works. 
  *

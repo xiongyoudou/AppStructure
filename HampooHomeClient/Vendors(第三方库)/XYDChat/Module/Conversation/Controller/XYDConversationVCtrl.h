@@ -7,7 +7,7 @@
 //
 
 #import "XYDBaseConversationVCtrl.h"
-#import "XYDChat.h"
+#import "XYDChatKit.h"
 
 // 会话相关的错误信息
 FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;

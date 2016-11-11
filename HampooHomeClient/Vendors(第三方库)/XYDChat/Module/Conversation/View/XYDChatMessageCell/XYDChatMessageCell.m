@@ -10,6 +10,8 @@
 #import "XYDChatConstant.h"
 #import "XYDChatMenuItem.h"
 #import "XYDChatHelper.h"
+#import "XYDChatKit.h"
+#import "XYDChatSettingService.h"
 
 #import "XYDChatTextMessageCell.h"
 #import "XYDChatImageMessageCell.h"
@@ -18,20 +20,21 @@
 #import "XYDChatVoiceMessageCell.h"
 #import "XYDChatContentView.h"
 #import "XYDMessageSendStateView.h"
+#import "XYDChatServiceDefinition.h"
 
-NSMutableDictionary const *LCCKChatMessageCellMediaTypeDict = nil;
+NSMutableDictionary const *XYDChatChatMessageCellMediaTypeDict = nil;
 static CGFloat const kAvatarImageViewWidth = 50.f;
 static CGFloat const kAvatarImageViewHeight = kAvatarImageViewWidth;
-static CGFloat const LCCKMessageSendStateViewWidthHeight = 30.f;
-static CGFloat const LCCKMessageSendStateViewLeftOrRightToMessageContentView = 2.f;
-static CGFloat const LCCKAvatarToMessageContent = 5.f;
+static CGFloat const XYDChatMessageSendStateViewWidthHeight = 30.f;
+static CGFloat const XYDChatMessageSendStateViewLeftOrRightToMessageContentView = 2.f;
+static CGFloat const XYDChatAvatarToMessageContent = 5.f;
 
-static CGFloat const LCCKAvatarBottomToMessageContentTop = -1.f;
+static CGFloat const XYDChatAvatarBottomToMessageContentTop = -1.f;
 
 
-static CGFloat const LCCK_MSG_CELL_EDGES_OFFSET = 16;
-static CGFloat const LCCK_MSG_CELL_NICKNAME_HEIGHT = 16;
-static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
+static CGFloat const XYDChat_MSG_CELL_EDGES_OFFSET = 16;
+static CGFloat const XYDChat_MSG_CELL_NICKNAME_HEIGHT = 16;
+static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 
 
 @interface XYDChatMessageCell ()
@@ -58,7 +61,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 
 + (Class)classForMediaType:(XYDChatMessageMediaType)mediaType {
     NSNumber *key = [NSNumber numberWithInteger:mediaType];
-    Class class = [LCCKChatMessageCellMediaTypeDict objectForKey:key];
+    Class class = [XYDChatChatMessageCellMediaTypeDict objectForKey:key];
     if (!class) {
         class = self;
     }
@@ -66,13 +69,13 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 }
 
 + (void)registerClass:(Class)class forMediaType:(XYDChatMessageMediaType)mediaType {
-    if (!LCCKChatMessageCellMediaTypeDict) {
-        LCCKChatMessageCellMediaTypeDict = [[NSMutableDictionary alloc] init];
+    if (!XYDChatChatMessageCellMediaTypeDict) {
+        XYDChatChatMessageCellMediaTypeDict = [[NSMutableDictionary alloc] init];
     }
     NSNumber *key = [NSNumber numberWithInteger:mediaType];
-    Class c = [LCCKChatMessageCellMediaTypeDict objectForKey:key];
+    Class c = [XYDChatChatMessageCellMediaTypeDict objectForKey:key];
     if (!c || [class isSubclassOfClass:c]) {
-        [LCCKChatMessageCellMediaTypeDict setObject:class forKey:key];
+        [XYDChatChatMessageCellMediaTypeDict setObject:class forKey:key];
     }
 }
 
@@ -83,7 +86,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     return self;
 }
 
-// add support for LCCKMenuItem. Needs to be called once per class.
+// add support for XYDChatMenuItem. Needs to be called once per class.
 + (void)load {
     [XYDChatMenuItem installMenuHandlerForObject:self];
 }
@@ -122,8 +125,8 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     if (self.messageOwner == XYDChatMessageOwnerTypeSelf) {
         if (self.avatarImageView.superview) {
             [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.contentView.mas_right).with.offset(-LCCK_MSG_CELL_EDGES_OFFSET);
-                make.top.equalTo(self.contentView.mas_top).with.offset(LCCK_MSG_CELL_EDGES_OFFSET);
+                make.right.equalTo(self.contentView.mas_right).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET);
+                make.top.equalTo(self.contentView.mas_top).with.offset(XYDChat_MSG_CELL_EDGES_OFFSET);
                 make.width.equalTo(@(kAvatarImageViewWidth));
                 make.height.equalTo(@(kAvatarImageViewHeight));
             }];
@@ -131,29 +134,29 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
         if (self.nickNameLabel.superview) {
             [self.nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.avatarImageView.mas_top);
-                make.right.equalTo(self.avatarImageView.mas_left).with.offset(-LCCK_MSG_CELL_EDGES_OFFSET);
+                make.right.equalTo(self.avatarImageView.mas_left).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET);
                 make.width.mas_lessThanOrEqualTo(@120);
                 make.height.equalTo(@0);
             }];
         }
         if (self.messageContentView.superview) {
             [self.messageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.avatarImageView.mas_left).with.offset(-LCCKAvatarToMessageContent);
-                make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : LCCKAvatarBottomToMessageContentTop);
+                make.right.equalTo(self.avatarImageView.mas_left).with.offset(-XYDChatAvatarToMessageContent);
+                make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : XYDChatAvatarBottomToMessageContentTop);
                 CGFloat width = [UIApplication sharedApplication].keyWindow.frame.size.width;
                 CGFloat height = [UIApplication sharedApplication].keyWindow.frame.size.height;
                 CGFloat widthLimit = MIN(width, height)/5 * 3;
                 
                 make.width.lessThanOrEqualTo(@(widthLimit)).priorityHigh();
-                make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-LCCK_MSG_CELL_EDGES_OFFSET).priorityLow();
+                make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET).priorityLow();
             }];
         }
         if (self.messageSendStateView.superview) {
             [self.messageSendStateView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.messageContentView.mas_left).with.offset(-LCCKMessageSendStateViewLeftOrRightToMessageContentView);
+                make.right.equalTo(self.messageContentView.mas_left).with.offset(-XYDChatMessageSendStateViewLeftOrRightToMessageContentView);
                 make.centerY.equalTo(self.messageContentView.mas_centerY);
-                make.width.equalTo(@(LCCKMessageSendStateViewWidthHeight));
-                make.height.equalTo(@(LCCKMessageSendStateViewWidthHeight));
+                make.width.equalTo(@(XYDChatMessageSendStateViewWidthHeight));
+                make.height.equalTo(@(XYDChatMessageSendStateViewWidthHeight));
             }];
         }
         if (self.messageReadStateImageView.superview) {
@@ -167,8 +170,8 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     } else if (self.messageOwner == XYDChatMessageOwnerTypeOther){
         if (self.avatarImageView.superview) {
             [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.contentView.mas_left).with.offset(LCCK_MSG_CELL_EDGES_OFFSET);
-                make.top.equalTo(self.contentView.mas_top).with.offset(LCCK_MSG_CELL_EDGES_OFFSET);
+                make.left.equalTo(self.contentView.mas_left).with.offset(XYDChat_MSG_CELL_EDGES_OFFSET);
+                make.top.equalTo(self.contentView.mas_top).with.offset(XYDChat_MSG_CELL_EDGES_OFFSET);
                 make.width.equalTo(@(kAvatarImageViewWidth));
                 make.height.equalTo(@(kAvatarImageViewHeight));
             }];
@@ -176,28 +179,28 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
         if (self.nickNameLabel.superview) {
             [self.nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.avatarImageView.mas_top);
-                make.left.equalTo(self.avatarImageView.mas_right).with.offset(LCCK_MSG_CELL_EDGES_OFFSET);
+                make.left.equalTo(self.avatarImageView.mas_right).with.offset(XYDChat_MSG_CELL_EDGES_OFFSET);
                 make.width.mas_lessThanOrEqualTo(@120);
-                make.height.equalTo(self.messageChatType == XYDChatConversationTypeGroup ? @(LCCK_MSG_CELL_NICKNAME_HEIGHT) : @0);
+                make.height.equalTo(self.messageChatType == XYDChatConversationTypeGroup ? @(XYDChat_MSG_CELL_NICKNAME_HEIGHT) : @0);
             }];
         }
         if (self.messageContentView.superview) {
             [self.messageContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.avatarImageView.mas_right).with.offset(LCCKAvatarToMessageContent);
-                make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : LCCKAvatarBottomToMessageContentTop);
+                make.left.equalTo(self.avatarImageView.mas_right).with.offset(XYDChatAvatarToMessageContent);
+                make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : XYDChatAvatarBottomToMessageContentTop);
                 CGFloat width = [UIApplication sharedApplication].keyWindow.frame.size.width;
                 CGFloat height = [UIApplication sharedApplication].keyWindow.frame.size.height;
                 CGFloat widthLimit = MIN(width, height)/5 * 3;
                 make.width.lessThanOrEqualTo(@(widthLimit)).priorityHigh();
-                make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-LCCK_MSG_CELL_EDGES_OFFSET).priorityLow();
+                make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET).priorityLow();
             }];
         }
         if (self.messageSendStateView.superview) {
             [self.messageSendStateView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.messageContentView.mas_right).with.offset(LCCKMessageSendStateViewLeftOrRightToMessageContentView);
+                make.left.equalTo(self.messageContentView.mas_right).with.offset(XYDChatMessageSendStateViewLeftOrRightToMessageContentView);
                 make.centerY.equalTo(self.messageContentView.mas_centerY);
-                make.width.equalTo(@(LCCKMessageSendStateViewWidthHeight));
-                make.height.equalTo(@(LCCKMessageSendStateViewWidthHeight));
+                make.width.equalTo(@(XYDChatMessageSendStateViewWidthHeight));
+                make.height.equalTo(@(XYDChatMessageSendStateViewWidthHeight));
             }];
         }
         if (self.messageReadStateImageView.superview) {
@@ -287,7 +290,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 
 - (void)setup {
     if (![self conformsToProtocol:@protocol(XYDChatMessageCellSubclassing)]) {
-        [NSException raise:@"LCCKChatMessageCellNotSubclassException" format:@"Class does not conform LCCKChatMessageCellSubclassing protocol."];
+        [NSException raise:@"XYDChatChatMessageCellNotSubclassException" format:@"Class does not conform XYDChatChatMessageCellSubclassing protocol."];
     }
     self.mediaType = [[self class] classMediaType];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -302,14 +305,14 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     XYDChatMessageSendState sendStatus;
     
     /*
-    if ([message lcck_isCustomMessage]) {
+    if ([message XYDChat_isCustomMessage]) {
         NSString *senderClientId = [(AVIMTypedMessage *)message clientId];
         NSError *error;
         //TODO:如果我正在群里聊天，这时有人进入群聊，需要异步获取头像等信息，模仿ConversationList的做法。
-        [[LCCKUserSystemService sharedInstance] getCachedProfileIfExists:senderClientId name:&nickName avatarURL:&avatarURL error:&error];
+        [[XYDChatUserSystemService sharedInstance] getCachedProfileIfExists:senderClientId name:&nickName avatarURL:&avatarURL error:&error];
         if (!nickName)  { nickName = senderClientId; }
         self.message = nil;
-        sendStatus = (LCCKMessageSendState)[(AVIMTypedMessage *)message status];
+        sendStatus = (XYDChatMessageSendState)[(AVIMTypedMessage *)message status];
     } else {
      */
         self.message = message;
@@ -317,7 +320,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
         avatarURL = self.message.sender.avatarURL;
         sendStatus = self.message.sendStatus;
         //FIXME: SDK 暂不支持已读未读
-        //        if ([(LCCKMessage *)message messageReadState]) {
+        //        if ([(XYDChatMessage *)message messageReadState]) {
         //            self.messageReadState = self.message.messageReadState;
         //        }
 //    }
@@ -383,11 +386,11 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
         /*
-        LCCKAvatarImageViewCornerRadiusBlock avatarImageViewCornerRadiusBlock = [LCChatKit sharedInstance].avatarImageViewCornerRadiusBlock;
+        XYDChatAvatarImageViewCornerRadiusBlock avatarImageViewCornerRadiusBlock = [LCChatKit sharedInstance].avatarImageViewCornerRadiusBlock;
         if (avatarImageViewCornerRadiusBlock) {
             CGSize avatarImageViewSize = CGSizeMake(kAvatarImageViewWidth, kAvatarImageViewHeight);
             CGFloat avatarImageViewCornerRadius = avatarImageViewCornerRadiusBlock(avatarImageViewSize);
-            self.avatarImageView.lcck_cornerRadius = avatarImageViewCornerRadius;
+            self.avatarImageView.XYDChat_cornerRadius = avatarImageViewCornerRadius;
         }
          */
         [self bringSubviewToFront:_avatarImageView];
@@ -398,7 +401,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 - (UILabel *)nickNameLabel {
     if (!_nickNameLabel) {
         _nickNameLabel = [[UILabel alloc] init];
-        _nickNameLabel.font = [UIFont systemFontOfSize:LCCK_MSG_CELL_NICKNAME_FONT_SIZE];
+        _nickNameLabel.font = [UIFont systemFontOfSize:XYDChat_MSG_CELL_NICKNAME_FONT_SIZE];
         _nickNameLabel.textColor = self.conversationViewSenderNameTextColor;
         _nickNameLabel.text = @"nickname";
         [_nickNameLabel sizeToFit];
@@ -420,9 +423,9 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     return _messageReadStateImageView;
 }
 
-- (LCCKMessageSendStateView *)messageSendStateView {
+- (XYDMessageSendStateView *)messageSendStateView {
     if (!_messageSendStateView) {
-        _messageSendStateView = [[LCCKMessageSendStateView alloc] init];
+        _messageSendStateView = [[XYDMessageSendStateView alloc] init];
         _messageSendStateView.delegate = self;
     }
     return _messageSendStateView;
@@ -435,22 +438,22 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     return _messageContentBackgroundImageView;
 }
 
-- (LCCKConversationType)messageChatType {
-    if ([self.reuseIdentifier lcck_containsString:LCCKCellIdentifierGroup]) {
-        return LCCKConversationTypeGroup;
+- (XYDChatConversationType)messageChatType {
+    if ([self.reuseIdentifier xyd_containsaString:XYDChatCellIdentifierGroup]) {
+        return XYDChatConversationTypeGroup;
     }
-    return LCCKConversationTypeSingle;
+    return XYDChatConversationTypeSingle;
 }
 
-- (LCCKMessageOwnerType)messageOwner {
-    if ([self.reuseIdentifier lcck_containsString:LCCKCellIdentifierOwnerSelf]) {
-        return LCCKMessageOwnerTypeSelf;
-    } else if ([self.reuseIdentifier lcck_containsString:LCCKCellIdentifierOwnerOther]) {
-        return LCCKMessageOwnerTypeOther;
-    } else if ([self.reuseIdentifier lcck_containsString:LCCKCellIdentifierOwnerSystem]) {
-        return LCCKMessageOwnerTypeSystem;
+- (XYDChatMessageOwnerType)messageOwner {
+    if ([self.reuseIdentifier xyd_containsaString:XYDChatCellIdentifierOwnerSelf]) {
+        return XYDChatMessageOwnerTypeSelf;
+    } else if ([self.reuseIdentifier xyd_containsaString:XYDChatCellIdentifierOwnerOther]) {
+        return XYDChatMessageOwnerTypeOther;
+    } else if ([self.reuseIdentifier xyd_containsaString:XYDChatCellIdentifierOwnerSystem]) {
+        return XYDChatMessageOwnerTypeSystem;
     }
-    return LCCKMessageOwnerTypeUnknown;
+    return XYDChatMessageOwnerTypeUnknown;
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)longPressGes {
@@ -465,26 +468,26 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
             return;
         }
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-        NSUInteger delaySeconds = LCCKAnimateDuration;
+        NSUInteger delaySeconds = XYDChatAnimateDuration;
         dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
         dispatch_after(when, dispatch_get_main_queue(), ^{
             [self becomeFirstResponder];
-            LCCKLongPressMessageBlock longPressMessageBlock = [LCChatKit sharedInstance].longPressMessageBlock;
+            XYDChatLongPressMessageBlock longPressMessageBlock = [XYDChatKit sharedInstance].longPressMessageBlock;
             NSArray *menuItems = [NSArray array];
             NSDictionary *userInfo = @{
-                                       LCCKLongPressMessageUserInfoKeyFromController : self.delegate,
-                                       LCCKLongPressMessageUserInfoKeyFromView : self.tableView,
+                                       XYDChatLongPressMessageUserInfoKeyFromController : self.delegate,
+                                       XYDChatLongPressMessageUserInfoKeyFromView : self.tableView,
                                        };
             if (longPressMessageBlock) {
                 menuItems = longPressMessageBlock(self.message, userInfo);
             } else {
-                LCCKMenuItem *copyItem = [[LCCKMenuItem alloc] initWithTitle:LCCKLocalizedStrings(@"copy")
+                XYDChatMenuItem *copyItem = [[XYDChatMenuItem alloc] initWithTitle:@"copy"
                                                                        block:^{
                                                                            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                                                                            [pasteboard setString:[self.message text]];
                                                                        }];
                 //TODO:添加“转发”
-                if (self.mediaType == kAVIMMessageMediaTypeText) {
+                if (self.mediaType == XYDChatMessageMediaTypeText) {
                     menuItems = @[ copyItem ];
                 }
             }
@@ -523,7 +526,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 }
 
 #pragma mark -
-#pragma mark - LCCKSendImageViewDelegate Method
+#pragma mark - XYDChatSendImageViewDelegate Method
 
 - (void)resendMessage:(id)sender {
     if ([self.delegate respondsToSelector:@selector(resendMessage:)]) {
@@ -535,7 +538,7 @@ static CGFloat const LCCK_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     if (_conversationViewSenderNameTextColor) {
         return _conversationViewSenderNameTextColor;
     }
-    _conversationViewSenderNameTextColor = [[LCCKSettingService sharedInstance] defaultThemeColorForKey:@"ConversationView-SenderName-TextColor"];
+    _conversationViewSenderNameTextColor = [[XYDChatSettingService sharedInstance] defaultThemeColorForKey:@"ConversationView-SenderName-TextColor"];
     return _conversationViewSenderNameTextColor;
 }
 

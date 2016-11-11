@@ -1,6 +1,6 @@
 //
 //  UIView+XYDFrame.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/15.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -16,7 +16,7 @@
     return self.frame.origin.y;
 }
 
-- (void)setxyd_top:(CGFloat)y
+- (void)setXyd_top:(CGFloat)y
 {
     CGRect frame = self.frame;
     frame.origin.y = y;
@@ -28,7 +28,7 @@
     return self.frame.origin.x + self.frame.size.width;
 }
 
-- (void)setxyd_right:(CGFloat)right
+- (void)setXyd_right:(CGFloat)right
 {
     CGRect frame = self.frame;
     frame.origin.x = right - self.frame.size.width;
@@ -40,7 +40,7 @@
     return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setxyd_bottom:(CGFloat)bottom
+- (void)setXyd_bottom:(CGFloat)bottom
 {
     CGRect frame = self.frame;
     frame.origin.y = bottom - self.frame.size.height;
@@ -52,7 +52,7 @@
     return self.frame.origin.x;
 }
 
-- (void)setxyd_left:(CGFloat)x
+- (void)setXyd_left:(CGFloat)x
 {
     CGRect frame = self.frame;
     frame.origin.x = x;
@@ -64,7 +64,7 @@
     return self.frame.size.width;
 }
 
-- (void)setxyd_width:(CGFloat)width
+- (void)setXyd_width:(CGFloat)width
 {
     CGRect frame = self.frame;
     frame.size.width = width;
@@ -76,7 +76,7 @@
     return self.frame.size.height;
 }
 
-- (void)setxyd_height:(CGFloat)height
+- (void)setXyd_height:(CGFloat)height
 {
     CGRect frame = self.frame;
     frame.size.height = height;
@@ -89,7 +89,7 @@
     return self.frame.origin;
 }
 
-- (void)setxyd_origin:(CGPoint)origin {
+- (void)setXyd_origin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
@@ -99,7 +99,7 @@
     return self.frame.size;
 }
 
-- (void)setxyd_size:(CGSize)size {
+- (void)setXyd_size:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
@@ -110,7 +110,7 @@
     return self.center.x;
 }
 
-- (void)setxyd_centerX:(CGFloat)centerX {
+- (void)setXyd_centerX:(CGFloat)centerX {
     self.center = CGPointMake(centerX, self.center.y);
 }
 
@@ -118,7 +118,7 @@
     return self.center.y;
 }
 
-- (void)setxyd_centerY:(CGFloat)centerY {
+- (void)setXyd_centerY:(CGFloat)centerY {
     self.center = CGPointMake(self.center.x, centerY);
 }
 

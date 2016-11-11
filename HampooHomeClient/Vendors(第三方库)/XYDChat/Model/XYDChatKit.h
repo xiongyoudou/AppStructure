@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYDChatServiceDefinition.h"
 
-@interface XYDChatKit : NSObject
+@interface XYDChatKit : NSObject<XYDChatSessionService, XYDChatUserSystemService, XYDChatSignatureService, XYDChatSettingService, XYDChatUIService, XYDChatConversationService, XYDChatConversationsListService>
 
 /*!
  *  appId

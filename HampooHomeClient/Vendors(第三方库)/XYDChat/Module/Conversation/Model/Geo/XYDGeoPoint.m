@@ -4,8 +4,8 @@
 //
 
 
-#import "AVGeoPoint.h"
-#import "AVLocationManager.h"
+#import "XYDGeoPoint.h"
+#import "XYDLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
 
 @implementation  XYDGeoPoint
@@ -21,23 +21,23 @@
     return point;
 }
 
-+ (AVGeoPoint *)geoPoint
++ (XYDGeoPoint *)geoPoint
 {
-    XYDGeoPoint * result = [[AVGeoPoint alloc] init];
+    XYDGeoPoint * result = [[XYDGeoPoint alloc] init];
     return result;
 }
 
-+ (AVGeoPoint *)geoPointWithLocation:(CLLocation *)location
++ (XYDGeoPoint *)geoPointWithLocation:(CLLocation *)location
 {
-    XYDGeoPoint * point = [AVGeoPoint geoPoint];
+    XYDGeoPoint * point = [XYDGeoPoint geoPoint];
     point.latitude = location.coordinate.latitude;
     point.longitude = location.coordinate.longitude;
     return point;
 }
 
-+ (AVGeoPoint *)geoPointWithLatitude:(double)latitude longitude:(double)longitude
++ (XYDGeoPoint *)geoPointWithLatitude:(double)latitude longitude:(double)longitude
 {
-    XYDGeoPoint * point = [AVGeoPoint geoPoint];
+    XYDGeoPoint * point = [XYDGeoPoint geoPoint];
     point.latitude = latitude;
     point.longitude = longitude;
     return point;
@@ -48,36 +48,36 @@
 }
 
 #if XYD_IOS_ONLY
-+ (void)geoPointForCurrentLocationInBackground:(void(^)(AVGeoPoint *geoPoint, NSError *error))geoPointHandler
++ (void)geoPointForCurrentLocationInBackground:(void(^)(XYDGeoPoint *geoPoint, NSError *error))geoPointHandler
 {
     [[AVLocationManager sharedInstance] updateWithBlock:geoPointHandler];
 }
 #endif
 
-- (double)distanceInRadiansTo:(AVGeoPoint*)point
+- (double)distanceInRadiansTo:(XYDGeoPoint*)point
 {
     // 6378.140 is the Radius of the earth 
     return ([self distanceInKilometersTo:point] / 6378.140);
 }
 
-- (double)distanceInMilesTo:(AVGeoPoint*)point
+- (double)distanceInMilesTo:(XYDGeoPoint*)point
 {
     return [self distanceInKilometersTo:point] / 1.609344;
 }
 
-- (double)distanceInKilometersTo:(AVGeoPoint*)point
+- (double)distanceInKilometersTo:(XYDGeoPoint*)point
 {
     return [[self location] distanceFromLocation:[point location]] / 1000.0;
 }
 
-+(NSDictionary *)dictionaryFromGeoPoint:(AVGeoPoint *)point
++(NSDictionary *)dictionaryFromGeoPoint:(XYDGeoPoint *)point
 {
     return @{ @"__type": @"GeoPoint", @"latitude": @(point.latitude), @"longitude": @(point.longitude) };
 }
 
-+(AVGeoPoint *)geoPointFromDictionary:(NSDictionary *)dict
++(XYDGeoPoint *)geoPointFromDictionary:(NSDictionary *)dict
 {
-    XYDGeoPoint * point = [[AVGeoPoint alloc]init];
+    XYDGeoPoint * point = [[XYDGeoPoint alloc]init];
     point.latitude = [[dict objectForKey:@"latitude"] doubleValue];
     point.longitude = [[dict objectForKey:@"longitude"] doubleValue];
     return point;

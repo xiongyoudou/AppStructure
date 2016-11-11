@@ -11,11 +11,11 @@
 /**
  *  状态指示器对应状态
  */
-typedef NS_ENUM(NSUInteger, LCCKProgressState){
-    LCCKProgressSuccess /**< 成功 */,
-    LCCKProgressError /**< 出错,失败 */,
-    LCCKProgressShort /**< 时间太短失败 */,
-    LCCKProgressMessage /**< 自定义失败提示 */,
+typedef NS_ENUM(NSUInteger, XYDProgressState){
+    XYDProgressSuccess /**< 成功 */,
+    XYDProgressError /**< 出错,失败 */,
+    XYDProgressShort /**< 时间太短失败 */,
+    XYDProgressMessage /**< 自定义失败提示 */,
 };
 
 /**
@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, LCCKProgressState){
  *
  *  @param progressState 录音状态
  */
-+ (void)dismissWithProgressState:(LCCKProgressState)progressState;
++ (void)dismissWithProgressState:(XYDProgressState)progressState;
 
 /**
  *  修改录音的subTitle显示文字

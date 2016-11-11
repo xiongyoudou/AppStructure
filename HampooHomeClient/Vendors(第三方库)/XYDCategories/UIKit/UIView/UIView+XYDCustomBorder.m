@@ -86,11 +86,11 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
-    if (edge & JKExcludeStartPoint) {
+    if (edge & XYDExcludeStartPoint) {
         startPoint += point;
     }
     
-    if (edge & JKExcludeEndPoint) {
+    if (edge & XYDExcludeEndPoint) {
         endPoint += point;
     }
     
@@ -123,11 +123,11 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
-    if (edge & JKExcludeStartPoint) {
+    if (edge & XYDExcludeStartPoint) {
         startPoint += point;
     }
     
-    if (edge & JKExcludeEndPoint) {
+    if (edge & XYDExcludeEndPoint) {
         endPoint += point;
     }
     
@@ -160,11 +160,11 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
-    if (edge & JKExcludeStartPoint) {
+    if (edge & XYDExcludeStartPoint) {
         startPoint += point;
     }
     
-    if (edge & JKExcludeEndPoint) {
+    if (edge & XYDExcludeEndPoint) {
         endPoint += point;
     }
 
@@ -196,11 +196,11 @@ typedef NS_ENUM(NSInteger, EdgeType) {
     
     CGFloat startPoint = 0.0f;
     CGFloat endPoint = 0.0f;
-    if (edge & JKExcludeStartPoint) {
+    if (edge & XYDExcludeStartPoint) {
         startPoint += point;
     }
     
-    if (edge & JKExcludeEndPoint) {
+    if (edge & XYDExcludeEndPoint) {
         endPoint += point;
     }
 

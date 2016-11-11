@@ -4,8 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AVConstants.h"
-#import "AVACL.h"
+#import "XYDChatConstant.h"
 
 @class XYDFileQuery;
 
@@ -51,12 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)fileWithName:(nullable NSString *)name
               contentsAtPath:(NSString *)path;
 
-/*!
- Creates a file with an XYDObject. 
- @param object an XYDObject.
- @return an XYDFile.
- */
-+ (instancetype)fileWithAVObject:(AVObject *)object;
 
 /*!
 The name of the file.
@@ -89,16 +82,7 @@ The name of the file.
 /*!
  File metadata, caller is able to store additional values here.
  */
-@property (nonatomic, strong, nullable) NSMutableDictionary * metadata XYD_DEPRECATED("2.6.1以后请使用metaData");
-/*!
- File metadata, caller is able to store additional values here.
- */
 @property (nonatomic, strong, nullable) NSMutableDictionary * metaData;
-
-/*!
- *  The access control list  for this file.
- */
-@property (nonatomic, strong, nullable) XYDACL *ACL;
 
 /*!
  Saves the file.
@@ -115,7 +99,6 @@ The name of the file.
 
 /*!
  Saves the file asynchronously.
- @return whether the save succeeded.
  */
 - (void)saveInBackground;
 
@@ -123,7 +106,7 @@ The name of the file.
  Saves the file asynchronously and executes the given block.
  @param block The block should have the following argument signature: (BOOL succeeded, NSError *error)
  */
-- (void)saveInBackgroundWithBlock:(AVBooleanResultBlock)block;
+- (void)saveInBackgroundWithBlock:(XYDChatBooleanResultBlock)block;
 
 /*!
  Saves the file asynchronously and executes the given resultBlock. Executes the progressBlock periodically with the percent
@@ -131,8 +114,8 @@ The name of the file.
  @param block The block should have the following argument signature: (BOOL succeeded, NSError *error)
  @param progressBlock The block should have the following argument signature: (int percentDone)
  */
-- (void)saveInBackgroundWithBlock:(AVBooleanResultBlock)block
-                    progressBlock:(nullable XYDProgressBlock)progressBlock;
+- (void)saveInBackgroundWithBlock:(XYDChatBooleanResultBlock)block
+                    progressBlock:(nullable XYDChatProgressBlock)progressBlock;
 
 /*!
  Saves the file asynchronously and calls the given callback.
@@ -187,7 +170,7 @@ The name of the file.
  from the LeanCloud servers. Executes the given block.
  @param block The block should have the following argument signature: (NSData *result, NSError *error)
  */
-- (void)getDataInBackgroundWithBlock:(AVDataResultBlock)block;
+- (void)getDataInBackgroundWithBlock:(XYDChatDataResultBlock)block;
 
 /*!
  This method is like getDataInBackgroundWithBlock: but XYDoids ever holding the 
@@ -195,7 +178,7 @@ The name of the file.
  many large XYDFiles XYDoid memory warnings.
  @param block The block should have the following argument signature: (NSInputStream *result, NSError *error)
  */
-- (void)getDataStreamInBackgroundWithBlock:(AVDataStreamResultBlock)block;
+- (void)getDataStreamInBackgroundWithBlock:(XYDChatStreamResultBlock)block;
 
 /*!
  Asynchronously gets the data from cache if XYDailable or fetches its contents 
@@ -204,8 +187,8 @@ The name of the file.
  @param resultBlock The block should have the following argument signature: (NSData *result, NSError *error)
  @param progressBlock The block should have the following argument signature: (int percentDone)
  */
-- (void)getDataInBackgroundWithBlock:(AVDataResultBlock)resultBlock
-                       progressBlock:(nullable XYDProgressBlock)progressBlock;
+- (void)getDataInBackgroundWithBlock:(XYDChatDataResultBlock)resultBlock
+                       progressBlock:(nullable XYDChatProgressBlock)progressBlock;
 
 /*!
  This method is like getDataInBackgroundWithBlock:progressBlock: but XYDoids ever
@@ -214,8 +197,8 @@ The name of the file.
  @param resultBlock The block should have the following argument signature: (NSInputStream *result, NSError *error)
  @param progressBlock The block should have the following argument signature: (int percentDone)
  */
-- (void)getDataStreamInBackgroundWithBlock:(AVDataStreamResultBlock)resultBlock
-                             progressBlock:(nullable XYDProgressBlock)progressBlock;
+- (void)getDataStreamInBackgroundWithBlock:(XYDChatStreamResultBlock)resultBlock
+                             progressBlock:(nullable XYDChatProgressBlock)progressBlock;
 
 /*!
  Asynchronously gets the data from cache if XYDailable or fetches its contents 
@@ -240,7 +223,7 @@ The name of the file.
  @param block The block to execute. The block should have the following argument signature: (AVFile *file, NSError *error)
  */
 + (void)getFileWithObjectId:(NSString *)objectId
-                  withBlock:(AVFileResultBlock)block;
+                  withBlock:(XYDChatFileResultBlock)block;
 
 /*!
  Get a thumbnail URL for image saved on Qiniu.
@@ -280,12 +263,7 @@ The name of the file.
 - (void)getThumbnail:(BOOL)scaleToFit
                width:(int)width
               height:(int)height
-           withBlock:(AVImageResultBlock)block;
-
-/*!
- Create an XYDFileQuery which returns files.
- */
-+ (AVFileQuery *)query;
+           withBlock:(XYDChatImageResultBlock)block;
 
 /*!
  Sets a owner id to metadata.
@@ -320,7 +298,7 @@ The name of the file.
  Remove file in background.
  @param block The block to execute. The block should have the following argument signature: (BOOL succeeded, NSError *error)
  */
-- (void)deleteInBackgroundWithBlock:(AVBooleanResultBlock)block;
+- (void)deleteInBackgroundWithBlock:(XYDChatBoolResultBlock)block;
 
 /*!
  Remove file in background.
@@ -352,7 +330,7 @@ The name of the file.
 + (BOOL)clearCacheMoreThanDays:(NSInteger)numberOfDays;
 
 + (XYDFile *)fileFromDictionary:(NSDictionary *)dict;
-+ (NSDictionary *)dictionaryFromFile:(AVFile *)file;
++ (NSDictionary *)dictionaryFromFile:(XYDFile *)file;
 
 @end
 

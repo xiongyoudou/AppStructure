@@ -1,6 +1,6 @@
 //
 //  NSObject+XYDAddProperty.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/15.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 //objc_getAssociatedObject和objc_setAssociatedObject都需要指定一个固定的地址，这个固定的地址值用来表示属性的key，起到一个常量的作用。
-//static const void *JKStringProperty = &JKStringProperty;
+//static const void *XYDStringProperty = &XYDStringProperty;
 //static char IntegerProperty;
 //@selector(methodName:)
 

@@ -33,7 +33,7 @@ static const void *UIViewControllerDictionaryBlockKey = &UIViewControllerDiction
 @implementation UIViewController (XYDBlockSegue)
 
 __attribute__((constructor))
-void JKBlockSegue(void) {
+void XYDBlockSegue(void) {
     Class currentClass = [UIViewController class];
 
     SEL originalSel = @selector(prepareForSegue:sender:);

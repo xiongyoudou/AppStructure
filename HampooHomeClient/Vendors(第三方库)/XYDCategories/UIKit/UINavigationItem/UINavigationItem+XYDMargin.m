@@ -94,7 +94,7 @@
     return value ? value.floatValue : [self.class xyd_systemMargin];
 }
 
-- (void)setxyd_leftMargin:(CGFloat)leftMargin
+- (void)setXyd_leftMargin:(CGFloat)leftMargin
 {
     objc_setAssociatedObject(self, @selector(xyd_leftMargin), @(leftMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.leftBarButtonItems = self.leftBarButtonItems;
@@ -106,7 +106,7 @@
     return value ? value.floatValue : [self.class xyd_systemMargin];
 }
 
-- (void)setxyd_rightMargin:(CGFloat)rightMargin
+- (void)setXyd_rightMargin:(CGFloat)rightMargin
 {
     objc_setAssociatedObject(self, @selector(xyd_rightMargin), @(rightMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.rightBarButtonItems = self.rightBarButtonItems;

@@ -127,6 +127,9 @@ typedef void (^ReachabilityChangedBlock) (NSString * message);
  */
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params formDataArray:(NSArray *)formDataArray success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure;
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params formDataArray:(NSArray *)formDataArray httpHeaderDict:(NSDictionary *)headerDict success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure;
+
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse *__autoreleasing *)response error:(NSError *__autoreleasing *)error;
+
 + (AFHTTPSessionManager *)getHttpSessionManager:(NSDictionary *)httpHeaderDict;
 
 + (BOOL)isConnected;

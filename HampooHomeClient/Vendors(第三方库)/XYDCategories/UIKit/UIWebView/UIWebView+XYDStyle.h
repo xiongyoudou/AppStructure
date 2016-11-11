@@ -1,6 +1,6 @@
 //
 //  UIWebView+style.h
-//  JKCategories
+//  XYDCategories
 //
 //  Created by jakey on 14-3-11.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.

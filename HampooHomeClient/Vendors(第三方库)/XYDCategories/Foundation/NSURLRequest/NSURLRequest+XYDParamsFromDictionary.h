@@ -14,7 +14,7 @@
 
 @interface NSURLRequest (XYDParamsFromDictionary)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *
  *

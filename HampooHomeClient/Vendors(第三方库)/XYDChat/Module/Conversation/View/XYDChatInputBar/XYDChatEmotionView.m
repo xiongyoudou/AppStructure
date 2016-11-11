@@ -9,7 +9,8 @@
 #import "XYDChatEmotionView.h"
 #import "LCCKSwipeView.h"
 #import "XYDEmotionPageView.h"
-#import "XYDEmotionHelper.h"
+#import "XYDChatHelper.h"
+#import "XYDEmotionManager.h"
 
 @interface XYDChatEmotionView ()<UIScrollViewDelegate,LCCKSwipeViewDelegate,LCCKSwipeViewDataSource,XYDEmotionPageViewDelegate>
 
@@ -289,7 +290,7 @@
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
     return   ({
-        NSBundle *bundle = [XYDEmotionHelper emotionBundle];
+        NSBundle *bundle = [XYDChatHelper emotionBundle];
         UIImage *image = [[XYDImageManager defaultManager]getImageWithName:imageName inBundle:bundle];
         image;});
 }

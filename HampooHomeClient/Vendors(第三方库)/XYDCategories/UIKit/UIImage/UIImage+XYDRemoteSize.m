@@ -1,6 +1,6 @@
 //
 //  UIImage+RemoteSize.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 15/1/27.
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
@@ -19,12 +19,12 @@ typedef uint32_t dword;
 @interface NSURL (XYDRemoteSize)
 @property (nonatomic, strong) NSMutableData *xyd_sizeRequestData;
 @property (nonatomic, strong) NSString *xyd_sizeRequestType;
-@property (nonatomic, copy) JKUIImageSizeRequestCompleted xyd_sizeRequestCompletion;
+@property (nonatomic, copy) XYDUIImageSizeRequestCompleted xyd_sizeRequestCompletion;
 @end
 
 @implementation NSURL (RemoteSize)
 
-- (void)setxyd_sizeRequestCompletion: (XYDUIImageSizeRequestCompleted) block {
+- (void)setXyd_sizeRequestCompletion: (XYDUIImageSizeRequestCompleted) block {
     objc_setAssociatedObject(self, &kSizeRequestCompletionKey, block, OBJC_ASSOCIATION_COPY);
 }
 
@@ -32,7 +32,7 @@ typedef uint32_t dword;
     return objc_getAssociatedObject(self, &kSizeRequestCompletionKey);
 }
 
-- (void)setxyd_sizeRequestData:(NSMutableData *)sizeRequestData {
+- (void)setXyd_sizeRequestData:(NSMutableData *)sizeRequestData {
     objc_setAssociatedObject(self, &kSizeRequestDataKey, sizeRequestData, OBJC_ASSOCIATION_RETAIN);
 }
 
@@ -40,7 +40,7 @@ typedef uint32_t dword;
     return objc_getAssociatedObject(self, &kSizeRequestDataKey);
 }
 
-- (void)setxyd_sizeRequestType:(NSString *)sizeRequestType {
+- (void)setXyd_sizeRequestType:(NSString *)sizeRequestType {
     objc_setAssociatedObject(self, &kSizeRequestTypeKey, sizeRequestType, OBJC_ASSOCIATION_RETAIN);
 }
 

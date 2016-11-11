@@ -27,6 +27,9 @@
 #import "UIImage+XYDResize.h"
 #import "NSFileManager+XYDPaths.h"
 #import "NSString+XYDHash.h"
+#import "NSString+XYDContains.h"
+#import "NSFileManager+XYDPaths.h"
+#import "NSError+XYDErrorCode.h"
 
 #import "XYDImageManager.h"
 
@@ -42,8 +45,6 @@
 #import "ImageTool.h"
 #import "MyTool.h"
 #import "HttpTool.h"
-#import "FileTool.h"
-
 
 #import "AppDelegate.h"
 #endif /* PrefixHeader_pch */

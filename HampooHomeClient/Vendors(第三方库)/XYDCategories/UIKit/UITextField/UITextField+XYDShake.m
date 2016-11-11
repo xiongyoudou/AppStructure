@@ -19,7 +19,7 @@
 }
 
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta completion:(void(^)())handler {
-    [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:0.03 shakeDirection:JKShakedDirectionHorizontal completion:handler];
+    [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:0.03 shakeDirection:XYDShakedDirectionHorizontal completion:handler];
 }
 
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval {
@@ -27,7 +27,7 @@
 }
 
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval completion:(void(^)())handler {
-    [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:JKShakedDirectionHorizontal completion:handler];
+    [self _xyd_shake:times direction:1 currentTimes:0 withDelta:delta speed:interval shakeDirection:XYDShakedDirectionHorizontal completion:handler];
 }
 
 - (void)xyd_shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection {
@@ -40,7 +40,7 @@
 
 - (void)_xyd_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(XYDShakedDirection)shakeDirection completion:(void(^)())handler {
     [UIView animateWithDuration:interval animations:^{
-        self.transform = (shakeDirection == JKShakedDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
+        self.transform = (shakeDirection == XYDShakedDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
     } completion:^(BOOL finished) {
         if(current >= times) {
             [UIView animateWithDuration:interval animations:^{

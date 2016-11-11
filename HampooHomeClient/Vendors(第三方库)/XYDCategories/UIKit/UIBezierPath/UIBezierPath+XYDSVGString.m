@@ -1,13 +1,13 @@
 //
 //  UIBezierPath+XYDSVGString.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
 #import "UIBezierPath+XYDSVGString.h"
-static void JKSVGApplier(void* info, const CGPathElement* element);
+static void XYDSVGApplier(void* info, const CGPathElement* element);
 @implementation UIBezierPath (ZTKit)
 /**
  *  @brief  UIBezierPath转成SVG
@@ -19,7 +19,7 @@ static void JKSVGApplier(void* info, const CGPathElement* element);
     CGPathRef path = [self CGPath];
     NSMutableString* SVGString = [NSMutableString string];
     [SVGString appendString:@"<path id=\"temporaryID\" d=\""];
-    CGPathApply(path, (__bridge_retained void*)SVGString, JKSVGApplier);
+    CGPathApply(path, (__bridge_retained void*)SVGString, XYDSVGApplier);
     NSString *lineCap;
     switch (self.lineCapStyle) {
         case kCGLineCapRound:
@@ -37,7 +37,7 @@ static void JKSVGApplier(void* info, const CGPathElement* element);
 }
 @end
 
-static void JKSVGApplier(void* info, const CGPathElement* element)
+static void XYDSVGApplier(void* info, const CGPathElement* element)
 {
     NSMutableString* SVGString = (__bridge NSMutableString*) info;
     int nPoints;

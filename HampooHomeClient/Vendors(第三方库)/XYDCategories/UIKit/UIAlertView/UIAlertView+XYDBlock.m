@@ -1,6 +1,6 @@
 //
 //  UIAlertView+Block.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by 符现超 on 15/5/9.
 //  Copyright (c) 2015年 http://weibo.com/u/1655766025 All rights reserved.
@@ -46,7 +46,7 @@ static NSString *UIAlertViewKey = @"UIAlertViewKey";
 }
 
 
-- (void)setxyd_alertViewCallBackBlock:(UIAlertViewJKCallBackBlock)alertViewCallBackBlock {
+- (void)setXyd_alertViewCallBackBlock:(UIAlertViewJKCallBackBlock)alertViewCallBackBlock {
     
     [self willChangeValueForKey:@"callbackBlock"];
     objc_setAssociatedObject(self, &UIAlertViewKey, alertViewCallBackBlock, OBJC_ASSOCIATION_COPY);

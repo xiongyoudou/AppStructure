@@ -11,7 +11,7 @@
 
 @implementation UIView (XYDDraggable)
 
-- (void)setxyd_panGesture:(UIPanGestureRecognizer*)panGesture
+- (void)setXyd_panGesture:(UIPanGestureRecognizer*)panGesture
 {
     objc_setAssociatedObject(self, @selector(xyd_panGesture), panGesture, OBJC_ASSOCIATION_RETAIN);
 }
@@ -21,7 +21,7 @@
     return objc_getAssociatedObject(self, @selector(xyd_panGesture));
 }
 
-- (void)setxyd_cagingArea:(CGRect)cagingArea
+- (void)setXyd_cagingArea:(CGRect)cagingArea
 {
     if (CGRectEqualToRect(cagingArea, CGRectZero) ||
         CGRectContainsRect(cagingArea, self.frame)) {
@@ -36,7 +36,7 @@
     return [cagingAreaValue CGRectValue];
 }
 
-- (void)setxyd_handle:(CGRect)handle
+- (void)setXyd_handle:(CGRect)handle
 {
     CGRect relativeFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     if (CGRectContainsRect(relativeFrame, handle)) {
@@ -51,7 +51,7 @@
     return [handleValue CGRectValue];
 }
 
-- (void)setxyd_shouldMoveAlongY:(BOOL)newShould
+- (void)setXyd_shouldMoveAlongY:(BOOL)newShould
 {
     NSNumber *shouldMoveAlongYBool = [NSNumber numberWithBool:newShould];
     objc_setAssociatedObject(self, @selector(xyd_shouldMoveAlongY), shouldMoveAlongYBool, OBJC_ASSOCIATION_RETAIN );
@@ -63,7 +63,7 @@
     return (moveAlongY) ? [moveAlongY boolValue] : YES;
 }
 
-- (void)setxyd_shouldMoveAlongX:(BOOL)newShould
+- (void)setXyd_shouldMoveAlongX:(BOOL)newShould
 {
     NSNumber *shouldMoveAlongXBool = [NSNumber numberWithBool:newShould];
     objc_setAssociatedObject(self, @selector(xyd_shouldMoveAlongX), shouldMoveAlongXBool, OBJC_ASSOCIATION_RETAIN );
@@ -75,7 +75,7 @@
     return (moveAlongX) ? [moveAlongX boolValue] : YES;
 }
 
-- (void)setxyd_draggingStartedBlock:(void (^)())draggingStartedBlock
+- (void)setXyd_draggingStartedBlock:(void (^)())draggingStartedBlock
 {
     objc_setAssociatedObject(self, @selector(xyd_draggingStartedBlock), draggingStartedBlock, OBJC_ASSOCIATION_RETAIN);
 }
@@ -85,7 +85,7 @@
     return objc_getAssociatedObject(self, @selector(xyd_draggingStartedBlock));
 }
 
-- (void)setxyd_draggingEndedBlock:(void (^)())draggingEndedBlock
+- (void)setXyd_draggingEndedBlock:(void (^)())draggingEndedBlock
 {
     objc_setAssociatedObject(self, @selector(xyd_draggingEndedBlock), draggingEndedBlock, OBJC_ASSOCIATION_RETAIN);
 }
@@ -171,7 +171,7 @@
     [self.xyd_panGesture setMaximumNumberOfTouches:1];
     [self.xyd_panGesture setMinimumNumberOfTouches:1];
     [self.xyd_panGesture setCancelsTouchesInView:NO];
-    [self setxyd_handle:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [self setXyd_handle:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addGestureRecognizer:self.xyd_panGesture];
 }
 

@@ -17,7 +17,7 @@ static char xyd_overlayKey;
     return objc_getAssociatedObject(self, &xyd_overlayKey);
 }
 
-- (void)setxyd_overlay:(UIView *)overlay
+- (void)setXyd_overlay:(UIView *)overlay
 {
     objc_setAssociatedObject(self, &xyd_overlayKey, overlay, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

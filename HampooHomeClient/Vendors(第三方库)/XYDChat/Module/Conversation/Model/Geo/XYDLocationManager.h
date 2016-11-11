@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYDGeoPoint.h"
 
 @class XYDGeoPoint,CLLocation,CLLocationManager;
 
@@ -26,13 +27,13 @@
  */
 @property (nonatomic, strong, readonly) CLLocation *lastLocation;
 
-+ (AVLocationManager *)sharedInstance;
++ (XYDLocationManager *)sharedInstance;
 
 /**
  *  刷新当前地理位置
  *
  *  @param block 回调结果
  */
-- (void)updateWithBlock:(void(^)(AVGeoPoint *geoPoint, NSError *error))block;
+- (void)updateWithBlock:(void(^)(XYDGeoPoint *geoPoint, NSError *error))block;
 
 @end

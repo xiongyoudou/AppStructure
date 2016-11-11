@@ -1,6 +1,6 @@
 //
 //  UIViewController+BackButtonTouched.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -8,15 +8,15 @@
 
 #import "UIViewController+XYDBackButtonTouched.h"
 #import <objc/runtime.h>
-static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
+static const void *XYDBackButtonHandlerKey = &XYDBackButtonHandlerKey;
 
 @implementation UIViewController (XYDBackButtonTouched)
 -(void)xyd_backButtonTouched:(XYDBackButtonHandler)backButtonHandler{
-    objc_setAssociatedObject(self, JKBackButtonHandlerKey, backButtonHandler, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDBackButtonHandlerKey, backButtonHandler, OBJC_ASSOCIATION_COPY);
 }
 - (XYDBackButtonHandler)xyd_backButtonTouched
 {
-    return objc_getAssociatedObject(self, JKBackButtonHandlerKey);
+    return objc_getAssociatedObject(self, XYDBackButtonHandlerKey);
 }
 @end
 
@@ -28,7 +28,7 @@ static const void *JKBackButtonHandlerKey = &JKBackButtonHandlerKey;
 	}
 
    	UIViewController* vc = [self topViewController];
-    JKBackButtonHandler handler = [vc xyd_backButtonTouched];
+    XYDBackButtonHandler handler = [vc xyd_backButtonTouched];
     if (handler) {
         // Workaround for iOS7.1. Thanks to @boliva - http://stackoverflow.com/posts/comments/34452906
 

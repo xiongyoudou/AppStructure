@@ -16,11 +16,13 @@
 #import "XYDRecorderProgressHud.h"
 
 #import "XYDChatConstant.h"
+#import "XYDChatHelper.h"
+#import "XYDChatSettingService.h"
 
 NSString *const kXYDBatchDeleteTextPrefix = @"kXYDBatchDeleteTextPrefix";
 NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 
-@interface XYDChatInputBar ()<UITextViewDelegate, UINavigationControllerDelegate, Mp3RecorderDelegate>
+@interface XYDChatInputBar ()<UITextViewDelegate, UINavigationControllerDelegate, Mp3RecorderDelegate,XYDChatFaceViewDelegate>
 
 @property (strong, nonatomic) Mp3Recorder *MP3;
 @property (nonatomic, strong) UIView *inputBarBackgroundView; /**< 输入栏目背景视图 */
@@ -288,7 +290,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     CGSize textSize = [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(textViewFrame), 1000.0f)];
     // from iOS 7, the content size will be accurate only if the scrolling is enabled.
     textView.scrollEnabled = (textSize.height > kTextViewFrameMinHeight);
-    // textView 控件的高度在 kTextViewFrameMinHeight 和 kLCCKChatBarMaxHeight-offset 之间
+    // textView 控件的高度在 kTextViewFrameMinHeight 和 kXYDChatBarMaxHeight-offset 之间
     CGFloat newTextViewHeight = MAX(kTextViewFrameMinHeight, MIN(kTextViewFrameMaxHeight, textSize.height));
     BOOL textViewHeightChanged = (self.oldTextViewHeight != newTextViewHeight);
     if (textViewHeightChanged) {
@@ -313,24 +315,24 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 
 - (void)endConvertWithMP3FileName:(NSString *)fileName {
     if (fileName) {
-        [LCCKProgressHUD dismissWithProgressState:LCCKProgressSuccess];
-        [self sendVoiceMessage:fileName seconds:[LCCKProgressHUD seconds]];
+        [XYDRecorderProgressHud dismissWithProgressState:XYDProgressSuccess];
+        [self sendVoiceMessage:fileName seconds:[XYDRecorderProgressHud seconds]];
     } else {
-        [LCCKProgressHUD dismissWithProgressState:LCCKProgressError];
+        [XYDRecorderProgressHud dismissWithProgressState:XYDProgressError];
     }
 }
 
 - (void)failRecord {
-    [LCCKProgressHUD dismissWithProgressState:LCCKProgressError];
+    [XYDRecorderProgressHud dismissWithProgressState:XYDProgressError];
 }
 
 - (void)beginConvert {
-    [LCCKProgressHUD changeSubTitle:@"正在转换..."];
+    [XYDRecorderProgressHud changeSubTitle:@"正在转换..."];
 }
 
 
 
-#pragma mark - LCCKChatemotionViewDelegate
+#pragma mark - XYDChatemotionViewDelegate
 
 - (void)emotionViewSendFace:(NSString *)faceName {
     if ([faceName isEqualToString:@"[删除]"]) {
@@ -345,7 +347,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         }
         self.textView.text = @"";
         self.cachedText = @"";
-        self.showType = LCCKFunctionViewShowFace;
+        self.showType = XYDFunctionViewShowFace;
     } else {
         [self appendString:faceName beginInputing:NO];
     }
@@ -367,7 +369,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         return;
     }
     self.faceButton.selected = self.moreButton.selected = self.voiceButton.selected = NO;
-    self.showType = LCCKFunctionViewShowNothing;
+    self.showType = XYDFunctionViewShowNothing;
 }
 
 - (void)appendString:(NSString *)string beginInputing:(BOOL)beginInputing {
@@ -409,8 +411,8 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         return;
     }
     self.keyboardSize = CGSizeZero;
-    if (_showType == LCCKFunctionViewShowKeyboard) {
-        _showType = LCCKFunctionViewShowNothing;
+    if (_showType == XYDFunctionViewShowKeyboard) {
+        _showType = XYDFunctionViewShowNothing;
     }
     [self updateChatBarKeyBoardConstraints];
     [self updateChatBarConstraintsIfNeeded];
@@ -426,15 +428,15 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     self.keyboardSize = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     //兼容搜狗输入法：一次键盘事件会通知两次，且键盘高度不一。
     if (self.keyboardSize.height != oldHeight) {
-        _showType = LCCKFunctionViewShowNothing;
+        _showType = XYDFunctionViewShowNothing;
     }
     if (self.keyboardSize.height == 0) {
-        _showType = LCCKFunctionViewShowNothing;
+        _showType = XYDFunctionViewShowNothing;
         return;
     }
     self.allowTextViewContentOffset = YES;
     [self updateChatBarKeyBoardConstraints];
-    self.showType = LCCKFunctionViewShowKeyboard;
+    self.showType = XYDFunctionViewShowKeyboard;
 }
 
 /**
@@ -464,7 +466,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     [self.inputBarBackgroundView addSubview:self.voiceRecordButton];
     
     UIImageView *topLine = [[UIImageView alloc] init];
-    topLine.backgroundColor = kLCCKTopLineBackgroundColor;
+    topLine.backgroundColor = kTopLineBackgroundColor;
     [self.inputBarBackgroundView addSubview:topLine];
     [topLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.and.top.equalTo(self.inputBarBackgroundView);
@@ -550,7 +552,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 }
 
 - (void)buttonAction:(UIButton *)button {
-    LCCKFunctionViewShowType showType = button.tag;
+    XYDFunctionViewShowType showType = button.tag;
     //更改对应按钮的状态
     if (button == self.faceButton) {
         [self.faceButton setSelected:!self.faceButton.selected];
@@ -566,7 +568,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         [self.voiceButton setSelected:!self.voiceButton.selected];
     }
     if (!button.selected) {
-        showType = LCCKFunctionViewShowKeyboard;
+        showType = XYDFunctionViewShowKeyboard;
         [self beginInputing];
     }
     self.showType = showType;
@@ -586,7 +588,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.superview.mas_bottom).offset(-kFunctionViewHeight);
         }];
-        [UIView animateWithDuration:LCCKAnimateDuration animations:^{
+        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
             [self.emotionView layoutIfNeeded];
         } completion:nil];
         
@@ -617,7 +619,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
             make.top.mas_equalTo(self.superview.mas_bottom).offset(-kFunctionViewHeight);
         }];
         
-        [UIView animateWithDuration:LCCKAnimateDuration animations:^{
+        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
             [self.moreView layoutIfNeeded];
         } completion:nil];
         
@@ -642,7 +644,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
  *  @param text 发送的文本信息
  */
 - (void)sendTextMessage:(NSString *)text{
-    if (!text || text.length == 0 || [text lcck_isSpace]) {
+    if (!text || text.length == 0 || [text xyd_isSpace]) {
         return;
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(chatBar:sendMessage:)]) {
@@ -650,7 +652,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     }
     self.textView.text = @"";
     self.cachedText = @"";
-    self.showType = LCCKFunctionViewShowKeyboard;
+    self.showType = XYDFunctionViewShowKeyboard;
 }
 
 /**
@@ -685,7 +687,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 }
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
-    UIImage *image = [UIImage lcck_imageNamed:imageName bundleName:@"ChatKeyboard" bundleForClass:[self class]];
+    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"ChatKeyboard" bundleForClass:[self class]];
     return image;
 }
 
@@ -730,7 +732,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 - (UIButton *)voiceButton {
     if (!_voiceButton) {
         _voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _voiceButton.tag = LCCKFunctionViewShowVoice;
+        _voiceButton.tag = XYDFunctionViewShowVoice;
         [_voiceButton setTitleColor:self.messageInputViewRecordTextColor forState:UIControlStateNormal];
         [_voiceButton setTitleColor:self.messageInputViewRecordTextColor forState:UIControlStateHighlighted];
         [_voiceButton setBackgroundImage:[self imageInBundlePathForImageName:@"ToolViewInputVoice"] forState:UIControlStateNormal];
@@ -768,7 +770,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 - (UIButton *)moreButton {
     if (!_moreButton) {
         _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _moreButton.tag = LCCKFunctionViewShowMore;
+        _moreButton.tag = XYDFunctionViewShowMore;
         [_moreButton setBackgroundImage:[self imageInBundlePathForImageName:@"TypeSelectorBtn_Black"] forState:UIControlStateNormal];
         [_moreButton setBackgroundImage:[self imageInBundlePathForImageName:@"TypeSelectorBtn_Black"] forState:UIControlStateSelected];
         [_moreButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -780,7 +782,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 - (UIButton *)faceButton {
     if (!_faceButton) {
         _faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _faceButton.tag = LCCKFunctionViewShowFace;
+        _faceButton.tag = XYDFunctionViewShowFace;
         [_faceButton setBackgroundImage:[self imageInBundlePathForImageName:@"ToolViewEmotion"] forState:UIControlStateNormal];
         [_faceButton setBackgroundImage:[self imageInBundlePathForImageName:@"ToolViewKeyboard"] forState:UIControlStateSelected];
         [_faceButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -808,7 +810,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     if (_messageInputViewBackgroundColor) {
         return _messageInputViewBackgroundColor;
     }
-    _messageInputViewBackgroundColor = [[LCCKSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-BackgroundColor"];
+    _messageInputViewBackgroundColor = [[XYDChatSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-BackgroundColor"];
     return _messageInputViewBackgroundColor;
 }
 
@@ -816,7 +818,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     if (_messageInputViewTextFieldTextColor) {
         return _messageInputViewTextFieldTextColor;
     }
-    _messageInputViewTextFieldTextColor = [[LCCKSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-TextField-TextColor"];
+    _messageInputViewTextFieldTextColor = [[XYDChatSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-TextField-TextColor"];
     return _messageInputViewTextFieldTextColor;
 }
 
@@ -824,7 +826,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     if (_messageInputViewTextFieldBackgroundColor) {
         return _messageInputViewTextFieldBackgroundColor;
     }
-    _messageInputViewTextFieldBackgroundColor = [[LCCKSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-TextField-BackgroundColor"];
+    _messageInputViewTextFieldBackgroundColor = [[XYDChatSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-TextField-BackgroundColor"];
     return _messageInputViewTextFieldBackgroundColor;
 }
 
@@ -832,7 +834,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     if (_messageInputViewRecordTextColor) {
         return _messageInputViewRecordTextColor;
     }
-    _messageInputViewRecordTextColor = [[LCCKSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-Record-TextColor"];
+    _messageInputViewRecordTextColor = [[XYDChatSettingService sharedInstance] defaultThemeColorForKey:@"MessageInputView-Record-TextColor"];
     return _messageInputViewRecordTextColor;
 }
 

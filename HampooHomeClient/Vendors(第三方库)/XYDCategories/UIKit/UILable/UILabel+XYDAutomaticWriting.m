@@ -54,7 +54,7 @@ static char kAutomaticWritingEdgeInsetsKey;
     return textRect;
 }
 
-- (void)setxyd_edgeInsets:(UIEdgeInsets)edgeInsets
+- (void)setXyd_edgeInsets:(UIEdgeInsets)edgeInsets
 {
     objc_setAssociatedObject(self, &kAutomaticWritingEdgeInsetsKey, [NSValue valueWithUIEdgeInsets:edgeInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -75,7 +75,7 @@ static char kAutomaticWritingEdgeInsetsKey;
     return edgeInsetsValue.UIEdgeInsetsValue;
 }
 
-- (void)setxyd_automaticWritingOperationQueue:(NSOperationQueue *)automaticWritingOperationQueue
+- (void)setXyd_automaticWritingOperationQueue:(NSOperationQueue *)automaticWritingOperationQueue
 {
     objc_setAssociatedObject(self, &kAutomaticWritingOperationQueueKey, automaticWritingOperationQueue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

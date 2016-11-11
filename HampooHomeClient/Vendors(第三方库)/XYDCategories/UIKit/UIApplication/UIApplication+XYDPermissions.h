@@ -13,24 +13,24 @@
 #import <CoreLocation/CoreLocation.h>
 
 typedef enum {
-    JKPermissionTypeBluetoothLE,
-    JKPermissionTypeCalendar,
-    JKPermissionTypeContacts,
-    JKPermissionTypeLocation,
-    JKPermissionTypeMicrophone,
-    JKPermissionTypeMotion,
-    JKPermissionTypePhotos,
-    JKPermissionTypeReminders,
-} JKPermissionType;
+    XYDPermissionTypeBluetoothLE,
+    XYDPermissionTypeCalendar,
+    XYDPermissionTypeContacts,
+    XYDPermissionTypeLocation,
+    XYDPermissionTypeMicrophone,
+    XYDPermissionTypeMotion,
+    XYDPermissionTypePhotos,
+    XYDPermissionTypeReminders,
+} XYDPermissionType;
 
 typedef enum {
-    JKPermissionAccessDenied, //User has rejected feature
-    JKPermissionAccessGranted, //User has accepted feature
-    JKPermissionAccessRestricted, //Blocked by parental controls or system settings
-    JKPermissionAccessUnknown, //Cannot be determined
-    JKPermissionAccessUnsupported, //Device doesn't support this - e.g Core Bluetooth
-    JKPermissionAccessMissingFramework, //Developer didn't import the required framework to the project
-} JKPermissionAccess;
+    XYDPermissionAccessDenied, //User has rejected feature
+    XYDPermissionAccessGranted, //User has accepted feature
+    XYDPermissionAccessRestricted, //Blocked by parental controls or system settings
+    XYDPermissionAccessUnknown, //Cannot be determined
+    XYDPermissionAccessUnsupported, //Device doesn't support this - e.g Core Bluetooth
+    XYDPermissionAccessMissingFramework, //Developer didn't import the required framework to the project
+} XYDPermissionAccess;
 
 @interface UIApplication (XYDPermissions)
 

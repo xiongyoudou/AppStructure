@@ -28,26 +28,26 @@
  @method     CH1903Y
  @abstract   returns the CH1903 y value of the location
  */
-- (double)jk_CH1903Y;
+- (double)xyd_CH1903Y;
 
 /*!
  @method     CH1903X
  @abstract   returns the CH1903 x value of the location
  */
-- (double)jk_CH1903X;
+- (double)xyd_CH1903X;
 
 
 #pragma mark -
 #pragma mark static methodes
 
-+ (double)jk_CHtoWGSlatWithX:(double)x y:(double)y;
-+ (double)jk_CHtoWGSlongWithX:(double)x y:(double)y;
-+ (double)jk_WGStoCHyWithLatitude:(double)lat longitude:(double)lng;
-+ (double)jk_WGStoCHxWithLatitude:(double)lat longitude:(double)lng;
++ (double)xyd_CHtoWGSlatWithX:(double)x y:(double)y;
++ (double)xyd_CHtoWGSlongWithX:(double)x y:(double)y;
++ (double)xyd_WGStoCHyWithLatitude:(double)lat longitude:(double)lng;
++ (double)xyd_WGStoCHxWithLatitude:(double)lat longitude:(double)lng;
 
-+ (double)jk_decToSex:(double)angle;
-+ (double)jk_degToSec:(double)angle;
-+ (double)jk_sexToDec:(double)angle;
++ (double)xyd_decToSex:(double)angle;
++ (double)xyd_degToSec:(double)angle;
++ (double)xyd_sexToDec:(double)angle;
 
 
 @end

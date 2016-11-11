@@ -1,6 +1,6 @@
 //
 //  UIImage+SuperCompress.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 16/1/22.
 //  Copyright © 2016年 Jakey. All rights reserved.

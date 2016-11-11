@@ -6,10 +6,7 @@
 //  Copyright (c) 2013年 XYDOS. All rights reserved.
 //
 
-#import "AVLocationManager.h"
-#import "AVConstants.h"
-#import "AVGeoPoint.h"
-#import "AVErrorUtils.h"
+#import "XYDLocationManager.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -24,11 +21,11 @@
 
 @implementation XYDLocationManager
 
-+ (AVLocationManager *)sharedInstance {
++ (XYDLocationManager *)sharedInstance {
     static dispatch_once_t once;
     static XYDLocationManager *_sharedInstance;
     dispatch_once(&once, ^{
-        _sharedInstance = [[AVLocationManager alloc] init];
+        _sharedInstance = [[XYDLocationManager alloc] init];
         [_sharedInstance commonInit];
     });
     return _sharedInstance;
@@ -43,7 +40,7 @@
     self.lock = [[NSRecursiveLock alloc] init];
 }
 
-- (void)updateWithBlock:(void(^)(AVGeoPoint *geoPoint, NSError *error))block {
+- (void)updateWithBlock:(void(^)(XYDGeoPoint *geoPoint, NSError *error))block {
     [self.lock lock];
     if (block) [self.completionBlocks addObject:[block copy]];
     [self.lock unlock];
@@ -85,8 +82,8 @@
     
     [self.lock lock];
     
-    for (void (^completion)(AVGeoPoint *, NSError *) in [self.completionBlocks copy]) {
-        completion([AVGeoPoint geoPointWithLocation:newLocation], nil);
+    for (void (^completion)(XYDGeoPoint *, NSError *) in [self.completionBlocks copy]) {
+        completion([XYDGeoPoint geoPointWithLocation:newLocation], nil);
     }
     
     self.completionBlocks = [NSMutableArray array];
@@ -103,8 +100,8 @@
     
     [self.lock lock];
     
-    for (void (^completion)(AVGeoPoint *, NSError *) in [self.completionBlocks copy]) {
-        completion([AVGeoPoint geoPointWithLocation:newLocation], nil);
+    for (void (^completion)(XYDGeoPoint *, NSError *) in [self.completionBlocks copy]) {
+        completion([XYDGeoPoint geoPointWithLocation:newLocation], nil);
     }
     
     self.completionBlocks = [NSMutableArray array];
@@ -115,9 +112,9 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     [self.lock lock];
     
-    for (void (^completion)(AVGeoPoint *, NSError *) in [self.completionBlocks copy]) {
+    for (void (^completion)(XYDGeoPoint *, NSError *) in [self.completionBlocks copy]) {
         if (self.lastLocation) {
-            completion([AVGeoPoint geoPointWithLocation:self.lastLocation], nil);
+            completion([XYDGeoPoint geoPointWithLocation:self.lastLocation], nil);
         } else {
             completion(nil, error);
         }

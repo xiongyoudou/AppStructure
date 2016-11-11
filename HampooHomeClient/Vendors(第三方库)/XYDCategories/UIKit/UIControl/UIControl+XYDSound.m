@@ -50,7 +50,7 @@ static char const * const xyd_kSoundsKey = "xyd_kSoundsKey";
 
 #pragma mark - Associated objects setters/getters
 
-- (void)setxyd_sounds:(NSMutableDictionary *)sounds
+- (void)setXyd_sounds:(NSMutableDictionary *)sounds
 {
 	objc_setAssociatedObject(self, xyd_kSoundsKey, sounds, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -63,7 +63,7 @@ static char const * const xyd_kSoundsKey = "xyd_kSoundsKey";
 	if (!sounds) {
 		sounds = [[NSMutableDictionary alloc] initWithCapacity:2];
 		// Save it for later.
-		[self setxyd_sounds:sounds];
+		[self setXyd_sounds:sounds];
 	}
 	
 	return sounds;

@@ -99,7 +99,7 @@
 + (NSArray *)_xyd_faceFeaturesInImage:(UIImage *)image accuracy:(XYDAccuracy)accurary
 {
     CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
-    NSString *accuraryStr = (accurary == JKAccuracyLow) ? CIDetectorAccuracyLow : CIDetectorAccuracyHigh;
+    NSString *accuraryStr = (accurary == XYDAccuracyLow) ? CIDetectorAccuracyLow : CIDetectorAccuracyHigh;
     
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
                                               context:nil

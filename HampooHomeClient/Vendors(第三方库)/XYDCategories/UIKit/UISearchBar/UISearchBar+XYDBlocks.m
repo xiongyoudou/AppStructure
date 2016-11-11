@@ -188,7 +188,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarShouldBeginEditingKey);
 }
 
-- (void)setxyd_completionShouldBeginEditingBlock:(BOOL (^)(UISearchBar *))searchBarShouldBeginEditingBlock
+- (void)setXyd_completionShouldBeginEditingBlock:(BOOL (^)(UISearchBar *))searchBarShouldBeginEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarShouldBeginEditingKey, searchBarShouldBeginEditingBlock, OBJC_ASSOCIATION_COPY);
@@ -199,7 +199,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self,xyd_UISearchBarTextDidBeginEditingKey);
 }
 
-- (void)setxyd_completionTextDidBeginEditingBlock:(void (^)(UISearchBar *))searchBarTextDidBeginEditingBlock
+- (void)setXyd_completionTextDidBeginEditingBlock:(void (^)(UISearchBar *))searchBarTextDidBeginEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarTextDidBeginEditingKey, searchBarTextDidBeginEditingBlock, OBJC_ASSOCIATION_COPY);
@@ -210,7 +210,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarShouldEndEditingKey);
 }
 
-- (void)setxyd_completionShouldEndEditingBlock:(BOOL (^)(UISearchBar *))searchBarShouldEndEditingBlock
+- (void)setXyd_completionShouldEndEditingBlock:(BOOL (^)(UISearchBar *))searchBarShouldEndEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarShouldEndEditingKey, searchBarShouldEndEditingBlock, OBJC_ASSOCIATION_COPY);
@@ -221,7 +221,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarTextDidEndEditingKey);
 }
 
-- (void)setxyd_completionTextDidEndEditingBlock:(void (^)(UISearchBar *))searchBarTextDidEndEditingBlock
+- (void)setXyd_completionTextDidEndEditingBlock:(void (^)(UISearchBar *))searchBarTextDidEndEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarTextDidEndEditingKey, searchBarTextDidEndEditingBlock, OBJC_ASSOCIATION_COPY);
@@ -232,7 +232,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarTextDidChangeKey);
 }
 
-- (void)setxyd_completionTextDidChangeBlock:(void (^)(UISearchBar *, NSString *))searchBarTextDidChangeBlock
+- (void)setXyd_completionTextDidChangeBlock:(void (^)(UISearchBar *, NSString *))searchBarTextDidChangeBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarTextDidChangeKey, searchBarTextDidChangeBlock, OBJC_ASSOCIATION_COPY);
@@ -243,7 +243,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarShouldChangeTextInRangeKey);
 }
 
-- (void)setxyd_completionShouldChangeTextInRangeBlock:(BOOL (^)(UISearchBar *, NSRange, NSString *))searchBarShouldChangeTextInRangeBlock
+- (void)setXyd_completionShouldChangeTextInRangeBlock:(BOOL (^)(UISearchBar *, NSRange, NSString *))searchBarShouldChangeTextInRangeBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarShouldChangeTextInRangeKey, searchBarShouldChangeTextInRangeBlock, OBJC_ASSOCIATION_COPY);
@@ -254,7 +254,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarSearchButtonClickedKey);
 }
 
-- (void)setxyd_completionSearchButtonClickedBlock:(void (^)(UISearchBar *))searchBarSearchButtonClickedBlock
+- (void)setXyd_completionSearchButtonClickedBlock:(void (^)(UISearchBar *))searchBarSearchButtonClickedBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarSearchButtonClickedKey, searchBarSearchButtonClickedBlock, OBJC_ASSOCIATION_COPY);
@@ -265,7 +265,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarBookmarkButtonClickedKey);
 }
 
-- (void)setxyd_completionBookmarkButtonClickedBlock:(void (^)(UISearchBar *))searchBarBookmarkButtonClickedBlock
+- (void)setXyd_completionBookmarkButtonClickedBlock:(void (^)(UISearchBar *))searchBarBookmarkButtonClickedBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarBookmarkButtonClickedKey, searchBarBookmarkButtonClickedBlock, OBJC_ASSOCIATION_COPY);
@@ -276,7 +276,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarCancelButtonClickedKey);
 }
 
-- (void)setxyd_completionCancelButtonClickedBlock:(void (^)(UISearchBar *))searchBarCancelButtonClickedBlock
+- (void)setXyd_completionCancelButtonClickedBlock:(void (^)(UISearchBar *))searchBarCancelButtonClickedBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarCancelButtonClickedKey, searchBarCancelButtonClickedBlock, OBJC_ASSOCIATION_COPY);
@@ -287,7 +287,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarResultsListButtonClickedKey);
 }
 
-- (void)setxyd_completionResultsListButtonClickedBlock:(void (^)(UISearchBar *))searchBarResultsListButtonClickedBlock
+- (void)setXyd_completionResultsListButtonClickedBlock:(void (^)(UISearchBar *))searchBarResultsListButtonClickedBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarResultsListButtonClickedKey, searchBarResultsListButtonClickedBlock, OBJC_ASSOCIATION_COPY);
@@ -298,7 +298,7 @@ static const void *xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey          
     return objc_getAssociatedObject(self, xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey);
 }
 
-- (void)setxyd_completionSelectedScopeButtonIndexDidChangeBlock:(void (^)(UISearchBar *, NSInteger))searchBarSelectedScopeButtonIndexDidChangeBlock
+- (void)setXyd_completionSelectedScopeButtonIndexDidChangeBlock:(void (^)(UISearchBar *, NSInteger))searchBarSelectedScopeButtonIndexDidChangeBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
     objc_setAssociatedObject(self, xyd_UISearchBarSelectedScopeButtonIndexDidChangeKey, searchBarSelectedScopeButtonIndexDidChangeBlock, OBJC_ASSOCIATION_COPY);

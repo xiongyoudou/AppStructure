@@ -5,18 +5,18 @@
 /**
  ZLib error domain
  */
-extern NSString *const JKZlibErrorDomain;
+extern NSString *const XYDZlibErrorDomain;
 /**
  When a zlib error occurs, querying this key in the @p userInfo dictionary of the
  @p NSError object will return the underlying zlib error code.
  */
-extern NSString *const JKZlibErrorInfoKey;
+extern NSString *const XYDZlibErrorInfoKey;
 
-typedef NS_ENUM(NSUInteger, JKZlibErrorCode) {
-    JKZlibErrorCodeFileTooLarge = 0,
-    JKZlibErrorCodeDeflationError = 1,
-    JKZlibErrorCodeInflationError = 2,
-    JKZlibErrorCodeCouldNotCreateFileError = 3,
+typedef NS_ENUM(NSUInteger, XYDZlibErrorCode) {
+    XYDZlibErrorCodeFileTooLarge = 0,
+    XYDZlibErrorCodeDeflationError = 1,
+    XYDZlibErrorCodeInflationError = 2,
+    XYDZlibErrorCodeCouldNotCreateFileError = 3,
 };
 
 /**

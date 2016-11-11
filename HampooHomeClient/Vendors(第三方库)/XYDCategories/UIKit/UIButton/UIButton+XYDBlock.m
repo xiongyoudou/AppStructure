@@ -1,6 +1,6 @@
 //
 //  UIButton+Block.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -16,7 +16,7 @@ static const void *xyd_UIButtonBlockKey = &xyd_UIButtonBlockKey;
     [self addTarget:self action:@selector(xyd_blockActionTouched:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)xyd_blockActionTouched:(UIButton *)btn{
-    JKTouchedButtonBlock block = objc_getAssociatedObject(self, xyd_UIButtonBlockKey);
+    XYDTouchedButtonBlock block = objc_getAssociatedObject(self, xyd_UIButtonBlockKey);
     if (block) {
         block(btn.tag);
     }

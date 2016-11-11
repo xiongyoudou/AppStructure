@@ -7,6 +7,7 @@
 //
 
 #import "XYDRecorderProgressHud.h"
+#import "XYDChatHelper.h"
 
 @interface XYDRecorderProgressHud ()
 
@@ -16,7 +17,7 @@
 @property (strong, nonatomic) UILabel *centerLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
-@property (assign, nonatomic) LCCKProgressState progressState;
+@property (assign, nonatomic) XYDProgressState progressState;
 @property (assign, nonatomic) NSTimeInterval seconds;
 
 @property (nonatomic, strong, readonly) UIWindow *overlayWindow;
@@ -89,7 +90,7 @@
         self.centerLabel.textColor = [UIColor whiteColor];
         
         CGFloat timeLonger;
-        if (self.progressState == LCCKProgressShort) {
+        if (self.progressState == XYDProgressShort) {
             timeLonger = 1;
         } else {
             timeLonger = 0.6;
@@ -121,18 +122,18 @@
 
 #pragma mark - Setters
 
-- (void)setProgressState:(LCCKProgressState)progressState {
+- (void)setProgressState:(XYDProgressState)progressState {
     switch (progressState) {
-        case LCCKProgressSuccess:
+        case XYDProgressSuccess:
             self.centerLabel.text = @"录音成功";
             break;
-        case LCCKProgressShort:
+        case XYDProgressShort:
             self.centerLabel.text = @"时间太短,请重试";
             break;
-        case LCCKProgressError:
+        case XYDProgressError:
             self.centerLabel.text = @"录音失败";
             break;
-        case LCCKProgressMessage:
+        case XYDProgressMessage:
             break;
     }
 }
@@ -172,7 +173,7 @@
     if (!_edgeImageView) {
         _edgeImageView = [[UIImageView alloc]initWithImage:({
             NSString *imageName = @"chat_bar_record_circle";
-            NSBundle *bundle = [XYDEmotionHelper emotionBundle];
+            NSBundle *bundle = [XYDChatHelper emotionBundle];
             UIImage *image = [[XYDImageManager defaultManager]getImageWithName:imageName inBundle:bundle];
             image;})
                           ];
@@ -232,13 +233,13 @@
     [[XYDRecorderProgressHud sharedView] show];
 }
 
-+ (void)dismissWithProgressState:(LCCKProgressState)progressState {
++ (void)dismissWithProgressState:(XYDProgressState)progressState {
     [[XYDRecorderProgressHud sharedView] setProgressState:progressState];
     [[XYDRecorderProgressHud sharedView] dismiss];
 }
 
 + (void)dismissWithMessage:(NSString *)message {
-    [[XYDRecorderProgressHud sharedView] setProgressState:LCCKProgressMessage];
+    [[XYDRecorderProgressHud sharedView] setProgressState:XYDProgressMessage];
     [XYDRecorderProgressHud sharedView].centerLabel.text = message;
     [[XYDRecorderProgressHud sharedView] dismiss];
 }

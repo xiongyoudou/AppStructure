@@ -9,7 +9,7 @@
 // 用button的titleEdgeInsets和 imageEdgeInsets属性来实现button文字图片上下或者左右排列的
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, JKImagePosition) {
+typedef NS_ENUM(NSInteger, XYDImagePosition) {
     LXMImagePositionLeft = 0,              //图片在左，文字在右，默认
     LXMImagePositionRight = 1,             //图片在右，文字在左
     LXMImagePositionTop = 2,               //图片在上，文字在下

@@ -31,7 +31,7 @@
 
 @interface NSManagedObject (XYDDictionary)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  xyd_toDictionary
  *
@@ -40,7 +40,7 @@
 - (NSDictionary *)xyd_toDictionary;
 //http://stackoverflow.com/questions/5664423/storing-nsmanagedobject-in-a-dictionary-nsdictionary
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  xyd_dictionary
  *

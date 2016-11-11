@@ -1,6 +1,6 @@
 //
 //  UIPopoverController+iPhone.m
-//  JKCategories
+//  XYDCategories
 //
 //  Created by Jakey on 15/7/12.
 //  Copyright © 2015年 www.skyfox.org. All rights reserved.

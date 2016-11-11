@@ -10,7 +10,7 @@
 
 @implementation CALayer (XYDBorderColor)
 
--(void)setxyd_borderColor:(UIColor *)xyd_borderColor{
+-(void)setXyd_borderColor:(UIColor *)xyd_borderColor{
     self.borderColor = xyd_borderColor.CGColor;
 }
 

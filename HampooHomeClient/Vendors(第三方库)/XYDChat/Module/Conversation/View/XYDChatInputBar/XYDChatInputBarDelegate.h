@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class XYDChatInputBar;
 
@@ -19,14 +20,12 @@
 /*!
  *  chatBarFrame改变回调
  *
- *  @param chatBar
  */
 - (void)chatBarFrameDidChange:(XYDChatInputBar *)chatBar shouldScrollToBottom:(BOOL)shouldScrollToBottom;
 
 /*!
  *  发送图片信息,支持多张图片
  *
- *  @param chatBar
  *  @param pictures 需要发送的图片信息
  */
 - (void)chatBar:(XYDChatInputBar *)chatBar sendPictures:(NSArray *)pictures;
@@ -34,7 +33,6 @@
 /*!
  *  发送地理位置信息
  *
- *  @param chatBar
  *  @param locationCoordinate 需要发送的地址位置经纬度
  *  @param locationText       需要发送的地址位置对应信息
  */
@@ -43,7 +41,6 @@
 /*!
  *  发送普通的文字信息,可能带有表情
  *
- *  @param chatBar
  *  @param message 需要发送的文字信息
  */
 - (void)chatBar:(XYDChatInputBar *)chatBar sendMessage:(NSString *)message;
@@ -51,8 +48,7 @@
 /*!
  *  发送语音信息
  *
- *  @param chatBar
- *  @param voiceData 语音data数据
+ *  @param voiceFileName 语音名称
  *  @param seconds   语音时长
  */
 - (void)chatBar:(XYDChatInputBar *)chatBar sendVoice:(NSString *)voiceFileName seconds:(NSTimeInterval)seconds;

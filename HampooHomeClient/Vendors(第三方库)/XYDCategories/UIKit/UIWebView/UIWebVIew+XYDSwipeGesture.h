@@ -7,7 +7,7 @@
 //
 
 /**
- *  @Author(作者)         JKCategories
+ *  @Author(作者)         XYDCategories
  *
  *  @URL(地址)            https://github.com/OopsMouse/UIWebView-SwipeGesture
  *

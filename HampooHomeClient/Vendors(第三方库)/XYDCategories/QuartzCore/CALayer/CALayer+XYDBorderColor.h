@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 @interface CALayer (XYDBorderColor)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  layer边框颜色
  */

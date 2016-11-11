@@ -1,6 +1,6 @@
 //
 //  NSData+XYDPCM.h
-//  JKCategories-Demo
+//  XYDCategories-Demo
 //
 //  Created by Jakey on 16/6/5.
 //  Copyright © 2016年 www.skyfox.org. All rights reserved.

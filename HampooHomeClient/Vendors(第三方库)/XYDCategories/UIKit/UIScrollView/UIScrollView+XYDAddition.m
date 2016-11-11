@@ -1,6 +1,6 @@
 //
 //  UIScrollView+XYDAddition.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -13,25 +13,25 @@
 - (CGFloat)xyd_contentWidth {
     return self.contentSize.width;
 }
-- (void)setxyd_contentWidth:(CGFloat)width {
+- (void)setXyd_contentWidth:(CGFloat)width {
     self.contentSize = CGSizeMake(width, self.frame.size.height);
 }
 - (CGFloat)xyd_contentHeight {
     return self.contentSize.height;
 }
-- (void)setxyd_contentHeight:(CGFloat)height {
+- (void)setXyd_contentHeight:(CGFloat)height {
     self.contentSize = CGSizeMake(self.frame.size.width, height);
 }
 - (CGFloat)xyd_contentOffsetX {
     return self.contentOffset.x;
 }
-- (void)setxyd_contentOffsetX:(CGFloat)x {
+- (void)setXyd_contentOffsetX:(CGFloat)x {
     self.contentOffset = CGPointMake(x, self.contentOffset.y);
 }
 - (CGFloat)xyd_contentOffsetY {
     return self.contentOffset.y;
 }
-- (void)setxyd_contentOffsetY:(CGFloat)y {
+- (void)setXyd_contentOffsetY:(CGFloat)y {
     self.contentOffset = CGPointMake(self.contentOffset.x, y);
 }
 //
@@ -55,27 +55,27 @@
 }
 - (XYDScrollDirection)xyd_ScrollDirection
 {
-    JKScrollDirection direction;
+    XYDScrollDirection direction;
     
     if ([self.panGestureRecognizer translationInView:self.superview].y > 0.0f)
     {
-        direction = JKScrollDirectionUp;
+        direction = XYDScrollDirectionUp;
     }
     else if ([self.panGestureRecognizer translationInView:self.superview].y < 0.0f)
     {
-        direction = JKScrollDirectionDown;
+        direction = XYDScrollDirectionDown;
     }
     else if ([self.panGestureRecognizer translationInView:self].x < 0.0f)
     {
-        direction = JKScrollDirectionLeft;
+        direction = XYDScrollDirectionLeft;
     }
     else if ([self.panGestureRecognizer translationInView:self].x > 0.0f)
     {
-        direction = JKScrollDirectionRight;
+        direction = XYDScrollDirectionRight;
     }
     else
     {
-        direction = JKScrollDirectionWTF;
+        direction = XYDScrollDirectionWTF;
     }
     
     return direction;

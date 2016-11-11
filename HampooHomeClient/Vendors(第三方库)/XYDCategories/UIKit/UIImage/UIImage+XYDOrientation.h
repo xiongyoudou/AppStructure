@@ -1,6 +1,6 @@
 //
 //  UIImage+XYDOrientation.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 15/1/4.
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
@@ -30,7 +30,7 @@
 /**
  *  @brief  旋转图片
  *
- *  @param degrees 弧度
+ *  @param radians 弧度
  *
  *  @return 旋转后图片
  */

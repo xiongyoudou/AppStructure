@@ -11,7 +11,7 @@
 
 @interface NSURLConnection (XYDSelfSigned)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Sends async request while accepting all self-signed certs
  *

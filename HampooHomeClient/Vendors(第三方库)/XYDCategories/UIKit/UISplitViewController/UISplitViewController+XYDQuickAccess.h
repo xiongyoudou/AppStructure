@@ -19,7 +19,7 @@
 
 @interface UISplitViewController (JKQuickAccess)
 
-@property (weak, readonly, nonatomic) UIViewController *jk_leftController;
-@property (weak, readonly, nonatomic) UIViewController *jk_rightController;
+@property (weak, readonly, nonatomic) UIViewController *xyd_leftController;
+@property (weak, readonly, nonatomic) UIViewController *xyd_rightController;
 
 @end

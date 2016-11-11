@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  This is also used as a point specifier for whereKey:nearGeoPoint: queries.
  
- Currently, object classes may only have one key associated with a GeoPoint type.
+ Currently, object classes may only hXYDe one key associated with a GeoPoint type.
  */
 
 @interface XYDGeoPoint : NSObject<NSCopying>
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param geoPointHandler A block which takes the newly created XYDGeoPoint as an
  argument.
  */
-+ (void)geoPointForCurrentLocationInBackground:(void(^)(AVGeoPoint * _Nullable geoPoint, NSError * _Nullable error))geoPointHandler;
++ (void)geoPointForCurrentLocationInBackground:(void(^)(XYDGeoPoint * _Nullable geoPoint, NSError * _Nullable error))geoPointHandler;
 #endif
 
 /** @name Controlling Position */
@@ -68,24 +68,24 @@ NS_ASSUME_NONNULL_BEGIN
  @param point XYDGeoPoint location of other point.
  @return distance in radians
  */
-- (double)distanceInRadiansTo:(AVGeoPoint*)point;
+- (double)distanceInRadiansTo:(XYDGeoPoint*)point;
 
 /*!
  Get distance in miles from this point to specified point.
  @param point XYDGeoPoint location of other point.
  @return distance in miles
  */
-- (double)distanceInMilesTo:(AVGeoPoint*)point;
+- (double)distanceInMilesTo:(XYDGeoPoint*)point;
 
 /*!
  Get distance in kilometers from this point to specified point.
  @param point XYDGeoPoint location of other point.
  @return distance in kilometers
  */
-- (double)distanceInKilometersTo:(AVGeoPoint*)point;
+- (double)distanceInKilometersTo:(XYDGeoPoint*)point;
 
-+(NSDictionary *)dictionaryFromGeoPoint:(AVGeoPoint *)point;
-+(AVGeoPoint *)geoPointFromDictionary:(NSDictionary *)dict;
++(NSDictionary *)dictionaryFromGeoPoint:(XYDGeoPoint *)point;
++(XYDGeoPoint *)geoPointFromDictionary:(NSDictionary *)dict;
 
 @end
 

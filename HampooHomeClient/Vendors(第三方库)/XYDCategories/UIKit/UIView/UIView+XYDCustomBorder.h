@@ -11,10 +11,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_OPTIONS(NSUInteger, JKExcludePoint) {
-    JKExcludeStartPoint = 1 << 0,
-    JKExcludeEndPoint = 1 << 1,
-    JKExcludeAllPoint = ~0UL
+typedef NS_OPTIONS(NSUInteger, XYDExcludePoint) {
+    XYDExcludeStartPoint = 1 << 0,
+    XYDExcludeEndPoint = 1 << 1,
+    XYDExcludeAllPoint = ~0UL
 };
 
 

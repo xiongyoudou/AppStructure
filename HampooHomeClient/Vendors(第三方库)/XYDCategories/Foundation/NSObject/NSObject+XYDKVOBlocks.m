@@ -51,7 +51,7 @@
                        change:(NSDictionary *)change
                       context:(void *)context {
     
-    JKKVOBlock block = objc_getAssociatedObject(self, (__bridge const void *)(keyPath));
+    XYDKVOBlock block = objc_getAssociatedObject(self, (__bridge const void *)(keyPath));
     block(change, context);
 }
 

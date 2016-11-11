@@ -7,8 +7,8 @@
 
 static const uInt CHUNK_SIZE = 65536;
 
-NSString *const JKZlibErrorDomain = @"se.bitba.JKZlibErrorDomain";
-NSString *const JKZlibErrorInfoKey = @"zerror";
+NSString *const XYDZlibErrorDomain = @"se.bitba.JKZlibErrorDomain";
+NSString *const XYDZlibErrorInfoKey = @"zerror";
 
 @implementation NSData (XYDzlib)
 static void *xyd_zlibOpen()
@@ -70,9 +70,9 @@ static void *xyd_zlibOpen()
 
     int ret = inflateInit(&stream);
     if (ret != Z_OK) {
-        if (error) *error = [NSError errorWithDomain:JKZlibErrorDomain
-                                                code:JKZlibErrorCodeInflationError
-                                            userInfo:@{JKZlibErrorInfoKey : @(ret)}];
+        if (error) *error = [NSError errorWithDomain:XYDZlibErrorDomain
+                                                code:XYDZlibErrorCodeInflationError
+                                            userInfo:@{XYDZlibErrorInfoKey : @(ret)}];
         return NO;
     }
     Bytef *source = (Bytef *)[self bytes]; // yay
@@ -95,9 +95,9 @@ static void *xyd_zlibOpen()
                 case Z_MEM_ERROR:
                 case Z_STREAM_ERROR:
                     inflateEnd(&stream);
-                    if (error) *error = [NSError errorWithDomain:JKZlibErrorDomain
-                                                            code:JKZlibErrorCodeInflationError
-                                                        userInfo:@{JKZlibErrorInfoKey : @(ret)}];
+                    if (error) *error = [NSError errorWithDomain:XYDZlibErrorDomain
+                                                            code:XYDZlibErrorCodeInflationError
+                                                        userInfo:@{XYDZlibErrorInfoKey : @(ret)}];
                     return NO;
             }
             processBlock([NSData dataWithBytesNoCopy:out
@@ -134,9 +134,9 @@ static void *xyd_zlibOpen()
     int ret = deflateInit(&stream, 9);
     
     if (ret != Z_OK) {
-        if (error) *error = [NSError errorWithDomain:JKZlibErrorDomain
-                                                code:JKZlibErrorCodeDeflationError
-                                            userInfo:@{JKZlibErrorInfoKey : @(ret)}];
+        if (error) *error = [NSError errorWithDomain:XYDZlibErrorDomain
+                                                code:XYDZlibErrorCodeDeflationError
+                                            userInfo:@{XYDZlibErrorInfoKey : @(ret)}];
         return NO;
     }
     Bytef *source = (Bytef *)[self bytes]; // yay
@@ -155,9 +155,9 @@ static void *xyd_zlibOpen()
             stream.next_out = out;
             ret = deflate(&stream, flush);
             if (ret == Z_STREAM_ERROR) {
-                if (error) *error = [NSError errorWithDomain:JKZlibErrorDomain
-                                                        code:JKZlibErrorCodeDeflationError
-                                                    userInfo:@{JKZlibErrorInfoKey : @(ret)}];
+                if (error) *error = [NSError errorWithDomain:XYDZlibErrorDomain
+                                                        code:XYDZlibErrorCodeDeflationError
+                                                    userInfo:@{XYDZlibErrorInfoKey : @(ret)}];
                 return NO;
             }
             processBlock([NSData dataWithBytesNoCopy:out
@@ -214,8 +214,8 @@ static NSFileHandle *xyd_createOrOpenFileAtPath(NSString *path, NSError *__autor
                                                                contents:nil
                                                              attributes:nil];
         if (!success) {
-            if (error) *error = [NSError errorWithDomain:JKZlibErrorDomain
-                                                    code:JKZlibErrorCodeCouldNotCreateFileError
+            if (error) *error = [NSError errorWithDomain:XYDZlibErrorDomain
+                                                    code:XYDZlibErrorCodeCouldNotCreateFileError
                                                 userInfo:nil];
             return nil;
         }

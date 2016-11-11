@@ -28,9 +28,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
 
-extern NSString * const JKToastPositionTop;
-extern NSString * const JKToastPositionCenter;
-extern NSString * const JKToastPositionBottom;
+extern NSString * const XYDToastPositionTop;
+extern NSString * const XYDToastPositionCenter;
+extern NSString * const XYDToastPositionBottom;
 
 @interface UIView (XYDToast)
 

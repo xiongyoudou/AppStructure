@@ -1,6 +1,6 @@
 //
 //  UIImage+FileName.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/15.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -18,7 +18,7 @@
  */
 + (UIImage *)xyd_imageWithFileName:(NSString *)name;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  根据指定bundle中的文件名读取图片
  *

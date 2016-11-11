@@ -7,42 +7,42 @@
 #import <UIKit/UIKit.h>
 @interface NSIndexPath (XYDOffset)
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute previous row indexpath
  *
  */
 - (NSIndexPath *)xyd_previousRow;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute next row indexpath
  *
  */
 - (NSIndexPath *)xyd_nextRow;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute previous item indexpath
  *
  */
 - (NSIndexPath *)xyd_previousItem;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute next item indexpath
  *
  */
 - (NSIndexPath *)xyd_nextItem;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute next section indexpath
  *
  */
 - (NSIndexPath *)xyd_nextSection;
 /**
- *  @author JKCategories
+ *  @author XYDCategories
  *
  *  Compute previous section indexpath
  *

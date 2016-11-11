@@ -8,6 +8,7 @@
 
 #import "XYDChatMsg.h"
 #import "XYDUserDelegate.h"
+#import "XYDChatSettingService.h"
 
 @interface XYDChatMsg ()
 @property (nonatomic, copy)  NSString *text;
@@ -77,8 +78,8 @@
 - (NSString *)localDisplayName {
     NSString *localDisplayName = self.sender.name ?: self.senderId;
     if (!self.sender.name && [XYDChatSettingService sharedInstance].isDisablePreviewUserId) {
-        NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
-        localDisplayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
+//        NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
+//        localDisplayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
     }
     return localDisplayName;
 }
@@ -104,7 +105,7 @@
     [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
 #endif
     NSString *text = [dateFormatter stringFromDate:timestamp];
-    XYDChatMessage *timeMessage = [[XYDChatMessage alloc] initWithSystemText:text];
+    XYDChatMsg *timeMessage = [[XYDChatMsg alloc] initWithSystemText:text];
     return timeMessage;
 }
 
@@ -112,7 +113,7 @@
     self = [super init];
     if (self) {
         _systemText = text;
-        _mediaType = kAVIMMessageMediaTypeSystem;
+        _mediaType = XYDChatMessageMediaTypeSystem;
         _ownerType = XYDChatMessageOwnerTypeSystem;
     }
     return self;
@@ -124,7 +125,7 @@
         _systemText = localFeedbackText;
         _localMessageId = [[NSUUID UUID] UUIDString];
         _timestamp = XYDChat_CURRENT_TIMESTAMP;
-        _mediaType = kAVIMMessageMediaTypeSystem;
+        _mediaType = XYDChatMessageMediaTypeSystem;
         _ownerType = XYDChatMessageOwnerTypeSystem;
     }
     return self;
@@ -154,7 +155,7 @@
         _serverMessageId = serverMessageId;
         _sender = sender;
         _senderId = senderId;
-        _mediaType = kAVIMMessageMediaTypeImage;
+        _mediaType = XYDChatMessageMediaTypeImage;
     }
     return self;
 }
@@ -175,7 +176,7 @@
         _senderId = senderId;
         _timestamp = timestamp;
         _serverMessageId = serverMessageId;
-        _mediaType = kAVIMMessageMediaTypeVideo;
+        _mediaType = XYDChatMessageMediaTypeVideo;
     }
     return self;
 }
@@ -209,7 +210,7 @@
         _timestamp = timestamp;
         _serverMessageId = serverMessageId;
         _read = hasRead;
-        _mediaType = kAVIMMessageMediaTypeAudio;
+        _mediaType = XYDChatMessageMediaTypeAudio;
     }
     return self;
 }
@@ -230,7 +231,7 @@
         _senderId = senderId;
         _timestamp = timestamp;
         _serverMessageId = serverMessageId;
-        _mediaType = kAVIMMessageMediaTypeLocation;
+        _mediaType = XYDChatMessageMediaTypeLocation;
     }
     return self;
 }
@@ -325,9 +326,9 @@
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    XYDChatMessage *message;
+    XYDChatMsg *message;
     switch (self.mediaType) {
-        case kAVIMMessageMediaTypeText: {
+        case XYDChatMessageMediaTypeText: {
             message = [[[self class] allocWithZone:zone] initWithText:[self.text copy]
                                                              senderId:[self.senderId copy]
                                                                sender:[self.sender copyWithZone:nil]
@@ -336,7 +337,7 @@
             
         }
             break;
-        case kAVIMMessageMediaTypeImage: {
+        case XYDChatMessageMediaTypeImage: {
             message =  [[[self class] allocWithZone:zone] initWithPhoto:[self.photo copy]
                                                          thumbnailPhoto:[self.thumbnailPhoto copy]
                                                               photoPath:[self.photoPath copy]
@@ -349,7 +350,7 @@
             
         }
             break;
-        case kAVIMMessageMediaTypeVideo: {
+        case XYDChatMessageMediaTypeVideo: {
             message = [[[self class] allocWithZone:zone] initWithVideoConverPhoto:[self.videoConverPhoto copy]
                                                                         videoPath:[self.videoPath copy]
                                                                          videoURL:[self.videoURL copy]
@@ -360,7 +361,7 @@
             
         }
             break;
-        case kAVIMMessageMediaTypeAudio: {
+        case XYDChatMessageMediaTypeAudio: {
             message =  [[[self class] allocWithZone:zone] initWithVoicePath:[self.voicePath copy]
                                                                    voiceURL:[self.voiceURL copy]
                                                               voiceDuration:[self.voiceDuration copy]
@@ -381,7 +382,7 @@
             //
             //        }
             //            break;
-        case kAVIMMessageMediaTypeLocation: {
+        case XYDChatMessageMediaTypeLocation: {
             message =  [[[self class] allocWithZone:zone] initWithLocalPositionPhoto:[self.localPositionPhoto copy]
                                                                         geolocations:[self.geolocations copy]
                                                                             location:[self.location copy]
@@ -391,11 +392,11 @@
                                                                      serverMessageId:[self.serverMessageId copy]];
         }
             break;
-        case kAVIMMessageMediaTypeSystem: {
+        case XYDChatMessageMediaTypeSystem: {
             message = [[[self class] allocWithZone:zone] initWithSystemText:[self.systemText copy]];
         }
             break;
-        case kAVIMMessageMediaTypeNone: {
+        case XYDChatMessageMediaTypeNone: {
             //TODO:
         }
             break;

@@ -67,7 +67,7 @@
     navBar.translucent = YES;
     navBar.barStyle = UIBarStyleBlackTranslucent;
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
+    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsCompact];
     navBar.shadowImage = nil;
 }
 
@@ -142,9 +142,9 @@
     if ([UIBarButtonItem respondsToSelector:@selector(appearance)])
     {
         [barItem setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [barItem setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+        [barItem setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsCompact];
         [barItem setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        [barItem setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+        [barItem setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsCompact];
         [barItem setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
         [barItem setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
     }

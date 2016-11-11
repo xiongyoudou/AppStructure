@@ -32,7 +32,7 @@
 #import "NSObject+XYDAutoCoding.h"
 #import <objc/runtime.h>
 #pragma GCC diagnostic ignored "-Wgnu"
-static NSString *const JKAutocodingException = @"JKAutocodingException";
+static NSString *const XYDAutocodingException = @"JKAutocodingException";
 @implementation NSObject (XYDAutoCoding)
 + (BOOL)supportsSecureCoding
 {
@@ -235,7 +235,7 @@ static NSString *const JKAutocodingException = @"JKAutocodingException";
         {
             if (secureSupported && ![object isKindOfClass:propertyClass])
             {
-                [NSException raise:JKAutocodingException format:@"Expected '%@' to be a %@, but was actually a %@", key, propertyClass, [object class]];
+                [NSException raise:XYDAutocodingException format:@"Expected '%@' to be a %@, but was actually a %@", key, propertyClass, [object class]];
             }
             [self setValue:object forKey:key];
         }

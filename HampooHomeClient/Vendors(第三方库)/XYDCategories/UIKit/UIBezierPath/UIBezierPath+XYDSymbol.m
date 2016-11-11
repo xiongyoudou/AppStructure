@@ -8,7 +8,7 @@
 
 #import "UIBezierPath+XYDSymbol.h"
 
-#define JKCGPointWithOffset(originPoint, offsetPoint) \
+#define XYDCGPointWithOffset(originPoint, offsetPoint) \
   CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 
 @implementation UIBezierPath (XYDSymbol)
@@ -36,18 +36,18 @@
                 CGRectGetMinY(rect) + (CGRectGetHeight(rect) - size) / 2.f);
   
   UIBezierPath * path = [self bezierPath];
-  [path moveToPoint:JKCGPointWithOffset(CGPointMake(0.f, thick), offsetPoint)];                // a
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, thick), offsetPoint)];           // b
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, 0.f), offsetPoint)];             // c
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(twiceThick, 0.f), offsetPoint)];        // d
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(twiceThick, thick), offsetPoint)];      // e
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(size, thick), offsetPoint)];            // f
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(size, twiceThick), offsetPoint)];       // g
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(twiceThick, twiceThick), offsetPoint)]; // h
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(twiceThick, size), offsetPoint)];       // i
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, size), offsetPoint)];            // j
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, twiceThick), offsetPoint)];      // k
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, twiceThick), offsetPoint)];        // l
+  [path moveToPoint:XYDCGPointWithOffset(CGPointMake(0.f, thick), offsetPoint)];                // a
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, thick), offsetPoint)];           // b
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, 0.f), offsetPoint)];             // c
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(twiceThick, 0.f), offsetPoint)];        // d
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(twiceThick, thick), offsetPoint)];      // e
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(size, thick), offsetPoint)];            // f
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(size, twiceThick), offsetPoint)];       // g
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(twiceThick, twiceThick), offsetPoint)]; // h
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(twiceThick, size), offsetPoint)];       // i
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, size), offsetPoint)];            // j
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, twiceThick), offsetPoint)];      // k
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, twiceThick), offsetPoint)];        // l
   [path closePath];
   return path;
 }
@@ -108,17 +108,17 @@
   
   UIBezierPath * path = [self bezierPath];
   [path moveToPoint:
-    JKCGPointWithOffset(CGPointMake(0.f, height - bottomMarginLeft), offsetPoint)];                             // a
+    XYDCGPointWithOffset(CGPointMake(0.f, height - bottomMarginLeft), offsetPoint)];                             // a
   [path addLineToPoint:
-    JKCGPointWithOffset(CGPointMake(topPointOffset, height - bottomMarginLeft - topPointOffset), offsetPoint)]; // b
+    XYDCGPointWithOffset(CGPointMake(topPointOffset, height - bottomMarginLeft - topPointOffset), offsetPoint)]; // b
   [path addLineToPoint:
-    JKCGPointWithOffset(CGPointMake(bottomMarginLeft, height - bottomHeight), offsetPoint)];                    // c
+    XYDCGPointWithOffset(CGPointMake(bottomMarginLeft, height - bottomHeight), offsetPoint)];                    // c
   [path addLineToPoint:
-    JKCGPointWithOffset(CGPointMake(width - topPointOffset, 0.f), offsetPoint)];                                // d
+    XYDCGPointWithOffset(CGPointMake(width - topPointOffset, 0.f), offsetPoint)];                                // d
   [path addLineToPoint:
-    JKCGPointWithOffset(CGPointMake(width, topPointOffset), offsetPoint)];                                      // e
+    XYDCGPointWithOffset(CGPointMake(width, topPointOffset), offsetPoint)];                                      // e
   [path addLineToPoint:
-    JKCGPointWithOffset(CGPointMake(bottomMarginLeft, height), offsetPoint)];                                   // f
+    XYDCGPointWithOffset(CGPointMake(bottomMarginLeft, height), offsetPoint)];                                   // f
   [path closePath];
   return path;
 }
@@ -154,18 +154,18 @@
                 CGRectGetMinY(rect) + (CGRectGetHeight(rect) - size) / 2.f);
   
   UIBezierPath * path = [UIBezierPath bezierPath];
-  [path moveToPoint:JKCGPointWithOffset(CGPointMake(0.f, offset), offsetPoint)];                       // a
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(offset, 0.f), offsetPoint)];                    // b
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, halfHeight - offset), offsetPoint)]; // c
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width - offset, 0.f), offsetPoint)];            // d
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, offset), offsetPoint)];                  // e
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth + offset, halfHeight), offsetPoint)]; // f
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, height - offset), offsetPoint)];         // g
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width - offset, height), offsetPoint)];         // h
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, halfHeight + offset), offsetPoint)]; // i
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(offset, height), offsetPoint)];                 // j
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, height - offset), offsetPoint)];           // k
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth - offset, halfHeight), offsetPoint)]; // l
+  [path moveToPoint:XYDCGPointWithOffset(CGPointMake(0.f, offset), offsetPoint)];                       // a
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(offset, 0.f), offsetPoint)];                    // b
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, halfHeight - offset), offsetPoint)]; // c
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width - offset, 0.f), offsetPoint)];            // d
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, offset), offsetPoint)];                  // e
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth + offset, halfHeight), offsetPoint)]; // f
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, height - offset), offsetPoint)];         // g
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width - offset, height), offsetPoint)];         // h
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, halfHeight + offset), offsetPoint)]; // i
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(offset, height), offsetPoint)];                 // j
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height - offset), offsetPoint)];           // k
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth - offset, halfHeight), offsetPoint)]; // l
   [path closePath];
   return path;
 }
@@ -205,38 +205,38 @@
   UIBezierPath * path = [self bezierPath];
   if (direction == kUIBezierPathArrowDirectionLeft || direction == kUIBezierPathArrowDirectionRight) {
     if (direction == UISwipeGestureRecognizerDirectionLeft) {
-      [path moveToPoint:JKCGPointWithOffset(CGPointMake(0.f, halfHeight), offsetPoint)];          // a
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width - thick, 0.f), offsetPoint)];    // b
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, 0.f), offsetPoint)];            // c
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, halfHeight), offsetPoint)];     // d
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, height), offsetPoint)];         // e
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width - thick, height), offsetPoint)]; // f
+      [path moveToPoint:XYDCGPointWithOffset(CGPointMake(0.f, halfHeight), offsetPoint)];          // a
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width - thick, 0.f), offsetPoint)];    // b
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, 0.f), offsetPoint)];            // c
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, halfHeight), offsetPoint)];     // d
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, height), offsetPoint)];         // e
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width - thick, height), offsetPoint)]; // f
     }
     else {
-      [path moveToPoint:JKCGPointWithOffset(CGPointMake(width - thick, halfHeight), offsetPoint)]; // a
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, 0.f), offsetPoint)];               // b
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, 0.f), offsetPoint)];             // c
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, halfHeight), offsetPoint)];      // d
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(thick, height), offsetPoint)];          // e
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];            // f
+      [path moveToPoint:XYDCGPointWithOffset(CGPointMake(width - thick, halfHeight), offsetPoint)]; // a
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, 0.f), offsetPoint)];               // b
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, 0.f), offsetPoint)];             // c
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, halfHeight), offsetPoint)];      // d
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(thick, height), offsetPoint)];          // e
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];            // f
     }
   }
   else {
     if (direction == kUIBezierPathArrowDirectionUp) {
-      [path moveToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, 0.f), offsetPoint)];           // a
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, height - thick), offsetPoint)]; // b
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, height), offsetPoint)];         // c
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, thick), offsetPoint)];      // d
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];           // e
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, height - thick), offsetPoint)];   // f
+      [path moveToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, 0.f), offsetPoint)];           // a
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, height - thick), offsetPoint)]; // b
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, height), offsetPoint)];         // c
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, thick), offsetPoint)];      // d
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];           // e
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height - thick), offsetPoint)];   // f
     }
     else {
-      [path moveToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, height - thick), offsetPoint)]; // a
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, 0.f), offsetPoint)];             // b
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, thick), offsetPoint)];           // c
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(halfWidth, height), offsetPoint)];      // d
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, thick), offsetPoint)];             // e
-      [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, 0.f), offsetPoint)];               // f
+      [path moveToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, height - thick), offsetPoint)]; // a
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, 0.f), offsetPoint)];             // b
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, thick), offsetPoint)];           // c
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(halfWidth, height), offsetPoint)];      // d
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, thick), offsetPoint)];             // e
+      [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, 0.f), offsetPoint)];               // f
     }
   }
   [path closePath];
@@ -266,11 +266,11 @@
                 CGRectGetMinY(rect) + (CGRectGetHeight(rect) - height) / 2.f);
   
   UIBezierPath * path = [UIBezierPath bezierPath];
-  [path moveToPoint:JKCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];                // a
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(0.f, height - edgeWidth), offsetPoint)]; // b
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width - edgeWidth, 0.f), offsetPoint)];  // c
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(width, edgeWidth), offsetPoint)];        // d
-  [path addLineToPoint:JKCGPointWithOffset(CGPointMake(edgeWidth, height), offsetPoint)];       // e
+  [path moveToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height), offsetPoint)];                // a
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(0.f, height - edgeWidth), offsetPoint)]; // b
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width - edgeWidth, 0.f), offsetPoint)];  // c
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(width, edgeWidth), offsetPoint)];        // d
+  [path addLineToPoint:XYDCGPointWithOffset(CGPointMake(edgeWidth, height), offsetPoint)];       // e
   [path closePath];
   return path;
 }

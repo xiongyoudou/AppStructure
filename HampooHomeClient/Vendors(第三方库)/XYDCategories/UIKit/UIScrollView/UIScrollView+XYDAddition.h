@@ -1,18 +1,18 @@
 //
 //  UIScrollView+XYDAddition.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger, JKScrollDirection) {
-    JKScrollDirectionUp,
-    JKScrollDirectionDown,
-    JKScrollDirectionLeft,
-    JKScrollDirectionRight,
-    JKScrollDirectionWTF
+typedef NS_ENUM(NSInteger, XYDScrollDirection) {
+    XYDScrollDirectionUp,
+    XYDScrollDirectionDown,
+    XYDScrollDirectionLeft,
+    XYDScrollDirectionRight,
+    XYDScrollDirectionWTF
 };
 
 @interface UIScrollView (XYDAddition)

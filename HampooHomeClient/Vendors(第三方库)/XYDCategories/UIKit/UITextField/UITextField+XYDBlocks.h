@@ -1,6 +1,6 @@
 //
 //  UITextField+Blocks.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/15.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
@@ -16,11 +16,11 @@
 @property (copy, nonatomic) BOOL (^xyd_shouldReturnBlock)(UITextField *textField);
 @property (copy, nonatomic) BOOL (^xyd_shouldClearBlock)(UITextField *textField);
 
-- (void)setxyd_shouldBegindEditingBlock:(BOOL (^)(UITextField *textField))shouldBegindEditingBlock;
-- (void)setxyd_shouldEndEditingBlock:(BOOL (^)(UITextField *textField))shouldEndEditingBlock;
-- (void)setxyd_didBeginEditingBlock:(void (^)(UITextField *textField))didBeginEditingBlock;
-- (void)setxyd_didEndEditingBlock:(void (^)(UITextField *textField))didEndEditingBlock;
-- (void)setxyd_shouldChangeCharactersInRangeBlock:(BOOL (^)(UITextField *textField, NSRange range, NSString *string))shouldChangeCharactersInRangeBlock;
-- (void)setxyd_shouldClearBlock:(BOOL (^)(UITextField *textField))shouldClearBlock;
-- (void)setxyd_shouldReturnBlock:(BOOL (^)(UITextField *textField))shouldReturnBlock;
+- (void)setXyd_shouldBegindEditingBlock:(BOOL (^)(UITextField *textField))shouldBegindEditingBlock;
+- (void)setXyd_shouldEndEditingBlock:(BOOL (^)(UITextField *textField))shouldEndEditingBlock;
+- (void)setXyd_didBeginEditingBlock:(void (^)(UITextField *textField))didBeginEditingBlock;
+- (void)setXyd_didEndEditingBlock:(void (^)(UITextField *textField))didEndEditingBlock;
+- (void)setXyd_shouldChangeCharactersInRangeBlock:(BOOL (^)(UITextField *textField, NSRange range, NSString *string))shouldChangeCharactersInRangeBlock;
+- (void)setXyd_shouldClearBlock:(BOOL (^)(UITextField *textField))shouldClearBlock;
+- (void)setXyd_shouldReturnBlock:(BOOL (^)(UITextField *textField))shouldReturnBlock;
 @end

@@ -34,7 +34,7 @@
 /**
  *  @brief  设置按钮额外热区
  */
-- (void)setxyd_touchAreaInsets:(UIEdgeInsets)touchAreaInsets
+- (void)setXyd_touchAreaInsets:(UIEdgeInsets)touchAreaInsets
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
 	objc_setAssociatedObject(self, @selector(xyd_touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

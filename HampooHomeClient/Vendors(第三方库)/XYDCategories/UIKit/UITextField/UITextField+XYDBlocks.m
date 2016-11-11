@@ -24,26 +24,26 @@
 // SOFTWARE.
 #import "UITextField+XYDBlocks.h"
 #import <objc/runtime.h>
-typedef BOOL (^JKUITextFieldReturnBlock) (UITextField *textField);
-typedef void (^JKUITextFieldVoidBlock) (UITextField *textField);
-typedef BOOL (^JKUITextFieldCharacterChangeBlock) (UITextField *textField, NSRange range, NSString *replacementString);
+typedef BOOL (^XYDUITextFieldReturnBlock) (UITextField *textField);
+typedef void (^XYDUITextFieldVoidBlock) (UITextField *textField);
+typedef BOOL (^XYDUITextFieldCharacterChangeBlock) (UITextField *textField, NSRange range, NSString *replacementString);
 @implementation UITextField (XYDBlocks)
-static const void *JKUITextFieldDelegateKey = &JKUITextFieldDelegateKey;
-static const void *JKUITextFieldShouldBeginEditingKey = &JKUITextFieldShouldBeginEditingKey;
-static const void *JKUITextFieldShouldEndEditingKey = &JKUITextFieldShouldEndEditingKey;
-static const void *JKUITextFieldDidBeginEditingKey = &JKUITextFieldDidBeginEditingKey;
-static const void *JKUITextFieldDidEndEditingKey = &JKUITextFieldDidEndEditingKey;
-static const void *JKUITextFieldShouldChangeCharactersInRangeKey = &JKUITextFieldShouldChangeCharactersInRangeKey;
-static const void *JKUITextFieldShouldClearKey = &JKUITextFieldShouldClearKey;
-static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
+static const void *XYDUITextFieldDelegateKey = &XYDUITextFieldDelegateKey;
+static const void *XYDUITextFieldShouldBeginEditingKey = &XYDUITextFieldShouldBeginEditingKey;
+static const void *XYDUITextFieldShouldEndEditingKey = &XYDUITextFieldShouldEndEditingKey;
+static const void *XYDUITextFieldDidBeginEditingKey = &XYDUITextFieldDidBeginEditingKey;
+static const void *XYDUITextFieldDidEndEditingKey = &XYDUITextFieldDidEndEditingKey;
+static const void *XYDUITextFieldShouldChangeCharactersInRangeKey = &XYDUITextFieldShouldChangeCharactersInRangeKey;
+static const void *XYDUITextFieldShouldClearKey = &XYDUITextFieldShouldClearKey;
+static const void *XYDUITextFieldShouldReturnKey = &XYDUITextFieldShouldReturnKey;
 #pragma mark UITextField Delegate methods
 + (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    JKUITextFieldReturnBlock block = textField.xyd_shouldBegindEditingBlock;
+    XYDUITextFieldReturnBlock block = textField.xyd_shouldBegindEditingBlock;
     if (block) {
         return block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldShouldBeginEditing:)]) {
         return [delegate textFieldShouldBeginEditing:textField];
     }
@@ -52,11 +52,11 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 }
 + (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    JKUITextFieldReturnBlock block = textField.xyd_shouldEndEditingBlock;
+    XYDUITextFieldReturnBlock block = textField.xyd_shouldEndEditingBlock;
     if (block) {
         return block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldShouldEndEditing:)]) {
         return [delegate textFieldShouldEndEditing:textField];
     }
@@ -65,33 +65,33 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 }
 + (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-   JKUITextFieldVoidBlock block = textField.xyd_didBeginEditingBlock;
+   XYDUITextFieldVoidBlock block = textField.xyd_didBeginEditingBlock;
     if (block) {
         block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]) {
         [delegate textFieldDidBeginEditing:textField];
     }
 }
 + (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    JKUITextFieldVoidBlock block = textField.xyd_didEndEditingBlock;
+    XYDUITextFieldVoidBlock block = textField.xyd_didEndEditingBlock;
     if (block) {
         block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
         [delegate textFieldDidBeginEditing:textField];
     }
 }
 + (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    JKUITextFieldCharacterChangeBlock block = textField.xyd_shouldChangeCharactersInRangeBlock;
+    XYDUITextFieldCharacterChangeBlock block = textField.xyd_shouldChangeCharactersInRangeBlock;
     if (block) {
         return block(textField,range,string);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
         return [delegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
     }
@@ -99,11 +99,11 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 }
 + (BOOL)textFieldShouldClear:(UITextField *)textField
 {
-    JKUITextFieldReturnBlock block = textField.xyd_shouldClearBlock;
+    XYDUITextFieldReturnBlock block = textField.xyd_shouldClearBlock;
     if (block) {
         return block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldShouldClear:)]) {
         return [delegate textFieldShouldClear:textField];
     }
@@ -111,11 +111,11 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 }
 + (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    JKUITextFieldReturnBlock block = textField.xyd_shouldReturnBlock;
+    XYDUITextFieldReturnBlock block = textField.xyd_shouldReturnBlock;
     if (block) {
         return block(textField);
     }
-    id delegate = objc_getAssociatedObject(self, JKUITextFieldDelegateKey);
+    id delegate = objc_getAssociatedObject(self, XYDUITextFieldDelegateKey);
     if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
         return [delegate textFieldShouldReturn:textField];
     }
@@ -124,66 +124,66 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 #pragma mark Block setting/getting methods
 - (BOOL (^)(UITextField *))xyd_shouldBegindEditingBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldShouldBeginEditingKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldShouldBeginEditingKey);
 }
-- (void)setxyd_shouldBegindEditingBlock:(BOOL (^)(UITextField *))shouldBegindEditingBlock
+- (void)setXyd_shouldBegindEditingBlock:(BOOL (^)(UITextField *))shouldBegindEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldShouldBeginEditingKey, shouldBegindEditingBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldShouldBeginEditingKey, shouldBegindEditingBlock, OBJC_ASSOCIATION_COPY);
 }
 - (BOOL (^)(UITextField *))xyd_shouldEndEditingBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldShouldEndEditingKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldShouldEndEditingKey);
 }
-- (void)setxyd_shouldEndEditingBlock:(BOOL (^)(UITextField *))shouldEndEditingBlock
+- (void)setXyd_shouldEndEditingBlock:(BOOL (^)(UITextField *))shouldEndEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldShouldEndEditingKey, shouldEndEditingBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldShouldEndEditingKey, shouldEndEditingBlock, OBJC_ASSOCIATION_COPY);
 }
 - (void (^)(UITextField *))xyd_didBeginEditingBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldDidBeginEditingKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldDidBeginEditingKey);
 }
-- (void)setxyd_didBeginEditingBlock:(void (^)(UITextField *))didBeginEditingBlock
+- (void)setXyd_didBeginEditingBlock:(void (^)(UITextField *))didBeginEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldDidBeginEditingKey, didBeginEditingBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldDidBeginEditingKey, didBeginEditingBlock, OBJC_ASSOCIATION_COPY);
 }
 - (void (^)(UITextField *))xyd_didEndEditingBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldDidEndEditingKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldDidEndEditingKey);
 }
-- (void)setxyd_didEndEditingBlock:(void (^)(UITextField *))didEndEditingBlock
+- (void)setXyd_didEndEditingBlock:(void (^)(UITextField *))didEndEditingBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldDidEndEditingKey, didEndEditingBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldDidEndEditingKey, didEndEditingBlock, OBJC_ASSOCIATION_COPY);
 }
 - (BOOL (^)(UITextField *, NSRange, NSString *))xyd_shouldChangeCharactersInRangeBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldShouldChangeCharactersInRangeKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldShouldChangeCharactersInRangeKey);
 }
-- (void)setxyd_shouldChangeCharactersInRangeBlock:(BOOL (^)(UITextField *, NSRange, NSString *))shouldChangeCharactersInRangeBlock
+- (void)setXyd_shouldChangeCharactersInRangeBlock:(BOOL (^)(UITextField *, NSRange, NSString *))shouldChangeCharactersInRangeBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldShouldChangeCharactersInRangeKey, shouldChangeCharactersInRangeBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldShouldChangeCharactersInRangeKey, shouldChangeCharactersInRangeBlock, OBJC_ASSOCIATION_COPY);
 }
 - (BOOL (^)(UITextField *))xyd_shouldReturnBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldShouldReturnKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldShouldReturnKey);
 }
-- (void)setxyd_shouldReturnBlock:(BOOL (^)(UITextField *))shouldReturnBlock
+- (void)setXyd_shouldReturnBlock:(BOOL (^)(UITextField *))shouldReturnBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldShouldReturnKey, shouldReturnBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldShouldReturnKey, shouldReturnBlock, OBJC_ASSOCIATION_COPY);
 }
 - (BOOL (^)(UITextField *))xyd_shouldClearBlock
 {
-    return objc_getAssociatedObject(self, JKUITextFieldShouldClearKey);
+    return objc_getAssociatedObject(self, XYDUITextFieldShouldClearKey);
 }
-- (void)setxyd_shouldClearBlock:(BOOL (^)(UITextField *textField))shouldClearBlock
+- (void)setXyd_shouldClearBlock:(BOOL (^)(UITextField *textField))shouldClearBlock
 {
     [self xyd_setDelegateIfNoDelegateSet];
-    objc_setAssociatedObject(self, JKUITextFieldShouldClearKey, shouldClearBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, XYDUITextFieldShouldClearKey, shouldClearBlock, OBJC_ASSOCIATION_COPY);
 }
 #pragma mark control method
 /*
@@ -192,7 +192,7 @@ static const void *JKUITextFieldShouldReturnKey = &JKUITextFieldShouldReturnKey;
 - (void)xyd_setDelegateIfNoDelegateSet
 {
     if (self.delegate != (id<UITextFieldDelegate>)[self class]) {
-        objc_setAssociatedObject(self, JKUITextFieldDelegateKey, self.delegate, OBJC_ASSOCIATION_ASSIGN);
+        objc_setAssociatedObject(self, XYDUITextFieldDelegateKey, self.delegate, OBJC_ASSOCIATION_ASSIGN);
         self.delegate = (id<UITextFieldDelegate>)[self class];
     }
 }

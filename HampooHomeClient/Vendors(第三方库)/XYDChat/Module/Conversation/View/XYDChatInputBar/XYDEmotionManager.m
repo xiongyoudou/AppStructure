@@ -7,7 +7,7 @@
 //
 
 #import "XYDEmotionManager.h"
-#import "XYDEmotionHelper.h"
+#import "XYDChatHelper.h"
 
 @interface XYDEmotionManager ()
 
@@ -55,7 +55,7 @@
 }
 
 + (NSString *)defaultCommonEmotionPath {
-    NSBundle *bundle = [XYDEmotionHelper emotionBundle];
+    NSBundle *bundle = [XYDChatHelper emotionBundle];
     NSString *defaultEmojiFacePath = [bundle pathForResource:@"face" ofType:@"plist"];
     return defaultEmojiFacePath;
 }
@@ -75,7 +75,7 @@
 
 + (UIImage *)emotionImageWithEmotionID:(NSUInteger)faceID {
     NSString *faceImageName = [self emotionImageNameWithEmotionID:faceID];
-    UIImage *faceImage = [XYDEmotionHelper getEmotionWithImageName:faceImageName];
+    UIImage *faceImage = [XYDChatHelper getEmotionWithImageName:faceImageName];
     return faceImage;
 }
 
@@ -131,7 +131,7 @@
                 //新建文字附件来存放我们的图片,iOS7才新加的对象
                 NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
                 //给附件添加图片
-                textAttachment.image = [XYDEmotionHelper getEmotionWithImageName:dict[kEmotionImageNameKey]];
+                textAttachment.image = [XYDChatHelper getEmotionWithImageName:dict[kEmotionImageNameKey]];
                 //调整一下图片的位置,如果你的图片偏上或者偏下，调整一下bounds的y值即可
                 textAttachment.bounds = CGRectMake(0, -8, textAttachment.image.size.width, textAttachment.image.size.height);
                 //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
@@ -197,7 +197,7 @@
                 //新建文字附件来存放我们的图片,iOS7才新加的对象
                 NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
                 //给附件添加图片
-                textAttachment.image = [XYDEmotionHelper getEmotionWithImageName:dict[kEmotionImageNameKey]];
+                textAttachment.image = [XYDChatHelper getEmotionWithImageName:dict[kEmotionImageNameKey]];
                 //调整一下图片的位置,如果你的图片偏上或者偏下，调整一下bounds的y值即可
                 textAttachment.bounds = CGRectMake(0, -8, textAttachment.image.size.width, textAttachment.image.size.height);
                 //把附件转换成可变字符串，用于替换掉源字符串中的表情文字

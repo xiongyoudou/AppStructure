@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 XYDOS. All rights reserved.
 //
 
-#import "AVFile.h"
-#import "AVNetworking.h"
+#import "XYDFile.h"
 
 @interface XYDFile  ()
 
@@ -16,14 +15,14 @@
 @property (nonatomic, readwrite, copy) NSString *bucket;
 @property (readwrite) NSString *url;
 @property (readwrite, strong) NSData * data;
-@property (readwrite, strong) XYDHTTPRequestOperation * downloadOperation;
+//@property (readwrite, strong) XYDHTTPRequestOperation * downloadOperation;
 @property (nonatomic) BOOL isDirty;
 @property (atomic, assign) BOOL onceCallGetFileSize;
 
 @property(nonatomic, strong) NSString *cachePath;
 
-+(AVFile *)fileFromDictionary:(NSDictionary *)dict;
-+(NSDictionary *)dictionaryFromFile:(AVFile *)file;
++(XYDFile *)fileFromDictionary:(NSDictionary *)dict;
++(NSDictionary *)dictionaryFromFile:(XYDFile *)file;
 
 +(NSString *)className;
 -(NSString *)mimeType;
@@ -31,5 +30,5 @@
 - (void)addACLToDict:(NSMutableDictionary *)dict;
 
 + (void)saveData:(NSData *)data withRemotePath:(NSString *)remotePath;
-+ (void)cacheFile:(AVFile *)file;
++ (void)cacheFile:(XYDFile *)file;
 @end

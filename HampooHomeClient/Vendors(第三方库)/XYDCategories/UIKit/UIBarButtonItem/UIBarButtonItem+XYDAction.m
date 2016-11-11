@@ -1,6 +1,6 @@
 //
 //  UIBarButtonItem+XYDAction.m
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 15/5/22.
 //  Copyright (c) 2015年 www.skyfox.org. All rights reserved.
@@ -25,7 +25,7 @@ char * const UIBarButtonItemJKActionBlock = "UIBarButtonItemJKActionBlock";
     return objc_getAssociatedObject(self, UIBarButtonItemJKActionBlock);
 }
 
-- (void)setxyd_actionBlock:(BarButtonJKActionBlock)actionBlock
+- (void)setXyd_actionBlock:(BarButtonJKActionBlock)actionBlock
  {
     
     if (actionBlock != self.xyd_actionBlock) {

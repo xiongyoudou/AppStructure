@@ -36,7 +36,7 @@ static char kTextFieldHistoryviewIdentifyKey;
     return objc_getAssociatedObject(self, &kTextFieldIdentifyKey);
 }
 
-- (void)setxyd_identify:(NSString *)identify {
+- (void)setXyd_identify:(NSString *)identify {
     objc_setAssociatedObject(self, &kTextFieldIdentifyKey, identify, OBJC_ASSOCIATION_RETAIN);
 }
 

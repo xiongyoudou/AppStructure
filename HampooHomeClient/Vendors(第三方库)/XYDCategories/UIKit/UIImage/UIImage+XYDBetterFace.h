@@ -10,9 +10,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, JKAccuracy) {
-    JKAccuracyLow = 0,
-    JKAccuracyHigh,
+typedef NS_ENUM(NSUInteger, XYDAccuracy) {
+    XYDAccuracyLow = 0,
+    XYDAccuracyHigh,
 };
 
 @interface UIImage (XYDBetterFace)

@@ -10,7 +10,7 @@
 #import "XYDChatMsg.h"
 #import "MLLinkLabel.h"
 #import "XYDChatContentView.h"
-#import "XYDMessageSendStateV.h"
+#import "XYDMessageSendStateView.h"
 
 @class XYDChatMessageCell;
 
@@ -71,7 +71,7 @@
 /**
  *  显示消息发送状态的UIImageView -> 用于消息发送不成功时显示
  */
-@property (nonatomic, strong) XYDMessageSendStateV *messageSendStateView;
+@property (nonatomic, strong) XYDMessageSendStateView *messageSendStateView;
 
 /**
  *  messageContentView的背景层

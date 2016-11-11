@@ -21,7 +21,7 @@
     return sv == self ? nil : sv;
 }
 
-- (void) setxyd_delaysContentTouches:(BOOL)delaysContentTouches
+- (void) setXyd_delaysContentTouches:(BOOL)delaysContentTouches
 {
     [self willChangeValueForKey: @"xyd_delaysContentTouches"];
     

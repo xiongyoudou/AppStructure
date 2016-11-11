@@ -26,7 +26,7 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
     return [self isConnected];
 }
 
-#pragma mark  get请求
+#pragma mark - GET请求
 + (void)getWithURL:(NSString *)url params:(NSDictionary *)params success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure {
     [self getWithURL:url params:params httpHeaderDict:nil success:success failure:failure];
 }
@@ -59,7 +59,7 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
     }];
 }
 
-#pragma mark - post
+#pragma mark - POST
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure {
     [self postWithURL:url params:params httpHeaderDict:nil success:success failure:failure];
 }
@@ -92,7 +92,7 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
 }
 
 
-#pragma mark 发送一个POST请求(上传图片)
+#pragma mark 上传图片
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params images:(NSArray *)images success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure {
         [self postWithURL:url params:params images:images httpHeaderDict:nil success:success failure:failure];
 }
@@ -122,7 +122,7 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
 }
 
 
-#pragma mark 发送一个POST请求(上传文件数据)
+#pragma mark 上传文件数据
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params formDataArray:(NSArray *)formDataArray success:(HttpRequestSuccess)success failure:(HttpRequestFailure)failure {
     [self postWithURL:url params:params formDataArray:formDataArray httpHeaderDict:nil success:success failure:false];
 }
@@ -150,7 +150,34 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
     }];
 }
 
-#pragma mark 创建请求管理对象
+#pragma mark - 通过request发送同步请求
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse *__autoreleasing *)response error:(NSError *__autoreleasing *)error {
+#if !TARGET_OS_WATCH
+    return [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
+#else
+    __block NSData *data = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *taskData, NSURLResponse *taskResponse, NSError *taskError) {
+        data = taskData;
+        
+        if (response)
+            *response = taskResponse;
+        
+        if (error)
+            *error = taskError;
+        
+        dispatch_semaphore_signal(semaphore);
+    }] resume];
+    
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    return data;
+#endif
+}
+
+
+#pragma mark - 创建请求管理对象
 + (AFHTTPSessionManager *)getHttpSessionManager:(NSDictionary *)httpHeaderDict {
 //    if (!manager) {
         manager = [AFHTTPSessionManager manager];
@@ -167,7 +194,7 @@ static AFNetworkReachabilityStatus currentNetworkStatus = AFNetworkReachabilityS
     return manager;
 }
 
-#pragma mark url编码
+#pragma mark - url编码
 + (NSString *)urlCoding:(NSString *)url{
     NSString *encodePath ;
     encodePath = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];

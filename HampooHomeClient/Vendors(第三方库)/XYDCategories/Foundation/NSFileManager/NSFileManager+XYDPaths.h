@@ -1,15 +1,17 @@
 //
 //  NSFileManager+Paths.h
-//  JKCategories (https://github.com/shaojiankui/JKCategories)
+
 //
 //  Created by Jakey on 14/12/30.
 //  Copyright (c) 2014年 www.skyfox.org. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+@class ALAsset;
 
 @interface NSFileManager (XYDPaths)
 
++ (NSString *)xyd_homeDirectoryPath;
 /**
  Get URL of Documents directory.
  
@@ -52,6 +54,13 @@
  */
 + (NSString *)xyd_cachesPath;
 
++ (NSString *)MIMEType:(NSString *)filePathOrName;
++ (NSString *)MIMETypeFromPath:(NSString *)fullPath;
++(NSString *)contentTypeForImageData:(NSData *)data;
++ (NSString*)MD5ForFile:(NSString*)filePath;
++ (NSString*)SHAForFile:(NSString *)filePath;
++ (NSString*)SHAForFile:(NSString *)filePath chunkSizeForReadingData:(size_t)chunkSizeForReadingData;
+
 /**
  Adds a special filesystem flag to a file to avoid iCloud backup it.
  
@@ -65,5 +74,17 @@
  @return An amount of available disk space in Megabytes.
  */
 + (double)xyd_availableDiskSpace;
+
++ (BOOL)xyd_fileExist:(NSString *)path;
++ (unsigned long long)xyd_fileSizeForPath:(NSString *)path;
++ (float)xyd_folderSizeAtPath:(NSString*) folderPath;
++ (NSString *)xyd_getFileSizeWithByteCounts:(long long)byteCounts;
++ (BOOL)xyd_createFile:(NSString *)path;
++ (void)xyd_createDirectoryIfNeeded:(NSString *)path;
++ (BOOL)xyd_removeFile:(NSString *)path;
++ (void)xyd_clearFileInPath:(NSString *)path;
++ (BOOL)xyd_deleteFilesInDirectory:(NSString *)dirPath moreThanDays:(NSInteger)numberOfDays;
++ (BOOL)xyd_writeDataToPath:(NSString*)filePath andAsset:(ALAsset*)asset;
++ (NSData *)xyd_isValidResumeData:(NSData *)data;
 
 @end
