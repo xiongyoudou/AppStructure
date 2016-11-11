@@ -11,7 +11,7 @@
 
 @protocol XYDUserDelegate;
 
-@protocol XYDChatMsgDelegate <NSObject>
+@protocol XYDChatTypeMessageDelegate <NSObject>
 
 /*!
  *  消息Id
