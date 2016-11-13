@@ -24,7 +24,7 @@
 + (XYDChatMessageMediaType)classMediaType;
 @end
 
-@protocol LCCKChatMessageCellDelegate <NSObject>
+@protocol XYDChatMessageCellDelegate <NSObject>
 
 - (void)messageCellTappedBlank:(XYDChatMessageCell *)messageCell;
 - (void)messageCellTappedHead:(XYDChatMessageCell *)messageCell;
@@ -78,7 +78,7 @@
  */
 @property (nonatomic, strong) UIImageView *messageContentBackgroundImageView;
 
-@property (nonatomic, weak) id<LCCKChatMessageCellDelegate> delegate;
+@property (nonatomic, weak) id<XYDChatMessageCellDelegate> delegate;
 
 /**
  *  消息的类型,只读类型,会根据自己的具体实例类型进行判断

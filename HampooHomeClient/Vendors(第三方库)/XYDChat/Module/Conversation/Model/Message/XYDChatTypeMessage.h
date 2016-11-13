@@ -8,7 +8,6 @@
 
 #import "XYDChatMessage.h"
 #import "XYDChatConstant.h"
-#import "XYDChatTypeMessageDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 
 @class XYDFile;
@@ -41,13 +40,46 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  多媒体类型消息的基类
  */
-@interface XYDChatTypeMessage : XYDChatMessage<XYDChatTypeMessageDelegate>
+@interface XYDChatTypeMessage : XYDChatMessage
+
+
+/*!
+ *  消息Id
+ */
+@property (nonatomic, copy, readonly) NSString *serverMessageId;
+
+/*!
+ * 与 sender 属性中 clientId 的意义相同，但 senderId 本属性永远不为空，但sender属性可能为nil。
+ */
+@property (nonatomic, copy) NSString *senderId;
+
+/*!
+ * 消息发送状态
+ */
+@property (nonatomic, assign) XYDChatMessageSendState sendStatus;
+
+/*!
+ * 所属会话
+ */
+@property (nonatomic, copy,readonly) NSString *conversationId;
+
+/*!
+ * 精确到毫秒，比如：1469413969460.018
+ */
+@property (nonatomic, assign, readonly) NSTimeInterval timestamp;
+
+/*!
+ * 用来判断消息是否是对外发送
+ */
+@property (nonatomic, assign) XYDChatMessageOwnerType ownerType;
+
+/*!
+ * 消息内容来源
+ */
+@property (nonatomic, strong, readonly) NSString *ownerName;
 
 @property (nonatomic, assign)                     XYDChatMessageMediaType  mediaType;  // 消息类型，可自定义
-@property (nonatomic,   copy, nullable)           NSString             *text;       // 消息文本
 @property (nonatomic, strong, nullable)           NSDictionary         *attributes; // 自定义属性
-@property (nonatomic, copy, readonly) NSString *serverMessageId;
-@property (nonatomic, assign) NSTimeInterval timestamp;
 @property (nonatomic, assign, readonly) XYDChatMessageReadState messageReadState;
 /*!
  * 有localMessageId且没有serviceMessageId的属于localMessage，其中
@@ -58,11 +90,15 @@ NS_ASSUME_NONNULL_BEGIN
  * just for failed message store, its value is always not same to serverMessageId. value is same to timestamp.
  */
 @property (nonatomic, copy, readwrite) NSString *localMessageId;
+@property(nonatomic, strong)NSString *attachedFilePath;  //附件
 
+
+#pragma mark - 非持久化属性，通过其他关键属性计算得出
+
+// 发送者
+@property (nonatomic, strong) id<XYDUserDelegate> sender;
 @property (nonatomic, copy, readonly) NSString *localDisplayName;
 
-
-@property(nonatomic, strong)NSString *attachedFilePath;  //附件
 
 /**
  *  子类调用此方法进行注册，一般可在子类的 [+(void)load] 方法里面调用

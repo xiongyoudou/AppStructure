@@ -34,22 +34,56 @@
     return message;
 }
 
-- (float)longitude {
-    return self.location.longitude;
+- (instancetype)initWithLocalPositionPhoto:(UIImage *)localPositionPhoto
+                              geolocations:(NSString *)geolocations
+                                  location:(CLLocation *)location
+                                  senderId:(NSString *)senderId
+                                    sender:(id<XYDUserDelegate>)sender
+                                 timestamp:(NSTimeInterval)timestamp
+                           serverMessageId:(NSString *)serverMessageId {
+    self = [super init];
+    if (self) {
+        _localPositionPhoto = localPositionPhoto;
+        _geolocations = geolocations;
+        _location = location;
+        _sender = sender;
+        _senderId = senderId;
+        _timestamp = timestamp;
+        _serverMessageId = serverMessageId;
+        _mediaType = XYDChatMessageMediaTypeLocation;
+    }
+    return self;
 }
 
-- (float)latitude {
-    return self.location.latitude;
+
+- (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText {
+    self = [super init];
+    if (self) {
+        _systemText = localFeedbackText;
+        _localMessageId = [[NSUUID UUID] UUIDString];
+        _timestamp = XYDChat_CURRENT_TIMESTAMP;
+        _mediaType = XYDChatMessageMediaTypeSystem;
+        _ownerType = XYDChatMessageOwnerTypeSystem;
+    }
+    return self;
 }
 
-- (XYDGeoPoint *)location {
-    if (_location)
-        return _location;
-    return nil;
-}
+//- (float)longitude {
+//    return self.location.longitude;
+//}
+//
+//- (float)latitude {
+//    return self.location.latitude;
+//}
 
-- (void)setLocation:(XYDGeoPoint *)location {
-    _location = location;
-}
+//- (XYDGeoPoint *)location {
+//    if (_location)
+//        return _location;
+//    return nil;
+//}
+//
+//- (void)setLocation:(XYDGeoPoint *)location {
+//    _location = location;
+//}
 
 @end

@@ -10,6 +10,7 @@
 #import "XYDChatConstant.h"
 #import "XYDChatSettingService.h"
 #import "XYDChatHelper.h"
+#import "XYDChatImageMessage.h"
 
 @interface XYDChatImageMessageCell ()
 
@@ -65,7 +66,7 @@
     }
 }
 
-- (void)configureCellWithData:(XYDChatMsg *)message {
+- (void)configureCellWithData:(XYDChatImageMessage *)message {
     [super configureCellWithData:message];
     UIImage *thumbnailPhoto = message.thumbnailPhoto;
     do {

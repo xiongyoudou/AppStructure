@@ -9,6 +9,7 @@
 #import "XYDChatTypeMessage.h"
 #import "XYDFile.h"
 #import "XYDGeoPoint.h"
+#import "XYDChatSettingService.h"
 
 NSMutableDictionary const *_typeDict = nil;
 
@@ -45,37 +46,6 @@ NSMutableDictionary const *_typeDict = nil;
     }
 }
 
-+ (instancetype)messageWithText:(NSString *)text
-                      mediaType:(XYDChatMessageMediaType)mediaType
-               attachedFilePath:(NSString *)attachedFilePath
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
-    message.text = text;
-    message.mediaType = mediaType;
-    message.attributes = attributes;
-    message.attachedFilePath = attachedFilePath;
-    return message;
-}
-
-+ (instancetype)messageWithText:(NSString *)text
-               attachedFilePath:(NSString *)attachedFilePath
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
-    message.text = text;
-    message.attributes = attributes;
-    message.attachedFilePath = attachedFilePath;
-    return message;
-}
-
-+ (instancetype)messageWithText:(NSString *)text
-                           file:(XYDFile *)file
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
-    message.text = text;
-    message.attributes = attributes;
-    message.file = file;
-    return message;
-}
 
 + (XYDFile *)fileFromDictionary:(NSDictionary *)dictionary {
     return dictionary ? [XYDFile fileFromDictionary:dictionary] : nil;
@@ -90,15 +60,6 @@ NSMutableDictionary const *_typeDict = nil;
 }
 
 #pragma mark - 归档
-
-- (id)copyWithZone:(NSZone *)zone {
-    return nil;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    
-}
-
 - (instancetype)init {
     if (![self conformsToProtocol:@protocol(XYDChatTypedMessageSubclassing)]) {
         [NSException raise:@"XYDChatNotSubclassException" format:@"Class does not conform XYDChatTypedMessageSubclassing protocol."];
@@ -109,45 +70,10 @@ NSMutableDictionary const *_typeDict = nil;
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)coder {
-    if ((self = [super initWithCoder:coder])) {
-        
-    }
-    return self;
-}
-
-
-
 - (NSString *)payload {
-  
-}
-
-- (instancetype)initWithText:(NSString *)text
-                    senderId:(NSString *)senderId
-                      sender:(id<XYDUserDelegate>)sender
-                   timestamp:(NSTimeInterval)timestamp
-             serverMessageId:(NSString *)serverMessageId {
-    self = [super init];
-    if (self) {
-        _text = text;
-        _sender = sender;
-        _senderId = senderId;
-        _timestamp = timestamp;
-        _serverMessageId = serverMessageId;
-        _mediaType = XYDChatMessageMediaTypeText;
-    }
-    return self;
-}
-
-- (NSString *)messageId {
-    if (_serverMessageId) {
-        return _serverMessageId;
-    }
-    if (_localMessageId) {
-        return _localMessageId;
-    }
     return nil;
 }
+
 
 - (NSString *)localDisplayName {
     NSString *localDisplayName = self.sender.name ?: self.senderId;
@@ -179,135 +105,14 @@ NSMutableDictionary const *_typeDict = nil;
     [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
 #endif
     NSString *text = [dateFormatter stringFromDate:timestamp];
-    XYDChatMsg *timeMessage = [[XYDChatMsg alloc] initWithSystemText:text];
+    XYDChatTypeMessage *timeMessage = [[XYDChatTypeMessage alloc] initWithSystemText:text];
     return timeMessage;
 }
 
-- (instancetype)initWithSystemText:(NSString *)text {
-    self = [super init];
-    if (self) {
-        _systemText = text;
-        _mediaType = XYDChatMessageMediaTypeSystem;
-        _ownerType = XYDChatMessageOwnerTypeSystem;
-    }
-    return self;
-}
 
-- (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText {
-    self = [super init];
-    if (self) {
-        _systemText = localFeedbackText;
-        _localMessageId = [[NSUUID UUID] UUIDString];
-        _timestamp = XYDChat_CURRENT_TIMESTAMP;
-        _mediaType = XYDChatMessageMediaTypeSystem;
-        _ownerType = XYDChatMessageOwnerTypeSystem;
-    }
-    return self;
-}
 
 + (instancetype)localFeedbackText:(NSString *)localFeedbackText {
     return [[self alloc] initWithLocalFeedbackText:localFeedbackText];
-}
-
-- (instancetype)initWithPhoto:(UIImage *)photo
-               thumbnailPhoto:(UIImage *)thumbnailPhoto
-                    photoPath:(NSString *)photoPath
-                 thumbnailURL:(NSURL *)thumbnailURL
-               originPhotoURL:(NSURL *)originPhotoURL
-                     senderId:(NSString *)senderId
-                       sender:(id<XYDUserDelegate>)sender
-                    timestamp:(NSTimeInterval)timestamp
-              serverMessageId:(NSString *)serverMessageId {
-    self = [super init];
-    if (self) {
-        _photo = photo;
-        _thumbnailPhoto = thumbnailPhoto;
-        _photoPath = photoPath;
-        _thumbnailURL = thumbnailURL;
-        _originPhotoURL = originPhotoURL;
-        _timestamp = timestamp;
-        _serverMessageId = serverMessageId;
-        _sender = sender;
-        _senderId = senderId;
-        _mediaType = XYDChatMessageMediaTypeImage;
-    }
-    return self;
-}
-
-- (instancetype)initWithVideoConverPhoto:(UIImage *)videoConverPhoto
-                               videoPath:(NSString *)videoPath
-                                videoURL:(NSURL *)videoURL
-                                senderId:(NSString *)senderId
-                                  sender:(id<XYDUserDelegate>)sender
-                               timestamp:(NSTimeInterval)timestamp
-                         serverMessageId:(NSString *)serverMessageId {
-    self = [super init];
-    if (self) {
-        _videoConverPhoto = videoConverPhoto;
-        _videoPath = videoPath;
-        _videoURL = videoURL;
-        _sender = sender;
-        _senderId = senderId;
-        _timestamp = timestamp;
-        _serverMessageId = serverMessageId;
-        _mediaType = XYDChatMessageMediaTypeVideo;
-    }
-    return self;
-}
-
-- (instancetype)initWithVoicePath:(NSString *)voicePath
-                         voiceURL:(NSURL *)voiceURL
-                    voiceDuration:(NSString *)voiceDuration
-                         senderId:(NSString *)senderId
-                           sender:(id<XYDUserDelegate>)sender
-                        timestamp:(NSTimeInterval)timestamp
-                  serverMessageId:(NSString *)serverMessageId {
-    
-    return [self initWithVoicePath:voicePath voiceURL:voiceURL voiceDuration:voiceDuration senderId:senderId sender:sender timestamp:timestamp hasRead:YES serverMessageId:serverMessageId];
-}
-
-- (instancetype)initWithVoicePath:(NSString *)voicePath
-                         voiceURL:(NSURL *)voiceURL
-                    voiceDuration:(NSString *)voiceDuration
-                         senderId:(NSString *)senderId
-                           sender:(id<XYDUserDelegate>)sender
-                        timestamp:(NSTimeInterval)timestamp
-                          hasRead:(BOOL)hasRead
-                  serverMessageId:(NSString *)serverMessageId {
-    self = [super init];
-    if (self) {
-        _voicePath = voicePath;
-        _voiceURL = voiceURL;
-        _voiceDuration = voiceDuration;
-        _sender = sender;
-        _senderId = senderId;
-        _timestamp = timestamp;
-        _serverMessageId = serverMessageId;
-        _read = hasRead;
-        _mediaType = XYDChatMessageMediaTypeAudio;
-    }
-    return self;
-}
-
-- (instancetype)initWithLocalPositionPhoto:(UIImage *)localPositionPhoto
-                              geolocations:(NSString *)geolocations
-                                  location:(CLLocation *)location
-                                  senderId:(NSString *)senderId
-                                    sender:(id<XYDUserDelegate>)sender
-                                 timestamp:(NSTimeInterval)timestamp
-                           serverMessageId:(NSString *)serverMessageId {
-    self = [super init];
-    if (self) {
-        _localPositionPhoto = localPositionPhoto;
-        _geolocations = geolocations;
-        _location = location;
-        _sender = sender;
-        _senderId = senderId;
-        _timestamp = timestamp;
-        _serverMessageId = serverMessageId;
-        _mediaType = XYDChatMessageMediaTypeLocation;
-    }
-    return self;
 }
 
 #pragma mark - NSCoding
@@ -315,6 +120,14 @@ NSMutableDictionary const *_typeDict = nil;
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
+        _mediaType = [aDecoder decodeIntForKey:@"mediaType"];
+        _messageReadState = [aDecoder decodeIntForKey:@"messageReadState"];
+        _timestamp = [aDecoder decodeInt64ForKey:@"timestamp"];
+        _serverMessageId = [aDecoder decodeObjectForKey:@"serverMessageId"];
+        _localMessageId = [aDecoder decodeObjectForKey:@"localMessageId"];
+        _attributes = [aDecoder decodeObjectForKey:@"attributes"];
+        _localMessage = [aDecoder decodeObjectForKey:@"localMessage"];
+        _attachedFilePath = [aDecoder decodeObjectForKey:@"attachedFilePath"];
         
         _text = [aDecoder decodeObjectForKey:@"text"];
         _systemText = [aDecoder decodeObjectForKey:@"systemText"];
@@ -340,14 +153,10 @@ NSMutableDictionary const *_typeDict = nil;
         _sender = [aDecoder decodeObjectForKey:@"sender"];
         _senderId = [aDecoder decodeObjectForKey:@"senderId"];
         
-        _timestamp = [aDecoder decodeInt64ForKey:@"timestamp"];
-        _serverMessageId = [aDecoder decodeObjectForKey:@"serverMessageId"];
-        _localMessageId = [aDecoder decodeObjectForKey:@"localMessageId"];
+        
         
         _conversationId = [aDecoder decodeObjectForKey:@"conversationId"];
-        _mediaType = [aDecoder decodeIntForKey:@"mediaType"];
-        //        _messageGroupType = [aDecoder decodeIntForKey:@"messageGroupType"];
-        _messageReadState = [aDecoder decodeIntForKey:@"messageReadState"];
+        
         _ownerType = [aDecoder decodeIntForKey:@"ownerType"];
         _read = [aDecoder decodeBoolForKey:@"read"];
         _sendStatus = [aDecoder decodeIntForKey:@"sendStatus"];

@@ -66,8 +66,6 @@ static NSString *const XYDChatCellIdentifierOwnerSelf = @"XYDChatCellIdentifierO
 static NSString *const XYDChatCellIdentifierOwnerOther = @"XYDChatCellIdentifierOwnerOther";
 static NSString *const XYDChatCellIdentifierOwnerSystem = @"XYDChatCellIdentifierOwnerSystem";
 
-typedef int8_t XYDChatMessageMediaType;
-
 FOUNDATION_EXTERN NSMutableDictionary const * XYDChatInputViewPluginDict;
 FOUNDATION_EXTERN NSMutableArray const * XYDChatInputViewPluginArray;
 static NSString *const XYDChatInputViewPluginTypeKey = @"XYDChatInputViewPluginTypeKey";

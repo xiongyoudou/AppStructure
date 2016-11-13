@@ -10,4 +10,14 @@
 
 @implementation XYDChatSystemMessage
 
+- (instancetype)initWithSystemText:(NSString *)text {
+    self = [super init];
+    if (self) {
+        _systemText = text;
+        _mediaType = XYDChatMessageMediaTypeSystem;
+        _ownerType = XYDChatMessageOwnerTypeSystem;
+    }
+    return self;
+}
+
 @end

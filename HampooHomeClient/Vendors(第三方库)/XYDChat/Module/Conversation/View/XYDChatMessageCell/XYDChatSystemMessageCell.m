@@ -8,6 +8,7 @@
 
 #import "XYDChatSystemMessageCell.h"
 #import "XYDChatSettingService.h"
+#import "XYDChatSystemMessage.h"
 
 @interface XYDChatSystemMessageCell ()
 
@@ -47,7 +48,7 @@
     [super setup];
 }
 
-- (void)configureCellWithData:(XYDChatMsg *)message {
+- (void)configureCellWithData:(XYDChatSystemMessage *)message {
     [super configureCellWithData:message];
     self.systemMessageLabel.attributedText = [[NSAttributedString alloc] initWithString:message.systemText attributes:self.systemMessageStyle];
 }

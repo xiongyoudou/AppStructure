@@ -860,10 +860,8 @@
 		499709BF1DD5C27D00352E8F /* XYDChatAudioMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatAudioMessage.m; sourceTree = "<group>"; };
 		499709C11DD5C29300352E8F /* XYDChatVideoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatVideoMessage.h; sourceTree = "<group>"; };
 		499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatVideoMessage.m; sourceTree = "<group>"; };
-		499709C51DD5C58200352E8F /* XYDChatTypeMessage_interal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatTypeMessage_interal.h; sourceTree = "<group>"; };
 		499709C81DD5CAA900352E8F /* XYDChatSystemMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSystemMessage.h; sourceTree = "<group>"; };
 		499709C91DD5CAA900352E8F /* XYDChatSystemMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSystemMessage.m; sourceTree = "<group>"; };
-		499709CB1DD5CDC100352E8F /* XYDChatTypeMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatTypeMessageDelegate.h; sourceTree = "<group>"; };
 		49B087741DD004E0003E6916 /* HampooHomeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HampooHomeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B087971DD01032003E6916 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		49B087981DD01032003E6916 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
@@ -2247,10 +2245,8 @@
 				499709AB1DD5C0A800352E8F /* XYDChatMessage_interal.h */,
 				499709AC1DD5C0A800352E8F /* XYDChatMessage.h */,
 				499709AD1DD5C0A800352E8F /* XYDChatMessage.m */,
-				499709CB1DD5CDC100352E8F /* XYDChatTypeMessageDelegate.h */,
 				499709B11DD5C0AF00352E8F /* XYDChatTypeMessage.h */,
 				499709AE1DD5C0A800352E8F /* XYDChatTypeMessage.m */,
-				499709C51DD5C58200352E8F /* XYDChatTypeMessage_interal.h */,
 				499709B21DD5C20A00352E8F /* XYDChatTextMessage.h */,
 				499709B31DD5C20A00352E8F /* XYDChatTextMessage.m */,
 				499709C81DD5CAA900352E8F /* XYDChatSystemMessage.h */,

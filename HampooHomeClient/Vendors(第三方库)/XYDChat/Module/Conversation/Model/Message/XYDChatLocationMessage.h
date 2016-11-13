@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Longitude, Should be 0~360.
  */
 @property(nonatomic, assign, readonly) float longitude;
-@property (nonatomic, strong,readonly)  CLLocation *location;
+//@property (nonatomic, strong,readonly)  CLLocation *location;
 @property (nonatomic, strong, readonly) UIImage *localPositionPhoto;
 @property (nonatomic, copy, readonly) NSString *geolocations;
 

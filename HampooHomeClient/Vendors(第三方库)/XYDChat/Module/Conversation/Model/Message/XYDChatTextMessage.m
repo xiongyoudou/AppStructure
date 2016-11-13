@@ -19,6 +19,56 @@
 }
 
 + (instancetype)messageWithText:(NSString *)text
+                      mediaType:(XYDChatMessageMediaType)mediaType
+               attachedFilePath:(NSString *)attachedFilePath
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.mediaType = mediaType;
+    message.attributes = attributes;
+    message.attachedFilePath = attachedFilePath;
+    return message;
+}
+
++ (instancetype)messageWithText:(NSString *)text
+               attachedFilePath:(NSString *)attachedFilePath
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.attributes = attributes;
+    message.attachedFilePath = attachedFilePath;
+    return message;
+}
+
++ (instancetype)messageWithText:(NSString *)text
+                           file:(XYDFile *)file
+                     attributes:(NSDictionary *)attributes {
+    XYDChatTypeMessage *message = [[self alloc] init];
+    message.text = text;
+    message.attributes = attributes;
+    message.file = file;
+    return message;
+}
+
+- (instancetype)initWithText:(NSString *)text
+                    senderId:(NSString *)senderId
+                      sender:(id<XYDUserDelegate>)sender
+                   timestamp:(NSTimeInterval)timestamp
+             serverMessageId:(NSString *)serverMessageId {
+    self = [super init];
+    if (self) {
+        _text = text;
+        _sender = sender;
+        _senderId = senderId;
+        _timestamp = timestamp;
+        _serverMessageId = serverMessageId;
+        _mediaType = XYDChatMessageMediaTypeText;
+    }
+    return self;
+}
+
+
++ (instancetype)messageWithText:(NSString *)text
                      attributes:(NSDictionary *)attributes {
     XYDChatTextMessage *message = [[self alloc] init];
     message.text = text;

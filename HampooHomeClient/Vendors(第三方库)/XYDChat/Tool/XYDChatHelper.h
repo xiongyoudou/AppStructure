@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "XYDChatConstant.h"
+#import "XYDChatTypeMessage.h"
+
 
 @interface XYDChatHelper : NSObject
 

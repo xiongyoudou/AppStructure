@@ -21,7 +21,7 @@
 }
 
 - (IBAction)clickBtn:(id)sender {
-    XYDConversationVCtrl *ctrl = 
+//    XYDConversationVCtrl *ctrl = 
 }
 
 

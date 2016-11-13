@@ -18,7 +18,7 @@
 // 会话相关的错误信息
 FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
 
-@interface XYDConversationVCtrl : XYDBaseConversationVCtrl<LCCKChatMessageCellDelegate>
+@interface XYDConversationVCtrl : XYDBaseConversationVCtrl<XYDChatMessageCellDelegate>
 
 /*!
  *  @brief Id of the single or group conversation, group conversation should be initialized with this property.
@@ -32,32 +32,32 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
  */
 @property (nonatomic, copy, readonly) NSString *peerId;
 
-#pragma mark - Initialize a unique single chat type object of LCCKConversationViewController
+#pragma mark - Initialize a unique single chat type object of XYDChatConversationViewController
 ///=============================================================================
-/// @name Initialize a unique single chat type object of LCCKConversationViewController
+/// @name Initialize a unique single chat type object of XYDChatConversationViewController
 ///=============================================================================
 
 /*!
  * @param peerId id of the peer, a unique single conversation should be initialized with this property.
  * @attention `peerId` can not be equal to current user id, if yes, LeanCloudKit will throw an exception to notice you.
- *            If LCCKConversationViewController is initialized with this method, the property named `conversationId` will be set automatically.
+ *            If XYDChatConversationViewController is initialized with this method, the property named `conversationId` will be set automatically.
  *            The `conversaionId` will be unique, meaning that if the conversation between the current user id and the `peerId` has already existed,
  *            LeanCloudChatKit will reuse the conversation instead of creating a new one.
- * @return Initialized unique single chat type object of LCCKConversationViewController
+ * @return Initialized unique single chat type object of XYDChatConversationViewController
  */
 - (instancetype)initWithPeerId:(NSString *)peerId;
 
-#pragma mark - Initialize a single or group chat type object of LCCKConversationViewController
+#pragma mark - Initialize a single or group chat type object of XYDChatConversationViewController
 ///=============================================================================
-/// @name Initialize a single or group chat type object of LCCKConversationViewController
+/// @name Initialize a single or group chat type object of XYDChatConversationViewController
 ///=============================================================================
 
 /*!
  * @param conversationId Id of the conversation, group conversation should be initialized with this property.
  * @attention ConversationId can not be nil, if yes, LeanCloudKit will throw an exception to notice you.
- *            If LCCKConversationViewController is initialized with this method, the property named `peerId` will be nil.
+ *            If XYDChatConversationViewController is initialized with this method, the property named `peerId` will be nil.
  *            conversationId 与 peerId 并不等同。您一般不能自己构造一个 conversationId，而是从 conversation 等特定接口中才能读取到 conversationId。如果需要使用 personId 来打开对话，应该使用 `-initWithPeerId:` 这个接口。
- * @return Initialized single or group chat type odject of LCCKConversationViewController
+ * @return Initialized single or group chat type odject of XYDChatConversationViewController
  */
 - (instancetype)initWithConversationId:(NSString *)conversationId;
 
@@ -121,7 +121,7 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
  * @attention Remember to check if `isAvailable` is ture, making sure sending message after conversation has been fetched
  *            发送前必须检查 `isAvailable` 属性是否为YES, 确保发送行为是在 conversation 被 fetch 之后进行的。
  */
-- (void)sendCustomMessage:(AVIMTypedMessage *)customMessage;
+- (void)sendCustomMessage:(XYDChatTypeMessage *)customMessage;
 
 /*!
  * 自定义消息位置发送
@@ -129,16 +129,16 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
  * @attention Remember to check if `isAvailable` is ture, making sure sending message after conversation has been fetched
  *            发送前必须检查 `isAvailable` 属性是否为YES, 确保发送行为是在 conversation 被 fetch 之后进行的。
  */
-- (void)sendCustomMessage:(AVIMTypedMessage *)customMessage
-            progressBlock:(AVProgressBlock)progressBlock
-                  success:(LCCKBooleanResultBlock)success
-                   failed:(LCCKBooleanResultBlock)failed;
+- (void)sendCustomMessage:(XYDChatTypeMessage *)customMessage
+            progressBlock:(XYDChatProgressBlock)progressBlock
+                  success:(XYDChatBooleanResultBlock)success
+                   failed:(XYDChatBooleanResultBlock)failed;
 
 //TODO:
 /*!
  * 发送用户的当前输入状态
  */
-//- (void)sendInputStatus:(LCCKConversationInputStatus)status;
+//- (void)sendInputStatus:(XYDChatConversationInputStatus)status;
 
 /*!
  *  是否禁用文字的双击放大功能，默认为 NO
@@ -160,16 +160,16 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
 
 /*!
  * 设置获取 AVIMConversation 对象结束后的 Handler。 这里可以做异常处理，比如获取失败等操作。
- * 获取失败时，LCCKConversationHandler 返回值中的AVIMConversation 为 nil，成功时为正确的 conversation 值。
+ * 获取失败时，XYDChatConversationHandler 返回值中的AVIMConversation 为 nil，成功时为正确的 conversation 值。
  * @attention 执行优先级高于 LCChatKit 类中的同名方法，如果在 LCChatKit 中设置过同名方法，就可以不设置本类中的该方法。
  */
-- (void)setFetchConversationHandler:(LCCKFetchConversationHandler)fetchConversationHandler;
+- (void)setFetchConversationHandler:(XYDChatFetchConversationHandler)fetchConversationHandler;
 
 /*!
  * 设置获取历史纪录结束时的 Handler。 这里可以做异常处理，比如获取失败等操作。
- * 获取失败时，LCCKViewControllerBooleanResultBlock 返回值中的 error 不为 nil，包含错误原因，成功时 succeeded 值为 YES。
+ * 获取失败时，XYDChatViewControllerBooleanResultBlock 返回值中的 error 不为 nil，包含错误原因，成功时 succeeded 值为 YES。
  * @attention 执行优先级高于 LCChatKit 类中的同名方法，如果在 LCChatKit 中设置过同名方法，就可以不设置本类中的该方法。
  */
-- (void)setLoadLatestMessagesHandler:(LCCKLoadLatestMessagesHandler)loadLatestMessagesHandler;
+- (void)setLoadLatestMessagesHandler:(XYDChatLoadLatestMessagesHandler)loadLatestMessagesHandler;
 
 @end
