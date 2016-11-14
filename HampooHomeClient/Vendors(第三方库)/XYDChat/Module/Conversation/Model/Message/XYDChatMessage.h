@@ -87,91 +87,33 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  初始化图片类型的消息
  *
- *  @param photo          目标图片
- *  @param photoPath      目标图片的本地路径
- *  @param thumbnailURL   目标图片在服务器的缩略图地址
- *  @param originPhotoURL 目标图片在服务器的原图地址
- *  @param sender         发送者
- *  @param timestamp           发送时间
+ *  @param thumbnailURLStr   目标图片在服务器的缩略图地址
+ *  @param originPhotoURLStr 目标图片在服务器的原图地址
  *
  *  @return 返回Message model 对象
  */
-- (instancetype)initWithPhoto:(UIImage *)photo
-               thumbnailPhoto:(UIImage *)thumbnailPhoto
-                    photoPath:(NSString *)photoPath
-                 thumbnailURL:(NSURL *)thumbnailURL
-               originPhotoURL:(NSURL *)originPhotoURL
-                     senderId:(NSString *)senderId
-                       sender:(id<XYDUserDelegate>)sender
-                    timestamp:(NSTimeInterval)timestamp
-              serverMessageId:(NSString *)serverMessageId;
+- (instancetype)initWithThumbnailURLStr:(NSString *)thumbnailURLStr
+               originPhotoURLStr:(NSString *)originPhotoURLStr;
 
 /**
  *  初始化视频类型的消息
  *
- *  @param videoConverPhoto 目标视频的封面图
- *  @param videoPath        目标视频的本地路径，如果是下载过，或者是从本地发送的时候，会存在
- *  @param videoURL         目标视频在服务器上的地址
- *  @param sender           发送者
- *  @param timestamp             发送时间
+ *  @param localVideoPath   本地视频路径
  *
  *  @return 返回Message model 对象
  */
-- (instancetype)initWithVideoConverPhoto:(UIImage *)videoConverPhoto
-                               videoPath:(NSString *)videoPath
-                                videoURL:(NSURL *)videoURL
-                                senderId:(NSString *)senderId
-                                  sender:(id<XYDUserDelegate>)sender
-                               timestamp:(NSTimeInterval)timestamp
-                         serverMessageId:(NSString *)serverMessageId;
+- (instancetype)initWithLocalVideoPath:(NSString *)localVideoPath;
 
 /**
  *  初始化语音类型的消息
  *
  *  @param voicePath        目标语音的本地路径
- *  @param voiceURL         目标语音在服务器的地址
- *  @param voiceDuration    目标语音的时长
- *  @param sender           发送者
- *  @param timestamp             发送时间
  *
  *  @return 返回Message model 对象
  */
-- (instancetype)initWithVoicePath:(NSString *)voicePath
-                         voiceURL:(NSURL *)voiceURL
-                    voiceDuration:(NSString *)voiceDuration
-                         senderId:(NSString *)senderId
-                           sender:(id<XYDUserDelegate>)sender
-                        timestamp:(NSTimeInterval)timestamp
-                  serverMessageId:(NSString *)serverMessageId;
+- (instancetype)initWithVoicePath:(NSString *)voicePath;
 
-/**
- *  初始化语音类型的消息。增加已读未读标记
- *
- *  @param voicePath        目标语音的本地路径
- *  @param voiceURL         目标语音在服务器的地址
- *  @param voiceDuration    目标语音的时长
- *  @param sender           发送者
- *  @param timestamp             发送时间
- *  @param hasRead           已读未读标记
- *
- *  @return 返回Message model 对象
- */
-- (instancetype)initWithVoicePath:(NSString *)voicePath
-                         voiceURL:(NSURL *)voiceURL
-                    voiceDuration:(NSString *)voiceDuration
-                         senderId:(NSString *)senderId
-                           sender:(id<XYDUserDelegate>)sender
-                        timestamp:(NSTimeInterval)timestamp
-                          hasRead:(BOOL)hasRead
-                  serverMessageId:(NSString *)serverMessageId;
-
-- (instancetype)initWithLocalPositionPhoto:(UIImage *)localPositionPhoto
-                              geolocations:(NSString *)geolocations
-                                  location:(CLLocation *)location
-                                  senderId:(NSString *)senderId
-                                    sender:(id<XYDUserDelegate>)sender
-                                 timestamp:(NSTimeInterval)timestamp
-                           serverMessageId:(NSString *)serverMessageId;
+- (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude;
 
 @end
 

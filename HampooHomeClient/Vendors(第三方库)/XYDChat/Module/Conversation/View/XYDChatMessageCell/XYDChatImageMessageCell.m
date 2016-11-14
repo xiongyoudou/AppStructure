@@ -77,7 +77,7 @@
             self.messageImageView.image = thumbnailPhoto;
             break;
         }
-        NSString *imageLocalPath = message.photoPath;
+        NSString *imageLocalPath = message.localThumbnailPath;
         BOOL isLocalPath = ![imageLocalPath hasPrefix:@"http"];
         //note: this will ignore contentMode.
         if (imageLocalPath && isLocalPath) {
@@ -91,8 +91,8 @@
         }
         
         // requied!
-        if (message.originPhotoURL) {
-            [self.messageImageView  sd_setImageWithURL:message.originPhotoURL placeholderImage:[self imageInBundleForImageName:@"Placeholder_Image"]
+        if (message.originPhotoURLStr) {
+            [self.messageImageView  sd_setImageWithURL:[NSURL URLWithString:message.originPhotoURLStr] placeholderImage:[self imageInBundleForImageName:@"Placeholder_Image"]
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                  dispatch_async(dispatch_get_main_queue(),^{
                                                      if (image){

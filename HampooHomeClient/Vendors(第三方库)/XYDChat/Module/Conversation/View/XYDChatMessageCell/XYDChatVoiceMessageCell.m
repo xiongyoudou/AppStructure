@@ -128,7 +128,7 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
 
 - (void)configureCellWithData:(XYDChatAudioMessage *)message {
     [super configureCellWithData:message];
-    NSUInteger voiceDuration = message.duration;
+    NSUInteger voiceDuration = message.voiceDuration;
     NSString *voiceDurationString = [NSString stringWithFormat:@"%@", @(voiceDuration)];
     self.messageVoiceSecondsLabel.text = [NSString stringWithFormat:@"%@''", voiceDurationString];
     //设置正确的voiceMessageCell播放状态

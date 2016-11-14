@@ -11,6 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYDChatImageMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
+@property (nonatomic, strong, readonly) NSString *thumbnailURLStr;
+@property (nonatomic, strong, readonly) NSString *originPhotoURLStr;
+
+// 这些属性通过计算得出
+@property (nonatomic, strong, readonly)  NSString *localThumbnailPath;
+@property (nonatomic, strong, readonly)  NSString *localOriginalPath;
+@property (nonatomic, strong, readwrite) UIImage *thumbnailPhoto;
+@property (nonatomic, strong, readwrite) UIImage *photo;
+
 /// Width of the image in pixels.
 @property(nonatomic, assign, readonly) uint width;
 
@@ -23,11 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Image format, png, jpg, etc. Simply get it from the file extension.
 @property(nonatomic, copy, readonly, nullable) NSString *format;
 
-@property (nonatomic, copy, readonly) NSString *photoPath;
-@property (nonatomic, strong, readonly) NSURL *thumbnailURL;
-@property (nonatomic, strong, readonly) NSURL *originPhotoURL;
-@property (nonatomic, strong, readwrite) UIImage *photo;
-@property (nonatomic, strong, readwrite) UIImage *thumbnailPhoto;
+- (void)setThumbnailUrlStr:(NSString *)thumbnail originalUrlStr:(NSString *)original;
 
 @end
 

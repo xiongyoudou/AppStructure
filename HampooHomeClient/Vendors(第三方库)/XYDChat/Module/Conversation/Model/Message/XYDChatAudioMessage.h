@@ -11,18 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYDChatAudioMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
-/// File size in bytes.
-@property(nonatomic, assign, readonly) uint64_t size;
+@property (nonatomic, strong, readonly) NSString *voiceURLStr;
+@property (nonatomic, assign, readonly) float voiceDuration;
 
-/// Audio's duration in seconds.
-@property(nonatomic, assign, readonly) float duration;
+@property (nonatomic, copy, readonly) NSString *localVoicePath;
 
-/// Audio format, mp3, aac, etc. Simply get it by the file extension.
-@property(nonatomic, copy, readonly, nullable) NSString *format;
+- (void)setVoiceURLStr:(NSString *)voiceURLStr
+       voiceDuration:(float)voiceDuration;
 
-@property (nonatomic, copy, readonly) NSString *voicePath;
-@property (nonatomic, strong, readonly) NSURL *voiceURL;
-@property (nonatomic, copy, readonly) NSString *voiceDuration;
+- (void)setLocalVoicePath:(NSString * _Nonnull)localVoicePath;
 
 @end
 

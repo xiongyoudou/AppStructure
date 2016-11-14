@@ -21,21 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Longitude, Should be 0~360.
  */
 @property(nonatomic, assign, readonly) float longitude;
-//@property (nonatomic, strong,readonly)  CLLocation *location;
 @property (nonatomic, strong, readonly) UIImage *localPositionPhoto;
-@property (nonatomic, copy, readonly) NSString *geolocations;
 
 /*!
  创建位置消息。
- @param text － 消息文本.
  @param latitude － 纬度
  @param longitude － 经度
- @param attributes － 用户附加属性
  */
-+ (instancetype)messageWithText:(NSString *)text
-                       latitude:(float)latitude
-                      longitude:(float)longitude
-                     attributes:(nullable NSDictionary *)attributes;
+- (void)setlatitude:(float)latitude longitude:(float)longitude;
 
 @end
 

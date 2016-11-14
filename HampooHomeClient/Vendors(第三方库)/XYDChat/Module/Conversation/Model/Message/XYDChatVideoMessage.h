@@ -11,6 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYDChatVideoMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
+@property (nonatomic, strong, readonly) NSString *videoURLStr;  // 下载语音时的URL
+@property (nonatomic, copy, readonly) NSString *localVideoPath; // 上传网络时的本地路径
+
+// 这些属性通过计算得出
+
 /// File size in bytes.
 @property(nonatomic, assign, readonly) uint64_t size;
 
@@ -21,8 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, readonly, nullable) NSString *format;
 
 @property (nonatomic, strong, readonly) UIImage *videoConverPhoto;
-@property (nonatomic, copy, readonly) NSString *videoPath;
-@property (nonatomic, strong, readonly) NSURL *videoURL;
+
+
+- (void)setVideoURLStr:(NSString * _Nonnull)videoURLStr;
+- (void)setLocalVideoPath:(NSString * _Nonnull)localVideoPath;
 
 @end
 

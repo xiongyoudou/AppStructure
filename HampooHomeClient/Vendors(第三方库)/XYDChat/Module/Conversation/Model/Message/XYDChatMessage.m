@@ -76,6 +76,8 @@ NSMutableDictionary const *_typeDict = nil;
 }
 
 #pragma mark - 生成相应类型的消息
+
+#pragma mark - 文字类消息
 - (instancetype)initWithText:(NSString *)text
                   toUserId:(NSString *)toSenderId {
     XYDChatTextMessage *message = [XYDChatTextMessage new];
@@ -101,10 +103,43 @@ NSMutableDictionary const *_typeDict = nil;
     return message;
 }
 
-- (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText{
+- (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText {
     XYDChatTextMessage *message = [XYDChatTextMessage new];
     [message setText:localFeedbackText];
     message.localMessage = YES;
+    [self dealWithSendMessage:message];
+    return message;
+}
+
+#pragma mark - 图片消息
+- (instancetype)initWithThumbnailURLStr:(NSString *)thumbnailURLStr
+                      originPhotoURLStr:(NSString *)originPhotoURLStr {
+    XYDChatImageMessage *message = [XYDChatImageMessage new];
+    [message setThumbnailUrlStr:thumbnailURLStr originalUrlStr:originPhotoURLStr];
+    [self dealWithSendMessage:message];
+    return message;
+}
+
+#pragma mark - 视频消息
+- (instancetype)initWithLocalVideoPath:(NSString *)localVideoPath {
+    XYDChatVideoMessage *message = [XYDChatVideoMessage new];
+    [message setLocalVideoPath:localVideoPath];
+    [self dealWithSendMessage:message];
+    return message;
+}
+
+#pragma mark - 语音消息
+- (instancetype)initWithVoicePath:(NSString *)voicePath {
+    XYDChatAudioMessage *message = [XYDChatAudioMessage new];
+    [message setLocalVoicePath:voicePath];
+    [self dealWithSendMessage:message];
+    return message;
+}
+
+#pragma mark - 地理位置消息
+- (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude {
+    XYDChatLocationMessage *message = [XYDChatLocationMessage new];
+    [message setlatitude:longitude longitude:latitude];
     [self dealWithSendMessage:message];
     return message;
 }
