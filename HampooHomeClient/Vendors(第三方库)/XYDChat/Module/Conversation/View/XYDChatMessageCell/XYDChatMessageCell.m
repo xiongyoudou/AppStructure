@@ -39,7 +39,7 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
 
 @interface XYDChatMessageCell ()
 
-@property (nonatomic, strong, readwrite) XYDChatTypeMessage *message;
+@property (nonatomic, strong, readwrite) XYDChatMessage *message;
 @property (nonatomic, assign, readwrite) XYDChatMessageMediaType mediaType;
 @property (nonatomic, strong) UIColor *conversationViewSenderNameTextColor;
 
@@ -483,8 +483,8 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
             } else {
                 XYDChatMenuItem *copyItem = [[XYDChatMenuItem alloc] initWithTitle:@"copy"
                                                                        block:^{
-                                                                           UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-                                                                           [pasteboard setString:[self.message text]];
+//                                                                           UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//                                                                           [pasteboard setString:[self.message text]];
                                                                        }];
                 //TODO:添加“转发”
                 if (self.mediaType == XYDChatMessageMediaTypeText) {

@@ -6,11 +6,11 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 #import <CoreLocation/CoreLocation.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatLocationMessage : XYDChatTypeMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatLocationMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
 /**
  *  Latitude. Should be 0~90.

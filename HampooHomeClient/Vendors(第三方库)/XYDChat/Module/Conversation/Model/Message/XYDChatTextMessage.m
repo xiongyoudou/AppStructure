@@ -18,35 +18,12 @@
     return XYDChatMessageMediaTypeText;
 }
 
-+ (instancetype)messageWithText:(NSString *)text
-                      mediaType:(XYDChatMessageMediaType)mediaType
-               attachedFilePath:(NSString *)attachedFilePath
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
-    message.text = text;
-    message.mediaType = mediaType;
-    message.attributes = attributes;
-    message.attachedFilePath = attachedFilePath;
-    return message;
-}
 
 + (instancetype)messageWithText:(NSString *)text
-               attachedFilePath:(NSString *)attachedFilePath
                      attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
+    XYDChatTextMessage *message = [[self alloc] init];
     message.text = text;
     message.attributes = attributes;
-    message.attachedFilePath = attachedFilePath;
-    return message;
-}
-
-+ (instancetype)messageWithText:(NSString *)text
-                           file:(XYDFile *)file
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTypeMessage *message = [[self alloc] init];
-    message.text = text;
-    message.attributes = attributes;
-    message.file = file;
     return message;
 }
 
@@ -68,12 +45,5 @@
 }
 
 
-+ (instancetype)messageWithText:(NSString *)text
-                     attributes:(NSDictionary *)attributes {
-    XYDChatTextMessage *message = [[self alloc] init];
-    message.text = text;
-    message.attributes = attributes;
-    return message;
-}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 #import "MLLinkLabel.h"
 #import "XYDChatContentView.h"
 #import "XYDMessageSendStateView.h"
@@ -42,7 +42,7 @@
 + (void)registerCustomMessageCell;
 + (void)registerSubclass;
 - (void)addGeneralView;
-@property (nonatomic, strong, readonly) XYDChatTypeMessage *message;
+@property (nonatomic, strong, readonly) XYDChatMessage *message;
 
 //FIXME:retain cycle
 @property (nonatomic, strong) UITableView *tableView;

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatTextMessage : XYDChatTypeMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatTextMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
 @property (nonatomic,   copy, nullable)           NSString             *text;       // 消息文本
 

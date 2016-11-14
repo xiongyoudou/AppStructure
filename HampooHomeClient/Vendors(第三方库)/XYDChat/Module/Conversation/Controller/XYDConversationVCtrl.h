@@ -121,7 +121,7 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
  * @attention Remember to check if `isAvailable` is ture, making sure sending message after conversation has been fetched
  *            发送前必须检查 `isAvailable` 属性是否为YES, 确保发送行为是在 conversation 被 fetch 之后进行的。
  */
-- (void)sendCustomMessage:(XYDChatTypeMessage *)customMessage;
+- (void)sendCustomMessage:(XYDChatMessage *)customMessage;
 
 /*!
  * 自定义消息位置发送
@@ -129,7 +129,7 @@ FOUNDATION_EXTERN NSString *const XYDConversationViewCtrlErrorDomain;
  * @attention Remember to check if `isAvailable` is ture, making sure sending message after conversation has been fetched
  *            发送前必须检查 `isAvailable` 属性是否为YES, 确保发送行为是在 conversation 被 fetch 之后进行的。
  */
-- (void)sendCustomMessage:(XYDChatTypeMessage *)customMessage
+- (void)sendCustomMessage:(XYDChatMessage *)customMessage
             progressBlock:(XYDChatProgressBlock)progressBlock
                   success:(XYDChatBooleanResultBlock)success
                    failed:(XYDChatBooleanResultBlock)failed;

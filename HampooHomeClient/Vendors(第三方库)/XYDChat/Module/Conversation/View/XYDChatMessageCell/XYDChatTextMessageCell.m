@@ -7,9 +7,10 @@
 //
 
 #import "XYDChatTextMessageCell.h"
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 #import "XYDEmotionManager.h"
 #import "XYDChatSettingService.h"
+#import "XYDChatTextMessage.h"
 
 
 @interface XYDChatTextMessageCell ()
@@ -84,7 +85,7 @@
     
 }
 
-- (void)configureCellWithData:(XYDChatTypeMessage *)message {
+- (void)configureCellWithData:(XYDChatTextMessage *)message {
     [super configureCellWithData:message];
     NSMutableAttributedString *attrS = [XYDEmotionManager emotionStrWithString:message.text];
     [attrS addAttributes:self.textStyle range:NSMakeRange(0, attrS.length)];

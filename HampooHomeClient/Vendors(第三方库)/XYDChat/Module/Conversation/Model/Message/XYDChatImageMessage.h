@@ -6,10 +6,10 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatImageMessage : XYDChatTypeMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatImageMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
 /// Width of the image in pixels.
 @property(nonatomic, assign, readonly) uint width;

@@ -16,7 +16,7 @@
 @class XYDConversationVCtrl;
 @class XYDConversation;
 @class XYDConversationListVCtrl;
-@class XYDChatMsg;
+@class XYDChatMessage;
 @class XYDChatMenuItem;
 
 
@@ -232,7 +232,7 @@ typedef void(^XYDChatPreviewLocationMessageBlock)(CLLocation *location, NSString
  *  @param message 被长按的消息
  *  @param userInfo 用来传递上下文信息，例如，从某个Controller触发，或者从某个view触发等，键值在下面定义
  */
-typedef NSArray<XYDChatMenuItem *> *(^XYDChatLongPressMessageBlock)(XYDChatMsg *message, NSDictionary *userInfo);
+typedef NSArray<XYDChatMenuItem *> *(^XYDChatLongPressMessageBlock)(XYDChatMessage *message, NSDictionary *userInfo);
 
 @property (nonatomic, copy) XYDChatLongPressMessageBlock longPressMessageBlock;
 
@@ -360,7 +360,7 @@ typedef void (^XYDChatConversationInvalidedHandler) (NSString *conversationId, X
 
 typedef void (^XYDChatFilterMessagesCompletionHandler)(NSArray *filteredMessages, NSError *error);
 //typedef void (^XYDChatFilterMessagesBlock)(XYDConversation *conversation, NSArray<AVIMTypedMessage *> *messages, XYDChatFilterMessagesCompletionHandler completionHandler);
-typedef void (^XYDChatFilterMessagesBlock)(XYDConversation *conversation, NSArray<XYDChatMsg *> *messages, XYDChatFilterMessagesCompletionHandler completionHandler);
+typedef void (^XYDChatFilterMessagesBlock)(XYDConversation *conversation, NSArray<XYDChatMessage *> *messages, XYDChatFilterMessagesCompletionHandler completionHandler);
 
 /*!
  * 用于筛选消息，比如：群定向消息、筛选黑名单消息、黑名单消息
@@ -376,7 +376,7 @@ typedef void (^XYDChatFilterMessagesBlock)(XYDConversation *conversation, NSArra
  */
 typedef void (^XYDChatSendMessageHookCompletionHandler)(BOOL granted, NSError *error);
 //typedef void (^XYDChatSendMessageHookBlock)(XYDConversationVCtrl *conversationController, AVIMTypedMessage __kindof *message, XYDChatSendMessageHookCompletionHandler completionHandler);
-typedef void (^XYDChatSendMessageHookBlock)(XYDConversationVCtrl *conversationController, XYDChatMsg __kindof *message, XYDChatSendMessageHookCompletionHandler completionHandler);
+typedef void (^XYDChatSendMessageHookBlock)(XYDConversationVCtrl *conversationController, XYDChatMessage __kindof *message, XYDChatSendMessageHookCompletionHandler completionHandler);
 
 /*!
  * 用于HOOK掉发送消息的行为，可以实现比如：禁止黑名单用户发消息、禁止发送包含敏感词掉消息

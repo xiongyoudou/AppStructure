@@ -6,12 +6,14 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatFileMessage : XYDChatTypeMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatFileMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
 @property (nonatomic, strong, readonly, nullable) XYDFile               *file;       // 附件
+@property(nonatomic, strong)NSString *attachedFilePath;  //附件
+
 
 @end
 

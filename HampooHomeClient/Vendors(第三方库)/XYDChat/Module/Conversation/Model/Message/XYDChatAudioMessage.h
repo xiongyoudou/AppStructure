@@ -6,10 +6,10 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDChatTypeMessage.h"
+#import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatAudioMessage : XYDChatTypeMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatAudioMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
 /// File size in bytes.
 @property(nonatomic, assign, readonly) uint64_t size;
