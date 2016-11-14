@@ -1,12 +1,15 @@
 //
-//  AppConstant.h
-//  MiniPC
+//  Global.h
+//  HampooHomeClient
 //
-//  Created by xiongyoudou on 16/4/27.
+//  Created by xiongyoudou on 2016/11/14.
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef Global_h
+#define Global_h
+
+#pragma mark - 全局结构体定义
 
 typedef NS_ENUM(NSInteger,FileType) {
     FileTypeFolder,                 // 文件夹
@@ -24,9 +27,14 @@ typedef NS_ENUM(NSInteger,FileType) {
     FileTypeUnknown,                // 未知
 };
 
-@interface AppConstant : NSObject
+#pragma mark - 全局常量定义
 
-// 登录令牌
-extern NSString *myToken;
 
-@end
+#pragma mark - 业务相关全局变量
+
+#pragma mark - 网络请求全局变量
+
+
+extern NSString *requestBaseUrl;
+
+#endif /* Global_h */

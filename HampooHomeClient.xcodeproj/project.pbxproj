@@ -300,8 +300,6 @@
 		49B088571DD02A08003E6916 /* XYDTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0884D1DD02A08003E6916 /* XYDTabBar.m */; };
 		49B088581DD02A08003E6916 /* XYDTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0884F1DD02A08003E6916 /* XYDTabBarButton.m */; };
 		49B088591DD02A08003E6916 /* XYDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B088511DD02A08003E6916 /* XYDTabBarController.m */; };
-		49B0885E1DD04E7A003E6916 /* AppConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0885B1DD04E7A003E6916 /* AppConstant.m */; };
-		49B0885F1DD04E7A003E6916 /* HttpConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0885D1DD04E7A003E6916 /* HttpConstant.m */; };
 		49B088681DD051CE003E6916 /* IntroductionVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B088671DD051CE003E6916 /* IntroductionVCtrl.m */; };
 		49B0886B1DD054E2003E6916 /* AppTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0886A1DD054E2003E6916 /* AppTool.m */; };
 		49B0886E1DD05545003E6916 /* DialogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0886D1DD05545003E6916 /* DialogTool.m */; };
@@ -413,6 +411,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494ACE521DD99BB400A8C208 /* AppGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGlobal.h; sourceTree = "<group>"; };
+		494ACE531DD99BB400A8C208 /* MyGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGlobal.h; sourceTree = "<group>"; };
 		49845F6E1DD1B24D0060DED5 /* MainVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVCtrl.h; sourceTree = "<group>"; };
 		49845F6F1DD1B24D0060DED5 /* MainVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVCtrl.m; sourceTree = "<group>"; };
 		49845F701DD1B24D0060DED5 /* MainVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainVCtrl.xib; sourceTree = "<group>"; };
@@ -963,10 +963,6 @@
 		49B0884F1DD02A08003E6916 /* XYDTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDTabBarButton.m; sourceTree = "<group>"; };
 		49B088501DD02A08003E6916 /* XYDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDTabBarController.h; sourceTree = "<group>"; };
 		49B088511DD02A08003E6916 /* XYDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDTabBarController.m; sourceTree = "<group>"; };
-		49B0885A1DD04E7A003E6916 /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstant.h; sourceTree = "<group>"; };
-		49B0885B1DD04E7A003E6916 /* AppConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstant.m; sourceTree = "<group>"; };
-		49B0885C1DD04E7A003E6916 /* HttpConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConstant.h; sourceTree = "<group>"; };
-		49B0885D1DD04E7A003E6916 /* HttpConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConstant.m; sourceTree = "<group>"; };
 		49B088601DD04E81003E6916 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		49B088611DD04E81003E6916 /* HttpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpMacro.h; sourceTree = "<group>"; };
 		49B088621DD04E81003E6916 /* NotificationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationMacro.h; sourceTree = "<group>"; };
@@ -1158,6 +1154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494ACE511DD99BB400A8C208 /* Global(全局变量 & 常量) */ = {
+			isa = PBXGroup;
+			children = (
+				494ACE521DD99BB400A8C208 /* AppGlobal.h */,
+				494ACE531DD99BB400A8C208 /* MyGlobal.h */,
+			);
+			path = "Global(全局变量 & 常量)";
+			sourceTree = "<group>";
+		};
 		49845F691DD1B1C10060DED5 /* 更多 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2281,7 +2286,7 @@
 			children = (
 				49B088301DD016E5003E6916 /* AppDelegate */,
 				49B0878F1DD01032003E6916 /* Class(业务模块) */,
-				49B087941DD01032003E6916 /* Const(常量) */,
+				494ACE511DD99BB400A8C208 /* Global(全局变量 & 常量) */,
 				49B087991DD01032003E6916 /* Macro(宏) */,
 				49B087951DD01032003E6916 /* DB(数据库) */,
 				49B087961DD01032003E6916 /* Helper(辅助类) */,
@@ -2305,17 +2310,6 @@
 				49845F691DD1B1C10060DED5 /* 更多 */,
 			);
 			path = "Class(业务模块)";
-			sourceTree = "<group>";
-		};
-		49B087941DD01032003E6916 /* Const(常量) */ = {
-			isa = PBXGroup;
-			children = (
-				49B0885A1DD04E7A003E6916 /* AppConstant.h */,
-				49B0885B1DD04E7A003E6916 /* AppConstant.m */,
-				49B0885C1DD04E7A003E6916 /* HttpConstant.h */,
-				49B0885D1DD04E7A003E6916 /* HttpConstant.m */,
-			);
-			path = "Const(常量)";
 			sourceTree = "<group>";
 		};
 		49B087951DD01032003E6916 /* DB(数据库) */ = {
@@ -3416,7 +3410,6 @@
 				49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */,
 				49896E1C1DD2C7BE006C50C9 /* CLLocation+XYDCH1903.m in Sources */,
 				49896E6B1DD2C7BE006C50C9 /* MKMapView+XYDMoveLogo.m in Sources */,
-				49B0885F1DD04E7A003E6916 /* HttpConstant.m in Sources */,
 				49896E1A1DD2C7BE006C50C9 /* NSManagedObjectContext+XYDFetchRequestsConstructors.m in Sources */,
 				49896E721DD2C7BE006C50C9 /* CATransaction+XYDAnimateWithDuration.m in Sources */,
 				49896E341DD2C7BE006C50C9 /* NSDictionary+XYDXML.m in Sources */,
@@ -3481,7 +3474,6 @@
 				49896E921DD2C7BE006C50C9 /* UIFont+XYDTTF.m in Sources */,
 				49896EAD1DD2C7BE006C50C9 /* UINavigationBar+XYDAwesome.m in Sources */,
 				49896ECE1DD2C7BE006C50C9 /* UIView+XYDRecursion.m in Sources */,
-				49B0885E1DD04E7A003E6916 /* AppConstant.m in Sources */,
 				49896EC31DD2C7BE006C50C9 /* UITextView+XYDPinchZoom.m in Sources */,
 				49896EB31DD2C7BE006C50C9 /* UINavigationItem+XYDMargin.m in Sources */,
 				49B088821DD06616003E6916 /* CustomNavigationCtrl.m in Sources */,

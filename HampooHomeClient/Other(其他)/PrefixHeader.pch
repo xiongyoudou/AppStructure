@@ -36,8 +36,8 @@
 #import "AppMacro.h"
 #import "UtilsMacro.h"
 #import "NotificationMacro.h"
-#import "AppConstant.h"
-#import "HttpConstant.h"
+#import "AppGlobal.h"
+#import "MyGlobal.h"
 #import "HttpMacro.h"
 
 #import "AppTool.h"
