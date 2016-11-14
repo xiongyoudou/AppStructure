@@ -39,4 +39,9 @@
     return  [[NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]*1000] stringValue];
 }
 
++ (double)xyd_UUIDTimestampLongValue
+{
+    return [[NSDate date] timeIntervalSince1970];
+}
+
 @end

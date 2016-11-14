@@ -107,7 +107,7 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
             default: {
                 NSString *playerIdentifier = [[XYDAudioPlayer sharePlayer] identifier];
                 if (playerIdentifier) {
-                    NSString *messageId = self.message.messageId;
+                    NSString *messageId = self.message.serverMessageId;
                     if (playerIdentifier && [messageId isEqualToString:playerIdentifier]) {
                         self.voiceMessageState = audioPlayerState;
                     }
@@ -134,7 +134,7 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
     //设置正确的voiceMessageCell播放状态
     NSString *identifier = [[XYDAudioPlayer sharePlayer] identifier];
     if (identifier) {
-        NSString *messageId = message.messageId;
+        NSString *messageId = message.serverMessageId;
         if (messageId == identifier) {
             if (message.mediaType == XYDChatMessageMediaTypeAudio) {
                 [self setVoiceMessageState:[[XYDAudioPlayer sharePlayer] audioPlayerState]];

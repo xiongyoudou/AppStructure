@@ -8,16 +8,14 @@
 
 #import "XYDChatSystemMessage.h"
 
+@interface XYDChatSystemMessage ()
+@property (nonatomic, copy, readwrite) NSString *systemText;
+@end
+
 @implementation XYDChatSystemMessage
 
-- (instancetype)initWithSystemText:(NSString *)text {
-    self = [super init];
-    if (self) {
-        _systemText = text;
-        _mediaType = XYDChatMessageMediaTypeSystem;
-        _ownerType = XYDChatMessageOwnerTypeSystem;
-    }
-    return self;
+- (void)setSystemText:(NSString *)text {
+    _systemText = text;
 }
 
 @end

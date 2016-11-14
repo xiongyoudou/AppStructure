@@ -11,16 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYDChatTextMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
 
-@property (nonatomic,   copy, nullable)           NSString             *text;       // 消息文本
+@property (nonatomic,copy,nullable,readonly) NSString *text;    // 消息文本
 
-
-/*!
- 创建文本消息。
- @param text － 消息文本.
- @param attributes － 用户附加属性
- */
-+ (instancetype)messageWithText:(NSString *)text
-                     attributes:(nullable NSDictionary *)attributes;
+- (void)setText:(NSString *)text;
 
 @end
 

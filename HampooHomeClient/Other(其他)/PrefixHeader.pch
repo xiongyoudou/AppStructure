@@ -30,6 +30,7 @@
 #import "NSString+XYDContains.h"
 #import "NSFileManager+XYDPaths.h"
 #import "NSError+XYDErrorCode.h"
+#import "NSString+XYDUUID.h"
 
 #import "XYDImageManager.h"
 

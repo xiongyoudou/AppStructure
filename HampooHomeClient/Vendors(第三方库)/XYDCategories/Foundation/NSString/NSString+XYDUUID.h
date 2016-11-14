@@ -22,4 +22,7 @@
  *  @return 毫秒时间戳
  */
 + (NSString *)xyd_UUIDTimestamp;
+
++ (double)xyd_UUIDTimestampDoubleValue;
+
 @end

@@ -11,10 +11,31 @@
 #import "XYDGeoPoint.h"
 #import "XYDChatSettingService.h"
 
+#import "XYDChatTextMessage.h"
+#import "XYDChatSystemMessage.h"
+#import "XYDChatImageMessage.h"
+#import "XYDChatLocationMessage.h"
+#import "XYDChatFileMessage.h"
+#import "XYDChatAudioMessage.h"
+#import "XYDChatVideoMessage.h"
+
 NSMutableDictionary const *_typeDict = nil;
 
 @interface XYDChatMessage ()
 
+@property (nonatomic, assign, readwrite) NSTimeInterval timestamp;
+@property (nonatomic, copy, readwrite) NSString *serverMessageId;
+@property (nonatomic, copy, readwrite) NSString *localMessageId;
+@property (nonatomic, assign, getter=isLocalMessage, readwrite) BOOL localMessage;
+@property (nonatomic, copy, readwrite) NSString *senderId;
+@property (nonatomic, copy, readwrite) NSString *conversationId;
+@property (nonatomic, copy, readwrite) NSString *toUserId;
+@property (nonatomic, assign, readwrite) XYDChatMessageSendState sendStatus;
+@property (nonatomic, assign, readwrite) XYDChatMessageOwnerType ownerType;
+@property (nonatomic, assign, readwrite) XYDChatMessageStatus status;
+@property (nonatomic, assign, readwrite) XYDChatMessageMediaType mediaType;
+@property (nonatomic, assign, readwrite) XYDChatMessageReadState messageReadState;
+@property (nonatomic, strong, nullable,readwrite) NSDictionary *attributes;
 
 @end
 
@@ -28,14 +49,6 @@ NSMutableDictionary const *_typeDict = nil;
     }
 }
 
-+ (Class)classForMediaType:(XYDChatMessageMediaType)mediaType {
-    Class class = [_typeDict objectForKey:@(mediaType)];
-    if (!class) {
-        class = [XYDChatMessage class];
-    }
-    return class;
-}
-
 + (void)registerClass:(Class)class forMediaType:(XYDChatMessageMediaType)mediaType {
     if (!_typeDict) {
         _typeDict = [[NSMutableDictionary alloc] init];
@@ -46,40 +59,11 @@ NSMutableDictionary const *_typeDict = nil;
     }
 }
 
-
-+ (XYDFile *)fileFromDictionary:(NSDictionary *)dictionary {
-    return dictionary ? [XYDFile fileFromDictionary:dictionary] : nil;
-}
-
-+ (XYDGeoPoint *)locationFromDictionary:(NSDictionary *)dictionary {
-    if (dictionary) {
-        return nil;
-    } else {
-        return nil;
-    }
-}
-
-#pragma mark - 归档
-- (instancetype)init {
-    if (![self conformsToProtocol:@protocol(XYDChatTypedMessageSubclassing)]) {
-        [NSException raise:@"XYDChatNotSubclassException" format:@"Class does not conform XYDChatTypedMessageSubclassing protocol."];
-    }
-    if ((self = [super init])) {
-        self.mediaType = [[self class] classMediaType];
-    }
-    return self;
-}
-
-- (NSString *)payload {
-    return nil;
-}
-
+#pragma mark - 需要计算的属性值
 
 - (NSString *)localDisplayName {
     NSString *localDisplayName = self.sender.name ?: self.senderId;
     if (!self.sender.name && [XYDChatSettingService sharedInstance].isDisablePreviewUserId) {
-        //        NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
-        //        localDisplayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
     }
     return localDisplayName;
 }
@@ -91,28 +75,38 @@ NSMutableDictionary const *_typeDict = nil;
     return NO;
 }
 
-- (void)setlocalMessageId:(NSString *)localMessageId {
-    _localMessageId = localMessageId;
-    _timestamp = [localMessageId doubleValue];
+#pragma mark - 生成相应类型的消息
+- (instancetype)initWithText:(NSString *)text
+                  toUserId:(NSString *)toSenderId {
+    XYDChatTextMessage *message = [XYDChatTextMessage new];
+    [message setText:text];
+    message.toUserId = toSenderId;
+    [self dealWithSendMessage:message];
+    return message;
 }
 
-+ (instancetype)systemMessageWithTimestamp:(NSTimeInterval)time {
-    NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:time / 1000];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM-dd HH:mm"];
-#ifdef XYDChatIsDebugging
-    //如果定义了XYDChatIsDebugging则执行从这里到#endif的代码
-    [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
-#endif
-    NSString *text = [dateFormatter stringFromDate:timestamp];
-    XYDChatMessage *timeMessage = [[XYDChatMessage alloc] initWithSystemText:text];
-    return timeMessage;
+- (instancetype)initWithText:(NSString *)text
+                      convId:(NSString *)convId {
+    XYDChatTextMessage *message = [XYDChatTextMessage new];
+    [message setText:text];
+    message.conversationId = convId;
+    [self dealWithSendMessage:message];
+    return message;
 }
 
+- (instancetype)initWithSystemText:(NSString *)text {
+    XYDChatSystemMessage *message = [XYDChatSystemMessage new];
+    [message setSystemText:text];
+    [self dealWithSendMessage:message];
+    return message;
+}
 
-
-+ (instancetype)localFeedbackText:(NSString *)localFeedbackText {
-    return [[self alloc] initWithLocalFeedbackText:localFeedbackText];
+- (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText{
+    XYDChatTextMessage *message = [XYDChatTextMessage new];
+    [message setText:localFeedbackText];
+    message.localMessage = YES;
+    [self dealWithSendMessage:message];
+    return message;
 }
 
 #pragma mark - NSCoding
@@ -131,7 +125,6 @@ NSMutableDictionary const *_typeDict = nil;
         _status = [aDecoder decodeIntegerForKey:@"status"];
         _mediaType = [aDecoder decodeIntegerForKey:@"mediaType"];
         _messageReadState = [aDecoder decodeIntegerForKey:@"messageReadState"];
-        _localMessage = [aDecoder decodeBoolForKey:@"localMessage"];
         _attributes = [aDecoder decodeObjectForKey:@"attributes"];
     }
     return self;
@@ -155,94 +148,14 @@ NSMutableDictionary const *_typeDict = nil;
 
 #pragma mark - NSCopying
 
-- (id)copyWithZone:(NSZone *)zone {
-    XYDChatMessage *message;
-    switch (self.mediaType) {
-        case XYDChatMessageMediaTypeText: {
-            message = [[[self class] allocWithZone:zone] initWithText:[self.text copy]
-                                                             senderId:[self.senderId copy]
-                                                               sender:[self.sender copyWithZone:nil]
-                                                            timestamp:self.timestamp
-                                                      serverMessageId:[self.serverMessageId copy]];
-            
-        }
-            break;
-        case XYDChatMessageMediaTypeImage: {
-            message =  [[[self class] allocWithZone:zone] initWithPhoto:[self.photo copy]
-                                                         thumbnailPhoto:[self.thumbnailPhoto copy]
-                                                              photoPath:[self.photoPath copy]
-                                                           thumbnailURL:[self.thumbnailURL copy]
-                                                         originPhotoURL:[self.originPhotoURL copy]
-                                                               senderId:[self.senderId copy]
-                                                                 sender:[self.sender copyWithZone:nil]
-                                                              timestamp:self.timestamp
-                                                        serverMessageId:[self.serverMessageId copy]];
-            
-        }
-            break;
-        case XYDChatMessageMediaTypeVideo: {
-            message = [[[self class] allocWithZone:zone] initWithVideoConverPhoto:[self.videoConverPhoto copy]
-                                                                        videoPath:[self.videoPath copy]
-                                                                         videoURL:[self.videoURL copy]
-                                                                         senderId:[self.senderId copy]
-                                                                           sender:[self.sender copyWithZone:nil]
-                                                                        timestamp:self.timestamp
-                                                                  serverMessageId:[self.serverMessageId copy]];
-            
-        }
-            break;
-        case XYDChatMessageMediaTypeAudio: {
-            message =  [[[self class] allocWithZone:zone] initWithVoicePath:[self.voicePath copy]
-                                                                   voiceURL:[self.voiceURL copy]
-                                                              voiceDuration:[self.voiceDuration copy]
-                                                                   senderId:[self.senderId copy]
-                                                                     sender:[self.sender copyWithZone:nil]
-                                                                  timestamp:self.timestamp
-                                                            serverMessageId:[self.serverMessageId copy]];
-            
-        }
-            break;
-            //        case XYDChatMessageTypeEmotion: {
-            //            message =  [[[self class] allocWithZone:zone] initWithEmotionPath:[self.emotionPath copy]
-            //                                                                  emotionName:[self.emotionName copy]
-            //                                                                       senderId:[self.senderId copy]
-            //                                                                         sender:[self.sender copyWithZone:nil]
-            //                                                                    timestamp:self.timestamp
-            //                                                              serverMessageId:[self.serverMessageId copy]];
-            //
-            //        }
-            //            break;
-        case XYDChatMessageMediaTypeLocation: {
-            message =  [[[self class] allocWithZone:zone] initWithLocalPositionPhoto:[self.localPositionPhoto copy]
-                                                                        geolocations:[self.geolocations copy]
-                                                                            location:[self.location copy]
-                                                                            senderId:[self.senderId copy]
-                                                                              sender:[self.sender copyWithZone:nil]
-                                                                           timestamp:self.timestamp
-                                                                     serverMessageId:[self.serverMessageId copy]];
-        }
-            break;
-        case XYDChatMessageMediaTypeSystem: {
-            message = [[[self class] allocWithZone:zone] initWithSystemText:[self.systemText copy]];
-        }
-            break;
-        case XYDChatMessageMediaTypeNone: {
-            //TODO:
-        }
-            break;
-    }
-    //    message.photo = [self.photo copy];
-    //    message.photoPath = [self.photoPath copy];
-    
-    message.localMessageId = [self.localMessageId copy];
-    message.conversationId = [self.conversationId copy];
-    message.mediaType = self.mediaType;
-    //    message.messageGroupType = self.messageGroupType;
-    message.messageReadState = self.messageReadState;
-    message.sendStatus = self.sendStatus;
-    message.read = self.read;
-    return message;
-}
 
+#pragma mark - private methods
+
+// 处理即将发送的消息
+- (void)dealWithSendMessage:(XYDChatMessage *)message {
+    message.timestamp = [NSString xyd_UUIDTimestampDoubleValue];
+    message.localMessageId = [NSString stringWithFormat:@"%f",message.timestamp];
+    
+}
 
 @end

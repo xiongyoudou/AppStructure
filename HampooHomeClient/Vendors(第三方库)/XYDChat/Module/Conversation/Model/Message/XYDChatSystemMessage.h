@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, readonly) NSString *systemText;
 
+- (void)setSystemText:(NSString *)text;
+
 @end
 
 
