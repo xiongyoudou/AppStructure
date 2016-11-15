@@ -124,7 +124,7 @@
 #pragma mark - Private Methods
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
-    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"RedpacketCellResource" bundleForClass:[self class]];
+    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"RedpacketResource" bundleForClass:[self class]];
     return image;
 }
 
