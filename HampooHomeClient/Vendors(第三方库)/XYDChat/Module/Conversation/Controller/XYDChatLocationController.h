@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XYDLocationManager.h"
 
 @protocol LCCKLocationControllerDelegate <NSObject>
 

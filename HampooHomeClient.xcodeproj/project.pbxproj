@@ -381,6 +381,12 @@
 		49B84B241DDB0AC50014F219 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B181DDB0AC50014F219 /* AlipaySDK.framework */; };
 		49B84B251DDB0AC50014F219 /* libRedpacketLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B1A1DDB0AC50014F219 /* libRedpacketLib.a */; };
 		49B84B261DDB0AC50014F219 /* RedPacketResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */; };
+		49B84B291DDB0C850014F219 /* XYDChatRedPacketMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B281DDB0C850014F219 /* XYDChatRedPacketMessage.m */; };
+		49B84B2B1DDB0E840014F219 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B2A1DDB0E840014F219 /* libz.tbd */; };
+		49B84B2D1DDB0E950014F219 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B2C1DDB0E950014F219 /* libiconv.tbd */; };
+		49B84B2F1DDB0F050014F219 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B2E1DDB0F050014F219 /* CoreTelephony.framework */; };
+		49B84B311DDB0FB00014F219 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B301DDB0FB00014F219 /* SystemConfiguration.framework */; };
+		49B84B3B1DDB100F0014F219 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B3A1DDB100F0014F219 /* libc++.tbd */; };
 		49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */; };
 		49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */; };
 		49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */; };
@@ -1120,6 +1126,17 @@
 		49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RedPacketResource.bundle; sourceTree = "<group>"; };
 		49B84B211DDB0AC50014F219 /* YZHRedpacketBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZHRedpacketBridge.h; sourceTree = "<group>"; };
 		49B84B221DDB0AC50014F219 /* YZHRedpacketBridgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZHRedpacketBridgeProtocol.h; sourceTree = "<group>"; };
+		49B84B271DDB0C850014F219 /* XYDChatRedPacketMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatRedPacketMessage.h; sourceTree = "<group>"; };
+		49B84B281DDB0C850014F219 /* XYDChatRedPacketMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatRedPacketMessage.m; sourceTree = "<group>"; };
+		49B84B2A1DDB0E840014F219 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		49B84B2C1DDB0E950014F219 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		49B84B2E1DDB0F050014F219 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		49B84B301DDB0FB00014F219 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		49B84B321DDB0FC70014F219 /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
+		49B84B341DDB0FD70014F219 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		49B84B361DDB0FEA0014F219 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		49B84B381DDB0FF20014F219 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		49B84B3A1DDB100F0014F219 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		49D7FA261DD309280096B966 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
 		49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
 		49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
@@ -1238,6 +1255,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B84B3B1DDB100F0014F219 /* libc++.tbd in Frameworks */,
+				49B84B311DDB0FB00014F219 /* SystemConfiguration.framework in Frameworks */,
+				49B84B2F1DDB0F050014F219 /* CoreTelephony.framework in Frameworks */,
+				49B84B2D1DDB0E950014F219 /* libiconv.tbd in Frameworks */,
+				49B84B2B1DDB0E840014F219 /* libz.tbd in Frameworks */,
 				49B84B121DDB05D40014F219 /* CoreLocation.framework in Frameworks */,
 				49B84B241DDB0AC50014F219 /* AlipaySDK.framework in Frameworks */,
 				49B84B251DDB0AC50014F219 /* libRedpacketLib.a in Frameworks */,
@@ -2356,6 +2378,8 @@
 				499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */,
 				49B84B0B1DDB01700014F219 /* XYDChatVCardMessage.h */,
 				49B84B0C1DDB01700014F219 /* XYDChatVCardMessage.m */,
+				49B84B271DDB0C850014F219 /* XYDChatRedPacketMessage.h */,
+				49B84B281DDB0C850014F219 /* XYDChatRedPacketMessage.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -3151,6 +3175,15 @@
 		959E068BFC7DA4411ED4DA98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49B84B3A1DDB100F0014F219 /* libc++.tbd */,
+				49B84B381DDB0FF20014F219 /* CoreText.framework */,
+				49B84B361DDB0FEA0014F219 /* CFNetwork.framework */,
+				49B84B341DDB0FD70014F219 /* CoreMotion.framework */,
+				49B84B321DDB0FC70014F219 /* libc.tbd */,
+				49B84B301DDB0FB00014F219 /* SystemConfiguration.framework */,
+				49B84B2E1DDB0F050014F219 /* CoreTelephony.framework */,
+				49B84B2C1DDB0E950014F219 /* libiconv.tbd */,
+				49B84B2A1DDB0E840014F219 /* libz.tbd */,
 				49B84B111DDB05D40014F219 /* CoreLocation.framework */,
 				700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */,
 			);
@@ -3424,6 +3457,7 @@
 				49896EA21DD2C7BE006C50C9 /* UIImage+XYDVector.m in Sources */,
 				49896E1E1DD2C7BE006C50C9 /* NSArray+XYDSafeAccess.m in Sources */,
 				49896EB01DD2C7BE006C50C9 /* UINavigationController+XYDTransitions.m in Sources */,
+				49B84B291DDB0C850014F219 /* XYDChatRedPacketMessage.m in Sources */,
 				49896E2D1DD2C7BE006C50C9 /* NSDate+XYDUtilities.m in Sources */,
 				49896ED11DD2C7BE006C50C9 /* UIView+XYDToast.m in Sources */,
 				49896EDD1DD2C7BE006C50C9 /* UIWebView+XYDMetaParser.m in Sources */,
@@ -3822,6 +3856,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
@@ -3876,6 +3911,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
