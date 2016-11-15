@@ -102,7 +102,7 @@
 }
 
 #pragma mark -
-#pragma mark - LCCKChatMessageCellSubclassing Method
+#pragma mark - XYDChatChatMessageCellSubclassing Method
 
 + (void)load {
     [self registerSubclass];

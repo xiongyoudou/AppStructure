@@ -30,7 +30,7 @@
     if (!_headerContainerView) {
         _headerContainerView = [[UIView alloc] init];
         _headerContainerView.backgroundColor = self.backgroundColor;
-#ifdef LCCKDebugging
+#ifdef XYDChatDebugging
         _headerContainerView.backgroundColor = [UIColor redColor];
 #endif
         [_headerContainerView addSubview:self.loadMoreActivityIndicatorView];
@@ -41,7 +41,7 @@
 - (UIActivityIndicatorView *)loadMoreActivityIndicatorView {
     if (!_loadMoreActivityIndicatorView) {
         _loadMoreActivityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-#ifdef LCCKDebugging
+#ifdef XYDChatDebugging
         _loadMoreActivityIndicatorView.backgroundColor = [UIColor blueColor];
 #endif
     }

@@ -12,7 +12,7 @@
 #import "XYDChatHelper.h"
 #import "XYDChatAudioMessage.h"
 
-static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&LCCKChatVoiceMessageCellVoiceMessageStateContext;
+static void * const XYDChatChatVoiceMessageCellVoiceMessageStateContext = (void*)&XYDChatChatVoiceMessageCellVoiceMessageStateContext;
 
 @interface XYDChatVoiceMessageCell ()
 
@@ -81,7 +81,7 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
     [super setup];
     [self addGeneralView];
     self.voiceMessageState = XYDChatVoiceMessageStateNormal;
-    [[XYDAudioPlayer sharePlayer]  addObserver:self forKeyPath:@"audioPlayerState" options:NSKeyValueObservingOptionNew context:LCCKChatVoiceMessageCellVoiceMessageStateContext];
+    [[XYDAudioPlayer sharePlayer]  addObserver:self forKeyPath:@"audioPlayerState" options:NSKeyValueObservingOptionNew context:XYDChatChatVoiceMessageCellVoiceMessageStateContext];
     __unsafe_unretained typeof(self) weakSelf = self;
     [self xyd_executeAtDealloc:^{
         [[XYDAudioPlayer sharePlayer] removeObserver:weakSelf forKeyPath:@"audioPlayerState"];
@@ -90,11 +90,11 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
 
 // KVO监听执行
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if(context != LCCKChatVoiceMessageCellVoiceMessageStateContext) {
+    if(context != XYDChatChatVoiceMessageCellVoiceMessageStateContext) {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         return;
     }
-    if(context == LCCKChatVoiceMessageCellVoiceMessageStateContext) {
+    if(context == XYDChatChatVoiceMessageCellVoiceMessageStateContext) {
         //if ([keyPath isEqualToString:@"audioPlayerState"]) {
         NSNumber *audioPlayerStateNumber = change[NSKeyValueChangeNewKey];
         XYDChatVoiceMessageState audioPlayerState = [audioPlayerStateNumber intValue];
@@ -217,7 +217,7 @@ static void * const LCCKChatVoiceMessageCellVoiceMessageStateContext = (void*)&L
 }
 
 #pragma mark -
-#pragma mark - LCCKChatMessageCellSubclassing Method
+#pragma mark - XYDChatChatMessageCellSubclassing Method
 
 + (void)load {
     [self registerSubclass];

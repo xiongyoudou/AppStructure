@@ -18,7 +18,7 @@
 
 
 #pragma mark - 视图相关
-+ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:( UIViewController <UITableViewDelegate,UITableViewDataSource> *)ctrl;
++ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:(UIViewController *)ctrl;
 + (void)registeCellWithCellXib:(NSString *)XIBName andTable:(UITableView *)table;
 // 隐藏tableview多余的分割线
 + (void)hideExtraTableviewSeparatedLine:(UITableView *)tableview;

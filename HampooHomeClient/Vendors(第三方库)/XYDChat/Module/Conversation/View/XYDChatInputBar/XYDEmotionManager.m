@@ -234,7 +234,7 @@
 
 + (BOOL)saveRecentEmotion:(NSDictionary *)recentDict{
     for (NSDictionary *dict in [[XYDEmotionManager shareInstance] recentEmotionArrays]) {
-        if ([dict[@"face_id"] integerValue] == [recentDict[@"face_id"] integerValue]) {
+        if ([dict[@"emotion_id"] integerValue] == [recentDict[@"emotion_id"] integerValue]) {
             //NSLog(@"已经存在");
             return NO;
         }

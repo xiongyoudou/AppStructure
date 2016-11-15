@@ -19,7 +19,18 @@
     static NSBundle *bundle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"EmoticonWeibo" ofType:@"bundle"];
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Emoji" ofType:@"bundle"];
+        bundle = [NSBundle bundleWithPath:bundlePath];
+    });
+    return bundle;
+}
+
+// 图片bundle
++ (NSBundle *)imageBundle {
+    static NSBundle *bundle;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ChatKeyboard" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:bundlePath];
     });
     return bundle;
@@ -73,12 +84,12 @@
 
 + (NSString *)getPathForConversationBackgroundImage {
     /*
-    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager xyd_documentsPath], [XYDChatKit sharedInstance].appId,[LCCKSessionService sharedInstance].clientId, [LCCKConversationService sharedInstance].currentConversation.conversationId];
+    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager xyd_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDChatConversationService sharedInstance].currentConversation.conversationId];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
         if (error) {
-            LCCKLog(@"File Create Failed: %@", path);
+            XYDChatLog(@"File Create Failed: %@", path);
         }
     }
     return [path stringByAppendingString:self];
@@ -182,6 +193,19 @@
     }
     UIImage *bublleImage = [XYDChatHelper getImageWithNamed:messageTypeString bundleName:@"MessageBubble" bundleForClass:[self class]];
     return STRETCH_IMAGE(bublleImage, bubbleImageCapInsets);
+}
+
+- (NSString *)pathForConversationBackgroundImageWithStr:(NSString *)str {
+//    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager XYDChat_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDChatConversationService sharedInstance].currentConversation.conversationId];
+    NSString *path = nil;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSError *error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+//            XYDChatLog(@"File Create Failed: %@", path);
+        }
+    }
+    return [path stringByAppendingString:str];
 }
 
 @end

@@ -10,6 +10,8 @@
 #import "XYDSingleton.h"
 #import "XYDChatSettingProtocol.h"
 
+#define XYDCHAT_STRING_BY_SEL(sel) NSStringFromSelector(@selector(sel))
+
 @interface XYDChatSettingService : XYDSingleton<XYDChatSettingProtocol>
 
 @property (nonatomic, strong, readonly) NSDictionary *defaultSettings;

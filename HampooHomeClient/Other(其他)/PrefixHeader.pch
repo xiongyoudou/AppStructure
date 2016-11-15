@@ -31,6 +31,7 @@
 #import "NSFileManager+XYDPaths.h"
 #import "NSError+XYDErrorCode.h"
 #import "NSString+XYDUUID.h"
+#import "NSBundle+XYDExtionsion.h"
 
 #import "XYDImageManager.h"
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XYDChatConstant.h"
 
-@protocol LCCKSendImageViewDelegate <NSObject>
+@protocol XYDChatSendImageViewDelegate <NSObject>
 @required
 - (void)resendMessage:(id)sender;
 @end
@@ -17,6 +17,6 @@
 @interface XYDMessageSendStateView : UIButton
 
 @property (nonatomic, assign) XYDChatMessageSendState messageSendState;
-@property (nonatomic, weak) id<LCCKSendImageViewDelegate> delegate;
+@property (nonatomic, weak) id<XYDChatSendImageViewDelegate> delegate;
 
 @end

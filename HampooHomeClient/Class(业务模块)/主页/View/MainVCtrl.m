@@ -21,7 +21,8 @@
 }
 
 - (IBAction)clickBtn:(id)sender {
-//    XYDConversationVCtrl *ctrl = 
+    XYDConversationVCtrl *ctrl = [[XYDConversationVCtrl alloc]initWithPeerId:@"ddd"];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 

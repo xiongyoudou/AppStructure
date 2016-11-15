@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, XYDShowEmotionViewType) {
 
 @protocol XYDChatFaceViewDelegate <NSObject>
 
-- (void)faceViewSendFace:(NSString *)faceName;
+- (void)emotionViewSendEmotion:(NSString *)faceName;
 
 @end
 

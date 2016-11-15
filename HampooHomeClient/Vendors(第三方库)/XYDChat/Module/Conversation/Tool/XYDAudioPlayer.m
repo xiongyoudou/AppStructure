@@ -9,7 +9,7 @@
 #import "XYDAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 
-NSString *const kLCCKAudioDataKey;
+NSString *const kXYDChatAudioDataKey;
 
 @interface XYDAudioPlayer ()<AVAudioPlayerDelegate,AVAudioSessionDelegate> {
     AVAudioPlayer *_audioPlayer;
@@ -60,7 +60,7 @@ NSString *const kLCCKAudioDataKey;
 - (NSOperationQueue *)audioDataOperationQueue {
     if (_audioDataOperationQueue == nil) {
         NSOperationQueue *audioDataOperationQueue  = [[NSOperationQueue alloc] init];
-        audioDataOperationQueue.name = @"com.LeanCloud.LCCKAVAudipPlayer.loadAudioDataQueue";
+        audioDataOperationQueue.name = @"com.LeanCloud.XYDChatAVAudipPlayer.loadAudioDataQueue";
         _audioDataOperationQueue = audioDataOperationQueue;
     }
     return _audioDataOperationQueue;
@@ -153,7 +153,7 @@ NSString *const kLCCKAudioDataKey;
     
     //4.判断audioData是否读取成功,成功则添加对应的audioDataKey
     if (audioData) {
-        objc_setAssociatedObject(audioData, &kLCCKAudioDataKey, [[NSString stringWithFormat:@"%@_%@",URLString,identifier] xyd_md5String], OBJC_ASSOCIATION_COPY);
+        objc_setAssociatedObject(audioData, &kXYDChatAudioDataKey, [[NSString stringWithFormat:@"%@_%@",URLString,identifier] xyd_md5String], OBJC_ASSOCIATION_COPY);
     }
     
     return audioData;
@@ -162,7 +162,7 @@ NSString *const kLCCKAudioDataKey;
 - (void)playAudioWithData:(NSData *)audioData {
     
     
-    NSString *audioURLMD5String = objc_getAssociatedObject(audioData, &kLCCKAudioDataKey);
+    NSString *audioURLMD5String = objc_getAssociatedObject(audioData, &kXYDChatAudioDataKey);
     
     if (![[[NSString stringWithFormat:@"%@_%@",self.URLString,self.identifier] xyd_md5String] isEqualToString:audioURLMD5String]) {
         return;
@@ -226,7 +226,7 @@ NSString *const kLCCKAudioDataKey;
 
 - (NSString *)cachePath {
     if (!_cachePath) {
-        _cachePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"com.LeanCloud.LCCKChat.audioCache"];
+        _cachePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"com.LeanCloud.XYDChatChat.audioCache"];
         if (![[NSFileManager defaultManager] fileExistsAtPath:_cachePath]) {
             [[NSFileManager defaultManager] createDirectoryAtPath:_cachePath withIntermediateDirectories:YES attributes:nil error:nil];
         }

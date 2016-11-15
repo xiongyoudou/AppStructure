@@ -173,7 +173,7 @@
     if (!_edgeImageView) {
         _edgeImageView = [[UIImageView alloc]initWithImage:({
             NSString *imageName = @"chat_bar_record_circle";
-            NSBundle *bundle = [XYDChatHelper emotionBundle];
+            NSBundle *bundle = [XYDChatHelper imageBundle];
             UIImage *image = [[XYDImageManager defaultManager]getImageWithName:imageName inBundle:bundle];
             image;})
                           ];

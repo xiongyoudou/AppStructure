@@ -23,6 +23,7 @@ enum : XYDChatMessageMediaType {
     XYDChatMessageMediaTypeLocation = -5,
     XYDChatMessageMediaTypeFile = -6,
     XYDChatMessageMediaTypeSystem = -7,
+    XYDChatMessageMediaTypeVCard = -8,
 };
 
 typedef NS_ENUM(int8_t, XYDChatMessageStatus) {

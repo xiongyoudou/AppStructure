@@ -334,7 +334,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 
 #pragma mark - XYDChatemotionViewDelegate
 
-- (void)emotionViewSendFace:(NSString *)faceName {
+- (void)emotionViewSendEmotion:(NSString *)faceName {
     if ([faceName isEqualToString:@"[删除]"]) {
         [self textView:self.textView shouldChangeTextInRange:NSMakeRange(self.textView.text.length - 1, 1) replacementText:@""];
     } else if ([faceName isEqualToString:@"发送"]) {

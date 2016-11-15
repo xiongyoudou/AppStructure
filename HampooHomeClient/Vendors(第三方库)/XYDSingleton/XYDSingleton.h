@@ -11,11 +11,11 @@
 FOUNDATION_EXTERN NSMutableDictionary const *_sharedInstances;
 
 /**
- `LCCKSingleton` is a generic class for Mac OSX and iOS that implements all the required methods to implement a singleton object. It's designed for subclassing.
+ `XYDChatSingleton` is a generic class for Mac OSX and iOS that implements all the required methods to implement a singleton object. It's designed for subclassing.
  
  ### Subclassing Notes
  
- When subclassing `LCCKSingleton` you should think about your subclass as an ordinary class, `LCCKSingleton` makes sure that there is only one instance of your class.
+ When subclassing `XYDChatSingleton` you should think about your subclass as an ordinary class, `XYDChatSingleton` makes sure that there is only one instance of your class.
  
  If you want to make your own initializer or override `-init` method your should check whether your singleton has already been initialized with `isInitialized` property to prevent repeated initialization.
  */

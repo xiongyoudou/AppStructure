@@ -59,7 +59,7 @@
 @property (nonatomic, strong) UILabel *nickNameLabel;
 
 /**
- *  显示用户消息主体的View,所有的消息用到的textView,imageView都会被添加到这个view中 -> LCCKContentView 自带一个CAShapeLayer的蒙版
+ *  显示用户消息主体的View,所有的消息用到的textView,imageView都会被添加到这个view中 -> XYDChatContentView 自带一个CAShapeLayer的蒙版
  */
 @property (nonatomic, strong) XYDChatContentView *messageContentView;
 
@@ -96,12 +96,12 @@
 @property (nonatomic, assign) XYDChatConversationType messageChatType;
 
 /**
- *  消息发送状态,当状态为LCCKMessageSendFail或LCCKMessageSendStateSending时,LCCKmessageSendStateImageView显示
+ *  消息发送状态,当状态为XYDChatMessageSendFail或XYDChatMessageSendStateSending时,XYDChatmessageSendStateImageView显示
  */
 @property (nonatomic, assign) XYDChatMessageSendState messageSendState;
 
 /**
- *  消息阅读状态,当状态为LCCKMessageUnRead时,LCCKmessageReadStateImageView显示
+ *  消息阅读状态,当状态为XYDChatMessageUnRead时,XYDChatmessageReadStateImageView显示
  */
 @property (nonatomic, assign) XYDChatMessageReadState messageReadState;
 

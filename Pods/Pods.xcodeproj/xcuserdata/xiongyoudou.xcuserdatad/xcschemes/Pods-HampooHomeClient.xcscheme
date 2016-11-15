@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9B6A9E141C140477D1789A95957E8129'
+               BlueprintIdentifier = '4DE1F6F84664960C5DD5E4629998D228'
                BlueprintName = 'Pods-HampooHomeClient'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-HampooHomeClient.a'>

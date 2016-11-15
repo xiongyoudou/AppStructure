@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XYDChatStatusView;
 
 @class XYDChatInputBar,XYDConversationViewModel;
 
 @interface XYDBaseConversationVCtrl : UIViewController
+
+@property (nonatomic, strong, readonly) XYDChatStatusView *clientStatusView;
+
+/**
+ *  显示大量数据的控件
+ */
+@property (nonatomic, weak) UITableView *tableView;
 
 /**
  *  是否正在加载更多旧的消息数据

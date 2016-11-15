@@ -9,7 +9,7 @@
 #import "XYDChatSettingService.h"
 #import "XYDChatHelper.h"
 
-NSString *const LCCKSettingServiceErrorDomain = @"LCCKSettingServiceErrorDomain";
+NSString *const XYDChatSettingServiceErrorDomain = @"XYDChatSettingServiceErrorDomain";
 
 @interface XYDChatSettingService ()
 
@@ -225,15 +225,15 @@ NSString *const LCCKSettingServiceErrorDomain = @"LCCKSettingServiceErrorDomain"
     NSString *imagePath = [XYDChatHelper getPathForConversationBackgroundImage];
     [[NSFileManager defaultManager] createFileAtPath:imagePath contents:imageData attributes:nil];
     if (conversationId.length > 0) {
-        NSString *customImageNameKey = [NSString stringWithFormat:@"%@%@_%@", LCCKCustomConversationViewControllerBackgroundImageNamePrefix, [LCCKSessionService sharedInstance].clientId, conversationId];
+        NSString *customImageNameKey = [NSString stringWithFormat:@"%@%@_%@", XYDChatCustomConversationViewControllerBackgroundImageNamePrefix, [XYDChatSessionService sharedInstance].clientId, conversationId];
         [[NSUserDefaults standardUserDefaults] setObject:imageName forKey:customImageNameKey];
     } else {
-        [[NSUserDefaults standardUserDefaults] setObject:imageName forKey:LCCKDefaultConversationViewControllerBackgroundImageName];
+        [[NSUserDefaults standardUserDefaults] setObject:imageName forKey:XYDChatDefaultConversationViewControllerBackgroundImageName];
     }
     NSDictionary *userInfo = @{
-                               LCCKNotificationConversationViewControllerBackgroundImageDidChangedUserInfoConversationIdKey : conversationId,
+                               XYDChatNotificationConversationViewControllerBackgroundImageDidChangedUserInfoConversationIdKey : conversationId,
                                };
-    [[NSNotificationCenter defaultCenter] postNotificationName:LCCKNotificationConversationViewControllerBackgroundImageDidChanged object:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:XYDChatNotificationConversationViewControllerBackgroundImageDidChanged object:userInfo];
      */
 }
 

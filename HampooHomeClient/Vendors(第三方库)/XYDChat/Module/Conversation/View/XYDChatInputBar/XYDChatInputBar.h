@@ -11,8 +11,8 @@
 
 static CGFloat const kOffsetBetweenBtnAndBar = 8.f; // bar上按钮（语音按钮、表情按钮）距离底部的间距
 static CGFloat const kOffsetBetweenTextViewAndBar = 6; // bar上输入框距离底部的距离
-static CGFloat const kTextViewFrameMinHeight = 37.f; //kLCCKChatBarMinHeight - 2*kChatBarTextViewBottomOffset;
-static CGFloat const kTextViewFrameMaxHeight = 102.f; //kLCCKChatBarMaxHeight - 2*kChatBarTextViewBottomOffset;
+static CGFloat const kTextViewFrameMinHeight = 37.f; //kXYDChatChatBarMinHeight - 2*kChatBarTextViewBottomOffset;
+static CGFloat const kTextViewFrameMaxHeight = 102.f; //kXYDChatChatBarMaxHeight - 2*kChatBarTextViewBottomOffset;
 static CGFloat const kChatBarMaxHeight = kTextViewFrameMaxHeight + 2*kOffsetBetweenTextViewAndBar; //114.0f;
 static CGFloat const kChatBarMinHeight = kTextViewFrameMinHeight + 2*kOffsetBetweenTextViewAndBar; //49.0f;
 

@@ -12,14 +12,14 @@
  This subclass adds support for a block-based action on UIMenuItem.
  If you are as annoyed about the missing target/action pattern, you will love this.
  
- If you use LCCKMenuItem with the classic initWithTitle:selector initializer,
+ If you use XYDChatMenuItem with the classic initWithTitle:selector initializer,
  this will work and be handled just like a UIMenuItem.
  */
 
 @interface XYDChatMenuItem : UIMenuItem
 
 
-// Initialize LCCKMenuItem with a block.
+// Initialize XYDChatMenuItem with a block.
 - (id)initWithTitle:(NSString *)title block:(void(^)())block;
 
 // Menu Item can be enabled/disabled. (disable simply hides it from the UIMenuController)
@@ -39,7 +39,7 @@
  - methodSignatureForSelector:
  - forwardInvocation:
  
- The original implementation will be called if the LCCKMenuItem selector is not detected.
+ The original implementation will be called if the XYDChatMenuItem selector is not detected.
  
  @parm object can be an instance or a class.
  */

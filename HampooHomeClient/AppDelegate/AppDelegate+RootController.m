@@ -18,7 +18,7 @@
  *  window实例
  */
 - (void)setAppWindows {
-    _isFirstInstall = YES;
+    _isFirstInstall = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 }

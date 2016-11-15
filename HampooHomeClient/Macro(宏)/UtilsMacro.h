@@ -77,6 +77,10 @@
 #define STRETCH_IMAGE(image, edgeInsets) [image resizableImageWithCapInsets:edgeInsets resizingMode:UIImageResizingModeStretch]
 #define KMax(a,b) (a)>(b)?(a):(b);
 
+// 获取时间戳
+#define kGetCurrent_Timestamp ([[NSDate date] timeIntervalSince1970] * 1000)
+#define kGetFuture_Timestamp ([[NSDate distantFuture] timeIntervalSince1970] * 1000)
+
 // 正则表达式
 #define URLRegularString @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)"                                                //匹配url正则表达式
 #define PHONERegularString @"\\d{3}-\\d{7}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{8}|1+[358]+\\d{9}|\\d{8}|\\d{7}$"//匹配电话号码

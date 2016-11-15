@@ -7,14 +7,14 @@
 //
 
 #import "XYDChatEmotionView.h"
-#import "LCCKSwipeView.h"
+#import "XYDChatSwipeView.h"
 #import "XYDEmotionPageView.h"
 #import "XYDChatHelper.h"
 #import "XYDEmotionManager.h"
 
-@interface XYDChatEmotionView ()<UIScrollViewDelegate,LCCKSwipeViewDelegate,LCCKSwipeViewDataSource,XYDEmotionPageViewDelegate>
+@interface XYDChatEmotionView ()<UIScrollViewDelegate,XYDChatSwipeViewDelegate,XYDChatSwipeViewDataSource,XYDEmotionPageViewDelegate>
 
-@property (nonatomic, strong) LCCKSwipeView *swipeView;
+@property (nonatomic, strong) XYDChatSwipeView *swipeView;
 @property (strong, nonatomic) UIPageControl *pageControl;
 
 @property (strong, nonatomic) UIView *bottomView;
@@ -41,9 +41,9 @@
     return self;
 }
 
-#pragma mark - LCCKSwipeViewDelegate & LCCKSwipeViewDataSource
+#pragma mark - XYDChatSwipeViewDelegate & XYDChatSwipeViewDataSource
 
-- (UIView *)swipeView:(LCCKSwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
+- (UIView *)swipeView:(XYDChatSwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
     XYDEmotionPageView *facePageView = (XYDEmotionPageView *)view;
     if (!view) {
         facePageView = [[XYDEmotionPageView alloc] initWithFrame:swipeView.frame];
@@ -58,27 +58,27 @@
     return facePageView;
 }
 
-- (NSInteger)numberOfItemsInLCCKSwipeView:(LCCKSwipeView *)swipeView {
+- (NSInteger)numberOfItemsInXYDChatSwipeView:(XYDChatSwipeView *)swipeView {
     return self.pageCount ;
 }
 
-- (void)swipeViewCurrentItemIndexDidChange:(LCCKSwipeView *)swipeView {
+- (void)swipeViewCurrentItemIndexDidChange:(XYDChatSwipeView *)swipeView {
     self.pageControl.currentPage = swipeView.currentPage;
 }
 
-#pragma mark - LCCKFacePageViewDelegate
+#pragma mark - XYDChatFacePageViewDelegate
 
-- (void)selectedFaceImageWithFaceID:(NSUInteger)faceID {
+- (void)selectedEmotionImageWithEmotionID:(NSUInteger)faceID {
     NSString *faceName = [XYDEmotionManager emotionNameWithEmotionID:faceID];
     if (faceID != 999) {
         [XYDEmotionManager saveRecentEmotion:@{
-                                          @"face_id" : [NSString stringWithFormat:@"%ld",faceID],
-                                          @"face_name" : faceName
+                                          @"emotion_id" : [NSString stringWithFormat:@"%ld",faceID],
+                                          @"emotion_name" : faceName
                                           }
          ];
     }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(faceViewSendFace:)]) {
-        [self.delegate faceViewSendFace:faceName];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(emotionViewSendEmotion:)]) {
+        [self.delegate emotionViewSendEmotion:faceName];
     }
 }
 
@@ -169,13 +169,13 @@
     for (int i = 0; i < self.pageCount; i++) {
         if (self.pageCount - 1 == i) {
             [self.faceArray addObject:@{
-                                        @"face_id" : @"999",
-                                        @"face_name" : @"删除"
+                                        @"emotion_id" : @"999",
+                                        @"emotion_name" : @"删除"
                                         }];
         } else {
             [self.faceArray insertObject:@{
-                                           @"face_id" : @"999",
-                                           @"face_name" : @"删除"
+                                           @"emotion_id" : @"999",
+                                           @"emotion_name" : @"删除"
                                            }
                                  atIndex:(i + 1) * pageItemCount + i];
         }
@@ -183,8 +183,8 @@
 }
 
 - (void)sendAction:(UIButton *)button {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(faceViewSendFace:)]) {
-        [self.delegate faceViewSendFace:@"发送"];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(emotionViewSendEmotion:)]) {
+        [self.delegate emotionViewSendEmotion:@"发送"];
     }
 }
 
@@ -205,9 +205,9 @@
 
 #pragma mark - Getters
 
-- (LCCKSwipeView *)swipeView {
+- (XYDChatSwipeView *)swipeView {
     if (!_swipeView) {
-        _swipeView = [[LCCKSwipeView alloc] init];
+        _swipeView = [[XYDChatSwipeView alloc] init];
         _swipeView.delegate = self;
         _swipeView.dataSource = self;
     }
@@ -220,17 +220,13 @@
         _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
         _pageControl.hidesForSinglePage = YES;
-        //        _swipeView.backgroundColor = [UIColor whiteColor];
-        //        _pageControl.autoresizingMask = UIViewAutoresizingFlexibleWidth ;
     }
     return _pageControl;
 }
 
 - (UIView *)bottomView {
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] init];//WithFrame:CGRectMake(0, self.frame.size.height - 40, self.frame.size.width, 40)];
-        //        _bottomView.backgroundColor = [UIColor redColor];
-        //        _bottomView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+        _bottomView = [[UIView alloc] init];//WithFrame:CGRectMake(0, self.frame.size.height - 40,
         UIImageView *topLine = [[UIImageView alloc] init];//WithFrame:CGRectMake(0, 0, self.frame.size.width - 70, 1.0f)];
         topLine.backgroundColor = kTopLineBackgroundColor;
         [_bottomView addSubview:topLine];
@@ -256,12 +252,6 @@
         recentButton.tag = XYDShowRecentEmotion;
         [recentButton addTarget:self action:@selector(changeFaceType:) forControlEvents:UIControlEventTouchUpInside];
         [recentButton sizeToFit];
-        //        [_bottomView addSubview:self.recentButton = recentButton];
-        //        [recentButton setFrame:CGRectMake(0, _bottomView.frame.size.height/2-recentButton.frame.size.height/2, recentButton.frame.size.width, recentButton.frame.size.height)];
-        //        [recentButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        //            make.left.mas_equalTo(_bottomView);
-        //            make.centerY.mas_equalTo(_bottomView);
-        //        }];
         UIButton *emojiButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [emojiButton setBackgroundImage:[self imageInBundlePathForImageName:@"chat_bar_emoji_normal"] forState:UIControlStateNormal];
         [emojiButton setBackgroundImage:[self imageInBundlePathForImageName:@"chat_bar_emoji_highlight"] forState:UIControlStateHighlighted];
@@ -270,13 +260,6 @@
         [emojiButton addTarget:self action:@selector(changeFaceType:) forControlEvents:UIControlEventTouchUpInside];
         [emojiButton sizeToFit];
         emojiButton.selected = YES;
-        //        [_bottomView addSubview:self.emojiButton = emojiButton];
-        //        [emojiButton setFrame:CGRectMake(recentButton.frame.size.width, _bottomView.frame.size.height/2-emojiButton.frame.size.height/2, emojiButton.frame.size.width, emojiButton.frame.size.height)];
-        //        [emojiButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        //            make.left.mas_equalTo(_bottomView);
-        //            make.centerY.mas_equalTo(_bottomView);
-        //        }];
-        
     }
     return _bottomView;
 }
@@ -290,7 +273,7 @@
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
     return   ({
-        NSBundle *bundle = [XYDChatHelper emotionBundle];
+        NSBundle *bundle = [XYDChatHelper imageBundle];
         UIImage *image = [[XYDImageManager defaultManager]getImageWithName:imageName inBundle:bundle];
         image;});
 }

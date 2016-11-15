@@ -8,6 +8,31 @@
 
 #import "NSObject+XYDAssociatedObject.h"
 #import  <objc/runtime.h>
+
+@interface XYDDeallocExecutor ()
+
+@property (nonatomic, copy) DeallocExecutorBlock deallocExecutorBlock;
+
+@end
+
+@implementation XYDDeallocExecutor
+
+- (id)initWithBlock:(DeallocExecutorBlock)deallocExecutorBlock {
+    self = [super init];
+    if (self) {
+        _deallocExecutorBlock = [deallocExecutorBlock copy];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    _deallocExecutorBlock ? _deallocExecutorBlock() : nil;
+}
+
+@end
+
+
+
 @implementation NSObject (XYDAssociatedObject)
 /**
  *  @brief  附加一个stong对象
@@ -43,7 +68,6 @@
 
 // 通过绑定，使得dealloc时执行特定的方法
 const void * deallocExecutorBlockKey = &deallocExecutorBlockKey;
-
 - (void)xyd_executeAtDealloc:(DeallocExecutorBlock)block {
     if (block) {
         XYDDeallocExecutor *executor = [[XYDDeallocExecutor alloc] initWithBlock:block];

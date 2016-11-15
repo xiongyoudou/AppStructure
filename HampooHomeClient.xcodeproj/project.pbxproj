@@ -349,6 +349,38 @@
 		49B0890C1DD0690B003E6916 /* tab_upload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E31DD0690B003E6916 /* tab_upload@3x.png */; };
 		49B0890D1DD0690B003E6916 /* tab_upload_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E41DD0690B003E6916 /* tab_upload_h@2x.png */; };
 		49B0890E1DD0690B003E6916 /* tab_upload_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E51DD0690B003E6916 /* tab_upload_h@3x.png */; };
+		49B84ABC1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ABB1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m */; };
+		49B84AC31DDA982F0014F219 /* XYDArchivedConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AC21DDA982F0014F219 /* XYDArchivedConversation.m */; };
+		49B84AC71DDA9B720014F219 /* XYDChatMessageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AC61DDA9B720014F219 /* XYDChatMessageOption.m */; };
+		49B84ACA1DDA9C560014F219 /* XYDConversationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AC91DDA9C560014F219 /* XYDConversationQuery.m */; };
+		49B84ACD1DDA9F2F0014F219 /* XYDDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ACC1DDA9F2F0014F219 /* XYDDynamicObject.m */; };
+		49B84AD01DDA9F8B0014F219 /* XYDPropertyAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ACF1DDA9F8B0014F219 /* XYDPropertyAttribute.m */; };
+		49B84AD31DDAA1E30014F219 /* XYDConversation+Extionsion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AD21DDAA1E30014F219 /* XYDConversation+Extionsion.m */; };
+		49B84AD61DDAA9DB0014F219 /* XYDSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AD51DDAA9DB0014F219 /* XYDSoundManager.m */; };
+		49B84AD91DDAB2FF0014F219 /* XYDChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AD81DDAB2FF0014F219 /* XYDChatClient.m */; };
+		49B84ADC1DDAB3850014F219 /* XYDChatSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ADB1DDAB3850014F219 /* XYDChatSignature.m */; };
+		49B84ADF1DDAB4A10014F219 /* XYDChatClientOpenOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ADE1DDAB4A10014F219 /* XYDChatClientOpenOption.m */; };
+		49B84AE31DDAD8040014F219 /* XYDChatStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AE21DDAD8040014F219 /* XYDChatStatusView.m */; };
+		49B84AE41DDAE1670014F219 /* NSObject+XYDAssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49896CA71DD2C7BD006C50C9 /* NSObject+XYDAssociatedObject.m */; };
+		49B84AE81DDAE4EC0014F219 /* XYDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AE71DDAE4EC0014F219 /* XYDWebViewController.m */; };
+		49B84AEB1DDAE56B0014F219 /* XYDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AEA1DDAE56B0014F219 /* XYDWebViewProgress.m */; };
+		49B84AEE1DDAE5860014F219 /* XYDWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AED1DDAE5860014F219 /* XYDWebViewProgressView.m */; };
+		49B84AF21DDAFB600014F219 /* XYDChatInputViewPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AF11DDAFB600014F219 /* XYDChatInputViewPlugin.m */; };
+		49B84AF51DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AF41DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m */; };
+		49B84AF81DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AF71DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.m */; };
+		49B84AFB1DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AFA1DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.m */; };
+		49B84B011DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B001DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.m */; };
+		49B84B041DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B031DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.m */; };
+		49B84B071DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B061DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.m */; };
+		49B84B0A1DDAFDD10014F219 /* XYDChatInputViewPluginChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B091DDAFDD10014F219 /* XYDChatInputViewPluginChange.m */; };
+		49B84B0D1DDB01700014F219 /* XYDChatVCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B0C1DDB01700014F219 /* XYDChatVCardMessage.m */; };
+		49B84B101DDB059A0014F219 /* XYDChatLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B0F1DDB059A0014F219 /* XYDChatLocationController.m */; };
+		49B84B121DDB05D40014F219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B111DDB05D40014F219 /* CoreLocation.framework */; };
+		49B84B151DDB06490014F219 /* XYDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B141DDB06490014F219 /* XYDLocationManager.m */; };
+		49B84B231DDB0AC50014F219 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49B84B171DDB0AC50014F219 /* AlipaySDK.bundle */; };
+		49B84B241DDB0AC50014F219 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B181DDB0AC50014F219 /* AlipaySDK.framework */; };
+		49B84B251DDB0AC50014F219 /* libRedpacketLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B1A1DDB0AC50014F219 /* libRedpacketLib.a */; };
+		49B84B261DDB0AC50014F219 /* RedPacketResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */; };
 		49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */; };
 		49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */; };
 		49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */; };
@@ -371,7 +403,7 @@
 		49D7FA6C1DD309280096B966 /* Placeholder.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49D7FA501DD309280096B966 /* Placeholder.bundle */; };
 		49D7FA6D1DD309280096B966 /* VoiceMessageSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49D7FA511DD309280096B966 /* VoiceMessageSource.bundle */; };
 		49D7FA6E1DD309280096B966 /* XYDChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA541DD309280096B966 /* XYDChatHelper.m */; };
-		49D7FA6F1DD309280096B966 /* LCCKSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA571DD309280096B966 /* LCCKSwipeView.m */; };
+		49D7FA6F1DD309280096B966 /* XYDChatSwipeVie.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */; };
 		49D7FA721DD309850096B966 /* XYDChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA711DD309850096B966 /* XYDChatMessageCell.m */; };
 		49D7FA751DD309E50096B966 /* XYDChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA741DD309E50096B966 /* XYDChatImageMessageCell.m */; };
 		49D7FA781DD30A060096B966 /* XYDChatLocationMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA771DD30A060096B966 /* XYDChatLocationMessageCell.m */; };
@@ -380,7 +412,6 @@
 		49D7FA811DD30A4B0096B966 /* XYDChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA801DD30A4B0096B966 /* XYDChatVoiceMessageCell.m */; };
 		49D7FE081DD3198A0096B966 /* XYDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE001DD3198A0096B966 /* XYDFile.m */; };
 		49D7FE091DD3198A0096B966 /* XYDGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE041DD3198A0096B966 /* XYDGeoPoint.m */; };
-		49D7FE0A1DD3198A0096B966 /* XYDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE071DD3198A0096B966 /* XYDLocationManager.m */; };
 		49D7FE241DD3262B0096B966 /* NSAttributedString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE0E1DD3262B0096B966 /* NSAttributedString+MLLabel.m */; };
 		49D7FE251DD3262B0096B966 /* NSMutableAttributedString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE101DD3262B0096B966 /* NSMutableAttributedString+MLLabel.m */; };
 		49D7FE261DD3262B0096B966 /* NSString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE121DD3262B0096B966 /* NSString+MLLabel.m */; };
@@ -402,7 +433,6 @@
 		49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */; };
 		49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */; };
 		49E5C2AD1DD55CE700A32241 /* NSError+XYDErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */; };
-		49E5C2B01DD5647300A32241 /* XYDInputViewPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */; };
 		49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B31DD5734D00A32241 /* XYDConversation.m */; };
 		49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */; };
 		49E5C2B91DD575CD00A32241 /* XYDConversationListVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */; };
@@ -1024,6 +1054,72 @@
 		49B088E31DD0690B003E6916 /* tab_upload@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload@3x.png"; sourceTree = "<group>"; };
 		49B088E41DD0690B003E6916 /* tab_upload_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload_h@2x.png"; sourceTree = "<group>"; };
 		49B088E51DD0690B003E6916 /* tab_upload_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload_h@3x.png"; sourceTree = "<group>"; };
+		49B84ABA1DDA92E80014F219 /* XYDChatCellIdentifierFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatCellIdentifierFactory.h; sourceTree = "<group>"; };
+		49B84ABB1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatCellIdentifierFactory.m; sourceTree = "<group>"; };
+		49B84AC01DDA97970014F219 /* XYDConversation_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDConversation_Internal.h; sourceTree = "<group>"; };
+		49B84AC11DDA982F0014F219 /* XYDArchivedConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDArchivedConversation.h; sourceTree = "<group>"; };
+		49B84AC21DDA982F0014F219 /* XYDArchivedConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDArchivedConversation.m; sourceTree = "<group>"; };
+		49B84AC41DDA990E0014F219 /* XYDArchivedConversation_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDArchivedConversation_Internal.h; sourceTree = "<group>"; };
+		49B84AC51DDA9B720014F219 /* XYDChatMessageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessageOption.h; sourceTree = "<group>"; };
+		49B84AC61DDA9B720014F219 /* XYDChatMessageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMessageOption.m; sourceTree = "<group>"; };
+		49B84AC81DDA9C560014F219 /* XYDConversationQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationQuery.h; sourceTree = "<group>"; };
+		49B84AC91DDA9C560014F219 /* XYDConversationQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationQuery.m; sourceTree = "<group>"; };
+		49B84ACB1DDA9F2F0014F219 /* XYDDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDDynamicObject.h; sourceTree = "<group>"; };
+		49B84ACC1DDA9F2F0014F219 /* XYDDynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDDynamicObject.m; sourceTree = "<group>"; };
+		49B84ACE1DDA9F8B0014F219 /* XYDPropertyAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDPropertyAttribute.h; sourceTree = "<group>"; };
+		49B84ACF1DDA9F8B0014F219 /* XYDPropertyAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDPropertyAttribute.m; sourceTree = "<group>"; };
+		49B84AD11DDAA1E30014F219 /* XYDConversation+Extionsion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XYDConversation+Extionsion.h"; sourceTree = "<group>"; };
+		49B84AD21DDAA1E30014F219 /* XYDConversation+Extionsion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XYDConversation+Extionsion.m"; sourceTree = "<group>"; };
+		49B84AD41DDAA9DB0014F219 /* XYDSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDSoundManager.h; sourceTree = "<group>"; };
+		49B84AD51DDAA9DB0014F219 /* XYDSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDSoundManager.m; sourceTree = "<group>"; };
+		49B84AD71DDAB2FF0014F219 /* XYDChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatClient.h; sourceTree = "<group>"; };
+		49B84AD81DDAB2FF0014F219 /* XYDChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatClient.m; sourceTree = "<group>"; };
+		49B84ADA1DDAB3850014F219 /* XYDChatSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSignature.h; sourceTree = "<group>"; };
+		49B84ADB1DDAB3850014F219 /* XYDChatSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSignature.m; sourceTree = "<group>"; };
+		49B84ADD1DDAB4A10014F219 /* XYDChatClientOpenOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatClientOpenOption.h; sourceTree = "<group>"; };
+		49B84ADE1DDAB4A10014F219 /* XYDChatClientOpenOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatClientOpenOption.m; sourceTree = "<group>"; };
+		49B84AE01DDAB6FC0014F219 /* XYDChatClient_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatClient_Internal.h; sourceTree = "<group>"; };
+		49B84AE11DDAD8040014F219 /* XYDChatStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatStatusView.h; sourceTree = "<group>"; };
+		49B84AE21DDAD8040014F219 /* XYDChatStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatStatusView.m; sourceTree = "<group>"; };
+		49B84AE61DDAE4EC0014F219 /* XYDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDWebViewController.h; sourceTree = "<group>"; };
+		49B84AE71DDAE4EC0014F219 /* XYDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDWebViewController.m; sourceTree = "<group>"; };
+		49B84AE91DDAE56B0014F219 /* XYDWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDWebViewProgress.h; sourceTree = "<group>"; };
+		49B84AEA1DDAE56B0014F219 /* XYDWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDWebViewProgress.m; sourceTree = "<group>"; };
+		49B84AEC1DDAE5860014F219 /* XYDWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDWebViewProgressView.h; sourceTree = "<group>"; };
+		49B84AED1DDAE5860014F219 /* XYDWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDWebViewProgressView.m; sourceTree = "<group>"; };
+		49B84AF01DDAFB600014F219 /* XYDChatInputViewPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPlugin.h; sourceTree = "<group>"; };
+		49B84AF11DDAFB600014F219 /* XYDChatInputViewPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPlugin.m; sourceTree = "<group>"; };
+		49B84AF31DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginConvBackground.h; sourceTree = "<group>"; };
+		49B84AF41DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginConvBackground.m; sourceTree = "<group>"; };
+		49B84AF61DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginVCard.h; sourceTree = "<group>"; };
+		49B84AF71DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginVCard.m; sourceTree = "<group>"; };
+		49B84AF91DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginRedPacket.h; sourceTree = "<group>"; };
+		49B84AFA1DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginRedPacket.m; sourceTree = "<group>"; };
+		49B84AFF1DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginPickImage.h; sourceTree = "<group>"; };
+		49B84B001DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginPickImage.m; sourceTree = "<group>"; };
+		49B84B021DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginTakePhoto.h; sourceTree = "<group>"; };
+		49B84B031DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginTakePhoto.m; sourceTree = "<group>"; };
+		49B84B051DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginLocation.h; sourceTree = "<group>"; };
+		49B84B061DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginLocation.m; sourceTree = "<group>"; };
+		49B84B081DDAFDD10014F219 /* XYDChatInputViewPluginChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatInputViewPluginChange.h; sourceTree = "<group>"; };
+		49B84B091DDAFDD10014F219 /* XYDChatInputViewPluginChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatInputViewPluginChange.m; sourceTree = "<group>"; };
+		49B84B0B1DDB01700014F219 /* XYDChatVCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatVCardMessage.h; sourceTree = "<group>"; };
+		49B84B0C1DDB01700014F219 /* XYDChatVCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatVCardMessage.m; sourceTree = "<group>"; };
+		49B84B0E1DDB059A0014F219 /* XYDChatLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatLocationController.h; sourceTree = "<group>"; };
+		49B84B0F1DDB059A0014F219 /* XYDChatLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatLocationController.m; sourceTree = "<group>"; };
+		49B84B111DDB05D40014F219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		49B84B131DDB06490014F219 /* XYDLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDLocationManager.h; sourceTree = "<group>"; };
+		49B84B141DDB06490014F219 /* XYDLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDLocationManager.m; sourceTree = "<group>"; };
+		49B84B171DDB0AC50014F219 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		49B84B181DDB0AC50014F219 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		49B84B1A1DDB0AC50014F219 /* libRedpacketLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRedpacketLib.a; sourceTree = "<group>"; };
+		49B84B1B1DDB0AC50014F219 /* RedpacketErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedpacketErrorCode.h; sourceTree = "<group>"; };
+		49B84B1C1DDB0AC50014F219 /* RedpacketMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedpacketMessageModel.h; sourceTree = "<group>"; };
+		49B84B1D1DDB0AC50014F219 /* RedpacketOpenConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedpacketOpenConst.h; sourceTree = "<group>"; };
+		49B84B1E1DDB0AC50014F219 /* RedpacketViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedpacketViewControl.h; sourceTree = "<group>"; };
+		49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RedPacketResource.bundle; sourceTree = "<group>"; };
+		49B84B211DDB0AC50014F219 /* YZHRedpacketBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZHRedpacketBridge.h; sourceTree = "<group>"; };
+		49B84B221DDB0AC50014F219 /* YZHRedpacketBridgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZHRedpacketBridgeProtocol.h; sourceTree = "<group>"; };
 		49D7FA261DD309280096B966 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
 		49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
 		49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
@@ -1060,8 +1156,8 @@
 		49D7FA511DD309280096B966 /* VoiceMessageSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VoiceMessageSource.bundle; sourceTree = "<group>"; };
 		49D7FA531DD309280096B966 /* XYDChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatHelper.h; sourceTree = "<group>"; };
 		49D7FA541DD309280096B966 /* XYDChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatHelper.m; sourceTree = "<group>"; };
-		49D7FA561DD309280096B966 /* LCCKSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCKSwipeView.h; sourceTree = "<group>"; };
-		49D7FA571DD309280096B966 /* LCCKSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCKSwipeView.m; sourceTree = "<group>"; };
+		49D7FA561DD309280096B966 /* XYDChatSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSwipeView.h; sourceTree = "<group>"; };
+		49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSwipeVie.m; sourceTree = "<group>"; };
 		49D7FA701DD309850096B966 /* XYDChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessageCell.h; sourceTree = "<group>"; };
 		49D7FA711DD309850096B966 /* XYDChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMessageCell.m; sourceTree = "<group>"; };
 		49D7FA731DD309E50096B966 /* XYDChatImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatImageMessageCell.h; sourceTree = "<group>"; };
@@ -1080,8 +1176,6 @@
 		49D7FE031DD3198A0096B966 /* XYDGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDGeoPoint.h; sourceTree = "<group>"; };
 		49D7FE041DD3198A0096B966 /* XYDGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDGeoPoint.m; sourceTree = "<group>"; };
 		49D7FE051DD3198A0096B966 /* XYDGeoPoint_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDGeoPoint_Internal.h; sourceTree = "<group>"; };
-		49D7FE061DD3198A0096B966 /* XYDLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDLocationManager.h; sourceTree = "<group>"; };
-		49D7FE071DD3198A0096B966 /* XYDLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDLocationManager.m; sourceTree = "<group>"; };
 		49D7FE0D1DD3262B0096B966 /* NSAttributedString+MLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+MLLabel.h"; sourceTree = "<group>"; };
 		49D7FE0E1DD3262B0096B966 /* NSAttributedString+MLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+MLLabel.m"; sourceTree = "<group>"; };
 		49D7FE0F1DD3262B0096B966 /* NSMutableAttributedString+MLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+MLLabel.h"; sourceTree = "<group>"; };
@@ -1127,8 +1221,6 @@
 		49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateView.m; sourceTree = "<group>"; };
 		49E5C2AB1DD55CE700A32241 /* NSError+XYDErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XYDErrorCode.h"; sourceTree = "<group>"; };
 		49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XYDErrorCode.m"; sourceTree = "<group>"; };
-		49E5C2AE1DD5647300A32241 /* XYDInputViewPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDInputViewPlugin.h; sourceTree = "<group>"; };
-		49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDInputViewPlugin.m; sourceTree = "<group>"; };
 		49E5C2B11DD56EB900A32241 /* XYDChatServiceDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatServiceDefinition.h; sourceTree = "<group>"; };
 		49E5C2B21DD5734D00A32241 /* XYDConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversation.h; sourceTree = "<group>"; };
 		49E5C2B31DD5734D00A32241 /* XYDConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversation.m; sourceTree = "<group>"; };
@@ -1146,6 +1238,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B84B121DDB05D40014F219 /* CoreLocation.framework in Frameworks */,
+				49B84B241DDB0AC50014F219 /* AlipaySDK.framework in Frameworks */,
+				49B84B251DDB0AC50014F219 /* libRedpacketLib.a in Frameworks */,
 				B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */,
 				49E5C2BE1DD59BA500A32241 /* lame.framework in Frameworks */,
 			);
@@ -2259,6 +2354,8 @@
 				499709BF1DD5C27D00352E8F /* XYDChatAudioMessage.m */,
 				499709C11DD5C29300352E8F /* XYDChatVideoMessage.h */,
 				499709C21DD5C29300352E8F /* XYDChatVideoMessage.m */,
+				49B84B0B1DDB01700014F219 /* XYDChatVCardMessage.h */,
+				49B84B0C1DDB01700014F219 /* XYDChatVCardMessage.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2382,6 +2479,8 @@
 		49B087AD1DD01032003E6916 /* Vendors(第三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				49B84B161DDB0AC50014F219 /* RedpacketStaticLib */,
+				49B84AE51DDAE4D00014F219 /* XYDWebViewController */,
 				49D7FE331DD3FA0E0096B966 /* XYDSingleton */,
 				49D7FE0B1DD3262B0096B966 /* MLLabel */,
 				498969821DD2C4FC006C50C9 /* XYDCategories */,
@@ -2655,11 +2754,87 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		49B84AE51DDAE4D00014F219 /* XYDWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				49B84AE61DDAE4EC0014F219 /* XYDWebViewController.h */,
+				49B84AE71DDAE4EC0014F219 /* XYDWebViewController.m */,
+				49B84AE91DDAE56B0014F219 /* XYDWebViewProgress.h */,
+				49B84AEA1DDAE56B0014F219 /* XYDWebViewProgress.m */,
+				49B84AEC1DDAE5860014F219 /* XYDWebViewProgressView.h */,
+				49B84AED1DDAE5860014F219 /* XYDWebViewProgressView.m */,
+			);
+			path = XYDWebViewController;
+			sourceTree = "<group>";
+		};
+		49B84AEF1DDAFB600014F219 /* InputViewPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				49B84AF01DDAFB600014F219 /* XYDChatInputViewPlugin.h */,
+				49B84AF11DDAFB600014F219 /* XYDChatInputViewPlugin.m */,
+				49B84AF31DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.h */,
+				49B84AF41DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m */,
+				49B84AF61DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.h */,
+				49B84AF71DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.m */,
+				49B84AFF1DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.h */,
+				49B84B001DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.m */,
+				49B84B021DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.h */,
+				49B84B031DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.m */,
+				49B84B051DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.h */,
+				49B84B061DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.m */,
+				49B84B081DDAFDD10014F219 /* XYDChatInputViewPluginChange.h */,
+				49B84B091DDAFDD10014F219 /* XYDChatInputViewPluginChange.m */,
+				49B84AF91DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.h */,
+				49B84AFA1DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.m */,
+			);
+			path = InputViewPlugin;
+			sourceTree = "<group>";
+		};
+		49B84B161DDB0AC50014F219 /* RedpacketStaticLib */ = {
+			isa = PBXGroup;
+			children = (
+				49B84B171DDB0AC50014F219 /* AlipaySDK.bundle */,
+				49B84B181DDB0AC50014F219 /* AlipaySDK.framework */,
+				49B84B191DDB0AC50014F219 /* lib */,
+				49B84B1B1DDB0AC50014F219 /* RedpacketErrorCode.h */,
+				49B84B1C1DDB0AC50014F219 /* RedpacketMessageModel.h */,
+				49B84B1D1DDB0AC50014F219 /* RedpacketOpenConst.h */,
+				49B84B1E1DDB0AC50014F219 /* RedpacketViewControl.h */,
+				49B84B1F1DDB0AC50014F219 /* resources */,
+				49B84B211DDB0AC50014F219 /* YZHRedpacketBridge.h */,
+				49B84B221DDB0AC50014F219 /* YZHRedpacketBridgeProtocol.h */,
+			);
+			path = RedpacketStaticLib;
+			sourceTree = "<group>";
+		};
+		49B84B191DDB0AC50014F219 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				49B84B1A1DDB0AC50014F219 /* libRedpacketLib.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		49B84B1F1DDB0AC50014F219 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		49D7FA211DD309280096B966 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				49D7FE3C1DD405960096B966 /* XYDChatKit.h */,
 				49D7FE3D1DD405960096B966 /* XYDChatKit.m */,
+				49B84AD71DDAB2FF0014F219 /* XYDChatClient.h */,
+				49B84AD81DDAB2FF0014F219 /* XYDChatClient.m */,
+				49B84AE01DDAB6FC0014F219 /* XYDChatClient_Internal.h */,
+				49B84ADD1DDAB4A10014F219 /* XYDChatClientOpenOption.h */,
+				49B84ADE1DDAB4A10014F219 /* XYDChatClientOpenOption.m */,
+				49B84ADA1DDAB3850014F219 /* XYDChatSignature.h */,
+				49B84ADB1DDAB3850014F219 /* XYDChatSignature.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2699,6 +2874,8 @@
 				49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */,
 				49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */,
 				49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */,
+				49B84B0E1DDB059A0014F219 /* XYDChatLocationController.h */,
+				49B84B0F1DDB059A0014F219 /* XYDChatLocationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2714,6 +2891,20 @@
 				49D7FE321DD329D70096B966 /* XYDUserDelegate.h */,
 				49E5C2B21DD5734D00A32241 /* XYDConversation.h */,
 				49E5C2B31DD5734D00A32241 /* XYDConversation.m */,
+				49B84AD11DDAA1E30014F219 /* XYDConversation+Extionsion.h */,
+				49B84AD21DDAA1E30014F219 /* XYDConversation+Extionsion.m */,
+				49B84AC01DDA97970014F219 /* XYDConversation_Internal.h */,
+				49B84AC11DDA982F0014F219 /* XYDArchivedConversation.h */,
+				49B84AC21DDA982F0014F219 /* XYDArchivedConversation.m */,
+				49B84AC41DDA990E0014F219 /* XYDArchivedConversation_Internal.h */,
+				49B84AC51DDA9B720014F219 /* XYDChatMessageOption.h */,
+				49B84AC61DDA9B720014F219 /* XYDChatMessageOption.m */,
+				49B84AC81DDA9C560014F219 /* XYDConversationQuery.h */,
+				49B84AC91DDA9C560014F219 /* XYDConversationQuery.m */,
+				49B84ACB1DDA9F2F0014F219 /* XYDDynamicObject.h */,
+				49B84ACC1DDA9F2F0014F219 /* XYDDynamicObject.m */,
+				49B84ACE1DDA9F8B0014F219 /* XYDPropertyAttribute.h */,
+				49B84ACF1DDA9F8B0014F219 /* XYDPropertyAttribute.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2724,8 +2915,14 @@
 				49D7FE3F1DD407010096B966 /* Service */,
 				49D7FA2F1DD309280096B966 /* XYDChatConstant.h */,
 				49D7FA301DD309280096B966 /* XYDChatMacro.h */,
+				49B84ABA1DDA92E80014F219 /* XYDChatCellIdentifierFactory.h */,
+				49B84ABB1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m */,
 				49D7FE561DD418760096B966 /* XYDAudioPlayer.h */,
 				49D7FE571DD418760096B966 /* XYDAudioPlayer.m */,
+				49B84AD41DDAA9DB0014F219 /* XYDSoundManager.h */,
+				49B84AD51DDAA9DB0014F219 /* XYDSoundManager.m */,
+				49B84B131DDB06490014F219 /* XYDLocationManager.h */,
+				49B84B141DDB06490014F219 /* XYDLocationManager.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2735,6 +2932,8 @@
 			children = (
 				49D7FE501DD40C840096B966 /* XYDChatContentView.h */,
 				49D7FE511DD40C840096B966 /* XYDChatContentView.m */,
+				49B84AE11DDAD8040014F219 /* XYDChatStatusView.h */,
+				49B84AE21DDAD8040014F219 /* XYDChatStatusView.m */,
 				49D7FA321DD309280096B966 /* XYDChatInputBar */,
 				49D7FA421DD309280096B966 /* XYDChatMessageCell */,
 				49D7FA431DD309280096B966 /* XYDConversationRefreshHeader.h */,
@@ -2746,6 +2945,7 @@
 		49D7FA321DD309280096B966 /* XYDChatInputBar */ = {
 			isa = PBXGroup;
 			children = (
+				49B84AEF1DDAFB600014F219 /* InputViewPlugin */,
 				49D7FA331DD309280096B966 /* XYDChatEmotionView.h */,
 				49D7FA341DD309280096B966 /* XYDChatEmotionView.m */,
 				49D7FA351DD309280096B966 /* XYDChatInputBar.h */,
@@ -2753,8 +2953,6 @@
 				49D7FA371DD309280096B966 /* XYDChatInputBarDelegate.h */,
 				49D7FA381DD309280096B966 /* XYDChatMoreView.h */,
 				49D7FA391DD309280096B966 /* XYDChatMoreView.m */,
-				49E5C2AE1DD5647300A32241 /* XYDInputViewPlugin.h */,
-				49E5C2AF1DD5647300A32241 /* XYDInputViewPlugin.m */,
 				49D7FA3C1DD309280096B966 /* XYDEmotionManager.h */,
 				49D7FA3D1DD309280096B966 /* XYDEmotionManager.m */,
 				49D7FA3E1DD309280096B966 /* XYDEmotionPageView.h */,
@@ -2828,8 +3026,8 @@
 		49D7FA551DD309280096B966 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49D7FA561DD309280096B966 /* LCCKSwipeView.h */,
-				49D7FA571DD309280096B966 /* LCCKSwipeView.m */,
+				49D7FA561DD309280096B966 /* XYDChatSwipeView.h */,
+				49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2850,8 +3048,6 @@
 				49D7FE031DD3198A0096B966 /* XYDGeoPoint.h */,
 				49D7FE041DD3198A0096B966 /* XYDGeoPoint.m */,
 				49D7FE051DD3198A0096B966 /* XYDGeoPoint_Internal.h */,
-				49D7FE061DD3198A0096B966 /* XYDLocationManager.h */,
-				49D7FE071DD3198A0096B966 /* XYDLocationManager.m */,
 			);
 			path = Geo;
 			sourceTree = "<group>";
@@ -2955,6 +3151,7 @@
 		959E068BFC7DA4411ED4DA98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49B84B111DDB05D40014F219 /* CoreLocation.framework */,
 				700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */,
 			);
 			name = Frameworks;
@@ -3073,6 +3270,7 @@
 				49B089051DD0690B003E6916 /* tab_onlinedisk_h@2x.png in Resources */,
 				49B088221DD01033003E6916 /* UIBarButtonItemArrowOutlineRight.png in Resources */,
 				49E5C2B91DD575CD00A32241 /* XYDConversationListVCtrl.xib in Resources */,
+				49B84B231DDB0AC50014F219 /* AlipaySDK.bundle in Resources */,
 				49B087F41DD01032003E6916 /* Assets.xcassets in Resources */,
 				49B0882A1DD01033003E6916 /* UIBarButtonItemGridiOS6.png in Resources */,
 				49B088F51DD0690B003E6916 /* 4_launch@2x.png in Resources */,
@@ -3104,6 +3302,7 @@
 				49B089091DD0690B003E6916 /* tab_transferlog_h@2x.png in Resources */,
 				49B088061DD01032003E6916 /* Checkmark.png in Resources */,
 				49B0880B1DD01032003E6916 /* ImageSelectedOff.png in Resources */,
+				49B84B261DDB0AC50014F219 /* RedPacketResource.bundle in Resources */,
 				49B0890B1DD0690B003E6916 /* tab_upload@2x.png in Resources */,
 				49B088F81DD0690B003E6916 /* 5_launch-5h@2x.png in Resources */,
 				49B0890E1DD0690B003E6916 /* tab_upload_h@3x.png in Resources */,
@@ -3182,6 +3381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B84AE41DDAE1670014F219 /* NSObject+XYDAssociatedObject.m in Sources */,
 				49D7FA611DD309280096B966 /* XYDRecorderProgressHud.m in Sources */,
 				49896E2B1DD2C7BE006C50C9 /* NSDate+XYDInternetDateTime.m in Sources */,
 				49B087FF1DD01032003E6916 /* MWGridViewController.m in Sources */,
@@ -3199,6 +3399,7 @@
 				49D7FA781DD30A060096B966 /* XYDChatLocationMessageCell.m in Sources */,
 				49896E261DD2C7BE006C50C9 /* NSData+XYDPCM.m in Sources */,
 				49896E7E1DD2C7BE006C50C9 /* UIButton+XYDBackgroundColor.m in Sources */,
+				49B84ADC1DDAB3850014F219 /* XYDChatSignature.m in Sources */,
 				49896EA81DD2C7BE006C50C9 /* UIImageView+XYDReflect.m in Sources */,
 				498965F31DD2B69A006C50C9 /* XYDImageManager.m in Sources */,
 				49896ECD1DD2C7BE006C50C9 /* UIView+XYDNib.m in Sources */,
@@ -3215,6 +3416,7 @@
 				49896EA91DD2C7BE006C50C9 /* UILabel+XYDAdjustableLabel.m in Sources */,
 				49D7FE251DD3262B0096B966 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				49D7FA7E1DD30A3C0096B966 /* XYDChatTextMessageCell.m in Sources */,
+				49B84AE31DDAD8040014F219 /* XYDChatStatusView.m in Sources */,
 				49B0886B1DD054E2003E6916 /* AppTool.m in Sources */,
 				49896EDF1DD2C7BE006C50C9 /* UIWebVIew+XYDSwipeGesture.m in Sources */,
 				49896ECB1DD2C7BE006C50C9 /* UIView+XYDFind.m in Sources */,
@@ -3236,8 +3438,8 @@
 				49896E361DD2C7BE006C50C9 /* NSFileHandle+XYDReadLine.m in Sources */,
 				49B088781DD05C51003E6916 /* XYDBottomBarCell.m in Sources */,
 				49896EBA1DD2C7BE006C50C9 /* UISearchBar+XYDBlocks.m in Sources */,
-				49D7FE0A1DD3198A0096B966 /* XYDLocationManager.m in Sources */,
 				49D7FE2A1DD3262B0096B966 /* NSString+MLExpression.m in Sources */,
+				49B84B011DDAFD7F0014F219 /* XYDChatInputViewPluginPickImage.m in Sources */,
 				49D7FE581DD418760096B966 /* XYDAudioPlayer.m in Sources */,
 				49896E691DD2C7BE006C50C9 /* NSUserDefaults+XYDSafeAccess.m in Sources */,
 				49896E451DD2C7BE006C50C9 /* NSObject+XYDAutoCoding.m in Sources */,
@@ -3245,6 +3447,7 @@
 				49896E351DD2C7BE006C50C9 /* NSException+XYDTrace.m in Sources */,
 				49896E8B1DD2C7BE006C50C9 /* UIControl+XYDActionBlocks.m in Sources */,
 				49896EBC1DD2C7BE006C50C9 /* UITableView+XYDiOS7Style.m in Sources */,
+				49B84ABC1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m in Sources */,
 				49896E5E1DD2C7BE006C50C9 /* NSString+XYDURLEncode.m in Sources */,
 				49896E4E1DD2C7BE006C50C9 /* NSSet+XYDBlock.m in Sources */,
 				49896ECF1DD2C7BE006C50C9 /* UIView+XYDScreenshot.m in Sources */,
@@ -3268,6 +3471,7 @@
 				49D7FE291DD3262B0096B966 /* NSAttributedString+MLExpression.m in Sources */,
 				49896E4B1DD2C7BE006C50C9 /* NSObject+XYDReflection.m in Sources */,
 				49896EAA1DD2C7BE006C50C9 /* UILabel+XYDAutomaticWriting.m in Sources */,
+				49B84AF81DDAFD1F0014F219 /* XYDChatInputViewPluginVCard.m in Sources */,
 				49B088551DD02A08003E6916 /* XYDPlusButton.m in Sources */,
 				49896EC21DD2C7BE006C50C9 /* UITextField+XYDShake.m in Sources */,
 				49896E221DD2C7BE006C50C9 /* NSData+XYDDataCache.m in Sources */,
@@ -3295,8 +3499,10 @@
 				49896ED21DD2C7BE006C50C9 /* UIView+XYDVisuals.m in Sources */,
 				49896E731DD2C7BE006C50C9 /* UIAlertView+XYDBlock.m in Sources */,
 				49896E771DD2C7BE006C50C9 /* UIApplication+XYDPermissions.m in Sources */,
+				49B84AFB1DDAFD520014F219 /* XYDChatInputViewPluginRedPacket.m in Sources */,
 				49896ED81DD2C7BE006C50C9 /* UIViewController+XYDVisible.m in Sources */,
 				49896E681DD2C7BE006C50C9 /* NSUserDefaults+XYDiCloudSync.m in Sources */,
+				49B84AD91DDAB2FF0014F219 /* XYDChatClient.m in Sources */,
 				49D7FE431DD407010096B966 /* XYDChatSettingService.m in Sources */,
 				498965FF1DD2B8B5006C50C9 /* XYDWeakReference.m in Sources */,
 				49896E8E1DD2C7BE006C50C9 /* UIDevice+XYDHardware.m in Sources */,
@@ -3305,12 +3511,15 @@
 				49896E891DD2C7BE006C50C9 /* UIColor+XYDRandom.m in Sources */,
 				49896E7B1DD2C7BE006C50C9 /* UIBezierPath+XYDSVGString.m in Sources */,
 				49896E4A1DD2C7BE006C50C9 /* NSObject+XYDKVOBlocks.m in Sources */,
+				49B84AC71DDA9B720014F219 /* XYDChatMessageOption.m in Sources */,
 				49896E7F1DD2C7BE006C50C9 /* UIButton+XYDBlock.m in Sources */,
 				49D7FA721DD309850096B966 /* XYDChatMessageCell.m in Sources */,
 				49896E861DD2C7BE006C50C9 /* UIColor+XYDGradient.m in Sources */,
 				49896E621DD2C7BE006C50C9 /* NSTimer+XYDBlocks.m in Sources */,
+				49B84B101DDB059A0014F219 /* XYDChatLocationController.m in Sources */,
 				49896E1D1DD2C7BE006C50C9 /* NSArray+XYDBlock.m in Sources */,
 				49B087F81DD01032003E6916 /* main.m in Sources */,
+				49B84B0A1DDAFDD10014F219 /* XYDChatInputViewPluginChange.m in Sources */,
 				49896E2F1DD2C7BE006C50C9 /* NSDictionary+XYDBlock.m in Sources */,
 				498965FC1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m in Sources */,
 				49B0883A1DD016E5003E6916 /* AppDelegate+AppService.m in Sources */,
@@ -3329,18 +3538,24 @@
 				49896EC91DD2C7BE006C50C9 /* UIView+XYDCustomBorder.m in Sources */,
 				49B088581DD02A08003E6916 /* XYDTabBarButton.m in Sources */,
 				49B088681DD051CE003E6916 /* IntroductionVCtrl.m in Sources */,
+				49B84AE81DDAE4EC0014F219 /* XYDWebViewController.m in Sources */,
 				49896E851DD2C7BE006C50C9 /* UIButton+XYDTouchAreaInsets.m in Sources */,
+				49B84AEE1DDAE5860014F219 /* XYDWebViewProgressView.m in Sources */,
 				49896E281DD2C7BE006C50C9 /* NSDate+XYDCupertinoYankee.m in Sources */,
+				49B84AD01DDA9F8B0014F219 /* XYDPropertyAttribute.m in Sources */,
 				49D7FA751DD309E50096B966 /* XYDChatImageMessageCell.m in Sources */,
+				49B84ACD1DDA9F2F0014F219 /* XYDDynamicObject.m in Sources */,
 				49896E7C1DD2C7BE006C50C9 /* UIBezierPath+XYDSymbol.m in Sources */,
 				49896EC71DD2C7BE006C50C9 /* UIView+XYDBlockGesture.m in Sources */,
 				49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */,
 				49896E9C1DD2C7BE006C50C9 /* UIImage+XYDMerge.m in Sources */,
 				49896EB81DD2C7BE006C50C9 /* UIScrollView+XYDAddition.m in Sources */,
+				49B84AD61DDAA9DB0014F219 /* XYDSoundManager.m in Sources */,
 				49845F791DD1B3600060DED5 /* MoreVCtrl.m in Sources */,
 				49896E9D1DD2C7BE006C50C9 /* UIImage+XYDOrientation.m in Sources */,
 				49896E271DD2C7BE006C50C9 /* NSData+XYDzlib.m in Sources */,
 				49896E421DD2C7BE006C50C9 /* NSObject+XYDAddProperty.m in Sources */,
+				49B84B0D1DDB01700014F219 /* XYDChatVCardMessage.m in Sources */,
 				49896EB71DD2C7BE006C50C9 /* UIScreen+XYDFrame.m in Sources */,
 				49896E931DD2C7BE006C50C9 /* UIImage+XYDAlpha.m in Sources */,
 				49896E9B1DD2C7BE006C50C9 /* UIImage+XYDGIF.m in Sources */,
@@ -3353,6 +3568,7 @@
 				49B088571DD02A08003E6916 /* XYDTabBar.m in Sources */,
 				49896E651DD2C7BE006C50C9 /* NSURLConnection+XYDSelfSigned.m in Sources */,
 				49D7FE241DD3262B0096B966 /* NSAttributedString+MLLabel.m in Sources */,
+				49B84AF51DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m in Sources */,
 				49D7FE091DD3198A0096B966 /* XYDGeoPoint.m in Sources */,
 				49896EAC1DD2C7BE006C50C9 /* UILabel+XYDSuggestSize.m in Sources */,
 				49896EA71DD2C7BE006C50C9 /* UIImageView+XYDLetters.m in Sources */,
@@ -3374,10 +3590,11 @@
 				49896E791DD2C7BE006C50C9 /* UIBezierPath+XYDBasicShapes.m in Sources */,
 				49896E531DD2C7BE006C50C9 /* NSString+XYDEncrypt.m in Sources */,
 				499709BA1DD5C25200352E8F /* XYDChatLocationMessage.m in Sources */,
-				49D7FA6F1DD309280096B966 /* LCCKSwipeView.m in Sources */,
+				49D7FA6F1DD309280096B966 /* XYDChatSwipeVie.m in Sources */,
 				49896E231DD2C7BE006C50C9 /* NSData+XYDEncrypt.m in Sources */,
 				49896EDB1DD2C7BE006C50C9 /* UIWebView+XYDJavaScript.m in Sources */,
 				49B088391DD016E5003E6916 /* AppDelegate+AppLifeCircle.m in Sources */,
+				49B84AF21DDAFB600014F219 /* XYDChatInputViewPlugin.m in Sources */,
 				49896E601DD2C7BE006C50C9 /* NSString+XYDXMLDictionary.m in Sources */,
 				49896EAF1DD2C7BE006C50C9 /* UINavigationController+XYDStackManager.m in Sources */,
 				499709B71DD5C23000352E8F /* XYDChatImageMessage.m in Sources */,
@@ -3398,6 +3615,7 @@
 				49896E991DD2C7BE006C50C9 /* UIImage+XYDFileName.m in Sources */,
 				49B088031DD01032003E6916 /* MWTapDetectingView.m in Sources */,
 				49B088541DD02A08003E6916 /* XYDBadgeButton.m in Sources */,
+				49B84B071DDAFDAA0014F219 /* XYDChatInputViewPluginLocation.m in Sources */,
 				49896E241DD2C7BE006C50C9 /* NSData+XYDGzip.m in Sources */,
 				49B087FA1DD01032003E6916 /* HttpTool.m in Sources */,
 				49896EC81DD2C7BE006C50C9 /* UIView+XYDConstraints.m in Sources */,
@@ -3423,18 +3641,19 @@
 				49D7FE3E1DD405960096B966 /* XYDChatKit.m in Sources */,
 				49896E411DD2C7BE006C50C9 /* NSNumber+XYDRound.m in Sources */,
 				49896E4D1DD2C7BE006C50C9 /* NSRunLoop+XYDPerformBlock.m in Sources */,
+				49B84ACA1DDA9C560014F219 /* XYDConversationQuery.m in Sources */,
 				49896E521DD2C7BE006C50C9 /* NSString+XYDEmoji.m in Sources */,
 				49B088001DD01032003E6916 /* MWPhoto.m in Sources */,
 				49896E5A1DD2C7BE006C50C9 /* NSString+XYDScore.m in Sources */,
 				49896E481DD2C7BE006C50C9 /* NSObject+XYDEasyCopy.m in Sources */,
 				49896E471DD2C7BE006C50C9 /* NSObject+XYDBlockTimer.m in Sources */,
 				49D7FE281DD3262B0096B966 /* MLTextAttachment.m in Sources */,
+				49B84B151DDB06490014F219 /* XYDLocationManager.m in Sources */,
 				49896E3E1DD2C7BE006C50C9 /* NSDecimalNumber+XYDExtensions.m in Sources */,
 				49896E5F1DD2C7BE006C50C9 /* NSString+XYDUUID.m in Sources */,
 				49896E781DD2C7BE006C50C9 /* UIBarButtonItem+XYDAction.m in Sources */,
 				49896EDA1DD2C7BE006C50C9 /* UIWebView+XYDCanvas.m in Sources */,
 				49D7FE461DD407A70096B966 /* XYDChatUIService.m in Sources */,
-				49E5C2B01DD5647300A32241 /* XYDInputViewPlugin.m in Sources */,
 				49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */,
 				49896E741DD2C7BE006C50C9 /* UIApplication+XYDApplicationSize.m in Sources */,
 				49896E6C1DD2C7BE006C50C9 /* MKMapView+XYDZoomLevel.m in Sources */,
@@ -3445,11 +3664,14 @@
 				49896E201DD2C7BE006C50C9 /* NSData+XYDAPNSToken.m in Sources */,
 				49896EC41DD2C7BE006C50C9 /* UITextView+XYDPlaceHolder.m in Sources */,
 				49896E871DD2C7BE006C50C9 /* UIColor+XYDHEX.m in Sources */,
+				49B84AEB1DDAE56B0014F219 /* XYDWebViewProgress.m in Sources */,
 				49896EBB1DD2C7BE006C50C9 /* UISplitViewController+XYDQuickAccess.m in Sources */,
+				49B84AC31DDA982F0014F219 /* XYDArchivedConversation.m in Sources */,
 				49896E561DD2C7BE006C50C9 /* NSString+XYDMIME.m in Sources */,
 				49896E381DD2C7BE006C50C9 /* NSHTTPCookieStorage+XYDFreezeDry.m in Sources */,
 				49B088051DD01032003E6916 /* UIImage+MWPhotoBrowser.m in Sources */,
 				49896E9A1DD2C7BE006C50C9 /* UIImage+XYDFXImage.m in Sources */,
+				49B84AD31DDAA1E30014F219 /* XYDConversation+Extionsion.m in Sources */,
 				49B0883C1DD016E5003E6916 /* AppDelegate.m in Sources */,
 				49896E5D1DD2C7BE006C50C9 /* NSString+XYDTrims.m in Sources */,
 				49896EDE1DD2C7BE006C50C9 /* UIWebView+XYDStyle.m in Sources */,
@@ -3457,11 +3679,13 @@
 				49896EB91DD2C7BE006C50C9 /* UIScrollView+XYDPages.m in Sources */,
 				49896E981DD2C7BE006C50C9 /* UIImage+XYDColor.m in Sources */,
 				49896E591DD2C7BE006C50C9 /* NSString+XYDRemoveEmoji.m in Sources */,
+				49B84B041DDAFD910014F219 /* XYDChatInputViewPluginTakePhoto.m in Sources */,
 				49896E391DD2C7BE006C50C9 /* NSIndexPath+XYDOffset.m in Sources */,
 				49B088421DD029A2003E6916 /* XYDTabBarControllerConfig.m in Sources */,
 				49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */,
 				49896E431DD2C7BE006C50C9 /* NSObject+XYDAppInfo.m in Sources */,
 				49896E751DD2C7BE006C50C9 /* UIApplication+XYDKeyboardFrame.m in Sources */,
+				49B84ADF1DDAB4A10014F219 /* XYDChatClientOpenOption.m in Sources */,
 				49896EB61DD2C7BE006C50C9 /* UIResponder+XYDFirstResponder.m in Sources */,
 				49896E841DD2C7BE006C50C9 /* UIButton+XYDSubmitting.m in Sources */,
 				49896E551DD2C7BE006C50C9 /* NSString+XYDMatcher.m in Sources */,
@@ -3601,6 +3825,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/RedpacketStaticLib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
@@ -3609,6 +3834,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/RedpacketStaticLib/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -3653,6 +3879,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/RedpacketStaticLib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
@@ -3661,6 +3888,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/VoiceLib",
+					"$(PROJECT_DIR)/HampooHomeClient/Vendors(第三方库)/RedpacketStaticLib/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

@@ -7,5 +7,6 @@ pod 'SDWebImage'
 pod 'Masonry'
 pod 'SSKeychain'
 pod 'MJRefresh'
+pod 'UITableView+FDTemplateLayoutCell'
 end
 

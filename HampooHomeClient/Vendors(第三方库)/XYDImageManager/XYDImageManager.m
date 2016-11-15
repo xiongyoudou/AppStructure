@@ -1,5 +1,5 @@
 //
-//  LCCKImageManager.m
+//  XYDChatImageManager.m
 //  Kuber
 //
 //  v0.8.0 Created by Kuber on 16/3/30.

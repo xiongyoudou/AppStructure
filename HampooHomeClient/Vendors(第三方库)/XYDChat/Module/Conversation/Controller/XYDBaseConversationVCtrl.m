@@ -17,11 +17,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 
 @interface XYDBaseConversationVCtrl ()
 
-/**
- *  显示聊天消息的主控件
- */
-@property (nonatomic, weak) UITableView *tableView;
-
 @end
 
 @implementation XYDBaseConversationVCtrl
@@ -50,12 +45,12 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     // KVO注册监听
     [self addObserver:self forKeyPath:@"loadingMoreMessage" options:NSKeyValueObservingOptionNew context:XYDBaseConversationViewControllerRefreshContext];
     __unsafe_unretained typeof(self) weakSelf = self;
-    // 注入dealloc时执行的具体操作
+//     注入dealloc时执行的具体操作
     [self xyd_executeAtDealloc:^{
         [weakSelf removeObserver:weakSelf forKeyPath:@"loadingMoreMessage"];
     }];
     
-    //[LCCKCellRegisterController registerChatMessageCellClassForTableView:self.tableView];
+    //[XYDChatCellRegisterController registerChatMessageCellClassForTableView:self.tableView];
     __weak __typeof(self) weakSelf_ = self;
     self.tableView.mj_header = [XYDConversationRefreshHeader headerWithRefreshingBlock:^{
         if (weakSelf_.shouldLoadMoreMessagesScrollToTop && !weakSelf_.loadingMoreMessage) {
@@ -135,13 +130,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 }
 
 #pragma mark - Previte Method
-
-//- (void)setIsUserScrolling:(BOOL)isUserScrolling {
-//    _isUserScrolling = isUserScrolling;
-//    if (isUserScrolling) {
-////        _allowScrollToBottom = NO;
-//    }
-//}
 
 
 #pragma mark - Getters

@@ -25,7 +25,7 @@
  *  @param ctrl  tableView所在的控制器
  *  @return 返回创建的tableView
  */
-+ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:( UIViewController <UITableViewDelegate,UITableViewDataSource> *)ctrl {
++ (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:(UIViewController *)ctrl {
     UITableView *tableView = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:style];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.backgroundColor = [UIColor clearColor];
@@ -35,8 +35,6 @@
         backgroundView.backgroundColor = tableView.backgroundColor;
         tableView.backgroundView = backgroundView;
     }
-    tableView.delegate = ctrl;
-    tableView.dataSource = ctrl;
     tableView.tableFooterView = [[UIView alloc] init];
     tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [ctrl.view addSubview:tableView];

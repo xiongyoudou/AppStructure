@@ -12,6 +12,7 @@
 
 @class XYDFile;
 @class XYDConversation;
+@class XYDConversationVCtrl;
 
 #pragma mark - Base ViewController Life Time Block
 ///=============================================================================
@@ -71,6 +72,62 @@ FOUNDATION_EXTERN NSMutableArray const * XYDChatInputViewPluginArray;
 static NSString *const XYDChatInputViewPluginTypeKey = @"XYDChatInputViewPluginTypeKey";
 static NSString *const XYDChatInputViewPluginClassKey = @"XYDChatInputViewPluginClassKey";
 
+
+/**
+ *  未读数改变了。通知去服务器同步 installation 的badge
+ */
+static NSString *const XYDChatNotificationUnreadsUpdated = @"XYDChatNotificationUnreadsUpdated";
+
+/**
+ *  消息到来了，通知聊天页面和最近对话页面刷新
+ */
+static NSString *const XYDChatNotificationMessageReceived = @"XYDChatNotificationMessageReceived";
+/**
+ *  消息到来了，通知聊天页面和最近对话页面刷新
+ */
+static NSString *const XYDChatNotificationCustomMessageReceived = @"XYDChatNotificationCustomMessageReceived";
+
+static NSString *const XYDChatNotificationCustomTransientMessageReceived = @"XYDChatNotificationCustomTransientMessageReceived";
+
+/**
+ *  消息到达对方了，通知聊天页面更改消息状态
+ */
+static NSString *const XYDChatNotificationMessageDelivered = @"XYDChatNotificationMessageDelivered";
+
+/**
+ *  对话的元数据变化了，通知页面刷新
+ */
+static NSString *const XYDChatNotificationConversationUpdated = @"XYDChatNotificationConversationUpdated";
+
+/**
+ *  聊天服务器连接状态更改了，通知最近对话和聊天页面是否显示红色警告条
+ */
+static NSString *const XYDChatNotificationConnectivityUpdated = @"XYDChatNotificationConnectivityUpdated";
+
+/**
+ * 会话失效，如当群被解散或当前用户不再属于该会话时，对应会话会失效应当被删除并且关闭聊天窗口
+ */
+static NSString *const XYDChatNotificationCurrentConversationInvalided = @"XYDChatNotificationCurrentConversationInvalided";
+
+/**
+ * 对话聊天背景切换
+ */
+static NSString *const XYDChatNotificationConversationViewControllerBackgroundImageDidChanged = @"XYDChatNotificationConversationViewControllerBackgroundImageDidChanged";
+
+static NSString *const XYDChatNotificationConversationViewControllerBackgroundImageDidChangedUserInfoConversationIdKey = @"XYDChatNotificationConversationViewControllerBackgroundImageDidChangedUserInfoConversationIdKey";
+
+
+static NSString *const XYDChatNotificationConversationInvalided = @"XYDChatNotificationConversationInvalided";
+static NSString *const XYDChatNotificationConversationListDataSourceUpdated = @"XYDChatNotificationConversationListDataSourceUpdated";
+static NSString *const XYDChatNotificationContactListDataSourceUpdated = @"XYDChatNotificationContactListDataSourceUpdated";
+
+static NSString *const XYDChatNotificationContactListDataSourceUpdatedUserInfoDataSourceKey = @"XYDChatNotificationContactListDataSourceUpdatedUserInfoDataSourceKey";
+
+static NSString *const XYDChatNotificationContactListDataSourceUserIdType = @"XYDChatNotificationContactListDataSourceUserIdType";
+static NSString *const XYDChatNotificationContactListDataSourceContactObjType = @"XYDChatNotificationContactListDataSourceContactObjType";
+static NSString *const XYDChatNotificationContactListDataSourceUpdatedUserInfoDataSourceTypeKey = @"XYDChatNotificationContactListDataSourceUpdatedUserInfoDataSourceTypeKey";
+
+#pragma mark - 枚举类型定义
 
 /**
  *  默认插件的类型定义
@@ -170,6 +227,29 @@ typedef enum : NSUInteger {
     XYDChatMessageHUDActionTypeSuccess
 } XYDChatMessageHUDActionType;
 
+/* Cache policy */
+typedef NS_ENUM(int, XYDChatCachePolicy) {
+    /* Query from server and do not save result to local cache. */
+    XYDChatCachePolicyIgnoreCache = 0,
+    
+    /* Only query from local cache. */
+    XYDChatCachePolicyCacheOnly,
+    
+    /* Only query from server, and save result to local cache. */
+    XYDChatCachePolicyNetworkOnly,
+    
+    /* Firstly query from local cache, if fails, query from server. */
+    XYDChatCachePolicyCacheElseNetwork,
+    
+    /* Firstly query from server, if fails, query local cache. */
+    XYDChatCachePolicyNetworkElseCache,
+    
+    /* Firstly query from local cache, then query from server. The callback will be called twice. */
+    XYDChatCachePolicyCacheThenNetwork,
+};
+
+static NSString *const XYDChatBadgeTextForNumberGreaterThanLimit = @"···";
+
 static NSInteger const kXYDChatOnePageSize = 10;
 static NSString *const XYDChat_CONVERSATION_TYPE = @"type";
 static NSString *const XYDChatInstallationKeyChannels = @"channels";
@@ -183,7 +263,14 @@ static NSString *const XYDChatDidReceiveCustomMessageUserInfoMessageKey = @"rece
 //整数或小数
 #define XYDChat_TIMESTAMP_REGEX @"^[0-9]*(.)?[0-9]*$"
 
+#pragma mark - 自定义UI行为
+///=============================================================================
+/// @name 自定义UI行为
+///=============================================================================
 // 通用动画时间
 static CGFloat const XYDChatAnimateDuration = .25f;
+static NSString *const XYDChatCustomConversationViewControllerBackgroundImageNamePrefix = @"CONVERSATION_BACKGROUND_";
+static NSString *const XYDChatDefaultConversationViewControllerBackgroundImageName = @"CONVERSATION_BACKGROUND_ALL";
+
 
 #endif /* XYDChatConstant_h */

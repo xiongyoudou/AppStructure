@@ -13,14 +13,14 @@
 /**
  *  预览表情显示的View
  */
-@interface LCCKFacePreviewView : UIView
+@interface XYDChatFacePreviewView : UIView
 
 @property (weak, nonatomic) UIImageView *faceImageView /**< 展示face表情的 */;
 @property (weak, nonatomic) UIImageView *backgroundImageView /**< 默认背景 */;
 
 @end
 
-@implementation LCCKFacePreviewView
+@implementation XYDChatFacePreviewView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -69,7 +69,7 @@
 @interface XYDEmotionPageView ()
 
 @property (nonatomic, strong) NSMutableArray *imageViews;
-@property (nonatomic, strong) LCCKFacePreviewView *facePreviewView;
+@property (nonatomic, strong) XYDChatFacePreviewView *facePreviewView;
 
 @end
 
@@ -199,9 +199,9 @@
 
 #pragma mark - Getters
 
-- (LCCKFacePreviewView *)facePreviewView {
+- (XYDChatFacePreviewView *)facePreviewView {
     if (!_facePreviewView) {
-        _facePreviewView = [[LCCKFacePreviewView alloc] initWithFrame:CGRectZero];
+        _facePreviewView = [[XYDChatFacePreviewView alloc] initWithFrame:CGRectZero];
     }
     return _facePreviewView;
 }
