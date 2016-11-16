@@ -26,12 +26,14 @@
 @synthesize inputViewRef = _inputViewRef;
 @synthesize sendCustomMessageHandler = _sendCustomMessageHandler;
 
+// 首先该类是作为自定义的“插件”存在的，所以为了将“红包”插件显示在“更多面板中”，就开业实现此load方法
+// load方法会自动在程序开始运行的时候调用
 + (void)load {
     [self registerSubclass];
 }
 
 + (XYDChatInputViewPluginType)classPluginType {
-    return 3;
+    return XYDChatInputViewPluginTypeRedPacket;
 }
 
 #pragma mark -
@@ -124,7 +126,7 @@
 #pragma mark - Private Methods
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
-    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"RedpacketResource" bundleForClass:[self class]];
+    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"RedpacketCellResource" bundleForClass:[self class]];
     return image;
 }
 

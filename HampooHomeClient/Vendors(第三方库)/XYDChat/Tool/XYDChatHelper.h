@@ -25,5 +25,6 @@
                         messageType:(XYDChatMessageMediaType)messageMediaType
                       isHighlighted:(BOOL)isHighlighted;
 - (NSString *)pathForConversationBackgroundImageWithStr:(NSString *)str;
++ (void)registerChatMessageCellClassForTableView:(UITableView *)tableView;
 
 @end

@@ -9,7 +9,7 @@
 #import "XYDConversation+Extionsion.h"
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
-#import "XYDUserDelegate.h"
+#import "XYDChatUserDelegate.h"
 
 @implementation XYDConversation (Extionsion)
 

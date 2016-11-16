@@ -8,8 +8,6 @@
 
 #import "XYDChatInputViewPlugin.h"
 
-static XYDChatInputViewPluginType const XYDChatInputViewPluginTypeConverBackground = 2;
-
 @interface XYDChatInputViewPluginConvBackground : XYDChatInputViewPlugin<XYDChatInputViewPluginSubclassing>
 
 @end

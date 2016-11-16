@@ -387,6 +387,9 @@
 		49B84B2F1DDB0F050014F219 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B2E1DDB0F050014F219 /* CoreTelephony.framework */; };
 		49B84B311DDB0FB00014F219 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B301DDB0FB00014F219 /* SystemConfiguration.framework */; };
 		49B84B3B1DDB100F0014F219 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B84B3A1DDB100F0014F219 /* libc++.tbd */; };
+		49B84B3D1DDBE24C0014F219 /* RedpacketCellResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49B84B3C1DDBE24C0014F219 /* RedpacketCellResource.bundle */; };
+		49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */; };
+		49B84B431DDC08D60014F219 /* XYDChatUserSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */; };
 		49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */; };
 		49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */; };
 		49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */; };
@@ -409,7 +412,7 @@
 		49D7FA6C1DD309280096B966 /* Placeholder.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49D7FA501DD309280096B966 /* Placeholder.bundle */; };
 		49D7FA6D1DD309280096B966 /* VoiceMessageSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49D7FA511DD309280096B966 /* VoiceMessageSource.bundle */; };
 		49D7FA6E1DD309280096B966 /* XYDChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA541DD309280096B966 /* XYDChatHelper.m */; };
-		49D7FA6F1DD309280096B966 /* XYDChatSwipeVie.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */; };
+		49D7FA6F1DD309280096B966 /* XYDChatSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA571DD309280096B966 /* XYDChatSwipeView.m */; };
 		49D7FA721DD309850096B966 /* XYDChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA711DD309850096B966 /* XYDChatMessageCell.m */; };
 		49D7FA751DD309E50096B966 /* XYDChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA741DD309E50096B966 /* XYDChatImageMessageCell.m */; };
 		49D7FA781DD30A060096B966 /* XYDChatLocationMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA771DD30A060096B966 /* XYDChatLocationMessageCell.m */; };
@@ -433,7 +436,7 @@
 		49D7FE431DD407010096B966 /* XYDChatSettingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE421DD407010096B966 /* XYDChatSettingService.m */; };
 		49D7FE461DD407A70096B966 /* XYDChatUIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE451DD407A70096B966 /* XYDChatUIService.m */; };
 		49D7FE491DD407B70096B966 /* XYDChatSessionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE481DD407B70096B966 /* XYDChatSessionService.m */; };
-		49D7FE4C1DD407D90096B966 /* XYDChatConversationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */; };
+		49D7FE4C1DD407D90096B966 /* XYDConversationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE4B1DD407D90096B966 /* XYDConversationService.m */; };
 		49D7FE521DD40C840096B966 /* XYDChatContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE511DD40C840096B966 /* XYDChatContentView.m */; };
 		49D7FE581DD418760096B966 /* XYDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE571DD418760096B966 /* XYDAudioPlayer.m */; };
 		49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */; };
@@ -1137,6 +1140,11 @@
 		49B84B361DDB0FEA0014F219 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B84B381DDB0FF20014F219 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		49B84B3A1DDB100F0014F219 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		49B84B3C1DDBE24C0014F219 /* RedpacketCellResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RedpacketCellResource.bundle; sourceTree = "<group>"; };
+		49B84B3E1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XYDisFirstLaunch.h"; sourceTree = "<group>"; };
+		49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XYDisFirstLaunch.m"; sourceTree = "<group>"; };
+		49B84B411DDC08D60014F219 /* XYDChatUserSystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatUserSystemService.h; sourceTree = "<group>"; };
+		49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatUserSystemService.m; sourceTree = "<group>"; };
 		49D7FA261DD309280096B966 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
 		49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
 		49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
@@ -1174,7 +1182,7 @@
 		49D7FA531DD309280096B966 /* XYDChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatHelper.h; sourceTree = "<group>"; };
 		49D7FA541DD309280096B966 /* XYDChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatHelper.m; sourceTree = "<group>"; };
 		49D7FA561DD309280096B966 /* XYDChatSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSwipeView.h; sourceTree = "<group>"; };
-		49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSwipeVie.m; sourceTree = "<group>"; };
+		49D7FA571DD309280096B966 /* XYDChatSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSwipeView.m; sourceTree = "<group>"; };
 		49D7FA701DD309850096B966 /* XYDChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessageCell.h; sourceTree = "<group>"; };
 		49D7FA711DD309850096B966 /* XYDChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMessageCell.m; sourceTree = "<group>"; };
 		49D7FA731DD309E50096B966 /* XYDChatImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatImageMessageCell.h; sourceTree = "<group>"; };
@@ -1214,7 +1222,7 @@
 		49D7FE211DD3262B0096B966 /* MLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLabel.m; sourceTree = "<group>"; };
 		49D7FE221DD3262B0096B966 /* MLLinkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLinkLabel.h; sourceTree = "<group>"; };
 		49D7FE231DD3262B0096B966 /* MLLinkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLinkLabel.m; sourceTree = "<group>"; };
-		49D7FE321DD329D70096B966 /* XYDUserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDUserDelegate.h; sourceTree = "<group>"; };
+		49D7FE321DD329D70096B966 /* XYDChatUserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatUserDelegate.h; sourceTree = "<group>"; };
 		49D7FE341DD3FA490096B966 /* XYDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDSingleton.h; sourceTree = "<group>"; };
 		49D7FE351DD3FA490096B966 /* XYDSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDSingleton.m; sourceTree = "<group>"; };
 		49D7FE3C1DD405960096B966 /* XYDChatKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatKit.h; sourceTree = "<group>"; };
@@ -1226,8 +1234,8 @@
 		49D7FE451DD407A70096B966 /* XYDChatUIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatUIService.m; sourceTree = "<group>"; };
 		49D7FE471DD407B70096B966 /* XYDChatSessionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatSessionService.h; sourceTree = "<group>"; };
 		49D7FE481DD407B70096B966 /* XYDChatSessionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSessionService.m; sourceTree = "<group>"; };
-		49D7FE4A1DD407D90096B966 /* XYDChatConversationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatConversationService.h; sourceTree = "<group>"; };
-		49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatConversationService.m; sourceTree = "<group>"; };
+		49D7FE4A1DD407D90096B966 /* XYDConversationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationService.h; sourceTree = "<group>"; };
+		49D7FE4B1DD407D90096B966 /* XYDConversationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationService.m; sourceTree = "<group>"; };
 		49D7FE501DD40C840096B966 /* XYDChatContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatContentView.h; sourceTree = "<group>"; };
 		49D7FE511DD40C840096B966 /* XYDChatContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatContentView.m; sourceTree = "<group>"; };
 		49D7FE561DD418760096B966 /* XYDAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDAudioPlayer.h; sourceTree = "<group>"; };
@@ -1700,6 +1708,8 @@
 				49896CB51DD2C7BD006C50C9 /* NSObject+XYDReflection.m */,
 				49896CB61DD2C7BD006C50C9 /* NSObject+XYDRuntime.h */,
 				49896CB71DD2C7BD006C50C9 /* NSObject+XYDRuntime.m */,
+				49B84B3E1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.h */,
+				49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -2842,6 +2852,7 @@
 		49B84B1F1DDB0AC50014F219 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				49B84B3C1DDBE24C0014F219 /* RedpacketCellResource.bundle */,
 				49B84B201DDB0AC50014F219 /* RedPacketResource.bundle */,
 			);
 			path = resources;
@@ -2912,7 +2923,7 @@
 				49D7FE021DD3198A0096B966 /* Geo */,
 				49D7FA2B1DD309280096B966 /* XYDConversationViewModel.h */,
 				49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */,
-				49D7FE321DD329D70096B966 /* XYDUserDelegate.h */,
+				49D7FE321DD329D70096B966 /* XYDChatUserDelegate.h */,
 				49E5C2B21DD5734D00A32241 /* XYDConversation.h */,
 				49E5C2B31DD5734D00A32241 /* XYDConversation.m */,
 				49B84AD11DDAA1E30014F219 /* XYDConversation+Extionsion.h */,
@@ -3051,7 +3062,7 @@
 			isa = PBXGroup;
 			children = (
 				49D7FA561DD309280096B966 /* XYDChatSwipeView.h */,
-				49D7FA571DD309280096B966 /* XYDChatSwipeVie.m */,
+				49D7FA571DD309280096B966 /* XYDChatSwipeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3148,8 +3159,10 @@
 				49D7FE451DD407A70096B966 /* XYDChatUIService.m */,
 				49D7FE471DD407B70096B966 /* XYDChatSessionService.h */,
 				49D7FE481DD407B70096B966 /* XYDChatSessionService.m */,
-				49D7FE4A1DD407D90096B966 /* XYDChatConversationService.h */,
-				49D7FE4B1DD407D90096B966 /* XYDChatConversationService.m */,
+				49D7FE4A1DD407D90096B966 /* XYDConversationService.h */,
+				49D7FE4B1DD407D90096B966 /* XYDConversationService.m */,
+				49B84B411DDC08D60014F219 /* XYDChatUserSystemService.h */,
+				49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -3263,6 +3276,7 @@
 				49B087F71DD01032003E6916 /* Info.plist in Resources */,
 				49B0890D1DD0690B003E6916 /* tab_upload_h@2x.png in Resources */,
 				49B088141DD01033003E6916 /* ImageSelectedSmallOn.png in Resources */,
+				49B84B3D1DDBE24C0014F219 /* RedpacketCellResource.bundle in Resources */,
 				49B088261DD01033003E6916 /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				49B0880C1DD01032003E6916 /* ImageSelectedOff@2x.png in Resources */,
 				49B088EF1DD0690B003E6916 /* 3_launch-4h@2x.png in Resources */,
@@ -3442,7 +3456,7 @@
 				49896EA01DD2C7BE006C50C9 /* UIImage+XYDRoundedCorner.m in Sources */,
 				49B088041DD01032003E6916 /* MWZoomingScrollView.m in Sources */,
 				49B087FB1DD01032003E6916 /* ImageTool.m in Sources */,
-				49D7FE4C1DD407D90096B966 /* XYDChatConversationService.m in Sources */,
+				49D7FE4C1DD407D90096B966 /* XYDConversationService.m in Sources */,
 				49896E7D1DD2C7BE006C50C9 /* UIBezierPath+XYDThroughPointsBezier.m in Sources */,
 				49896ED61DD2C7BE006C50C9 /* UIViewController+XYDRecursiveDescription.m in Sources */,
 				49896E2C1DD2C7BE006C50C9 /* NSDate+XYDReporting.m in Sources */,
@@ -3551,6 +3565,7 @@
 				49896E861DD2C7BE006C50C9 /* UIColor+XYDGradient.m in Sources */,
 				49896E621DD2C7BE006C50C9 /* NSTimer+XYDBlocks.m in Sources */,
 				49B84B101DDB059A0014F219 /* XYDChatLocationController.m in Sources */,
+				49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */,
 				49896E1D1DD2C7BE006C50C9 /* NSArray+XYDBlock.m in Sources */,
 				49B087F81DD01032003E6916 /* main.m in Sources */,
 				49B84B0A1DDAFDD10014F219 /* XYDChatInputViewPluginChange.m in Sources */,
@@ -3601,6 +3616,7 @@
 				49896E9E1DD2C7BE006C50C9 /* UIImage+XYDRemoteSize.m in Sources */,
 				49B088571DD02A08003E6916 /* XYDTabBar.m in Sources */,
 				49896E651DD2C7BE006C50C9 /* NSURLConnection+XYDSelfSigned.m in Sources */,
+				49B84B431DDC08D60014F219 /* XYDChatUserSystemService.m in Sources */,
 				49D7FE241DD3262B0096B966 /* NSAttributedString+MLLabel.m in Sources */,
 				49B84AF51DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m in Sources */,
 				49D7FE091DD3198A0096B966 /* XYDGeoPoint.m in Sources */,
@@ -3624,7 +3640,7 @@
 				49896E791DD2C7BE006C50C9 /* UIBezierPath+XYDBasicShapes.m in Sources */,
 				49896E531DD2C7BE006C50C9 /* NSString+XYDEncrypt.m in Sources */,
 				499709BA1DD5C25200352E8F /* XYDChatLocationMessage.m in Sources */,
-				49D7FA6F1DD309280096B966 /* XYDChatSwipeVie.m in Sources */,
+				49D7FA6F1DD309280096B966 /* XYDChatSwipeView.m in Sources */,
 				49896E231DD2C7BE006C50C9 /* NSData+XYDEncrypt.m in Sources */,
 				49896EDB1DD2C7BE006C50C9 /* UIWebView+XYDJavaScript.m in Sources */,
 				49B088391DD016E5003E6916 /* AppDelegate+AppLifeCircle.m in Sources */,

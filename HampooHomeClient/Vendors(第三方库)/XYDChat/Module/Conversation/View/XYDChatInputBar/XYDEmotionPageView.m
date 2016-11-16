@@ -112,8 +112,11 @@
         }
     } else {
         //计算每个item的大小
-        //        CGFloat itemWidth = MIN((self.frame.size.width - 40) / (self.columnsPerRow), self.frame.size.height/2);
         CGFloat itemWidth = (self.frame.size.width - 40) / self.columnsPerRow;
+        CGFloat rows = ceil(self.datas.count / (float)self.columnsPerRow); // 总共几行
+        CGFloat topMargin = 10;
+        CGFloat bottomMargin = 20;
+        CGFloat rowMargin = (self.frame.size.height - rows * itemWidth - topMargin - bottomMargin) / (rows - 1);
         NSUInteger currentColumn = 0;
         NSUInteger currentRow = 0;
         for (NSDictionary *faceDict in self.datas) {
@@ -123,8 +126,9 @@
             }
             //计算每一个图片的起始X位置 10(左边距) + 第几列*itemWidth + 第几页*一页的宽度
             CGFloat startX = 20 + currentColumn * itemWidth;
+            
             //计算每一个图片的起始Y位置  第几行*每行高度
-            CGFloat startY = currentRow * itemWidth;
+            CGFloat startY = (currentRow == 0) ? topMargin : (currentRow * (itemWidth + rowMargin) + topMargin);
             
             UIImageView *imageView = [self faceImageViewWithID:faceDict[kEmotionIDKey]];
             [imageView setFrame:CGRectMake(startX, startY, itemWidth, itemWidth)];

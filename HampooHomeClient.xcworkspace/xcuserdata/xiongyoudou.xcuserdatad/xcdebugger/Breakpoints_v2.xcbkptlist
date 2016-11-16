@@ -51,22 +51,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatInputBar/XYDChatMoreView.m"
-            timestampString = "500889148.548163"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "-setupItems"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatInputBar/XYDInputViewPlugin.m"
             timestampString = "500889553.95492"
             startingColumnNumber = "9223372036854775807"
@@ -74,38 +58,6 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "+registerClass:forMediaType:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatInputBar/InputViewPlugin/XYDChatInputViewPluginRedPacket.m"
-            timestampString = "500896106.745794"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-pluginIconImage"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatInputBar/InputViewPlugin/XYDChatInputViewPluginRedPacket.m"
-            timestampString = "500896408.234101"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-imageInBundlePathForImageName:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

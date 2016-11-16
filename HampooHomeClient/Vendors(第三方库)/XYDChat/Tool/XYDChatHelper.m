@@ -11,6 +11,7 @@
 #import "XYDImageManager.h"
 #import "NSBundle+XYDExtionsion.h"
 #import "XYDChatSettingService.h"
+#import "XYDChatSystemMessageCell.h"
 
 @implementation XYDChatHelper
 
@@ -84,7 +85,7 @@
 
 + (NSString *)getPathForConversationBackgroundImage {
     /*
-    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager xyd_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDChatConversationService sharedInstance].currentConversation.conversationId];
+    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager xyd_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDConversationService sharedInstance].currentConversation.conversationId];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -196,7 +197,7 @@
 }
 
 - (NSString *)pathForConversationBackgroundImageWithStr:(NSString *)str {
-//    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager XYDChat_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDChatConversationService sharedInstance].currentConversation.conversationId];
+//    NSString *path = [NSString stringWithFormat:@"%@/APP/%@/User/%@/Conversation/%@/Background/", [NSFileManager XYDChat_documentsPath], [XYDChatKit sharedInstance].appId,[XYDChatSessionService sharedInstance].clientId, [XYDConversationService sharedInstance].currentConversation.conversationId];
     NSString *path = nil;
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
@@ -206,6 +207,38 @@
         }
     }
     return [path stringByAppendingString:str];
+}
+
+#pragma mark - 注册messageCell
++ (void)registerChatMessageCellClassForTableView:(UITableView *)tableView {
+    [XYDChatChatMessageCellMediaTypeDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull mediaType, Class _Nonnull aClass, BOOL * _Nonnull stop) {
+        if (mediaType.intValue != XYDChatMessageMediaTypeSystem) {
+            [self registerMessageCellClass:aClass ForTableView:tableView];
+        }
+    }];
+    [self registerSystemMessageCellClassForTableView:tableView];
+}
+
++ (void)registerMessageCellClass:(Class)messageCellClass ForTableView:(UITableView *)tableView  {
+    NSString *messageCellClassString = NSStringFromClass(messageCellClass);
+    UINib *nib = [UINib nibWithNibName:messageCellClassString bundle:nil];
+    if([[NSBundle mainBundle] pathForResource:messageCellClassString ofType:@"nib"] != nil) {
+        [tableView registerNib:nib forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerSelf, XYDChatCellIdentifierGroup]];
+        [tableView registerNib:nib forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerSelf, XYDChatCellIdentifierSingle]];
+        [tableView registerNib:nib forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerOther, XYDChatCellIdentifierGroup]];
+        [tableView registerNib:nib forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerOther , XYDChatCellIdentifierSingle]];
+    } else {
+        [tableView registerClass:messageCellClass forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerSelf, XYDChatCellIdentifierGroup]];
+        [tableView registerClass:messageCellClass forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerSelf, XYDChatCellIdentifierSingle]];
+        [tableView registerClass:messageCellClass forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerOther, XYDChatCellIdentifierGroup]];
+        [tableView registerClass:messageCellClass forCellReuseIdentifier:[NSString stringWithFormat:@"%@_%@_%@", messageCellClassString, XYDChatCellIdentifierOwnerOther , XYDChatCellIdentifierSingle]];
+    }
+}
+
+// 因为系统消息不分自己发送，还是别人发送，是不具有发送人信息的！
++ (void)registerSystemMessageCellClassForTableView:(UITableView *)tableView {
+    [tableView registerClass:[XYDChatSystemMessageCell class] forCellReuseIdentifier:@"XYDChatSystemMessageCell_XYDChatCellIdentifierOwnerSystem_XYDChatCellIdentifierSingle"];
+    [tableView registerClass:[XYDChatSystemMessageCell class] forCellReuseIdentifier:@"XYDChatSystemMessageCell_XYDChatCellIdentifierOwnerSystem_XYDChatCellIdentifierGroup"];
 }
 
 @end

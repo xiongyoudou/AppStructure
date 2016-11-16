@@ -10,9 +10,10 @@
 #import "XYDChatInputBarDelegate.h"
 #import "XYDChatMessageCell.h"
 #import "XYDConversationViewModel.h"
-#import "XYDChatConversationService.h"
+#import "XYDConversationService.h"
 #import "XYDChatSessionService.h"
-#import "XYDUserDelegate.h"
+#import "XYDChatUserSystemService.h"
+#import "XYDChatUserDelegate.h"
 #import "XYDConversation.h"
 #import "XYDChatInputBar.h"
 #import "XYDChatStatusView.h"
@@ -20,8 +21,9 @@
 #import "XYDConversation+Extionsion.h"
 #import "XYDAudioPlayer.h"
 #import "XYDChatMessage.h"
-#import "XYDUserDelegate.h"
+#import "XYDChatUserDelegate.h"
 #import "XYDWebViewController.h"
+#import "XYDChatMessage.h"
 
 NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDomain";
 
@@ -31,7 +33,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //@property (copy, nonatomic) NSString *messageSender /**< 正在聊天的用户昵称 */;
 //@property (copy, nonatomic) NSString *XYDChatatarURL /**< 正在聊天的用户头像 */;
 /**< 正在聊天的用户 */
-@property (nonatomic, copy) id<XYDUserDelegate> user;
+@property (nonatomic, copy) id<XYDChatUserDelegate> user;
 /**< 正在聊天的用户clientId */
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, strong) XYDConversationViewModel *chatViewModel;
@@ -58,6 +60,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 #pragma mark -
 #pragma mark - initialization Method
 
+// 通过会话id初始化会话
 - (instancetype)initWithConversationId:(NSString *)conversationId {
     self = [super init];
     if (!self) {
@@ -68,6 +71,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     return self;
 }
 
+// 指定与某人进行会话
 - (instancetype)initWithPeerId:(NSString *)peerId {
     self = [super init];
     if (!self) {
@@ -78,6 +82,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     return self;
 }
 
+// 是否会话已存在
 - (XYDConversation *)getConversationIfExists {
     if (_conversation) {
         return _conversation;
@@ -85,62 +90,61 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     return nil;
 }
 
-/**
- *  lazy load conversation
- *
- *  @return XYDConversation
- */
+
+// conversation懒加载
 - (XYDConversation *)conversation {
-    if (_conversation) { return _conversation; }
+    if (_conversation) {
+        return _conversation;
+    }
     do {
         /* If object is clean, ignore sXYDChate request. */
         if (_peerId) {
-//            [[XYDChatConversationService sharedInstance] fecthConversationWithPeerId:self.peerId callback:^(XYDConversation *conversation, NSError *error) {
-//                //SDK没有好友观念，任何两个ID均可会话，请APP层自行处理好友关系。
-//                [self refreshConversation:conversation isJoined:YES error:error];
-//            }];
+            [[XYDConversationService sharedInstance] fecthConversationWithPeerId:self.peerId callback:^(XYDConversation *conversation, NSError *error) {
+                //SDK没有好友观念，任何两个ID均可会话，请APP层自行处理好友关系。
+                [self refreshConversation:conversation isJoined:YES error:error];
+            }];
             break;
         }
         /* If object is clean, ignore sXYDChate request. */
         if (_conversationId) {
-//            [[XYDChatConversationService sharedInstance] fecthConversationWithConversationId:self.conversationId callback:^(XYDConversation *conversation, NSError *error) {
-//                if (error) {
-//                    //如果用户已经已经被踢出群，此时依然能拿到 Conversation 对象，不会报 4401 错误，需要单独判断。即使后期服务端在这种情况下返回error，这里依然能正确处理。
-//                    [self refreshConversation:conversation isJoined:NO error:error];
-//                    return;
-//                }
-//                NSString *currentClientId = [XYDChatSessionService sharedInstance].clientId;
-//                //系统对话无成员概念，对应字段的优先顺序 sys > tr > memeber
-//                if (conversation.members.count == 0 && (!conversation.transient)) {
-//                    [self refreshConversation:conversation isJoined:YES];
-//                    return;
-//                }
-//                BOOL containsCurrentClientId = [conversation.members containsObject:currentClientId];
-//                if (containsCurrentClientId) {
-//                    [self refreshConversation:conversation isJoined:YES];
-//                    return;
-//                }
-//                if (self.isEnableAutoJoin) {
-//                    [conversation joinWithCallback:^(BOOL succeeded, NSError *error) {
-//                        [self refreshConversation:conversation isJoined:succeeded error:error];
-//                        if (succeeded) {
-//                            self.firstTimeJoinGroup = YES;
-//                        }
-//                    }];
-//                } else {
-//                    NSInteger code = 4401;
-//                    //错误码参考：https://leancloud.cn/docs/realtime_v2.html#%E4%BA%91%E7%AB%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%AF%B4%E6%98%8E
-//                    NSString *errorReasonText = @"INVALID_MESSAGING_TARGET 您已被被管理员移除该群";
-//                    NSDictionary *errorInfo = @{
-//                                                @"code":@(code),
-//                                                NSLocalizedDescriptionKey : errorReasonText,
-//                                                };
-//                    NSError *error_ = [NSError errorWithDomain:NSStringFromClass([self class])
-//                                                          code:code
-//                                                      userInfo:errorInfo];
-//                    [self refreshConversation:conversation isJoined:NO error:error_];
-//                }
-//            }];
+            [[XYDConversationService sharedInstance] fecthConversationWithConversationId:self.conversationId callback:^(XYDConversation *conversation, NSError *error) {
+                if (error) {
+                    //如果用户已经已经被踢出群，此时依然能拿到 Conversation 对象，不会报 4401 错误，需要单独判断。即使后期服务端在这种情况下返回error，这里依然能正确处理。
+                    [self refreshConversation:conversation isJoined:NO error:error];
+                    return;
+                }
+                NSString *currentClientId = [XYDChatSessionService sharedInstance].clientId;
+                //系统对话无成员概念，对应字段的优先顺序 sys > tr > memeber
+                if (conversation.members.count == 0 && (!conversation.transient)) {
+                    [self refreshConversation:conversation isJoined:YES];
+                    return;
+                }
+                BOOL containsCurrentClientId = [conversation.members containsObject:currentClientId];
+                if (containsCurrentClientId) {
+                    [self refreshConversation:conversation isJoined:YES];
+                    return;
+                }
+                if (self.isEnableAutoJoin) {
+                    [conversation joinWithCallback:^(BOOL succeeded, NSError *error) {
+                        [self refreshConversation:conversation isJoined:succeeded error:error];
+                        if (succeeded) {
+                            self.firstTimeJoinGroup = YES;
+                        }
+                    }];
+                } else {
+                    NSInteger code = 4401;
+                    //错误码参考：https://leancloud.cn/docs/realtime_v2.html#%E4%BA%91%E7%AB%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%AF%B4%E6%98%8E
+                    NSString *errorReasonText = @"INVALID_MESSAGING_TARGET 您已被被管理员移除该群";
+                    NSDictionary *errorInfo = @{
+                                                @"code":@(code),
+                                                NSLocalizedDescriptionKey : errorReasonText,
+                                                };
+                    NSError *error_ = [NSError errorWithDomain:NSStringFromClass([self class])
+                                                          code:code
+                                                      userInfo:errorInfo];
+                    [self refreshConversation:conversation isJoined:NO error:error_];
+                }
+            }];
             break;
         }
     } while (NO);
@@ -153,15 +157,15 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     self.allowScrollToBottom = YES;
     self.loadingMoreMessage = NO;
     self.disableTextShowInFullScreen = NO;
-//    BOOL clientStatusOpened = [XYDChatSessionService sharedInstance].client.status == XYDChatIMClientStatusOpened;
-//    if (!clientStatusOpened) {
-//        [self refreshConversation:nil isJoined:NO];
-//        [[XYDChatSessionService sharedInstance] reconnectForViewController:self callback:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                [self conversation];
-//            }
-//        }];
-//    }
+    BOOL clientStatusOpened = [XYDChatSessionService sharedInstance].client.status == XYDChatClientStatusOpened;
+    if (!clientStatusOpened) {
+        [self refreshConversation:nil isJoined:NO];
+        [[XYDChatSessionService sharedInstance] reconnectForViewController:self callback:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self conversation];
+            }
+        }];
+    }
 }
 
 #ifdef CYLDebugging
@@ -176,9 +180,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 
 
 /**
- *  lazy load chatViewModel
- *
- *  @return XYDConversationViewModel
+ *  lazy load chatViewModel，处理聊天相关的一些业务逻辑的封装
  */
 - (XYDConversationViewModel *)chatViewModel {
     if (_chatViewModel == nil) {
@@ -192,6 +194,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan = NO;
+    // 将tableview的代理和数据源协议都让XYDConversationViewModel去处理
     self.tableView.delegate = self.chatViewModel;
     self.tableView.dataSource = self.chatViewModel;
     self.chatBar.delegate = self;
@@ -199,25 +202,22 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     [self.view addSubview:self.clientStatusView];
     [self updateStatusView];
     [self initBarButton];
-//    [[XYDChatUserSystemService sharedInstance] fetchCurrentUserInBackground:^(id<XYDChatUserDelegate> user, NSError *error) {
-//        self.user = user;
-//    }];
+    [[XYDChatUserSystemService sharedInstance] fetchCurrentUserInBackground:^(id<XYDChatUserDelegate> user, NSError *error) {
+        self.user = user;
+    }];
     [self.chatViewModel setDefaultBackgroundImage];
     self.navigationItem.title = @"聊天";
-//    !self.viewDidLoadBlock ?: self.viewDidLoadBlock(self);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self conversation];
-//    !self.viewWillAppearBlock ?: self.viewWillAppearBlock(self, animated);
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.chatBar open];
     [self sXYDChateCurrentConversationInfoIfExists];
-//    !self.viewDidAppearBlock ?: self.viewDidAppearBlock(self, animated);
 }
 
 - (void)loadDraft {
@@ -231,54 +231,55 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     [self.chatBar close];
     NSString *conversationId = [self getConversationIdIfExists:nil];
     if (conversationId) {
-//        [[XYDChatConversationService sharedInstance] updateDraft:self.chatBar.cachedText conversationId:conversationId];
+        [[XYDConversationService sharedInstance] updateDraft:self.chatBar.cachedText conversationId:conversationId];
     }
     [self clearCurrentConversationInfo];
     [[XYDAudioPlayer sharePlayer] stopAudioPlayer];
     [XYDAudioPlayer sharePlayer].identifier = nil;
     [XYDAudioPlayer sharePlayer].URLString = nil;
-//    !self.viewWillDisappearBlock ?: self.viewWillDisappearBlock(self, animated);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-//    if (_conversation && (self.chatViewModel.XYDChatMessage.count > 0)) {
-//        [[XYDChatConversationService sharedInstance] updateConversationAsRead];
-//    }
-//    !self.viewDidDisappearBlock ?: self.viewDidDisappearBlock(self, animated);
+    if (_conversation && (self.chatViewModel.dataArray.count > 0)) {
+        [[XYDConversationService sharedInstance] updateConversationAsRead];
+    }
 }
 
 - (void)dealloc {
     _chatViewModel.delegate = nil;
-//    !self.viewControllerWillDeallocBlock ?: self.viewControllerWillDeallocBlock(self);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-//    !self.didReceiveMemoryWarningBlock ?: self.didReceiveMemoryWarningBlock(self);
 }
 
 #pragma mark -
-#pragma mark - public Methods
+#pragma mark - 消息发送
 
+#pragma mark - 发送文字消息
 - (void)sendTextMessage:(NSString *)text {
     if ([text length] > 0 ) {
-//        XYDChatMessage *XYDChatMessage = [[XYDChatMessage alloc] initWithText:text
-//                                                            senderId:self.userId
-//                                                              sender:self.user
-//                                                           timestamp:XYDChat_CURRENT_TIMESTAMP
-//                                                     serverMessageId:nil];
-//        [self makeSureSendValidMessage:XYDChatMessage afterFetchedConversationShouldWithAssert:NO];
-//        [self.chatViewModel sendMessage:XYDChatMessage];
+        // 生成消息
+        XYDChatMessage *message = [[XYDChatMessage alloc]initWithText:text toUserId:@"13"];
+        
+        // 交由chatViewModel处理消息的发送事件
+        [self.chatViewModel sendMessage:message];
     }
 }
 
+- (void)sendLocalFeedbackTextMessge:(NSString *)localFeedbackTextMessge {
+    [self.chatViewModel sendLocalFeedbackTextMessge:localFeedbackTextMessge];
+}
+
+#pragma mark - 发送多张图片消息
 - (void)sendImages:(NSArray<UIImage *> *)pictures {
     for (UIImage *image in pictures) {
         [self sendImageMessage:image];
     }
 }
 
+// 发送单张图片消息
 - (void)sendImageMessage:(UIImage *)image {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
     [self sendImageMessageData:imageData];
@@ -308,6 +309,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //    }
 }
 
+#pragma mark - 发送语音消息
 - (void)sendVoiceMessageWithPath:(NSString *)voicePath time:(NSTimeInterval)recordingSeconds {
     
 //    XYDChatMessage *message = [[XYDChatMessage alloc] initWithVoicePath:voicePath
@@ -321,6 +323,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //    [self.chatViewModel sendMessage:message];
 }
 
+#pragma mark - 发送地理位置消息
 - (void)sendLocationMessageWithLocationCoordinate:(CLLocationCoordinate2D)locationCoordinate locatioTitle:(NSString *)locationTitle {
     
 //    XYDChatMessage *message = [[XYDChatMessage alloc] initWithLocalPositionPhoto:({
@@ -338,12 +341,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //    [self.chatViewModel sendMessage:message];
 }
 
-- (void)sendLocalFeedbackTextMessge:(NSString *)localFeedbackTextMessge {
-    [self.chatViewModel sendLocalFeedbackTextMessge:localFeedbackTextMessge];
-}
-
 - (void)sendCustomMessage:(XYDChatMessage *)customMessage {
-    [self makeSureSendValidMessageAfterFetchedConversation:customMessage];
     [self.chatViewModel sendCustomMessage:customMessage];
 }
 
@@ -351,48 +349,9 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
             progressBlock:(XYDChatProgressBlock)progressBlock
                   success:(XYDChatBooleanResultBlock)success
                    failed:(XYDChatBooleanResultBlock)failed {
-    [self makeSureSendValidMessageAfterFetchedConversation:customMessage];
     [self.chatViewModel sendCustomMessage:customMessage progressBlock:progressBlock success:success failed:failed];
 }
 
-- (void)makeSureSendValidMessageAfterFetchedConversation:(id)message {
-    [self makeSureSendValidMessage:message afterFetchedConversationShouldWithAssert:YES];
-}
-
-- (void)makeSureSendValidMessage:(id)message afterFetchedConversationShouldWithAssert:(BOOL)withAssert {
-    NSString *formatString = @"\n\n\
-    ------ BEGIN NSException Log ---------------\n \
-    class name: %@                              \n \
-    ------line: %@                              \n \
-    ----reason: %@                              \n \
-    ------ END -------------------------------- \n\n";
-    if (!self.isXYDChatailable) {
-        NSString *reason = [NSString stringWithFormat:formatString,
-                            @(__PRETTY_FUNCTION__),
-                            @(__LINE__),
-                            @"Remember to check if `isXYDChatailable` is ture, making sure sending message after conversation has been fetched"];
-        if (!withAssert) {
-//            XYDChatLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), reason);
-            return;
-        }
-        NSAssert(NO, reason);
-    }
-    if ([message isKindOfClass:[XYDChatMessage class]]) {
-        return;
-    }
-    if ([message isKindOfClass:[XYDChatMessage class]]) {
-        return;
-    }
-    if ([[message class] isSubclassOfClass:[XYDChatMessage class]]) {
-        NSString *reason = [NSString stringWithFormat:formatString,
-                            @(__PRETTY_FUNCTION__),
-                            @(__LINE__),
-                            @"ChatKit only support sending XYDChatMessage"];
-        @throw [NSException exceptionWithName:NSGenericException
-                                       reason:reason
-                                     userInfo:nil];
-    }
-}
 
 #pragma mark - UI init
 
@@ -402,17 +361,17 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)clearCurrentConversationInfo {
-//    [XYDChatConversationService sharedInstance].currentConversationId = nil;
+//    [XYDConversationService sharedInstance].currentConversationId = nil;
 }
 
 - (void)sXYDChateCurrentConversationInfoIfExists {
 //    NSString *conversationId = [self getConversationIdIfExists:nil];
 //    if (conversationId) {
-//        [XYDChatConversationService sharedInstance].currentConversationId = conversationId;
+//        [XYDConversationService sharedInstance].currentConversationId = conversationId;
 //    }
 //    
 //    if (_conversation) {
-//        [XYDChatConversationService sharedInstance].currentConversation = self.conversation;
+//        [XYDConversationService sharedInstance].currentConversation = self.conversation;
 //    }
 }
 
@@ -438,7 +397,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //            fetchConversationHandler = _fetchConversationHandler;
 //            break;
 //        }
-//        XYDChatFetchConversationHandler generalFetchConversationHandler = [XYDChatConversationService sharedInstance].fetchConversationHandler;
+//        XYDChatFetchConversationHandler generalFetchConversationHandler = [XYDConversationService sharedInstance].fetchConversationHandler;
 //        if (generalFetchConversationHandler) {
 //            fetchConversationHandler = generalFetchConversationHandler;
 //            break;
@@ -458,7 +417,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //            loadLatestMessagesHandler = _loadLatestMessagesHandler;
 //            break;
 //        }
-//        XYDChatLoadLatestMessagesHandler generalLoadLatestMessagesHandler = [XYDChatConversationService sharedInstance].loadLatestMessagesHandler;
+//        XYDChatLoadLatestMessagesHandler generalLoadLatestMessagesHandler = [XYDConversationService sharedInstance].loadLatestMessagesHandler;
 //        if (generalLoadLatestMessagesHandler) {
 //            loadLatestMessagesHandler = generalLoadLatestMessagesHandler;
 //            break;
@@ -495,13 +454,13 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)notJoinedHandler:(XYDConversation *)conversation error:(NSError *)aError {
-    void(^notJoinedHandler)(id<XYDUserDelegate> user, NSError *error) = ^(id<XYDUserDelegate> user, NSError *error) {
-//        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDChatConversationService sharedInstance] conversationInvalidedHandler];
+    void(^notJoinedHandler)(id<XYDChatUserDelegate> user, NSError *error) = ^(id<XYDChatUserDelegate> user, NSError *error) {
+//        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDConversationService sharedInstance] conversationInvalidedHandler];
 //        NSString *conversationId = [self getConversationIdIfExists:conversation];
 //        //错误码参考：https://leancloud.cn/docs/realtime_v2.html#%E4%BA%91%E7%AB%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%AF%B4%E6%98%8E
 //        if (error.code == 4401 && conversationId.length > 0) {
 //            //如果被管理员踢出群之后，再进入该会话，本地可能有缓存，要清除掉，防止下次再次进入。
-//            [[XYDChatConversationService sharedInstance] deleteRecentConversationWithConversationId:conversationId];
+//            [[XYDConversationService sharedInstance] deleteRecentConversationWithConversationId:conversationId];
 //        }
 //        conversationInvalidedHandler(conversationId, self, user, error);
     };
@@ -926,8 +885,9 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 //    }
 }
 
-#pragma mark - XYDConversationViewModelDelegate
+#pragma mark - XYDChatConversationViewModelDelegate
 
+// 处理消息“已读状态“的改变
 - (void)messageReadStateChanged:(XYDChatMessageReadState)readState withProgress:(CGFloat)progress forIndex:(NSUInteger)index {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     XYDChatMessageCell *messageCell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -937,18 +897,21 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
     messageCell.messageReadState = readState;
 }
 
+// 处理消息“发送状态“的改变
 - (void)messageSendStateChanged:(XYDChatMessageSendState)sendState withProgress:(CGFloat)progress forIndex:(NSUInteger)index {
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-//    XYDChatMessageCell *messageCell = [self.tableView cellForRowAtIndexPath:indexPath];
-//    if (![self.tableView.visibleCells containsObject:messageCell]) {
-//        return;
-//    }
-//    if (messageCell.mediaType == kXYDChatIMMessageMediaTypeImage) {
-//        [(XYDChatImageMessageCell *)messageCell setUploadProgress:progress];
-//    }
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        messageCell.messageSendState = sendState;
-//    });
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    XYDChatMessageCell *messageCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    // 如果当前“状态改变”的消息cell不可见，那么不做任何处理
+    if (![self.tableView.visibleCells containsObject:messageCell]) {
+        return;
+    }
+    // 图片消息，需要处理发送进度
+    if (messageCell.mediaType == XYDChatMessageMediaTypeImage) {
+        [(XYDChatImageMessageCell *)messageCell setUploadProgress:progress];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        messageCell.messageSendState = sendState;
+    });
 }
 
 - (void)reloadAfterReceiveMessage {

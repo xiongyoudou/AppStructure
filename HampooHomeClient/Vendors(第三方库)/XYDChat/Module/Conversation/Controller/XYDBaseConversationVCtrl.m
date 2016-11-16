@@ -11,6 +11,7 @@
 #import "NSObject+XYDAssociatedObject.h"
 
 #import "XYDConversationRefreshHeader.h"
+#import "XYDChatHelper.h"
 
 static void * const XYDBaseConversationViewControllerRefreshContext = (void*)&XYDBaseConversationViewControllerRefreshContext;
 static CGFloat const XYDScrollViewInsetTop = 20.f;
@@ -28,8 +29,11 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initilzer];
+    self.navigationController.navigationBarHidden = YES;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.and.left.and.width.equalTo(self.view);
+//        make.top.and.left.and.width.equalTo(self.view);
+        make.top.mas_equalTo(self.view).offset(64);
+        make.left.and.width.equalTo(self.view);
         make.bottom.equalTo(self.chatBar.mas_top);
     }];
     [self.chatBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,8 +53,8 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     [self xyd_executeAtDealloc:^{
         [weakSelf removeObserver:weakSelf forKeyPath:@"loadingMoreMessage"];
     }];
-    
-    //[XYDChatCellRegisterController registerChatMessageCellClassForTableView:self.tableView];
+    // 注册messageCell
+    [XYDChatHelper registerChatMessageCellClassForTableView:self.tableView];
     __weak __typeof(self) weakSelf_ = self;
     self.tableView.mj_header = [XYDConversationRefreshHeader headerWithRefreshingBlock:^{
         if (weakSelf_.shouldLoadMoreMessagesScrollToTop && !weakSelf_.loadingMoreMessage) {

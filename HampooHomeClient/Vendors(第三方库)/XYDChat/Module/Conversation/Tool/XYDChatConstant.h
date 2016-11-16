@@ -6,7 +6,7 @@
 //  Copyright © 2016年 xiongyoudou. All rights reserved.
 //
 
-#import "XYDUserDelegate.h"
+#import "XYDChatUserDelegate.h"
 #ifndef XYDChatConstant_h
 #define XYDChatConstant_h
 
@@ -20,8 +20,8 @@
 ///=============================================================================
 
 //Callback with Custom type
-typedef void (^XYDChatUserResultsCallBack)(NSArray<id<XYDUserDelegate>> *users, NSError *error);
-typedef void (^XYDChatUserResultCallBack)(id<XYDUserDelegate> user, NSError *error);
+typedef void (^XYDChatUserResultsCallBack)(NSArray<id<XYDChatUserDelegate>> *users, NSError *error);
+typedef void (^XYDChatUserResultCallBack)(id<XYDChatUserDelegate> user, NSError *error);
 //Callback with Foundation type
 typedef void (^XYDChatBooleanResultBlock)(BOOL succeeded, NSError *error);
 typedef void (^XYDChatViewControllerBooleanResultBlock)(__kindof UIViewController *viewController, BOOL succeeded, NSError *error);
@@ -133,11 +133,18 @@ static NSString *const XYDChatNotificationContactListDataSourceUpdatedUserInfoDa
  *  默认插件的类型定义
  */
 typedef NS_ENUM(NSUInteger, XYDChatInputViewPluginType) {
+    // 默认插件类型
     XYDChatInputViewPluginTypeDefault = 0,       /**< 默认未知类型 */
     XYDChatInputViewPluginTypeTakePhoto = -1,         /**< 拍照 */
-    XYDChatInputViewPluginTypePickImage = -2,         /**< 选择照片 */
-    XYDChatInputViewPluginTypeLocation = -3,          /**< 地理位置 */
+    XYDChatInputViewPluginTypePickImage = -2,        /**< 选择照片 */
+    XYDChatInputViewPluginTypeLocation = -3,         /**< 地理位置 */
     XYDChatInputViewPluginTypeShortVideo = -4,        /**< 短视频 */
+    
+    // 自定义插件类型（数值的正负是为了区分开来，代码中会用作判断）
+    XYDChatInputViewPluginTypeRedPacket = 1,        /**< 红包 */
+    XYDChatInputViewPluginTypeChange = 2,            /**< 零钱 */
+    XYDChatInputViewPluginTypeVCard = 3,             /**< 名片 */
+    XYDChatInputViewPluginTypeConverBackground = 4, /**< 修改聊天背景 */
     //    XYDChatInputViewPluginTypeMorePanel= -7,         /**< 显示更多面板 */
     //    XYDChatInputViewPluginTypeText = -1,              /**< 文本输入 */
     //    XYDChatInputViewPluginTypeVoice = -2,             /**< 语音输入 */

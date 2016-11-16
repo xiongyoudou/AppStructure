@@ -28,7 +28,7 @@
 + (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:(UIViewController *)ctrl {
     UITableView *tableView = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:style];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    tableView.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = [UIColor whiteColor];
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     if (style == UITableViewStyleGrouped) {
         UIView *backgroundView = [[UIView alloc] initWithFrame:tableView.bounds];

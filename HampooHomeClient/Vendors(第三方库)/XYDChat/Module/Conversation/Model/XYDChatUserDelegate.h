@@ -1,5 +1,5 @@
 //
-//  XYDUserDelegate.h
+//  XYDChatUserDelegate.h
 //  HampooHomeClient
 //
 //  Created by xiongyoudou on 2016/11/9.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol XYDUserDelegate <NSObject, NSCopying, NSCoding>
+@protocol XYDChatUserDelegate <NSObject, NSCopying, NSCoding>
 
 @required
 

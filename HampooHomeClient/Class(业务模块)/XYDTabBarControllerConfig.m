@@ -30,7 +30,7 @@
 
 - (NSArray *)viewControllers {
     MainVCtrl *vctrl1 = [[MainVCtrl alloc] initWithNibName:@"MainVCtrl" bundle:nil];
-    MoreVCtrl *vctrl2 = [[MoreVCtrl alloc] initWithNibName:@"MainVCtrl" bundle:nil];
+    MoreVCtrl *vctrl2 = [[MoreVCtrl alloc] initWithNibName:@"MoreVCtrl" bundle:nil];
     UIViewController *vctrl3 = [UIViewController new];
     
     CustomNavigationCtrl *nav1 = [CustomNavigationCtrl configNavigationCtrlwithRootVC:vctrl1     andImageName:nil OrColor:KNavBarColor];

@@ -9,7 +9,7 @@
 #import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatVideoMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatVideoMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 @property (nonatomic, strong, readonly) NSString *videoURLStr;  // 下载语音时的URL
 @property (nonatomic, copy, readonly) NSString *localVideoPath; // 上传网络时的本地路径

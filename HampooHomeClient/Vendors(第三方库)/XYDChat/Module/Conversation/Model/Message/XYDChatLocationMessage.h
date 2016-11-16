@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatLocationMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatLocationMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 /**
  *  Latitude. Should be 0~90.

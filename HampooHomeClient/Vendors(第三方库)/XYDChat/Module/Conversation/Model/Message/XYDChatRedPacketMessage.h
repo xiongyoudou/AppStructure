@@ -9,7 +9,7 @@
 #import "XYDChatMessage.h"
 #import "RedpacketMessageModel.h"
 
-@interface XYDChatRedPacketMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatRedPacketMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 /**
  *  红包相关数据模型

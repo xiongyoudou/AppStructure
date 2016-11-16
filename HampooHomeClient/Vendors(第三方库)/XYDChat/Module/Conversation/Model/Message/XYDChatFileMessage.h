@@ -9,7 +9,7 @@
 #import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatFileMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatFileMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 @property (nonatomic, strong, readonly, nullable) XYDFile               *file;       // 附件
 @property(nonatomic, strong)NSString *attachedFilePath;  //附件

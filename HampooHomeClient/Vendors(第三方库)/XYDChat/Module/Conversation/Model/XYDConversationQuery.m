@@ -316,7 +316,7 @@ NSString *const kXYDChatKeyConversationId = @"objectId";
 //    [self whereKey:@"objectId" equalTo:conversationId];
 //    [self findConversationsWithCallback:^(NSArray *objects, NSError *error) {
 //        if (!error && objects.count > 0) {
-//            XYDChatConversation *conversation = [objects objectAtIndex:0];
+//            XYDConversation *conversation = [objects objectAtIndex:0];
 //            [XYDChatBlockHelper callConversationResultBlock:callback conversation:conversation error:nil];
 //        } else if (error) {
 //            [XYDChatBlockHelper callConversationResultBlock:callback conversation:nil error:error];
@@ -381,7 +381,7 @@ NSString *const kXYDChatKeyConversationId = @"objectId";
 //    NSMutableArray *conversations = [NSMutableArray arrayWithCapacity:[results count]];
 //    
 //    for (NSDictionary *dict in results) {
-//        XYDChatConversation *conversation = [[XYDChatConversation alloc] init];
+//        XYDConversation *conversation = [[XYDChatConversation alloc] init];
 //        
 //        NSString *createdAt = dict[@"createdAt"];
 //        NSString *updatedAt = dict[@"updatedAt"];

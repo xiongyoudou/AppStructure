@@ -17,7 +17,7 @@
 
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
-#import "XYDChatConversationService.h"
+#import "XYDConversationService.h"
 
 #import "XYDSoundManager.h"
 #import "XYDChatHelper.h"
@@ -173,15 +173,19 @@
 //                                              code:code
 //                                          userInfo:errorInfo];
 //        
-//        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDChatConversationService sharedInstance] conversationInvalidedHandler];
+//        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDConversationService sharedInstance] conversationInvalidedHandler];
 //        if (conversationInvalidedHandler) {
 //            conversationInvalidedHandler(self.currentConversation.conversationId, self.parentConversationViewController, user, error_);
 //        }
 //    }];
 }
 
+// 将“多条新消息”加入到消息末尾
 - (void)appendMessagesToTrailing:(NSArray *)messages {
+    // 取出“已有旧数据”的最后一条数据
     id lastObject = (self.dataArray.count > 0) ? [self.dataArray lastObject] : nil;
+    
+    // 传递“新消息数组” & “最后一条数据” 传入方法中进行处理
     [self appendMessagesToDataArrayTrailing:[self messagesWithSystemMessages:messages lastMessage:lastObject]];
 }
 
@@ -208,7 +212,7 @@
  */
 - (NSArray *)allFailedMessages {
     if (_allFailedMessages == nil) {
-//        NSArray *allFailedMessages = [[XYDChatConversationService sharedInstance] failedMessagesByConversationId:self.currentConversationId];
+//        NSArray *allFailedMessages = [[XYDConversationService sharedInstance] failedMessagesByConversationId:self.currentConversationId];
 //        _allFailedMessages = allFailedMessages;
     }
     return _allFailedMessages;
@@ -221,7 +225,7 @@
  */
 - (NSArray *)allFailedMessageIds {
     if (_allFailedMessageIds == nil) {
-//        NSArray *allFailedMessageIds = [[XYDChatConversationService sharedInstance] failedMessageIdsByConversationId:self.parentConversationViewController.conversationId];
+//        NSArray *allFailedMessageIds = [[XYDConversationService sharedInstance] failedMessageIdsByConversationId:self.parentConversationViewController.conversationId];
 //        _allFailedMessageIds = allFailedMessageIds;
     }
     return _allFailedMessageIds;
@@ -232,7 +236,7 @@
     NSArray *failedMessageIds = [allFailedMessageIdsByConversationId filteredArrayUsingPredicate:predicate];
     NSArray<XYDChatMessage *> *failedXYDChatMessages;
     if (failedMessageIds.count > 0) {
-//        failedXYDChatMessages = [[XYDChatConversationService sharedInstance] failedMessagesByMessageIds:failedMessageIds];
+//        failedXYDChatMessages = [[XYDConversationService sharedInstance] failedMessagesByMessageIds:failedMessageIds];
     }
     return failedXYDChatMessages;
 }
@@ -242,19 +246,72 @@
  * 该方法能让preload时动态判断插入时间戳，同时也用在第一次加载时插入时间戳。
  */
 - (NSArray *)messagesWithSystemMessages:(NSArray *)messages lastMessage:(id)lastMessage {
+    // 将“已有消息的最后一条数据”放置在新数组中
     NSMutableArray *messageWithSystemMessages = lastMessage ? @[lastMessage].mutableCopy : @[].mutableCopy;
+    
+    // 对“新消息”数组进行遍历处理
     for (id message in messages) {
         [messageWithSystemMessages addObject:message];
-//        [message xydChat_shouldDisplayTimestampForMessages:messageWithSystemMessages callback:^(BOOL shouldDisplayTimestamp, NSTimeInterval messageTimestamp) {
-//            if (shouldDisplayTimestamp) {
-//                [messageWithSystemMessages insertObject:[XYDChatMessage systemMessageWithTimestamp:messageTimestamp] atIndex:(messageWithSystemMessages.count - 1)];
-//            }
-//        }];
+        
+        [self shouldDisplayTimestampForMessages:messageWithSystemMessages message:message callback:^(BOOL shouldDisplayTimestamp, NSTimeInterval messageTimestamp) {
+            if (shouldDisplayTimestamp) {
+                // 如果这一条新消息 导致“时间产生分段”，从而需要增加一条系统时间消息在界面上显示
+                [messageWithSystemMessages insertObject:[[XYDChatMessage alloc] initWithTimestamp:messageTimestamp] atIndex:(messageWithSystemMessages.count - 1)];
+            }
+        }];
     }
+    
+    // 移除最后一条数据，最后返回的消息数组都是新生成的
     if (lastMessage) {
         [messageWithSystemMessages removeObjectAtIndex:0];
     }
     return [messageWithSystemMessages copy];
+}
+
+// 是否显示时间轴Label
+- (void)shouldDisplayTimestampForMessages:(NSArray *)messages message:(XYDChatMessage *)message callback:(ShouldDisplayTimestampCallBack)callback {
+    /* Set LCCKIsDebugging=1 in preprocessor macros under build settings to enable debugging.*/
+#ifdef LCCKIsDebugging
+    //如果定义了LCCKIsDebugging则执行从这里到#endif的代码
+    return YES;
+#endif
+    BOOL containsMessage= [messages containsObject:message];
+    if (!containsMessage) {
+        return;
+    }
+    
+    // 获取新消息的时间戳
+    NSTimeInterval selfMessageTimestamp = [self getMessageTimestampWithMessage:message];
+    
+    NSUInteger index = [messages indexOfObject:message];
+    if (index == 0) {
+        // 说明在发送这一条新消息之前，界面上并没有旧消息数据 ，必须生成新的时间段
+        !callback ?: callback(YES, selfMessageTimestamp);
+        return;
+    }
+    
+    // 拿旧数据与最后一条数据进行对比
+    id lastMessage = [messages objectAtIndex:index - 1];
+    NSTimeInterval lastMessageTimestamp = [self getMessageTimestampWithMessage:lastMessage];
+    NSTimeInterval interval = (selfMessageTimestamp - lastMessageTimestamp) / 1000;
+    
+    int limitInterval = 60 * 3;
+    if (interval > limitInterval) {
+        // 如果两条数据的间隔大于3分钟，则分段
+        !callback ?: callback(YES, selfMessageTimestamp);
+        return;
+    }
+    !callback ?: callback(NO, selfMessageTimestamp);
+}
+
+// 获取消息的发送时间戳
+- (NSTimeInterval)getMessageTimestampWithMessage:(XYDChatMessage *)message {
+    NSTimeInterval sendTime = [message timestamp];
+    //如果当前消息是正在发送的消息，则没有时间戳
+    if (sendTime == 0) {
+        sendTime = kGetCurrent_Timestamp;
+    }
+    return sendTime;
 }
 
 /*!
@@ -369,25 +426,19 @@
     __weak __typeof(&*self) wself = self;
     [self sendMessage:message
         progressBlock:^(NSInteger percentDone) {
+            // 状态变为发送中，进度变化
             [self.delegate messageSendStateChanged:XYDChatMessageSendStateSending withProgress:percentDone/100.f forIndex:[self.dataArray indexOfObject:message]];
         }
               success:^(BOOL succeeded, NSError *error) {
-//                  if (![message xydChat_isCustomMessage]) {
-//                      [(XYDChatMessage *)message setSendStatus:XYDChatMessageSendStateSent];
-//                  }
-                  
+                  // 消息发送成功可以添加系统声音
                   [[XYDSoundManager defaultManager] playSendSoundIfNeed];
+                  
                   [self.delegate messageSendStateChanged:XYDChatMessageSendStateSent withProgress:1.0f forIndex:[self.dataArray indexOfObject:message]];
               } failed:^(BOOL succeeded, NSError *error) {
                   __strong __typeof(wself)self = wself;
-//                  if (![message xydChat_isCustomMessage]) {
-//                      [(XYDChatMessage *)message setSendStatus:XYDChatMessageSendStateFailed];
-//                      if (self.currentConversationId.length > 0) {
-//                          [[XYDChatConversationService sharedInstance] insertFailedXYDChatMessage:message];
-//                      }
-//                  } else {
-//                      //TODO:自定义消息的失败缓存
-//                  }
+
+                //TODO:自定义消息的失败缓存
+
                   [self.delegate messageSendStateChanged:XYDChatMessageSendStateFailed withProgress:0.0f forIndex:[self.dataArray indexOfObject:message]];
               }];
 }
@@ -413,35 +464,12 @@
         NSError *error = [NSError errorWithDomain:NSStringFromClass([self class])
                                              code:code
                                          userInfo:errorInfo];
-        
         !failed ?: failed(YES, error);
         return;
     }
     self.parentConversationViewController.allowScrollToBottom = YES;
-    NSString *messageUUID =  [NSString stringWithFormat:@"%@", @(kGetCurrent_Timestamp)];
-//    if (![aMessage xydChat_isCustomMessage]) {
-//        [(XYDChatMessage *)aMessage setLocalMessageId:messageUUID];
-//    } else {
-//        //TODO:
-//        //自定义消息的失败id
-//    }
-    [self.delegate messageSendStateChanged:XYDChatMessageSendStateSending withProgress:0.0f forIndex:[self.dataArray indexOfObject:aMessage]];
-    XYDChatMessage *XYDChatMessage;
-//    if (![aMessage xydChat_isCustomMessage]) {
-//        XYDChatMessage *message = (XYDChatMessage *)aMessage;
-//        message.conversationId = self.currentConversationId;
-//        
-//        message.sendStatus = XYDChatMessageSendStateSending;
-//        id<XYDChatUserDelegate> sender = [[XYDChatUserSystemService sharedInstance] fetchCurrentUser];
-//        message.sender = sender;
-//        message.ownerType = XYDChatMessageOwnerTypeSelf;
-//        XYDChatMessage = [XYDChatMessage xydChat_messageWithXYDChatMessage:message];
-//    } else {
-//        XYDChatMessage = aMessage;
-//    }
-//    [XYDChatMessage xydChat_setObject:@([self.parentConversationViewController getConversationIfExists].xydChat_type) forKey:XYDChatCustomMessageConversationTypeKey];
-//    [XYDChatMessage setValue:[XYDChatSessionService sharedInstance].clientId forKey:@"clientId"];//for XYDChatSendMessageHookBlock
-//    [self.XYDChatMessage addObject:XYDChatMessage];
+    
+    // 消息在界面上预显示
     [self preloadMessageToTableView:aMessage callback:^{
         if (!self.currentConversationId || self.currentConversationId.length == 0) {
             NSInteger code = 0;
@@ -456,35 +484,39 @@
             !failed ?: failed(YES, error);
         }
         
-//        void(^sendMessageCallBack)() = ^() {
-//            [[XYDChatConversationService sharedInstance] sendMessage:XYDChatMessage
-//                                                     conversation:self.currentConversation
-//                                                    progressBlock:progressBlock
-//                                                         callback:^(BOOL succeeded, NSError *error) {
-//                                                             if (error) {
-//                                                                 !failed ?: failed(succeeded, error);
-//                                                             } else {
-//                                                                 !success ?: success(succeeded, nil);
-//                                                             }
-//                                                             // cache file type messages even failed
-//                                                             [XYDChatConversationService cacheFileTypeMessages:@[XYDChatMessage] callback:nil];
-//                                                         }];
-//            
-//        };
-//        
-//        XYDChatSendMessageHookBlock sendMessageHookBlock = [[XYDChatConversationService sharedInstance] sendMessageHookBlock];
-//        if (!sendMessageHookBlock) {
-//            sendMessageCallBack();
-//        } else {
-//            XYDChatSendMessageHookCompletionHandler completionHandler = ^(BOOL granted, NSError *aError) {
-//                if (granted) {
-//                    sendMessageCallBack();
-//                } else {
-//                    !failed ?: failed(YES, aError);
-//                }
-//            };
-//            sendMessageHookBlock(self.parentConversationViewController, XYDChatMessage, completionHandler);
-//        }
+        // 开始处理消息数据的网络发送
+        
+        
+        void(^sendMessageCallBack)() = ^() {
+            // 调用会话服务XYDConversationService来处理消息的发送
+            [[XYDConversationService sharedInstance] sendMessage:aMessage
+                                                     conversation:self.currentConversation
+                                                    progressBlock:progressBlock
+                                                         callback:^(BOOL succeeded, NSError *error) {
+                                                             if (error) {
+                                                                 !failed ?: failed(succeeded, error);
+                                                             } else {
+                                                                 !success ?: success(succeeded, nil);
+                                                             }
+                                                             // cache file type messages even failed
+                                                             [XYDConversationService cacheFileTypeMessages:@[aMessage] callback:nil];
+                                                         }];
+            
+        };
+        
+        XYDChatSendMessageHookBlock sendMessageHookBlock = [[XYDConversationService sharedInstance] sendMessageHookBlock];
+        if (!sendMessageHookBlock) {
+            sendMessageCallBack();
+        } else {
+            XYDChatSendMessageHookCompletionHandler completionHandler = ^(BOOL granted, NSError *aError) {
+                if (granted) {
+                    sendMessageCallBack();
+                } else {
+                    !failed ?: failed(YES, aError);
+                }
+            };
+            sendMessageHookBlock(self.parentConversationViewController, aMessage, completionHandler);
+        }
     }];
 }
 
@@ -537,20 +569,24 @@
 //    [self.parentConversationViewController.tableView reloadData];
 //    self.parentConversationViewController.allowScrollToBottom = YES;
 //    [self sendMessage:XYDChatMessage];
-//    [[XYDChatConversationService sharedInstance] deleteFailedMessageByRecordId:oldFailedMessageId];
+//    [[XYDConversationService sharedInstance] deleteFailedMessageByRecordId:oldFailedMessageId];
 }
 
 - (void)preloadMessageToTableView:(id)aMessage callback:(XYDChatVoidBlock)callback {
-//    if (![aMessage xydChat_isCustomMessage]) {
-//        XYDChatMessage *message = (XYDChatMessage *)aMessage;
-//        message.sendStatus = XYDChatMessageSendStateSending;
-//    }
+    // 界面上已有数据条数
     NSUInteger oldLastMessageCount = self.dataArray.count;
+    
+    // 处理新消息在数据源数组中的操作
     [self appendMessagesToTrailing:@[aMessage]];
+    
     NSUInteger newLastMessageCout = self.dataArray.count;
+    
+    // 新消息在数据源数组中的位置
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0];
     [self.delegate messageSendStateChanged:XYDChatMessageSendStateSending withProgress:0.0f forIndex:indexPath.row];
     NSMutableArray *indexPaths = [NSMutableArray arrayWithObject:indexPath];
+    
+    // 新生成的消息数据个数（除了发送的消息外，可能有系统时间消息）
     NSUInteger additionItemsCount = newLastMessageCout - oldLastMessageCount;
     if (additionItemsCount > 1) {
         for (NSUInteger index = 2; index <= additionItemsCount; index++) {
@@ -559,6 +595,7 @@
         }
     }
     dispatch_async(dispatch_get_main_queue(),^{
+        // 将产生的新消息一个个插入到tableView中
         [self.parentConversationViewController.tableView insertRowsAtIndexPaths:[indexPaths copy] withRowAnimation:UITableViewRowAnimationNone];
         [self.parentConversationViewController scrollToBottomAnimated:YES];
         !callback ?: callback();
@@ -594,7 +631,7 @@
 //                    self.parentConversationViewController.loadingMoreMessage = NO;
 //                });
 //                if (self.XYDChatMessage.count > 0) {
-//                    [[XYDChatConversationService sharedInstance] updateConversationAsRead];
+//                    [[XYDConversationService sharedInstance] updateConversationAsRead];
 //                }
 //            } else {
 //                self.parentConversationViewController.loadingMoreMessage = NO;
@@ -612,7 +649,7 @@
 //        timestamp = 0;
 //    }
 //    self.parentConversationViewController.loadingMoreMessage = YES;
-//    [[XYDChatConversationService sharedInstance] queryTypedMessagesWithConversation:self.currentConversation
+//    [[XYDConversationService sharedInstance] queryTypedMessagesWithConversation:self.currentConversation
 //                                                                       timestamp:timestamp
 //                                                                           limit:kXYDChatOnePageSize
 //                                                                           block:^(NSArray *XYDChatMessages, NSError *error) {
@@ -623,7 +660,7 @@
 //                                                                                   !block ?: block(XYDChatMessages, error);
 //                                                                                   return;
 //                                                                               }
-//                                                                               [XYDChatConversationService cacheFileTypeMessages:XYDChatMessages callback:^(BOOL succeeded, NSError *error) {
+//                                                                               [XYDConversationService cacheFileTypeMessages:XYDChatMessages callback:^(BOOL succeeded, NSError *error) {
 //                                                                                   if (XYDChatMessages.count < kXYDChatOnePageSize) {
 //                                                                                       self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = NO;
 //                                                                                   }

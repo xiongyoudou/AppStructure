@@ -43,7 +43,7 @@
             ownerKey = XYDChatCellIdentifierOwnerOther;
             break;
         case XYDChatMessageOwnerTypeSystem:
-            ownerKey = XYDChatCellIdentifierOwnerOther;
+            ownerKey = XYDChatCellIdentifierOwnerSystem;
             break;
         default:
             NSAssert(NO, @"Message Owner Unknow");

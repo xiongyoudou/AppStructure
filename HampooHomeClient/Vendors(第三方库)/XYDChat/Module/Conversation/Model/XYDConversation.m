@@ -78,7 +78,7 @@
 - (void)fetchWithCallback:(XYDChatBooleanResultBlock)callback {
 //    XYDChatConversationQuery *query = [self.imClient conversationQuery];
 //    query.cachePolicy = kXYDChatCachePolicyNetworkOnly;
-//    [query getConversationById:self.conversationId callback:^(XYDChatConversation *conversation, NSError *error) {
+//    [query getConversationById:self.conversationId callback:^(XYDConversation *conversation, NSError *error) {
 //        if (conversation && conversation != self) {
 //            [self setKeyedConversation:[conversation keyedConversation]];
 //        }
@@ -366,8 +366,8 @@
 //    }
 //    message.status = XYDChatMessageStatusSending;
 //    
-//    if ([message isKindOfClass:[XYDChatTypedMessage class]]) {
-//        XYDChatTypedMessage *typedMessage = (XYDChatTypedMessage *)message;
+//    if ([message isKindOfClass:[XYDChatMessage class]]) {
+//        XYDChatMessage *typedMessage = (XYDChatMessage *)message;
 //        
 //        XYDChatFile *file = nil;
 //        
@@ -415,7 +415,7 @@
 //    }
 //}
 //
-//- (void)fillTypedMessage:(XYDChatTypedMessage *)typedMessage withFile:(XYDChatFile *)file {
+//- (void)fillTypedMessage:(XYDChatMessage *)typedMessage withFile:(XYDChatFile *)file {
 //    typedMessage.file = file;
 //    
 //    XYDChatGeneralObject *object = [[XYDChatGeneralObject alloc] init];
@@ -485,7 +485,7 @@
 //    }
 //}
 //
-//- (void)fillTypedMessageForLocationIfNeeded:(XYDChatTypedMessage *)typedMessage {
+//- (void)fillTypedMessageForLocationIfNeeded:(XYDChatMessage *)typedMessage {
 //    XYDChatGeoPoint *location = typedMessage.location;
 //    
 //    if (location) {
@@ -503,10 +503,10 @@
 //        bool transient = option.transient;
 //        bool requestReceipt = option.receipt;
 //        
-//        if ([message isKindOfClass:[XYDChatTypedMessage class]]) {
-//            XYDChatTypedMessage *typedMessage = (XYDChatTypedMessage *)message;
+//        if ([message isKindOfClass:[XYDChatMessage class]]) {
+//            XYDChatMessage *typedMessage = (XYDChatMessage *)message;
 //            if (!typedMessage.messageObject._lctext && !typedMessage.messageObject._lcloc && !typedMessage.messageObject._lcfile && !typedMessage.messageObject._lcattrs) {
-//                [NSException raise:NSInternalInconsistencyException format:@"XYDChatTypedMessage should hXYDChate one of text, file, location or attributes not be nil."];
+//                [NSException raise:NSInternalInconsistencyException format:@"XYDChatMessage should hXYDChate one of text, file, location or attributes not be nil."];
 //            }
 //        }
 //        
@@ -680,9 +680,9 @@
 //                        XYDChatLoggerError(XYDChatOSCloudIMErrorDomain, @"Received an invalid message.");
 //                        continue;
 //                    }
-//                    XYDChatTypedMessageObject *messageObject = [[XYDChatTypedMessageObject alloc] initWithJSON:data];
+//                    XYDChatMessageObject *messageObject = [[XYDChatMessageObject alloc] initWithJSON:data];
 //                    if ([messageObject isValidTypedMessageObject]) {
-//                        XYDChatTypedMessage *m = [XYDChatTypedMessage messageWithMessageObject:messageObject];
+//                        XYDChatMessage *m = [XYDChatMessage messageWithMessageObject:messageObject];
 //                        message = m;
 //                    } else {
 //                        XYDChatMessage *m = [[XYDChatMessage alloc] init];

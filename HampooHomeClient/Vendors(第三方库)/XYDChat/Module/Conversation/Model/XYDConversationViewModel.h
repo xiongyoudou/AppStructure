@@ -13,6 +13,8 @@
 @class XYDChatMessageCell;
 @class XYDChatMessage;
 
+typedef void (^ShouldDisplayTimestampCallBack)(BOOL shouldDisplayTimestamp, NSTimeInterval messageTimestamp);
+
 @protocol XYDChatConversationViewModelDelegate <NSObject>
 
 @optional

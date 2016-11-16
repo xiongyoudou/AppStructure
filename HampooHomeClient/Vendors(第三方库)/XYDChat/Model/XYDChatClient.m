@@ -755,9 +755,9 @@ static BOOL XYDChatClientHasInstantiated = NO;
 //        [self sendAckCommandAccordingToDirectCommand:directCommand andGenericCommand:genericCommand];
 //        return;
 //    }
-//    XYDChatTypedMessageObject *messageObject = [[XYDChatTypedMessageObject alloc] initWithJSON:directCommand.msg];
+//    XYDChatMessageObject *messageObject = [[XYDChatMessageObject alloc] initWithJSON:directCommand.msg];
 //    if ([messageObject isValidTypedMessageObject]) {
-//        message = [XYDChatTypedMessage messageWithMessageObject:messageObject];
+//        message = [XYDChatMessage messageWithMessageObject:messageObject];
 //    } else {
 //        message = [[XYDChatMessage alloc] init];
 //    }
@@ -983,7 +983,7 @@ static BOOL XYDChatClientHasInstantiated = NO;
 - (void)passMessage:(XYDChatMessage *)message toConversation:(XYDConversation *)conversation {
 //    NSArray *arguments = @[conversation, message];
 //    
-//    if ([message isKindOfClass:[XYDChatTypedMessage class]]) {
+//    if ([message isKindOfClass:[XYDChatMessage class]]) {
 //        if ([_delegate respondsToSelector:@selector(conversation:didReceiveTypedMessage:)]) {
 //            [XYDChatRuntimeHelper callMethodInMainThreadWithTarget:_delegate selector:@selector(conversation:didReceiveTypedMessage:) arguments:arguments];
 //        } else {

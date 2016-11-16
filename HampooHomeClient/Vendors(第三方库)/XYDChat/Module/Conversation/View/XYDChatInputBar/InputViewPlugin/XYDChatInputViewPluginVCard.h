@@ -8,8 +8,6 @@
 
 #import "XYDChatInputViewPlugin.h"
 
-static XYDChatInputViewPluginType const XYDChatInputViewPluginTypeVCard = 1;
-
 @interface XYDChatInputViewPluginVCard : XYDChatInputViewPlugin<XYDChatInputViewPluginSubclassing>
 
 @end

@@ -36,7 +36,7 @@ typedef NS_ENUM(int8_t, XYDChatMessageStatus) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol XYDChatTypedMessageSubclassing <NSObject>
+@protocol XYDChatMessageSubclassing <NSObject>
 @required
 /*!
  子类实现此方法用于返回该类对应的消息类型
@@ -62,11 +62,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) XYDChatMessageStatus status;                // 表示消息状态
 @property (nonatomic, assign, readonly) XYDChatMessageMediaType mediaType;          // 消息类型，可自定义
 @property (nonatomic, assign, readonly) XYDChatMessageReadState messageReadState;   // 已读状态
-@property (nonatomic, strong, nullable,readonly) NSDictionary *attributes;          // 自定义属性
+
+@property (nonatomic, strong, nullable) NSDictionary *attributes;          // 自定义属性
 
 #pragma mark - 非持久化属性，通过其他关键属性计算得出
 
-@property (nonatomic, strong, readonly) id<XYDUserDelegate> sender;                 // 发送者用户信息
+@property (nonatomic, strong, readonly) id<XYDChatUserDelegate> sender;                 // 发送者用户信息
 @property (nonatomic, copy, readonly) NSString *localDisplayName;                   // 显示发送者的名称
 
 
@@ -83,6 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithText:(NSString *)text
                     convId:(NSString *)convId;
 - (instancetype)initWithSystemText:(NSString *)text;
+- (instancetype)initWithTimestamp:(NSTimeInterval)time;
 - (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText;
 
 /**

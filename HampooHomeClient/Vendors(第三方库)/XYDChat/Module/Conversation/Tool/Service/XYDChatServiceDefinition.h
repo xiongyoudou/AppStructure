@@ -10,7 +10,7 @@
 #define XYDChatServiceDefinition_h
 
 #pragma mark - XYDChatSessionService
-#import "XYDUserDelegate.h"
+#import "XYDChatUserDelegate.h"
 #import "XYDChatConstant.h"
 #import <CoreLocation/CoreLocation.h>
 @class XYDConversationVCtrl;
@@ -18,14 +18,18 @@
 @class XYDConversationListVCtrl;
 @class XYDChatMessage;
 @class XYDChatMenuItem;
+@class XYDChatClient;
+
+// 定义聊天应用中涉及到的各种服务
 
 
 ///=============================================================================
-/// @name XYDChatSessionService
+/// @name XYDChatSessionService：聊天会话服务
 ///=============================================================================
 
 @protocol XYDChatSessionService <NSObject>
 
+// session重连回调，返回重连结果
 typedef void (^XYDChatReconnectSessionCompletionHandler)(BOOL succeeded, NSError *error);
 
 /*!
@@ -34,8 +38,11 @@ typedef void (^XYDChatReconnectSessionCompletionHandler)(BOOL succeeded, NSError
  */
 typedef void (^XYDChatForceReconnectSessionBlock)(NSError *error, BOOL granted, __kindof UIViewController *viewController, XYDChatReconnectSessionCompletionHandler completionHandler);
 
+// 客户端id
 @property (nonatomic, copy, readonly) NSString *clientId;
-//@property (nonatomic, strong, readonly) AVIMClient *client;
+// 客户端对象
+@property (nonatomic, strong, readonly) XYDChatClient *client;
+// 是否只允许单方登录
 @property (nonatomic, assign) BOOL disableSingleSignOn;
 @property (nonatomic, copy) XYDChatForceReconnectSessionBlock forceReconnectSessionBlock;
 
@@ -64,16 +71,13 @@ typedef void (^XYDChatForceReconnectSessionBlock)(NSError *error, BOOL granted, 
 
 #pragma mark - XYDChatUserSystemService
 ///=============================================================================
-/// @name XYDChatUserSystemService
+/// @name XYDChatUserSystemService：用户系统类型服务
 ///=============================================================================
 
 @protocol XYDChatUserSystemService <NSObject>
 
-/*!
- *  @brief The block to execute with the users' information for the userIds. Always execute this block at some point when fetching profiles completes on main thread. Specify users' information how you want ChatKit to show.
- *  @attention If you fetch users fails, you should reture nil, meanwhile, give the error reason.
- */
-typedef void(^XYDChatFetchProfilesCompletionHandler)(NSArray<id<XYDUserDelegate>> *users, NSError *error);
+// 通过userIds来获取用户的基本信息并返回，在获取结束之后的主线程上调用该block
+typedef void(^XYDChatFetchProfilesCompletionHandler)(NSArray<id<XYDChatUserDelegate>> *users, NSError *error);
 
 /*!
  *  @brief When LeanCloudChatKit wants to fetch profiles, this block will be invoked.
@@ -92,26 +96,26 @@ typedef void(^XYDChatFetchProfilesBlock)(NSArray<NSString *> *userIds, XYDChatFe
 - (void)setFetchProfilesBlock:(XYDChatFetchProfilesBlock)fetchProfilesBlock;
 
 /*!
- * Remove all cached profiles.
+ * Remove all cached profiles-清楚缓存的个人信息
  */
 - (void)removeAllCachedProfiles;
 
 /**
- *  remove person profile cache
+ *  remove person profile cache-清楚某个对象用户的个人信息
  *
  */
 - (void)removeCachedProfileForPeerId:(NSString *)peerId;
 
 - (void)getCachedProfileIfExists:(NSString *)userId name:(NSString **)name avatarURL:(NSURL **)avatarURL error:(NSError * __autoreleasing *)error;
-- (NSArray<id<XYDUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error;
+- (NSArray<id<XYDChatUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error;
 
 /*!
  * 如果从缓存查询到的userids数量不相符，则返回nil
  */
-- (NSArray<id<XYDUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds shouldSameCount:(BOOL)shouldSameCount error:(NSError * __autoreleasing *)theError;
+- (NSArray<id<XYDChatUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds shouldSameCount:(BOOL)shouldSameCount error:(NSError * __autoreleasing *)theError;
 - (void)getProfileInBackgroundForUserId:(NSString *)userId callback:(XYDChatUserResultCallBack)callback;
 - (void)getProfilesInBackgroundForUserIds:(NSArray<NSString *> *)userIds callback:(XYDChatUserResultsCallBack)callback;
-- (NSArray<id<XYDUserDelegate>> *)getProfilesForUserIds:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error;
+- (NSArray<id<XYDChatUserDelegate>> *)getProfilesForUserIds:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error;
 
 @end
 
@@ -173,7 +177,7 @@ typedef void(^XYDChatFetchProfilesBlock)(NSArray<NSString *> *userIds, XYDChatFe
  *  @param userId 被点击的user 的 userId (clientId) ，与 user 属性中 clientId 的区别在于，本属性永远不为空，但 user可能为空。
  *  @param parentController 用于打开的顶层控制器
  */
-typedef void(^XYDChatOpenProfileBlock)(NSString *userId, id<XYDUserDelegate> user, __kindof UIViewController *parentController);
+typedef void(^XYDChatOpenProfileBlock)(NSString *userId, id<XYDChatUserDelegate> user, __kindof UIViewController *parentController);
 
 @property (nonatomic, copy) XYDChatOpenProfileBlock openProfileBlock;
 
@@ -332,16 +336,16 @@ typedef CGFloat (^XYDChatAvatarImageViewCornerRadiusBlock)(CGSize avatarImageVie
 
 @end
 
-#pragma mark - XYDChatConversationService
+#pragma mark - XYDConversationService
 ///=============================================================================
-/// @name XYDChatConversationService
+/// @name XYDConversationService
 ///=============================================================================
 
 typedef void (^XYDChatConversationResultBlock)(XYDConversation *conversation, NSError *error);
 typedef void (^XYDChatFetchConversationHandler) (XYDConversation *conversation, XYDConversationVCtrl *conversationController);
-typedef void (^XYDChatConversationInvalidedHandler) (NSString *conversationId, XYDConversationVCtrl *conversationController, id<XYDUserDelegate> administrator, NSError *error);
+typedef void (^XYDChatConversationInvalidedHandler) (NSString *conversationId, XYDConversationVCtrl *conversationController, id<XYDChatUserDelegate> administrator, NSError *error);
 
-@protocol XYDChatConversationService <NSObject>
+@protocol XYDConversationService <NSObject>
 
 @property (nonatomic, copy) XYDChatFetchConversationHandler fetchConversationHandler;
 

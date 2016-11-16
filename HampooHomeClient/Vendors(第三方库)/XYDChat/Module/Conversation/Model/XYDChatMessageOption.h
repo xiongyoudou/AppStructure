@@ -17,12 +17,13 @@ typedef NS_ENUM(NSInteger, XYDChatessagePriority) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 消息的一些选项
 @interface XYDChatMessageOption : NSObject
 
 @property (nonatomic, assign)           BOOL                 receipt;
-@property (nonatomic, assign)           BOOL                 transient;
-@property (nonatomic, assign)           XYDChatessagePriority  priority;
-@property (nonatomic, strong, nullable) NSDictionary        *pushData;
+@property (nonatomic, assign)           BOOL                 transient;     //消息是否短暂显示
+@property (nonatomic, assign)           XYDChatessagePriority  priority;    // 消息的优先级
+@property (nonatomic, strong, nullable) NSDictionary            *pushData;
 
 @end
 

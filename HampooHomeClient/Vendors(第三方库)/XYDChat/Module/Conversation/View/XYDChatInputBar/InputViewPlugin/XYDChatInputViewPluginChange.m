@@ -29,7 +29,7 @@
 }
 
 + (XYDChatInputViewPluginType)classPluginType {
-    return 4;
+    return XYDChatInputViewPluginTypeChange;
 }
 
 #pragma mark -

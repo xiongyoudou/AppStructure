@@ -9,7 +9,7 @@
 #import "XYDChatKit.h"
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
-#import "XYDChatConversationService.h"
+#import "XYDConversationService.h"
 #import "XYDChatUIService.h"
 #import "XYDChatConstant.h"
 
@@ -98,8 +98,8 @@
     return [XYDChatUIService sharedInstance];
 }
 
-- (XYDChatConversationService *)conversationService {
-    return [XYDChatConversationService sharedInstance];
+- (XYDConversationService *)conversationService {
+    return [XYDConversationService sharedInstance];
 }
 
 //- (XYDChatConversationListService *)conversationListService {
@@ -161,11 +161,11 @@
 //    [self.userSystemService getCachedProfileIfExists:userId name:name avatarURL:avatarURL error:error];
 }
 
-- (NSArray<id<XYDUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error {
+- (NSArray<id<XYDChatUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error {
 //    return [self.userSystemService getCachedProfilesIfExists:userIds error:error];
     return nil;
 }
-- (NSArray<id<XYDUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds shouldSameCount:(BOOL)shouldSameCount error:(NSError * __autoreleasing *)error {
+- (NSArray<id<XYDChatUserDelegate>> *)getCachedProfilesIfExists:(NSArray<NSString *> *)userIds shouldSameCount:(BOOL)shouldSameCount error:(NSError * __autoreleasing *)error {
 //    return [self.userSystemService getCachedProfilesIfExists:userIds shouldSameCount:shouldSameCount error:error];
     return nil;
 }
@@ -178,7 +178,7 @@
 //    [self.userSystemService getProfilesInBackgroundForUserIds:userIds callback:callback];
 }
 
-- (NSArray<id<XYDUserDelegate>> *)getProfilesForUserIds:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error {
+- (NSArray<id<XYDChatUserDelegate>> *)getProfilesForUserIds:(NSArray<NSString *> *)userIds error:(NSError * __autoreleasing *)error {
 //    return [self.userSystemService getProfilesForUserIds:userIds error:error];
     return nil;
 }
@@ -281,9 +281,9 @@
     [self.settingService setBackgroundImage:image forConversationId:conversationId scaledToSize:scaledToSize];
 }
 
-#pragma mark - XYDChatConversationService
+#pragma mark - XYDConversationService
 ///=============================================================================
-/// @name XYDChatConversationService
+/// @name XYDConversationService
 ///=============================================================================
 
 - (void)setFetchConversationHandler:(XYDChatFetchConversationHandler)fetchConversationHandler {

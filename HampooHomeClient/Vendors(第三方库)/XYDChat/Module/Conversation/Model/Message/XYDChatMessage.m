@@ -35,15 +35,14 @@ NSMutableDictionary const *_typeDict = nil;
 @property (nonatomic, assign, readwrite) XYDChatMessageStatus status;
 @property (nonatomic, assign, readwrite) XYDChatMessageMediaType mediaType;
 @property (nonatomic, assign, readwrite) XYDChatMessageReadState messageReadState;
-@property (nonatomic, strong, nullable,readwrite) NSDictionary *attributes;
 
 @end
 
 @implementation XYDChatMessage
 
 + (void)registerSubclass {
-    if ([self conformsToProtocol:@protocol(XYDChatTypedMessageSubclassing)]) {
-        Class<XYDChatTypedMessageSubclassing> class = self;
+    if ([self conformsToProtocol:@protocol(XYDChatMessageSubclassing)]) {
+        Class<XYDChatMessageSubclassing> class = self;
         XYDChatMessageMediaType mediaType = [class classMediaType];
         [self registerClass:class forMediaType:mediaType];
     }
@@ -83,7 +82,7 @@ NSMutableDictionary const *_typeDict = nil;
     XYDChatTextMessage *message = [XYDChatTextMessage new];
     [message setText:text];
     message.toUserId = toSenderId;
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeText];
     return message;
 }
 
@@ -92,22 +91,37 @@ NSMutableDictionary const *_typeDict = nil;
     XYDChatTextMessage *message = [XYDChatTextMessage new];
     [message setText:text];
     message.conversationId = convId;
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeText];
     return message;
 }
 
+// 通过给定文字，生成系统消息
 - (instancetype)initWithSystemText:(NSString *)text {
     XYDChatSystemMessage *message = [XYDChatSystemMessage new];
     [message setSystemText:text];
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeSystem];
     return message;
+}
+
+// 生成系统时间消息
+- (instancetype)initWithTimestamp:(NSTimeInterval)time {
+    NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:time / 1000];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd HH:mm"];
+#ifdef LCCKIsDebugging
+    //如果定义了LCCKIsDebugging则执行从这里到#endif的代码
+    [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
+#endif
+    NSString *text = [dateFormatter stringFromDate:timestamp];
+    XYDChatSystemMessage *timeMessage = [[XYDChatSystemMessage alloc] initWithSystemText:text];
+    return timeMessage;
 }
 
 - (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText {
     XYDChatTextMessage *message = [XYDChatTextMessage new];
     [message setText:localFeedbackText];
     message.localMessage = YES;
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeSystem];
     return message;
 }
 
@@ -116,7 +130,7 @@ NSMutableDictionary const *_typeDict = nil;
                       originPhotoURLStr:(NSString *)originPhotoURLStr {
     XYDChatImageMessage *message = [XYDChatImageMessage new];
     [message setThumbnailUrlStr:thumbnailURLStr originalUrlStr:originPhotoURLStr];
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeImage];
     return message;
 }
 
@@ -124,7 +138,7 @@ NSMutableDictionary const *_typeDict = nil;
 - (instancetype)initWithLocalVideoPath:(NSString *)localVideoPath {
     XYDChatVideoMessage *message = [XYDChatVideoMessage new];
     [message setLocalVideoPath:localVideoPath];
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeVideo];
     return message;
 }
 
@@ -132,7 +146,7 @@ NSMutableDictionary const *_typeDict = nil;
 - (instancetype)initWithVoicePath:(NSString *)voicePath {
     XYDChatAudioMessage *message = [XYDChatAudioMessage new];
     [message setLocalVoicePath:voicePath];
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeAudio];
     return message;
 }
 
@@ -140,7 +154,7 @@ NSMutableDictionary const *_typeDict = nil;
 - (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude {
     XYDChatLocationMessage *message = [XYDChatLocationMessage new];
     [message setlatitude:longitude longitude:latitude];
-    [self dealWithSendMessage:message];
+    [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeLocation];
     return message;
 }
 
@@ -187,10 +201,12 @@ NSMutableDictionary const *_typeDict = nil;
 #pragma mark - private methods
 
 // 处理即将发送的消息
-- (void)dealWithSendMessage:(XYDChatMessage *)message {
-    message.timestamp = [NSString xyd_UUIDTimestampDoubleValue];
+- (void)dealWithSendMessage:(XYDChatMessage *)message mediaType:(XYDChatMessageMediaType)mediaType {
+    message.timestamp = kGetCurrent_Timestamp;
     message.localMessageId = [NSString stringWithFormat:@"%f",message.timestamp];
-    
+    message.mediaType = mediaType;
+    message.sendStatus = XYDChatMessageStatusSending;
+    message.ownerType = (mediaType == XYDChatMessageMediaTypeSystem) ? XYDChatMessageOwnerTypeSystem :  XYDChatMessageOwnerTypeSelf;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatAudioMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatAudioMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 @property (nonatomic, strong, readonly) NSString *voiceURLStr;
 @property (nonatomic, assign, readonly) float voiceDuration;

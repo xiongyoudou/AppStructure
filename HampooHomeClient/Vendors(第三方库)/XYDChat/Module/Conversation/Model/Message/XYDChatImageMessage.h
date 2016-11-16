@@ -9,7 +9,7 @@
 #import "XYDChatMessage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYDChatImageMessage : XYDChatMessage<XYDChatTypedMessageSubclassing>
+@interface XYDChatImageMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 @property (nonatomic, strong, readonly) NSString *thumbnailURLStr;
 @property (nonatomic, strong, readonly) NSString *originPhotoURLStr;
