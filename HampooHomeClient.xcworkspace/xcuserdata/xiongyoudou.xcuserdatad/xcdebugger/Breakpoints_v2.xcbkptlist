@@ -84,7 +84,7 @@
                   moduleName = "HampooHomeClient"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xiongyoudou/Desktop/GitHub/AppStructure/HampooHomeClient/Vendors(%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
-                  timestampString = "501040002.722818"
+                  timestampString = "501069334.117098"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "674"
@@ -99,7 +99,7 @@
                   moduleName = "HampooHomeClient"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xiongyoudou/Desktop/GitHub/AppStructure/HampooHomeClient/Vendors(%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
-                  timestampString = "501040002.724586"
+                  timestampString = "501069334.118366"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "674"
@@ -138,6 +138,22 @@
             startingLineNumber = "655"
             endingLineNumber = "655"
             landmarkName = "-queryAndCacheMessagesWithTimestamp:block:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/VoiceLib/Mp3Recorder.m"
+            timestampString = "501046766.958553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-setRecorder"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

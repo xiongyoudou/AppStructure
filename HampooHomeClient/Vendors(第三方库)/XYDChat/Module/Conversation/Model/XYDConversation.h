@@ -12,6 +12,7 @@
 
 @class XYDChatMessage;
 @class XYDArchivedConversation;
+@class XYDChatClient;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface XYDConversation : NSObject
@@ -77,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The XYDChatClient object which this conversation belongs to.
  */
-//@property (nonatomic, weak, readonly, nullable)   XYDChatClient   *imClient;
+@property (nonatomic, weak, readonly, nullable)   XYDChatClient   *imClient;
 
 /*!
  生成一个新的 XYDChatConversationUpdateBuilder 实例。用于更新对话。

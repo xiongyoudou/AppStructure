@@ -8,7 +8,6 @@
 
 #import "XYDChatLocationMessage.h"
 #import "XYDGeoPoint.h"
-#import "XYDGeoPoint.h"
 
 @implementation XYDChatLocationMessage
 
@@ -20,10 +19,9 @@
     return XYDChatMessageMediaTypeLocation;
 }
 
-- (void)setlatitude:(float)latitude
-          longitude:(float)longitude {
-    _latitude = latitude;
-    _longitude = longitude;
+- (void)setPostionPhoto:(UIImage *)postionPhoto location:(CLLocation *)location {
+    _localPositionPhoto = postionPhoto;
+    _location = location;
 }
 
 

@@ -12,19 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYDChatLocationMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
-/**
- *  Latitude. Should be 0~90.
- */
-@property(nonatomic, assign, readonly) float latitude;
 
-/**
- *  Longitude, Should be 0~360.
- */
-@property(nonatomic, assign, readonly) float longitude;
+@property(nonatomic, assign, readonly) CLLocation *location;
+
 @property (nonatomic, strong, readonly) UIImage *localPositionPhoto;
 
-- (void)setlatitude:(float)latitude
-          longitude:(float)longitude;
+// 地理位置上的文字描述
+@property (nonatomic, strong, readonly) NSString *geolocations;
+
+- (void)setPostionPhoto:(UIImage *)postionPhoto location:(CLLocation *)location;
 
 @end
 

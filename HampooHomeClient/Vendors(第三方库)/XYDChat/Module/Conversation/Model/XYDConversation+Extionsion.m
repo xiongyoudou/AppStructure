@@ -10,6 +10,8 @@
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
 #import "XYDChatUserDelegate.h"
+#import "XYDChatUserSystemService.h"
+#import "XYDChatMacro.h"
 
 @implementation XYDConversation (Extionsion)
 
@@ -17,7 +19,7 @@
     return objc_getAssociatedObject(self, @selector(xydChat_lastMessage));
 }
 
-- (void)setxydChat_lastMessage:(XYDChatMessage *)xydChat_lastMessage {
+- (void)setXydChat_lastMessage:(XYDChatMessage *)xydChat_lastMessage {
     objc_setAssociatedObject(self, @selector(xydChat_lastMessage), xydChat_lastMessage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -37,7 +39,7 @@
     return badgeText;
 }
 
-- (void)setxydChat_unreadCount:(NSInteger)xydChat_unreadCount {
+- (void)setXydChat_unreadCount:(NSInteger)xydChat_unreadCount {
     NSNumber *xydChat_unreadCountObject = [NSNumber numberWithInteger:xydChat_unreadCount];
     objc_setAssociatedObject(self, @selector(xydChat_unreadCount), xydChat_unreadCountObject, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -47,7 +49,7 @@
     return [xydChat_mentionedObject boolValue];
 }
 
-- (void)setxydChat_mentioned:(BOOL)xydChat_mentioned {
+- (void)setXydChat_mentioned:(BOOL)xydChat_mentioned {
     NSNumber *xydChat_mentionedObject = [NSNumber numberWithBool:xydChat_mentioned];
     objc_setAssociatedObject(self, @selector(xydChat_mentioned), xydChat_mentionedObject, OBJC_ASSOCIATION_ASSIGN);
 }
@@ -56,7 +58,7 @@
     return objc_getAssociatedObject(self, @selector(xydChat_draft));
 }
 
-- (void)setxydChat_draft:(NSString *)xydChat_draft {
+- (void)setXydChat_draft:(NSString *)xydChat_draft {
     objc_setAssociatedObject(self, @selector(xydChat_draft), xydChat_draft, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
@@ -74,57 +76,57 @@
     if ([self xydChat_type] == XYDChatConversationTypeSingle) {
         NSString *peerId = [self xydChat_peerId];
         NSError *error = nil;
-//        NSArray *peers = [[XYDChatUserSystemService sharedInstance] getCachedProfilesIfExists:@[peerId] error:&error];
-//        id<XYDChatUserDelegate> peer;
-//        if (peers.count > 0) {
-//            peer = peers[0];
-//        }
-//        displayName = peer.name ?: peerId;
-//        if (!peer.name && disablePreviewUserId) {
-//            NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
-//            displayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
-//        }
+        NSArray *peers = [[XYDChatUserSystemService sharedInstance] getCachedProfilesIfExists:@[peerId] error:&error];
+        id<XYDChatUserDelegate> peer;
+        if (peers.count > 0) {
+            peer = peers[0];
+        }
+        displayName = peer.name ?: peerId;
+        if (!peer.name && disablePreviewUserId) {
+            NSString *defaultNickNameWhenNil = XYDChatLocalizedStrings(@"nickNameIsNil");
+            displayName = defaultNickNameWhenNil.length > 0 ? defaultNickNameWhenNil : @"";
+        }
         return displayName;
     }
     if (self.name.length > 0) {
         return self.name;
     }
     if (self.members.count == 0) {
-//        return XYDChatLocalizedStrings(@"SystemConversation");
+        return XYDChatLocalizedStrings(@"SystemConversation");
     }
-//    return XYDChatLocalizedStrings(@"GroupConversation");
+    return XYDChatLocalizedStrings(@"GroupConversation");
     return nil;
 }
 
 - (NSString *)xydChat_peerId {
-//    NSArray *members = self.members;
-//    if (members.count == 0) {
-//        [NSException raise:@"invalid conversation" format:@"invalid conversation"];
-//    }
-//    if (members.count == 1) {
-//        return members[0];
-//    }
-//    NSString *peerId;
-//    if ([members[0] isEqualToString:[XYDChatSessionService sharedInstance].clientId]) {
-//        peerId = members[1];
-//    } else {
-//        peerId = members[0];
-//    }
-//    return peerId;
+    NSArray *members = self.members;
+    if (members.count == 0) {
+        [NSException raise:@"invalid conversation" format:@"invalid conversation"];
+    }
+    if (members.count == 1) {
+        return members[0];
+    }
+    NSString *peerId;
+    if ([members[0] isEqualToString:[XYDChatSessionService sharedInstance].clientId]) {
+        peerId = members[1];
+    } else {
+        peerId = members[0];
+    }
+    return peerId;
     return nil;
 }
 
 - (NSString *)xydChat_title {
-//    NSString *displayName = self.xydChat_displayName;
-//    if (!self.xydChat_displayName || self.xydChat_displayName.length == 0 ||  [self.xydChat_displayName isEqualToString:XYDChatLocalizedStrings(@"nickNameIsNil")]) {
-//        displayName = XYDChatLocalizedStrings(@"Chat");
-//    }
-//    if (self.xydChat_type == XYDChatConversationTypeSingle || self.members.count == 0) {
-//        return displayName;
-//    } else {
-//        return [NSString stringWithFormat:@"%@(%ld)", displayName, (long)self.members.count];
-//        
-//    }
+    NSString *displayName = self.xydChat_displayName;
+    if (!self.xydChat_displayName || self.xydChat_displayName.length == 0 ||  [self.xydChat_displayName isEqualToString:XYDChatLocalizedStrings(@"nickNameIsNil")]) {
+        displayName = XYDChatLocalizedStrings(@"Chat");
+    }
+    if (self.xydChat_type == XYDChatConversationTypeSingle || self.members.count == 0) {
+        return displayName;
+    } else {
+        return [NSString stringWithFormat:@"%@(%ld)", displayName, (long)self.members.count];
+        
+    }
     return nil;
 }
 

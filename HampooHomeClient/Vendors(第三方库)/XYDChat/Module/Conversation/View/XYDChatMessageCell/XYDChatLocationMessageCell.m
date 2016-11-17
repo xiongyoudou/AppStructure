@@ -23,7 +23,7 @@
 
 - (void)configureCellWithData:(XYDChatLocationMessage *)message {
     [super configureCellWithData:message];
-    self.locationAddressLabel.text = [NSString stringWithFormat:@"%f",message.latitude];
+    self.locationAddressLabel.text = message.geolocations;
 }
 
 #pragma mark - Public Methods

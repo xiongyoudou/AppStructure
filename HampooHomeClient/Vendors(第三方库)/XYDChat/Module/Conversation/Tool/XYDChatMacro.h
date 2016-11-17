@@ -32,5 +32,10 @@ if (![[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate
 }                                      \
 } while (0)
 
+#ifndef XYDChatLocalizedStrings
+#define XYDChatLocalizedStrings(key) \
+NSLocalizedStringFromTableInBundle(key, @"LCChatKitString", [NSBundle xyd_bundleForName:@"Other" class:[self class]], nil)
+#endif
+
 #pragma mark - 通知宏
 

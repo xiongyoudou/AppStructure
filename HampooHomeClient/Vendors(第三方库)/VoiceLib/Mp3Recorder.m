@@ -50,7 +50,7 @@
                                             settings:settings
                                                error:&recorderSetupError];
     if (recorderSetupError) {
-        //NSLog(@"%@",recorderSetupError);
+        NSLog(@"%@",recorderSetupError);
     }
     _recorder.meteringEnabled = YES;
     _recorder.delegate = self;

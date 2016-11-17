@@ -74,6 +74,18 @@ NSMutableDictionary const *_typeDict = nil;
     return NO;
 }
 
+#pragma mark - public
+
+- (NSString *)messageId {
+    if (_serverMessageId) {
+        return _serverMessageId;
+    }
+    if (_localMessageId) {
+        return _localMessageId;
+    }
+    return nil;
+}
+
 #pragma mark - 生成相应类型的消息
 
 - (instancetype)initWithText:(NSString *)text {
@@ -129,9 +141,9 @@ NSMutableDictionary const *_typeDict = nil;
     return message;
 }
 
-- (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude {
+- (instancetype)initWithPostionPhoto:(UIImage *)postionPhoto locations:(CLLocation *)location {
     XYDChatLocationMessage *message = [XYDChatLocationMessage new];
-    [message setlatitude:longitude longitude:latitude];
+    [message setPostionPhoto:postionPhoto location:location];
     [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeLocation];
     return message;
 }
@@ -149,7 +161,6 @@ NSMutableDictionary const *_typeDict = nil;
     [self dealWithSendMessage:message mediaType:XYDChatMessageMediaTypeVideo];
     return message;
 }
-
 
 #pragma mark - NSCoding
 

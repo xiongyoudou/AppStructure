@@ -14,10 +14,12 @@
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
 #import "XYDChatUserSystemService.h"
+#import "XYDChatUIService.h"
 #import "XYDChatUserDelegate.h"
 #import "XYDConversation.h"
 #import "XYDChatInputBar.h"
 #import "XYDChatStatusView.h"
+#import "XYDConversationNaviTitleView.h"
 #import "XYDConversation.h"
 #import "XYDConversation+Extionsion.h"
 #import "XYDAudioPlayer.h"
@@ -25,6 +27,14 @@
 #import "XYDChatUserDelegate.h"
 #import "XYDWebViewController.h"
 #import "XYDChatMessage.h"
+#import "XYDChatHelper.h"
+#import "XYDChatMacro.h"
+#import "XYDAudioPlayer.h"
+#import "XYDChatTextFullscreenVCtrl.h"
+
+#import "XYDChatAudioMessage.h"
+#import "XYDChatLocationMessage.h"
+#import "XYDChatTextMessage.h"
 
 NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDomain";
 
@@ -309,19 +319,12 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 
 #pragma mark - 发送地理位置消息
 - (void)sendLocationMessageWithLocationCoordinate:(CLLocationCoordinate2D)locationCoordinate locatioTitle:(NSString *)locationTitle {
-//    XYDChatMessage *message = [[XYDChatMessage alloc] initWithLocalPositionPhoto:({
-//        NSString *imageName = @"message_sender_location";
-//        UIImage *image = [UIImage XYDChat_imageNamed:imageName bundleName:@"MessageBubble" bundleForClass:[self class]];
-//        image;})
-//                                                              geolocations:locationTitle
-//                                                                  location:[[CLLocation alloc] initWithLatitude:locationCoordinate.latitude
-//                                                                                                      longitude:locationCoordinate.longitude]
-//                                                                  senderId:self.userId
-//                                                                    sender:self.user
-//                                                                 timestamp:XYDChat_CURRENT_TIMESTAMP
-//                                                           serverMessageId:nil];
-//    [self makeSureSendValidMessage:message afterFetchedConversationShouldWithAssert:NO];
-//    [self.chatViewModel sendMessage:message];
+    XYDChatMessage *message = [[XYDChatMessage alloc]initWithPostionPhoto:({
+        NSString *imageName = @"message_sender_location";
+        UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"MessageBubble" bundleForClass:[self class]];
+        image;
+    })  locations:[[CLLocation alloc] initWithLatitude:locationCoordinate.latitude longitude:locationCoordinate.longitude]];
+    [self.chatViewModel sendMessage:message];
 }
 
 - (void)sendCustomMessage:(XYDChatMessage *)customMessage {
@@ -344,73 +347,73 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)clearCurrentConversationInfo {
-//    [XYDConversationService sharedInstance].currentConversationId = nil;
+    [XYDConversationService sharedInstance].currentConversationId = nil;
 }
 
 - (void)sXYDChateCurrentConversationInfoIfExists {
-//    NSString *conversationId = [self getConversationIdIfExists:nil];
-//    if (conversationId) {
-//        [XYDConversationService sharedInstance].currentConversationId = conversationId;
-//    }
-//    
-//    if (_conversation) {
-//        [XYDConversationService sharedInstance].currentConversation = self.conversation;
-//    }
+    NSString *conversationId = [self getConversationIdIfExists:nil];
+    if (conversationId) {
+        [XYDConversationService sharedInstance].currentConversationId = conversationId;
+    }
+    
+    if (_conversation) {
+        [XYDConversationService sharedInstance].currentConversation = self.conversation;
+    }
 }
 
 - (void)setupnavigationItemTitleWithConversation:(XYDConversation *)conversation {
-//    XYDChatConversationnavigationTitleView *navigationItemTitle = [[XYDChatConversationnavigationTitleView alloc] initWithConversation:conversation navigationController:self.navigationController];
-//    navigationItemTitle.frame = CGRectZero;
-//    //仅修高度,xyw值不变
-//    navigationItemTitle.frame = ({
-//        CGRect frame = navigationItemTitle.frame;
-//        CGFloat containerViewHeight = self.navigationController.navigationBar.frame.size.height;
-//        CGFloat containerViewWidth = self.navigationController.navigationBar.frame.size.width - 130;
-//        frame.size.width = containerViewWidth;
-//        frame.size.height = containerViewHeight;
-//        frame;
-//    });
-//    self.navigationItem.titleView = navigationItemTitle;
+    XYDConversationNaviTitleView *navigationItemTitle = [[XYDConversationNaviTitleView alloc] initWithConversation:conversation navigationController:self.navigationController];
+    navigationItemTitle.frame = CGRectZero;
+    //仅修高度,xyw值不变
+    navigationItemTitle.frame = ({
+        CGRect frame = navigationItemTitle.frame;
+        CGFloat containerViewHeight = self.navigationController.navigationBar.frame.size.height;
+        CGFloat containerViewWidth = self.navigationController.navigationBar.frame.size.width - 130;
+        frame.size.width = containerViewWidth;
+        frame.size.height = containerViewHeight;
+        frame;
+    });
+    self.navigationItem.titleView = navigationItemTitle;
 }
 
 - (void)fetchConversationHandler:(XYDConversation *)conversation {
-//    XYDChatFetchConversationHandler fetchConversationHandler;
-//    do {
-//        if (_fetchConversationHandler) {
-//            fetchConversationHandler = _fetchConversationHandler;
-//            break;
-//        }
-//        XYDChatFetchConversationHandler generalFetchConversationHandler = [XYDConversationService sharedInstance].fetchConversationHandler;
-//        if (generalFetchConversationHandler) {
-//            fetchConversationHandler = generalFetchConversationHandler;
-//            break;
-//        }
-//    } while (NO);
-//    if (fetchConversationHandler) {
-//        dispatch_async(dispatch_get_main_queue(),^{
-//            fetchConversationHandler(conversation, self);
-//        });
-//    }
+    XYDChatFetchConversationHandler fetchConversationHandler;
+    do {
+        if (_fetchConversationHandler) {
+            fetchConversationHandler = _fetchConversationHandler;
+            break;
+        }
+        XYDChatFetchConversationHandler generalFetchConversationHandler = [XYDConversationService sharedInstance].fetchConversationHandler;
+        if (generalFetchConversationHandler) {
+            fetchConversationHandler = generalFetchConversationHandler;
+            break;
+        }
+    } while (NO);
+    if (fetchConversationHandler) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            fetchConversationHandler(conversation, self);
+        });
+    }
 }
 
 - (void)loadLatestMessagesHandler:(BOOL)succeeded error:(NSError *)error {
-//    XYDChatLoadLatestMessagesHandler loadLatestMessagesHandler;
-//    do {
-//        if (_loadLatestMessagesHandler) {
-//            loadLatestMessagesHandler = _loadLatestMessagesHandler;
-//            break;
-//        }
-//        XYDChatLoadLatestMessagesHandler generalLoadLatestMessagesHandler = [XYDConversationService sharedInstance].loadLatestMessagesHandler;
-//        if (generalLoadLatestMessagesHandler) {
-//            loadLatestMessagesHandler = generalLoadLatestMessagesHandler;
-//            break;
-//        }
-//    } while (NO);
-//    if (loadLatestMessagesHandler) {
-//        dispatch_async(dispatch_get_main_queue(),^{
-//            loadLatestMessagesHandler(self, succeeded, error);
-//        });
-//    }
+    XYDChatLoadLatestMessagesHandler loadLatestMessagesHandler;
+    do {
+        if (_loadLatestMessagesHandler) {
+            loadLatestMessagesHandler = _loadLatestMessagesHandler;
+            break;
+        }
+        XYDChatLoadLatestMessagesHandler generalLoadLatestMessagesHandler = [XYDConversationService sharedInstance].loadLatestMessagesHandler;
+        if (generalLoadLatestMessagesHandler) {
+            loadLatestMessagesHandler = generalLoadLatestMessagesHandler;
+            break;
+        }
+    } while (NO);
+    if (loadLatestMessagesHandler) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            loadLatestMessagesHandler(self, succeeded, error);
+        });
+    }
 }
 
 - (void)refreshConversation:(XYDConversation *)conversation isJoined:(BOOL)isJoined {
@@ -438,24 +441,26 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 
 - (void)notJoinedHandler:(XYDConversation *)conversation error:(NSError *)aError {
     void(^notJoinedHandler)(id<XYDChatUserDelegate> user, NSError *error) = ^(id<XYDChatUserDelegate> user, NSError *error) {
-//        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDConversationService sharedInstance] conversationInvalidedHandler];
-//        NSString *conversationId = [self getConversationIdIfExists:conversation];
-//        //错误码参考：https://leancloud.cn/docs/realtime_v2.html#%E4%BA%91%E7%AB%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%AF%B4%E6%98%8E
-//        if (error.code == 4401 && conversationId.length > 0) {
-//            //如果被管理员踢出群之后，再进入该会话，本地可能有缓存，要清除掉，防止下次再次进入。
-//            [[XYDConversationService sharedInstance] deleteRecentConversationWithConversationId:conversationId];
-//        }
-//        conversationInvalidedHandler(conversationId, self, user, error);
+        XYDChatConversationInvalidedHandler conversationInvalidedHandler = [[XYDConversationService sharedInstance] conversationInvalidedHandler];
+        NSString *conversationId = [self getConversationIdIfExists:conversation];
+        //错误码参考：https://leancloud.cn/docs/realtime_v2.html#%E4%BA%91%E7%AB%AF%E9%94%99%E8%AF%AF%E7%A0%81%E8%AF%B4%E6%98%8E
+        if (error.code == 4401 && conversationId.length > 0) {
+            //如果被管理员踢出群之后，再进入该会话，本地可能有缓存，要清除掉，防止下次再次进入。
+            [[XYDConversationService sharedInstance] deleteRecentConversationWithConversationId:conversationId];
+        }
+        if (conversationInvalidedHandler) {
+            conversationInvalidedHandler(conversationId, self, user, error);
+        }
     };
     
     if (conversation && (conversation.creator.length > 0)) {
-//        [[XYDChatUserSystemService sharedInstance] getProfilesInBackgroundForUserIds:@[ conversation.creator ] callback:^(NSArray<id<XYDChatUserDelegate>> *users, NSError *error) {
-//            id<XYDChatUserDelegate> user;
-//            @try {
-//                user = users[0];
-//            } @catch (NSException *exception) {}
-//            !notJoinedHandler ?: notJoinedHandler(user, aError);
-//        }];
+        [[XYDChatUserSystemService sharedInstance] getProfilesInBackgroundForUserIds:@[ conversation.creator ] callback:^(NSArray<id<XYDChatUserDelegate>> *users, NSError *error) {
+            id<XYDChatUserDelegate> user;
+            @try {
+                user = users[0];
+            } @catch (NSException *exception) {}
+            !notJoinedHandler ?: notJoinedHandler(user, aError);
+        }];
     } else {
         !notJoinedHandler ?: notJoinedHandler(nil, aError);
     }
@@ -484,45 +489,45 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)callbackCurrentConversationEvenNotExists:(XYDConversation *)conversation callback:(XYDChatBooleanResultBlock)callback {
-//    if (conversation.createAt) {
-//        if (!conversation.imClient) {
-//            [conversation setValue:[XYDChatSessionService sharedInstance].client forKey:@"imClient"];
-//            XYDChatLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), @"imClient is nil");
-//        }
-//        BOOL hasDraft = (conversation.XYDChat_draft.length > 0);
-//        if (hasDraft) {
-//            [self loadDraft];
-//        }
-//        self.conversationId = conversation.conversationId;
-//        [self.chatViewModel resetBackgroundImage];
-//        //系统对话
-//        if (conversation.members.count == 0) {
-//            self.navigationItem.title = conversation.XYDChat_title;
-//            [self fetchConversationHandler:conversation];
-//            !callback ?: callback(YES, nil);
-//            return;
-//        }
-//        [[LCChatKit sharedInstance] getProfilesInBackgroundForUserIds:conversation.members callback:^(NSArray<id<XYDChatUserDelegate>> *users, NSError *error) {
-//            if (!self.disableTitleAutoConfig && (users.count > 0)) {
-//                [self setupnavigationItemTitleWithConversation:conversation];
-//            }
-//            [self fetchConversationHandler:conversation];
-//            !callback ?: callback(YES, nil);
-//        }];
-//    } else {
-//        [self fetchConversationHandler:conversation];
-//        NSInteger code = 0;
-//        NSString *errorReasonText = @"error reason";
-//        NSDictionary *errorInfo = @{
-//                                    @"code":@(code),
-//                                    NSLocalizedDescriptionKey : errorReasonText,
-//                                    };
-//        NSError *error = [NSError errorWithDomain:NSStringFromClass([self class])
-//                                             code:code
-//                                         userInfo:errorInfo];
-//        
-//        !callback ?: callback(NO, error);
-//    }
+    if (conversation.createAt) {
+        if (!conversation.imClient) {
+            [conversation setValue:[XYDChatSessionService sharedInstance].client forKey:@"imClient"];
+            KMyLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), @"imClient is nil");
+        }
+        BOOL hasDraft = (conversation.xydChat_draft.length > 0);
+        if (hasDraft) {
+            [self loadDraft];
+        }
+        self.conversationId = conversation.conversationId;
+        [self.chatViewModel resetBackgroundImage];
+        //系统对话
+        if (conversation.members.count == 0) {
+            self.navigationItem.title = conversation.xydChat_title;
+            [self fetchConversationHandler:conversation];
+            !callback ?: callback(YES, nil);
+            return;
+        }
+        [[XYDChatKit sharedInstance] getProfilesInBackgroundForUserIds:conversation.members callback:^(NSArray<id<XYDChatUserDelegate>> *users, NSError *error) {
+            if (!self.disableTitleAutoConfig && (users.count > 0)) {
+                [self setupnavigationItemTitleWithConversation:conversation];
+            }
+            [self fetchConversationHandler:conversation];
+            !callback ?: callback(YES, nil);
+        }];
+    } else {
+        [self fetchConversationHandler:conversation];
+        NSInteger code = 0;
+        NSString *errorReasonText = @"error reason";
+        NSDictionary *errorInfo = @{
+                                    @"code":@(code),
+                                    NSLocalizedDescriptionKey : errorReasonText,
+                                    };
+        NSError *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                             code:code
+                                         userInfo:errorInfo];
+        
+        !callback ?: callback(NO, error);
+    }
 }
 
 - (BOOL)isXYDChatailable {
@@ -558,43 +563,42 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)sendWelcomeMessageIfNeeded:(BOOL)isFirstTimeMeet {
-//    //系统对话
-//    if (_conversation.members.count == 0) {
-//        return;
-//    }
-//    __block NSString *welcomeMessage;
-//    XYDChatConversationType conversationType = _conversation.XYDChat_type;
-//    switch (conversationType) {
-//        case XYDChatConversationTypeSingle:
-//            welcomeMessage = XYDChatLocalizedStrings(@"SingleWelcomeMessage");
-//            break;
-//        case XYDChatConversationTypeGroup:
-//            welcomeMessage = XYDChatLocalizedStrings(@"GroupWelcomeMessage");
-//            break;
-//        default:
-//            break;
-//    }
-//    BOOL isAllowInUserSetting = ([welcomeMessage length] > 0);
-//    if (!isAllowInUserSetting) {
-//        return;
-//    }
-//    BOOL isSessionavailable = [XYDChatSessionService sharedInstance].connect;
-//    BOOL isNeverChat = (isSessionavailable && isFirstTimeMeet);
-//    BOOL shouldSendWelcome = self.isFirstTimeJoinGroup || isNeverChat;
-//    if (shouldSendWelcome) {
-//        [[XYDChatUserSystemService sharedInstance] fetchCurrentUserInBackground:^(id<XYDChatUserDelegate> user, NSError *error) {
-//            NSString *userName = user.name;
-//            if (userName.length > 0 && (conversationType == XYDChatConversationTypeGroup)) {
-//                welcomeMessage = [NSString stringWithFormat:@"%@%@", XYDChatLocalizedStrings(@"GroupWelcomeMessageWithNickName"), userName];
-//            }
-//            [self sendTextMessage:welcomeMessage];
-//        }];
-//    }
+    //系统对话
+    if (_conversation.members.count == 0) {
+        return;
+    }
+    __block NSString *welcomeMessage;
+    XYDChatConversationType conversationType = _conversation.xydChat_type;
+    switch (conversationType) {
+        case XYDChatConversationTypeSingle:
+            welcomeMessage = XYDChatLocalizedStrings(@"SingleWelcomeMessage");
+            break;
+        case XYDChatConversationTypeGroup:
+            welcomeMessage = XYDChatLocalizedStrings(@"GroupWelcomeMessage");
+            break;
+        default:
+            break;
+    }
+    BOOL isAllowInUserSetting = ([welcomeMessage length] > 0);
+    if (!isAllowInUserSetting) {
+        return;
+    }
+    BOOL isSessionavailable = [XYDChatSessionService sharedInstance].connect;
+    BOOL isNeverChat = (isSessionavailable && isFirstTimeMeet);
+    BOOL shouldSendWelcome = self.isFirstTimeJoinGroup || isNeverChat;
+    if (shouldSendWelcome) {
+        [[XYDChatUserSystemService sharedInstance] fetchCurrentUserInBackground:^(id<XYDChatUserDelegate> user, NSError *error) {
+            NSString *userName = user.name;
+            if (userName.length > 0 && (conversationType == XYDChatConversationTypeGroup)) {
+                welcomeMessage = [NSString stringWithFormat:@"%@%@", XYDChatLocalizedStrings(@"GroupWelcomeMessageWithNickName"), userName];
+            }
+            [self sendTextMessage:welcomeMessage];
+        }];
+    }
 }
 
 - (NSString *)userId {
-//    return [LCChatKit sharedInstance].clientId;
-    return nil;
+    return [XYDChatKit sharedInstance].clientId;
 }
 
 #pragma mark - XYDChatInputBarDelegate
@@ -612,13 +616,13 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)didInputAtSign:(XYDChatInputBar *)chatBar {
-//    //系统对话
-//    if (_conversation.members.count == 0) {
-//        return;
-//    }
-//    if (self.conversation.XYDChat_type == XYDChatConversationTypeGroup) {
-//        [self presentSelectMemberViewController];
-//    }
+    //系统对话
+    if (_conversation.members.count == 0) {
+        return;
+    }
+    if (self.conversation.xydChat_type == XYDChatConversationTypeGroup) {
+        [self presentSelectMemberViewController];
+    }
 }
 
 - (void)presentSelectMemberViewController {
@@ -690,8 +694,8 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 #pragma mark - XYDChatMessageCellDelegate
 
 - (void)messageCellTappedHead:(XYDChatMessageCell *)messageCell {
-//    XYDChatOpenProfileBlock openProfileBlock = [XYDChatUIService sharedInstance].openProfileBlock;
-//    !openProfileBlock ?: openProfileBlock(messageCell.message.senderId, messageCell.message.sender, self);
+    XYDChatOpenProfileBlock openProfileBlock = [XYDChatUIService sharedInstance].openProfileBlock;
+    !openProfileBlock ?: openProfileBlock(messageCell.message.senderId, messageCell.message.sender, self);
 }
 
 - (void)messageCellTappedBlank:(XYDChatMessageCell *)messageCell {
@@ -699,72 +703,58 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)messageCellTappedMessage:(XYDChatMessageCell *)messageCell {
-//    if (!messageCell) {
-//        return;
-//    }
-//    [self.chatBar close];
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:messageCell];
-//    XYDChatMessage *message = [self.chatViewModel.dataArray XYDChat_messageAtIndex:indexPath.row];
-//    switch (messageCell.mediaType) {
-//        case kXYDChatIMMessageMediaTypeAudio: {
-//            NSString *voiceFileName = message.voicePath;//必须带后缀，.mp3；
-//            [[XYDChatXYDChatAudioPlayer sharePlayer] playAudioWithURLString:voiceFileName identifier:message.messageId];
-//        }
-//            break;
-//        case kXYDChatIMMessageMediaTypeImage: {
-//            ///FIXME:4S等低端机型在图片超过1M时，有几率会Crash，尤其是全景图。
-//            XYDChatPreviewImageMessageBlock previewImageMessageBlock = [XYDChatUIService sharedInstance].previewImageMessageBlock;
-//            UIImageView *placeholderView = [(XYDChatImageMessageCell *)messageCell messageImageView];
-//            NSDictionary *userInfo = @{
-//                                       /// 传递触发的UIViewController对象
-//                                       XYDChatPreviewImageMessageUserInfoKeyFromController : self,
-//                                       /// 传递触发的UIView对象
-//                                       XYDChatPreviewImageMessageUserInfoKeyFromView : self.tableView,
-//                                       XYDChatPreviewImageMessageUserInfoKeyFromPlaceholderView : placeholderView
-//                                       };
-//            NSArray *allVisibleImages = nil;
-//            NSArray *allVisibleThumbs = nil;
-//            NSNumber *selectedMessageIndex = nil;
-//            [self.chatViewModel getAllVisibleImagesForSelectedMessage:messageCell.message allVisibleImages:&allVisibleImages allVisibleThumbs:&allVisibleThumbs selectedMessageIndex:&selectedMessageIndex];
-//            
-//            if (previewImageMessageBlock) {
-//                previewImageMessageBlock(selectedMessageIndex.unsignedIntegerValue, allVisibleImages, allVisibleThumbs, userInfo);
-//            } else {
-//                [self previewImageMessageWithInitialIndex:selectedMessageIndex.unsignedIntegerValue allVisibleImages:allVisibleImages allVisibleThumbs:allVisibleThumbs placeholderImageView:placeholderView fromViewController:self];
-//            }
-//        }
-//            break;
-//        case kXYDChatIMMessageMediaTypeLocation: {
-//            NSDictionary *userInfo = @{
-//                                       /// 传递触发的UIViewController对象
-//                                       XYDChatPreviewLocationMessageUserInfoKeyFromController : self,
-//                                       /// 传递触发的UIView对象
-//                                       XYDChatPreviewLocationMessageUserInfoKeyFromView : self.tableView,
-//                                       };
-//            XYDChatPreviewLocationMessageBlock previewLocationMessageBlock = [XYDChatUIService sharedInstance].previewLocationMessageBlock;
-//            !previewLocationMessageBlock ?: previewLocationMessageBlock(message.location, message.geolocations, userInfo);
-//        }
-//            break;
-//        default: {
-//            //            //TODO:自定义消息的点击事件
-//            //            NSString *formatString = @"\n\n\
-//            //            ------ BEGIN NSException Log ---------------\n \
-//            //            class name: %@                              \n \
-//            //            ------line: %@                              \n \
-//            //            ----reason: %@                              \n \
-//            //            ------ END -------------------------------- \n\n";
-//            //            NSString *reason = [NSString stringWithFormat:formatString,
-//            //                                @(__PRETTY_FUNCTION__),
-//            //                                @(__LINE__),
-//            //                                @"messageCell.messageType not handled"];
-//            //            //手动创建一个异常导致的崩溃事件 http://is.gd/EfVfN0
-//            //            @throw [NSException exceptionWithName:NSGenericException
-//            //                                           reason:reason
-//            //                                         userInfo:nil];
-//        }
-//            break;
-//    }
-//    [self.chatBar open];
+    if (!messageCell) {
+        return;
+    }
+    [self.chatBar close];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:messageCell];
+    XYDChatMessage *message = [self.chatViewModel.dataArray xyd_objectWithIndex:indexPath.row];
+    switch (messageCell.mediaType) {
+        case XYDChatMessageMediaTypeAudio: {
+            NSString *voiceFileName = [(XYDChatAudioMessage *)message localVoicePath];//必须带后缀，.mp3；
+            [[XYDAudioPlayer sharePlayer] playAudioWithURLString:voiceFileName identifier:[message messageId]];
+        }
+            break;
+        case XYDChatMessageMediaTypeImage: {
+            ///FIXME:4S等低端机型在图片超过1M时，有几率会Crash，尤其是全景图。
+            XYDChatPreviewImageMessageBlock previewImageMessageBlock = [XYDChatUIService sharedInstance].previewImageMessageBlock;
+            UIImageView *placeholderView = [(XYDChatImageMessageCell *)messageCell messageImageView];
+            NSDictionary *userInfo = @{
+                                       /// 传递触发的UIViewController对象
+                                       XYDChatPreviewImageMessageUserInfoKeyFromController : self,
+                                       /// 传递触发的UIView对象
+                                       XYDChatPreviewImageMessageUserInfoKeyFromView : self.tableView,
+                                       XYDChatPreviewImageMessageUserInfoKeyFromPlaceholderView : placeholderView
+                                       };
+            NSArray *allVisibleImages = nil;
+            NSArray *allVisibleThumbs = nil;
+            NSNumber *selectedMessageIndex = nil;
+            [self.chatViewModel getAllVisibleImagesForSelectedMessage:messageCell.message allVisibleImages:&allVisibleImages allVisibleThumbs:&allVisibleThumbs selectedMessageIndex:&selectedMessageIndex];
+            
+            if (previewImageMessageBlock) {
+                previewImageMessageBlock(selectedMessageIndex.unsignedIntegerValue, allVisibleImages, allVisibleThumbs, userInfo);
+            } else {
+                [self previewImageMessageWithInitialIndex:selectedMessageIndex.unsignedIntegerValue allVisibleImages:allVisibleImages allVisibleThumbs:allVisibleThumbs placeholderImageView:placeholderView fromViewController:self];
+            }
+        }
+            break;
+        case XYDChatMessageMediaTypeLocation: {
+            NSDictionary *userInfo = @{
+                                       /// 传递触发的UIViewController对象
+                                       XYDChatPreviewLocationMessageUserInfoKeyFromController : self,
+                                       /// 传递触发的UIView对象
+                                       XYDChatPreviewLocationMessageUserInfoKeyFromView : self.tableView,
+                                       };
+            XYDChatPreviewLocationMessageBlock previewLocationMessageBlock = [XYDChatUIService sharedInstance].previewLocationMessageBlock;
+            !previewLocationMessageBlock ?: previewLocationMessageBlock([(XYDChatLocationMessage *)message location], [(XYDChatLocationMessage *)message geolocations], userInfo);
+        }
+            break;
+        default: {
+
+        }
+            break;
+    }
+    [self.chatBar open];
 }
 
 - (void)previewImageMessageWithInitialIndex:(NSUInteger)initialIndex
@@ -772,54 +762,28 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
                            allVisibleThumbs:(NSArray *)allVisibleThumbs
                        placeholderImageView:(UIImageView *)placeholderImageView
                          fromViewController:(XYDConversationVCtrl *)fromViewController{
-//    // Browser
-//    NSMutableArray *photos = [[NSMutableArray alloc] initWithCapacity:[allVisibleImages count]];
-//    NSMutableArray *thumbs = [[NSMutableArray alloc] initWithCapacity:[allVisibleThumbs count]];
-//    XYDChatPhoto *photo;
-//    for (NSUInteger index = 0; index < allVisibleImages.count; index++) {
-//        id image_ = allVisibleImages[index];
-//        
-//        if ([image_ isKindOfClass:[UIImage class]]) {
-//            photo = [XYDChatPhoto photoWithImage:image_];
-//        } else {
-//            photo = [XYDChatPhoto photoWithURL:image_];
-//        }
-//        if (index == initialIndex) {
-//            photo.placeholderImageView = placeholderImageView;
-//        }
-//        [photos addObject:photo];
-//    }
-//    // Options
-//    self.photos = photos;
-//    self.thumbs = thumbs;
-//    // Create browser
-//    XYDChatPhotoBrowser *browser = [[XYDChatPhotoBrowser alloc] initWithPhotos:photos];
-//    browser.delegate = self;
-//    [browser setInitialPageIndex:initialIndex];
-//    browser.usePopAnimation = YES;
-//    browser.animationDuration = 0.15;
-//    // Show
-//    [fromViewController presentViewController:browser animated:YES completion:nil];
+   // 可以参照ChatKit的LCCKPhotoBrowser & MWPhotoBrowser
+    
 }
 
 - (void)avatarImageViewLongPressed:(XYDChatMessageCell *)messageCell {
-//    if (messageCell.message.senderId == [LCChatKit sharedInstance].clientId || self.conversation.XYDChat_type == XYDChatConversationTypeSingle) {
-//        return;
-//    }
-//    NSString *userName = messageCell.message.localDisplayName;
-//    if (userName.length == 0 || !userName || [userName isEqualToString:XYDChatLocalizedStrings(@"nickNameIsNil")]) {
-//        return;
-//    }
-//    NSString *appendString = [NSString stringWithFormat:@"@%@ ", userName];
-//    [self.chatBar appendString:appendString];
+    if (messageCell.message.senderId == [XYDChatKit sharedInstance].clientId || self.conversation.xydChat_type == XYDChatConversationTypeSingle) {
+        return;
+    }
+    NSString *userName = messageCell.message.localDisplayName;
+    if (userName.length == 0 || !userName || [userName isEqualToString:XYDChatLocalizedStrings(@"nickNameIsNil")]) {
+        return;
+    }
+    NSString *appendString = [NSString stringWithFormat:@"@%@ ", userName];
+    [self.chatBar appendString:appendString];
 }
 
 - (void)textMessageCellDoubleTapped:(XYDChatMessageCell *)messageCell {
-//    if (self.disableTextShowInFullScreen) {
-//        return;
-//    }
-//    XYDChatTextFullScreenViewController *textFullScreenViewController = [[XYDChatTextFullScreenViewController alloc] initWithText:messageCell.message.text];
-//    [self.navigationController pushViewController:textFullScreenViewController animated:NO];
+    if (self.disableTextShowInFullScreen) {
+        return;
+    }
+    XYDChatTextFullscreenVCtrl *textFullScreenViewController = [[XYDChatTextFullscreenVCtrl alloc] initWithText:[(XYDChatTextMessage *)messageCell.message text]];
+    [self.navigationController pushViewController:textFullScreenViewController animated:NO];
 }
 
 - (void)resendMessage:(XYDChatMessageCell *)messageCell {
@@ -909,15 +873,15 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)updateStatusView {
-//    if (!self.shouldCheckSessionStatus) {
-//        return;
-//    }
-//    BOOL isConnected = [XYDChatSessionService sharedInstance].connect;
-//    if (isConnected) {
-//        self.clientStatusView.hidden = YES;
-//    } else {
-//        self.clientStatusView.hidden = NO;
-//    }
+    if (!self.shouldCheckSessionStatus) {
+        return;
+    }
+    BOOL isConnected = [XYDChatSessionService sharedInstance].connect;
+    if (isConnected) {
+        self.clientStatusView.hidden = YES;
+    } else {
+        self.clientStatusView.hidden = NO;
+    }
 }
 
 

@@ -391,6 +391,8 @@
 		49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */; };
 		49B84B431DDC08D60014F219 /* XYDChatUserSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */; };
 		49B84B461DDD3EA10014F219 /* XYDChatErrorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */; };
+		49B84B491DDD7F7E0014F219 /* XYDConversationNaviTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B481DDD7F7E0014F219 /* XYDConversationNaviTitleView.m */; };
+		49B84B4C1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B4B1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.m */; };
 		49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */; };
 		49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */; };
 		49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */; };
@@ -1148,6 +1150,10 @@
 		49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatUserSystemService.m; sourceTree = "<group>"; };
 		49B84B441DDD3EA10014F219 /* XYDChatErrorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatErrorUtil.h; sourceTree = "<group>"; };
 		49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatErrorUtil.m; sourceTree = "<group>"; };
+		49B84B471DDD7F7E0014F219 /* XYDConversationNaviTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationNaviTitleView.h; sourceTree = "<group>"; };
+		49B84B481DDD7F7E0014F219 /* XYDConversationNaviTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationNaviTitleView.m; sourceTree = "<group>"; };
+		49B84B4A1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatTextFullscreenVCtrl.h; sourceTree = "<group>"; };
+		49B84B4B1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatTextFullscreenVCtrl.m; sourceTree = "<group>"; };
 		49D7FA261DD309280096B966 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
 		49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
 		49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
@@ -2914,6 +2920,8 @@
 				49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */,
 				49B84B0E1DDB059A0014F219 /* XYDChatLocationController.h */,
 				49B84B0F1DDB059A0014F219 /* XYDChatLocationController.m */,
+				49B84B4A1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.h */,
+				49B84B4B1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2974,6 +2982,8 @@
 				49D7FE511DD40C840096B966 /* XYDChatContentView.m */,
 				49B84AE11DDAD8040014F219 /* XYDChatStatusView.h */,
 				49B84AE21DDAD8040014F219 /* XYDChatStatusView.m */,
+				49B84B471DDD7F7E0014F219 /* XYDConversationNaviTitleView.h */,
+				49B84B481DDD7F7E0014F219 /* XYDConversationNaviTitleView.m */,
 				49D7FA321DD309280096B966 /* XYDChatInputBar */,
 				49D7FA421DD309280096B966 /* XYDChatMessageCell */,
 				49D7FA431DD309280096B966 /* XYDConversationRefreshHeader.h */,
@@ -3488,6 +3498,7 @@
 				49896E761DD2C7BE006C50C9 /* UIApplication+XYDNetworkActivityIndicator.m in Sources */,
 				49896EBD1DD2C7BE006C50C9 /* UITableViewCell+XYDDelaysContentTouches.m in Sources */,
 				49896E811DD2C7BE006C50C9 /* UIButton+XYDImagePosition.m in Sources */,
+				49B84B4C1DDDB10D0014F219 /* XYDChatTextFullscreenVCtrl.m in Sources */,
 				49896E361DD2C7BE006C50C9 /* NSFileHandle+XYDReadLine.m in Sources */,
 				49B088781DD05C51003E6916 /* XYDBottomBarCell.m in Sources */,
 				49896EBA1DD2C7BE006C50C9 /* UISearchBar+XYDBlocks.m in Sources */,
@@ -3622,6 +3633,7 @@
 				49B088571DD02A08003E6916 /* XYDTabBar.m in Sources */,
 				49896E651DD2C7BE006C50C9 /* NSURLConnection+XYDSelfSigned.m in Sources */,
 				49B84B431DDC08D60014F219 /* XYDChatUserSystemService.m in Sources */,
+				49B84B491DDD7F7E0014F219 /* XYDConversationNaviTitleView.m in Sources */,
 				49D7FE241DD3262B0096B966 /* NSAttributedString+MLLabel.m in Sources */,
 				49B84AF51DDAFBB70014F219 /* XYDChatInputViewPluginConvBackground.m in Sources */,
 				49D7FE091DD3198A0096B966 /* XYDGeoPoint.m in Sources */,

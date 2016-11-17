@@ -76,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)registerSubclass;
 
+- (NSString *)messageId;
 
 // 初始化文字类消息
 
@@ -116,7 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithVoicePath:(NSString *)voicePath;
 
-- (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude;
+// 初始化地理位置消息
+- (instancetype)initWithPostionPhoto:(UIImage *)postionPhoto locations:(CLLocation *)location;
 
 - (void)dealWithSendMessage:(XYDChatMessage *)message mediaType:(XYDChatMessageMediaType)mediaType;
 
