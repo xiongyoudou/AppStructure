@@ -61,5 +61,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
+            timestampString = "501039752.334072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "674"
+            endingLineNumber = "674"
+            landmarkName = "-loadOldMessages"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[XYDConversationViewModel loadOldMessages]_block_invoke"
+                  moduleName = "HampooHomeClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xiongyoudou/Desktop/GitHub/AppStructure/HampooHomeClient/Vendors(%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
+                  timestampString = "501040002.722818"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "674"
+                  endingLineNumber = "674"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[XYDConversationViewModel loadOldMessages]_block_invoke_2"
+                  moduleName = "HampooHomeClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xiongyoudou/Desktop/GitHub/AppStructure/HampooHomeClient/Vendors(%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
+                  timestampString = "501040002.724586"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "674"
+                  endingLineNumber = "674"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
+            timestampString = "501039838.150268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "646"
+            endingLineNumber = "646"
+            landmarkName = "-queryAndCacheMessagesWithTimestamp:block:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/Model/XYDConversationViewModel.m"
+            timestampString = "501039886.760001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
+            landmarkName = "-queryAndCacheMessagesWithTimestamp:block:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

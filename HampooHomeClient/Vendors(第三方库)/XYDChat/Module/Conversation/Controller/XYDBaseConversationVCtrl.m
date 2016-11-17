@@ -8,15 +8,19 @@
 
 #import "XYDBaseConversationVCtrl.h"
 #import "XYDChatInputBar.h"
+#import "XYDChatStatusView.h"
 #import "NSObject+XYDAssociatedObject.h"
 
 #import "XYDConversationRefreshHeader.h"
 #import "XYDChatHelper.h"
+#import "XYDChatSessionService.h"
+#import "XYDChatUIService.h"
+#import "XYDChatErrorUtil.h"
 
 static void * const XYDBaseConversationViewControllerRefreshContext = (void*)&XYDBaseConversationViewControllerRefreshContext;
 static CGFloat const XYDScrollViewInsetTop = 20.f;
 
-@interface XYDBaseConversationVCtrl ()
+@interface XYDBaseConversationVCtrl ()<XYDChatStatusViewDelegate>
 
 @end
 
@@ -29,7 +33,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initilzer];
-    self.navigationController.navigationBarHidden = YES;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.and.left.and.width.equalTo(self.view);
         make.top.mas_equalTo(self.view).offset(64);
@@ -105,6 +108,7 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     }
 }
 
+// 父类这里什么也不做，此方法必须由子类重载
 - (void)loadMoreMessagesScrollTotop {
     // This enforces implementing this method in subclasses
     [self doesNotRecognizeSelector:_cmd];
@@ -133,9 +137,49 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     }
 }
 
+#pragma mark -
 #pragma mark - Previte Method
 
+#pragma mark - statusView
+- (void)statusViewClicked:(id)sender {
+    [[XYDChatSessionService sharedInstance] reconnectForViewController:self callback:nil];
+}
 
+- (void)applicationDidBecomeActive:(NSNotification*)note {
+    self.checkSessionStatus = YES;
+}
+
+- (void)applicationWillResignActive:(NSNotification*)note {
+    self.checkSessionStatus = NO;
+}
+
+#pragma mark -
+#pragma mark - alert
+
+- (void)alert:(NSString *)message {
+    XYDChatShowNotificationBlock showNotificationBlock = [XYDChatUIService sharedInstance].showNotificationBlock;
+    !showNotificationBlock ?: showNotificationBlock(self, message, nil, XYDChatMessageNotificationTypeError);
+}
+
+- (BOOL)alertWithConversationError:(NSError *)error {
+    if (error) {
+        if (error.code == kXYDChatErrorConnectionLost) {
+            [self alert:@"未能连接聊天服务"];
+        } else if ([error.domain isEqualToString:NSURLErrorDomain]) {
+            [self alert:@"网络连接发生错误"];
+        } else {
+            [self alert:[NSString stringWithFormat:@"%@", error]];
+        }
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)filterConversationError:(NSError *)error {
+    return [self alertWithConversationError:error] == NO;
+}
+
+#pragma mark -
 #pragma mark - Getters
 
 - (XYDChatInputBar *)chatBar {
@@ -153,5 +197,14 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     }
     return _tableView;
 }
+
+- (XYDChatStatusView *)clientStatusView {
+    if (_clientStatusView== nil) {
+        _clientStatusView = [[XYDChatStatusView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, XYDChatStatusViewHight)];
+        _clientStatusView.delegate = self;
+    }
+    return _clientStatusView;
+}
+
 
 @end

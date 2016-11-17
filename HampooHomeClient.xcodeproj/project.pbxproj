@@ -390,6 +390,7 @@
 		49B84B3D1DDBE24C0014F219 /* RedpacketCellResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49B84B3C1DDBE24C0014F219 /* RedpacketCellResource.bundle */; };
 		49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */; };
 		49B84B431DDC08D60014F219 /* XYDChatUserSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */; };
+		49B84B461DDD3EA10014F219 /* XYDChatErrorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */; };
 		49D7FA581DD309280096B966 /* XYDBaseConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */; };
 		49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA291DD309280096B966 /* XYDConversationVCtrl.m */; };
 		49D7FA5A1DD309280096B966 /* XYDConversationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FA2C1DD309280096B966 /* XYDConversationViewModel.m */; };
@@ -1145,6 +1146,8 @@
 		49B84B3F1DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XYDisFirstLaunch.m"; sourceTree = "<group>"; };
 		49B84B411DDC08D60014F219 /* XYDChatUserSystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatUserSystemService.h; sourceTree = "<group>"; };
 		49B84B421DDC08D60014F219 /* XYDChatUserSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatUserSystemService.m; sourceTree = "<group>"; };
+		49B84B441DDD3EA10014F219 /* XYDChatErrorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatErrorUtil.h; sourceTree = "<group>"; };
+		49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatErrorUtil.m; sourceTree = "<group>"; };
 		49D7FA261DD309280096B966 /* XYDBaseConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDBaseConversationVCtrl.h; sourceTree = "<group>"; };
 		49D7FA271DD309280096B966 /* XYDBaseConversationVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDBaseConversationVCtrl.m; sourceTree = "<group>"; };
 		49D7FA281DD309280096B966 /* XYDConversationVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDConversationVCtrl.h; sourceTree = "<group>"; };
@@ -2958,6 +2961,8 @@
 				49B84AD51DDAA9DB0014F219 /* XYDSoundManager.m */,
 				49B84B131DDB06490014F219 /* XYDLocationManager.h */,
 				49B84B141DDB06490014F219 /* XYDLocationManager.m */,
+				49B84B441DDD3EA10014F219 /* XYDChatErrorUtil.h */,
+				49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -3678,6 +3683,7 @@
 				49D7FA591DD309280096B966 /* XYDConversationVCtrl.m in Sources */,
 				49896E1C1DD2C7BE006C50C9 /* CLLocation+XYDCH1903.m in Sources */,
 				49896E6B1DD2C7BE006C50C9 /* MKMapView+XYDMoveLogo.m in Sources */,
+				49B84B461DDD3EA10014F219 /* XYDChatErrorUtil.m in Sources */,
 				49896E1A1DD2C7BE006C50C9 /* NSManagedObjectContext+XYDFetchRequestsConstructors.m in Sources */,
 				49896E721DD2C7BE006C50C9 /* CATransaction+XYDAnimateWithDuration.m in Sources */,
 				49896E341DD2C7BE006C50C9 /* NSDictionary+XYDXML.m in Sources */,

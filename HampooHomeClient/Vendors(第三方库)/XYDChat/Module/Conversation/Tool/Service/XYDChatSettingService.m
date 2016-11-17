@@ -27,10 +27,12 @@ NSString *const XYDChatSettingServiceErrorDomain = @"XYDChatSettingServiceErrorD
     return @"v0.8.0";
 }
 
+// 在files文件夹下生产一个随机名称的路径
 - (NSString *)tmpPath {
     return [[self getFilesPath] stringByAppendingFormat:@"%@", [[NSUUID UUID] UUIDString]];
 }
 
+// 在Documetary下生产files/文件夹
 - (NSString *)getFilesPath {
     NSString *appPath = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filesPath = [appPath stringByAppendingString:@"/files/"];

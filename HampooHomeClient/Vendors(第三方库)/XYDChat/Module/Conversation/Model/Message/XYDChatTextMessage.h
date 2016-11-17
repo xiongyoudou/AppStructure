@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYDChatTextMessage : XYDChatMessage<XYDChatMessageSubclassing>
 
 @property (nonatomic,copy,nullable,readonly) NSString *text;    // 消息文本
-
 - (void)setText:(NSString *)text;
 
 @end

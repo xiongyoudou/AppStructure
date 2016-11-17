@@ -641,54 +641,52 @@
 //    }];
 }
 
+// 利用时间戳去请求并缓存消息数据
 - (void)queryAndCacheMessagesWithTimestamp:(int64_t)timestamp block:(XYDChatArrayResultBlock)block {
-//    if (self.parentConversationViewController.loadingMoreMessage) {
-//        return;
-//    }
-//    if (self.dataArray.count == 0) {
-//        timestamp = 0;
-//    }
-//    self.parentConversationViewController.loadingMoreMessage = YES;
-//    [[XYDConversationService sharedInstance] queryTypedMessagesWithConversation:self.currentConversation
-//                                                                       timestamp:timestamp
-//                                                                           limit:kXYDChatOnePageSize
-//                                                                           block:^(NSArray *XYDChatMessages, NSError *error) {
-//                                                                               self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = YES;
-//                                                                               if (XYDChatMessages.count == 0) {
-//                                                                                   self.parentConversationViewController.loadingMoreMessage = NO;
-//                                                                                   self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = NO;
-//                                                                                   !block ?: block(XYDChatMessages, error);
-//                                                                                   return;
-//                                                                               }
-//                                                                               [XYDConversationService cacheFileTypeMessages:XYDChatMessages callback:^(BOOL succeeded, NSError *error) {
-//                                                                                   if (XYDChatMessages.count < kXYDChatOnePageSize) {
-//                                                                                       self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = NO;
-//                                                                                   }
-//                                                                                   !block ?: block(XYDChatMessages, error);
-//                                                                               }];
-//                                                                           }];
+    if (self.parentConversationViewController.loadingMoreMessage) {
+        return;
+    }
+    if (self.dataArray.count == 0) {
+        timestamp = 0;
+    }
+    self.parentConversationViewController.loadingMoreMessage = YES;
+    [[XYDConversationService sharedInstance] queryTypedMessagesWithConversation:self.currentConversation timestamp:timestamp limit:kXYDChatOnePageSize  block:^(NSArray *XYDChatMessages, NSError *error)
+     {
+         self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = YES;
+         if (XYDChatMessages.count == 0) {
+             self.parentConversationViewController.loadingMoreMessage = NO;
+             self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = NO;
+             !block ?: block(XYDChatMessages, error);
+             return;
+         }
+         [XYDConversationService cacheFileTypeMessages:XYDChatMessages callback:^(BOOL succeeded, NSError *error) {
+             if (XYDChatMessages.count < kXYDChatOnePageSize) {
+                 self.parentConversationViewController.shouldLoadMoreMessagesScrollToTop = NO;
+             }
+             !block ?: block(XYDChatMessages, error);
+         }];                                                                 }];
 }
 
 - (void)loadOldMessages {
-//    XYDChatMessage *msg = [self.XYDChatMessage xydChat_messageAtIndex:0];
-//    int64_t timestamp = msg.sendTimestamp;
-//    [self queryAndCacheMessagesWithTimestamp:timestamp block:^(NSArray *XYDChatMessages, NSError *error) {
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-//            if ([self.parentConversationViewController filterAVIMError:error]) {
-//                NSMutableArray *XYDChatMessages = [[NSMutableArray xydChat_messagesWithAVIMMessages:XYDChatMessages] mutableCopy];
-//                NSMutableArray *newMessages = [NSMutableArray arrayWithArray:XYDChatMessages];
-//                [newMessages addObjectsFromArray:self.XYDChatMessage];
-//                self.XYDChatMessage = newMessages;
-//                [self insertOldMessages:[self messagesWithLocalMessages:XYDChatMessages freshTimestamp:timestamp] completion: ^{
-//                    self.parentConversationViewController.loadingMoreMessage = NO;
-//                }];
-//            } else {
-//                dispatch_async(dispatch_get_main_queue(),^{
-//                    self.parentConversationViewController.loadingMoreMessage = NO;
-//                });
-//            }
-//        });
-//    }];
+    XYDChatMessage *msg = [self.dataArray xyd_objectWithIndex:0];
+    int64_t timestamp = msg.timestamp;
+    [self queryAndCacheMessagesWithTimestamp:timestamp block:^(NSArray *XYDChatMessages, NSError *error) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+            // 请求完成之后，根据返回的error参数处理界面的提示，以及是否需要再可以下拉
+            if ([self.parentConversationViewController filterConversationError:error]) {
+                NSMutableArray *newMessages = [NSMutableArray arrayWithArray:XYDChatMessages];
+                [newMessages addObjectsFromArray:self.dataArray];
+                self.dataArray = newMessages;
+                [self insertOldMessages:[self messagesWithLocalMessages:XYDChatMessages freshTimestamp:timestamp] completion: ^{
+                    self.parentConversationViewController.loadingMoreMessage = NO;
+                }];
+            } else {
+                dispatch_async(dispatch_get_main_queue(),^{
+                    self.parentConversationViewController.loadingMoreMessage = NO;
+                });
+            }
+        });
+    }];
 }
 
 - (void)insertOldMessages:(NSArray *)oldMessages completion:(void (^)())completion {

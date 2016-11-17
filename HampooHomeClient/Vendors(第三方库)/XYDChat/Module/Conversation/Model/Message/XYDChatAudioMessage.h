@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *localVoicePath;
 
 - (void)setVoiceURLStr:(NSString *)voiceURLStr
-       voiceDuration:(float)voiceDuration;
+         voiceDuration:(float)voiceDuration;
 
-- (void)setLocalVoicePath:(NSString * _Nonnull)localVoicePath;
+- (void)setLocalVoicePath:(NSString * _Nonnull)localVoicePath duration:(float)duration;
 
 @end
 

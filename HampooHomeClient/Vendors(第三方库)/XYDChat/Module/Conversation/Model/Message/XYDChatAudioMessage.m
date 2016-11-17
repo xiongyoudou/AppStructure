@@ -24,8 +24,10 @@
     _voiceDuration = voiceDuration;
 }
 
-- (void)setLocalVoicePath:(NSString * _Nonnull)localVoicePath {
+- (void)setLocalVoicePath:(NSString * _Nonnull)localVoicePath duration:(float)duration {
     _localVoicePath = localVoicePath;
+    _voiceDuration = duration;
 }
+
 
 @end

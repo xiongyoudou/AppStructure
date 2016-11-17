@@ -12,6 +12,7 @@
 #import "XYDConversationViewModel.h"
 #import "XYDConversationService.h"
 #import "XYDChatSessionService.h"
+#import "XYDChatSettingService.h"
 #import "XYDChatUserSystemService.h"
 #import "XYDChatUserDelegate.h"
 #import "XYDConversation.h"
@@ -261,7 +262,7 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 - (void)sendTextMessage:(NSString *)text {
     if ([text length] > 0 ) {
         // 生成消息
-        XYDChatMessage *message = [[XYDChatMessage alloc]initWithText:text toUserId:@"13"];
+        XYDChatMessage *message = [[XYDChatMessage alloc]initWithText:text];
         
         // 交由chatViewModel处理消息的发送事件
         [self.chatViewModel sendMessage:message];
@@ -286,46 +287,28 @@ NSString *const XYDConversationVCtrlErrorDomain = @"XYDConversationVCtrlErrorDom
 }
 
 - (void)sendImageMessageData:(NSData *)imageData {
-//    NSString *path = [[XYDChatSettingService sharedInstance] tmpPath];
-//    NSError *error;
-//    [imageData writeToFile:path options:NSDataWritingAtomic error:&error];
-//    UIImage *representationImage = [[UIImage alloc] initWithData:imageData];
-//    UIImage *thumbnailPhoto = [representationImage XYDChat_imageByScalingAspectFill];
-//    if (error == nil) {
-//        XYDChatMessage *message = [[XYDChatMessage alloc] initWithPhoto:representationImage
-//                                                   thumbnailPhoto:thumbnailPhoto
-//                                                        photoPath:path
-//                                                     thumbnailURL:nil
-//                                                   originPhotoURL:nil
-//                                                         senderId:self.userId
-//                                                           sender:self.user
-//                                                        timestamp:XYDChat_CURRENT_TIMESTAMP
-//                                                  serverMessageId:nil
-//                                ];
-//        [self makeSureSendValidMessage:message afterFetchedConversationShouldWithAssert:NO];
-//        [self.chatViewModel sendMessage:message];
-//    } else {
-//        [self alert:@"write image to file error"];
-//    }
+    NSString *path = [[XYDChatSettingService sharedInstance] tmpPath];
+    NSError *error;
+    [imageData writeToFile:path options:NSDataWritingAtomic error:&error];
+    UIImage *representationImage = [[UIImage alloc] initWithData:imageData];
+    UIImage *thumbnailPhoto = [representationImage xyd_imageByScalingAspectFillWithLimitSize:CGSizeMake(200, 200)];
+    if (error == nil) {
+        XYDChatMessage *message = [[XYDChatMessage alloc] initWithPhoto:representationImage thumbnailPhoto:thumbnailPhoto];
+        [self.chatViewModel sendMessage:message];
+    } else {
+        [self alert:@"write image to file error"];
+    }
 }
 
 #pragma mark - 发送语音消息
 - (void)sendVoiceMessageWithPath:(NSString *)voicePath time:(NSTimeInterval)recordingSeconds {
-    
-//    XYDChatMessage *message = [[XYDChatMessage alloc] initWithVoicePath:voicePath
-//                                                         voiceURL:nil
-//                                                    voiceDuration:[NSString stringWithFormat:@"%@", @(recordingSeconds)]
-//                                                         senderId:self.userId
-//                                                           sender:self.user
-//                                                        timestamp:XYDChat_CURRENT_TIMESTAMP
-//                                                  serverMessageId:nil];
-//    [self makeSureSendValidMessage:message afterFetchedConversationShouldWithAssert:NO];
-//    [self.chatViewModel sendMessage:message];
+    XYDChatMessage *message = [[XYDChatMessage alloc] initWithVoicePath:voicePath
+                                                    duration:recordingSeconds];
+    [self.chatViewModel sendMessage:message];
 }
 
 #pragma mark - 发送地理位置消息
 - (void)sendLocationMessageWithLocationCoordinate:(CLLocationCoordinate2D)locationCoordinate locatioTitle:(NSString *)locationTitle {
-    
 //    XYDChatMessage *message = [[XYDChatMessage alloc] initWithLocalPositionPhoto:({
 //        NSString *imageName = @"message_sender_location";
 //        UIImage *image = [UIImage XYDChat_imageNamed:imageName bundleName:@"MessageBubble" bundleForClass:[self class]];

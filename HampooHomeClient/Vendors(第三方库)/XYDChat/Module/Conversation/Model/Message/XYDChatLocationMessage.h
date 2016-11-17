@@ -23,12 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign, readonly) float longitude;
 @property (nonatomic, strong, readonly) UIImage *localPositionPhoto;
 
-/*!
- 创建位置消息。
- @param latitude － 纬度
- @param longitude － 经度
- */
-- (void)setlatitude:(float)latitude longitude:(float)longitude;
+- (void)setlatitude:(float)latitude
+          longitude:(float)longitude;
 
 @end
 

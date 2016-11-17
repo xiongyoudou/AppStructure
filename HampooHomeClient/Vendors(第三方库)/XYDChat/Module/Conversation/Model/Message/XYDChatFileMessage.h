@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly, nullable) XYDFile               *file;       // 附件
 @property(nonatomic, strong)NSString *attachedFilePath;  //附件
 
+- (void)setFile:(XYDFile *)file;
 
 @end
 

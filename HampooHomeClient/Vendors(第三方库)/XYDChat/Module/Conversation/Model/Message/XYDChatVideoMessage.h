@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) UIImage *videoConverPhoto;
 
-
 - (void)setVideoURLStr:(NSString * _Nonnull)videoURLStr;
 - (void)setLocalVideoPath:(NSString * _Nonnull)localVideoPath;
 

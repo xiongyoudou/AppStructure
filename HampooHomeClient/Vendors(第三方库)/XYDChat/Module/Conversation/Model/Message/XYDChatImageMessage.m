@@ -23,4 +23,10 @@
     _originPhotoURLStr = original;
 }
 
+- (void)setPhoto:(UIImage *)photo thumbnailPhoto:(UIImage *)thumbnailPhoto {
+    _photo = photo;
+    _thumbnailPhoto = thumbnailPhoto;
+}
+
+
 @end

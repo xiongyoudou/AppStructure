@@ -79,10 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 初始化文字类消息
 
-- (instancetype)initWithText:(NSString *)text
-                    toUserId:(NSString *)toSenderId;
-- (instancetype)initWithText:(NSString *)text
-                    convId:(NSString *)convId;
+- (instancetype)initWithText:(NSString *)text;
 - (instancetype)initWithSystemText:(NSString *)text;
 - (instancetype)initWithTimestamp:(NSTimeInterval)time;
 - (instancetype)initWithLocalFeedbackText:(NSString *)localFeedbackText;
@@ -98,14 +95,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithThumbnailURLStr:(NSString *)thumbnailURLStr
                originPhotoURLStr:(NSString *)originPhotoURLStr;
 
+- (instancetype)initWithPhoto:(UIImage *)photo
+               thumbnailPhoto:(UIImage *)thumbnailPhoto;
+
 /**
  *  初始化视频类型的消息
  *
- *  @param localVideoPath   本地视频路径
+ *  @param voicePath   本地视频路径
  *
  *  @return 返回Message model 对象
  */
-- (instancetype)initWithLocalVideoPath:(NSString *)localVideoPath;
+- (instancetype)initWithVoicePath:(NSString *)voicePath duration:(float)duration;
 
 /**
  *  初始化语音类型的消息
@@ -117,6 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithVoicePath:(NSString *)voicePath;
 
 - (instancetype)initWithLongitude:(float)longitude latitude:(float)latitude;
+
+- (void)dealWithSendMessage:(XYDChatMessage *)message mediaType:(XYDChatMessageMediaType)mediaType;
 
 @end
 

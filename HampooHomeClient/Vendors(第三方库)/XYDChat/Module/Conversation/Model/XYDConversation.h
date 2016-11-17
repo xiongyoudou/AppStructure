@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param limit 返回结果的数量，默认 20 条，最多 1000 条。
  @param callback 查询结果回调。
  */
-- (void)queryMessagesBeforeId:(NSString *)messageId
+- (void)queryMessagesBeforeId:(nullable NSString *)messageId
                     timestamp:(int64_t)timestamp
                         limit:(NSUInteger)limit
                      callback:(XYDChatArrayResultBlock)callback;

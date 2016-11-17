@@ -13,7 +13,7 @@
 
 @interface XYDBaseConversationVCtrl : UIViewController
 
-@property (nonatomic, strong, readonly) XYDChatStatusView *clientStatusView;
+@property (nonatomic, strong) XYDChatStatusView *clientStatusView;
 
 /**
  *  显示大量数据的控件
@@ -41,6 +41,9 @@
 //somewhere in the header
 @property (nonatomic, assign) CGFloat tableViewLastContentOffset;
 
+// 是否要检测网络状态
+@property (nonatomic, assign, getter=shouldCheckSessionStatus) BOOL checkSessionStatus;
+
 /**
  *  是否滚动到底部
  *
@@ -53,5 +56,8 @@
  *  判断是否用户手指滚动
  */
 @property (nonatomic, assign) BOOL isUserScrolling;
+
+- (BOOL)filterConversationError:(NSError *)error;
+- (void)alert:(NSString *)message;
 
 @end

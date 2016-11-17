@@ -705,33 +705,34 @@ NSString *const XYDConversationServiceErrorDomain = @"XYDConversationServiceErro
     _loadLatestMessagesHandler = loadLatestMessagesHandler;
 }
 
+// 通过配置具体参数请求会话下的消息数据
 - (void)queryTypedMessagesWithConversation:(XYDConversation *)conversation
                                  timestamp:(int64_t)timestamp
                                      limit:(NSInteger)limit
                                      block:(XYDChatArrayResultBlock)block {
-//    XYDChatArrayResultBlock callback = ^(NSArray *messages, NSError *error) {
-//        if (!messages) {
-//            NSString *errorReason = [NSString stringWithFormat:@"类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), @"SDK处理异常，请联系SDK维护者修复luohanchenyilong@163.com"];
-//            NSLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), errorReason);
-//            // NSAssert(messages, errorReason);
-//        }
-//        //以下过滤为了避免非法的消息，引起崩溃，确保展示的只有 XYDChatMessage 类型
-//        NSMutableArray *typedMessages = [NSMutableArray array];
-//        for (XYDChatMessage *message in messages) {
-//            [typedMessages addObject:[message XYDChat_getValidTypedMessage]];
-//        }
-//        !block ?: block(typedMessages, error);
-//    };
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-//        if(timestamp == 0) {
-//            // 该方法能确保在有网络时总是从服务端拉取最新的消息，首次拉取必须使用该方法
-//            // sdk 会设置好 timestamp
-//            [conversation queryMessagesWithLimit:limit callback:callback];
-//        } else {
-//            //会先根据本地缓存判断是否有必要从服务端拉取，这个方法不能用于首次拉取
-//            [conversation queryMessagesBeforeId:nil timestamp:timestamp limit:limit callback:callback];
-//        }
-//    });
+    block(nil,nil);
+    return;
+    
+    
+    XYDChatArrayResultBlock callback = ^(NSArray *messages, NSError *error) {
+        if (!messages) {
+            NSString *errorReason = [NSString stringWithFormat:@"类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), @"SDK处理异常，请联系SDK维护者修复luohanchenyilong@163.com"];
+            NSLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), errorReason);
+        }
+        //以下过滤为了避免非法的消息，引起崩溃，确保展示的只有 XYDChatMessage 类型
+        NSMutableArray *typedMessages = [NSMutableArray array];
+        !block ?: block(typedMessages, error);
+    };
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        if(timestamp == 0) {
+            // 该方法能确保在有网络时总是从服务端拉取最新的消息，首次拉取必须使用该方法
+            // sdk 会设置好 timestamp
+            [conversation queryMessagesWithLimit:limit callback:callback];
+        } else {
+            //会先根据本地缓存判断是否有必要从服务端拉取，这个方法不能用于首次拉取
+            [conversation queryMessagesBeforeId:nil timestamp:timestamp limit:limit callback:callback];
+        }
+    });
 }
 
 + (void)cacheFileTypeMessages:(NSArray<XYDChatMessage *> *)messages callback:(XYDChatBooleanResultBlock)callback {

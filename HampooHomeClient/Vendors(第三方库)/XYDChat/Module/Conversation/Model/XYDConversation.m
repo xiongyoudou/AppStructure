@@ -776,9 +776,9 @@
 //    return cachedMessages;
 //}
 //
-//- (void)queryMessagesWithLimit:(NSUInteger)limit
-//                      callback:(XYDChatArrayResultBlock)callback
-//{
+- (void)queryMessagesWithLimit:(NSUInteger)limit
+                      callback:(XYDChatArrayResultBlock)callback
+{
 //    limit = LCIM_VALID_LIMIT(limit);
 //    
 //    BOOL socketOpened = self.imClient.status == XYDChatClientStatusOpened;
@@ -822,13 +822,13 @@
 //        NSArray *messages = [self queryMessagesFromCacheWithLimit:limit];
 //        [XYDChatBlockHelper callArrayResultBlock:callback array:messages error:nil];
 //    }
-//}
-//
-//- (void)queryMessagesBeforeId:(NSString *)messageId
-//                    timestamp:(int64_t)timestamp
-//                        limit:(NSUInteger)limit
-//                     callback:(XYDChatArrayResultBlock)callback
-//{
+}
+
+- (void)queryMessagesBeforeId:(NSString *)messageId
+                    timestamp:(int64_t)timestamp
+                        limit:(NSUInteger)limit
+                     callback:(XYDChatArrayResultBlock)callback
+{
 //    limit     = LCIM_VALID_LIMIT(limit);
 //    timestamp = LCIM_VALID_TIMESTAMP(timestamp);
 //    /*
@@ -941,8 +941,8 @@
 //             [XYDChatBlockHelper callArrayResultBlock:callback array:messages error:error];
 //         }];
 //    }
-//}
-//
+}
+
 //- (void)postprocessMessages:(NSArray *)messages {
 //    for (XYDChatMessage *message in messages) {
 //        message.status = XYDChatMessageStatusSent;
