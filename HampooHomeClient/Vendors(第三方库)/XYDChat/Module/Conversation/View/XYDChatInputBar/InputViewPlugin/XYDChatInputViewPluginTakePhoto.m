@@ -61,10 +61,10 @@
     [super pluginDidClicked];
     //显示拍照
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        XYDChatShowNotificationBlock showNotificationBlock = [XYDChatUIService sharedInstance].showNotificationBlock;
-//        id<UIApplicationDelegate> delegate = ((id<UIApplicationDelegate>)[[UIApplication sharedApplication] delegate]);
-//        UIWindow *window = delegate.window;
-//        !showNotificationBlock ?: showNotificationBlock(window.rootViewController, @"您的设备不支持拍照", @"请尝试在设置中开启拍照权限", XYDChatMessageNotificationTypeError);
+        XYDChatShowNotificationBlock showNotificationBlock = [XYDChatUIService sharedInstance].showNotificationBlock;
+        id<UIApplicationDelegate> delegate = ((id<UIApplicationDelegate>)[[UIApplication sharedApplication] delegate]);
+        UIWindow *window = delegate.window;
+        !showNotificationBlock ?: showNotificationBlock(window.rootViewController, @"您的设备不支持拍照", @"请尝试在设置中开启拍照权限", XYDChatMessageNotificationTypeError);
         return;
     }
     [self.conversationViewController presentViewController:self.pickerController animated:YES completion:nil];

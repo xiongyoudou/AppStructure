@@ -11,7 +11,7 @@
 #import "XYDChatHelper.h"
 #import "XYDChatLocationController.h"
 
-@interface XYDChatInputViewPluginLocation ()
+@interface XYDChatInputViewPluginLocation ()<XYDChatLocationControllerDelegate>
 
 @property (nonatomic, strong) XYDChatLocationController *locationController;
 

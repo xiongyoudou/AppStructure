@@ -50,11 +50,31 @@
                                             settings:settings
                                                error:&recorderSetupError];
     if (recorderSetupError) {
-        NSLog(@"%@",recorderSetupError);
+        NSLog(@"recorderError:®%@",recorderSetupError);
     }
     _recorder.meteringEnabled = YES;
     _recorder.delegate = self;
-    [_recorder prepareToRecord];
+    BOOL isPrear = [_recorder prepareToRecord];
+    NSLog(@"%d",isPrear);
+}
+
+/// 新增API,获取录音权限. 返回值,YES为无拒绝,NO为拒绝录音.
+- (BOOL)canRecord
+{
+    __block BOOL bCanRecord = YES;
+    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0) {
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
+            [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
+                if (granted) {
+                    bCanRecord = YES;
+                } else {
+                    bCanRecord = NO;
+                }
+            }];
+        }
+    }
+    return bCanRecord;
 }
 
 - (void)setSesstion
@@ -66,15 +86,18 @@
     if(_session == nil) {
         //NSLog(@"Error creating session: %@", [sessionError description]);
     } else {
-        [_session setActive:YES error:nil];
+        BOOL isActive = [_session setActive:YES error:&sessionError];
+        NSLog(@"%d,%@",isActive,sessionError);
     }
 }
 
 - (void)startRecord
 {
+    if (![self canRecord])return;
     [self setSesstion];
     [self setRecorder];
-    [_recorder record];
+    BOOL recorder = [_recorder record];
+    NSLog(@"%d",recorder);
 }
 
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XYDLocationManager.h"
 
-@protocol LCCKLocationControllerDelegate <NSObject>
+@protocol XYDChatLocationControllerDelegate <NSObject>
 
 - (void)cancelLocation;
 - (void)sendLocation:(CLPlacemark *)placemark;
@@ -19,6 +19,6 @@
 // 选择地理位置
 @interface XYDChatLocationController : UIViewController
 
-@property (weak, nonatomic) id<LCCKLocationControllerDelegate> delegate;
+@property (weak, nonatomic) id<XYDChatLocationControllerDelegate> delegate;
 
 @end

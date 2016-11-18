@@ -9,6 +9,7 @@
 #import "XYDChatInputViewPlugin.h"
 #import "XYDChatInputBar.h"
 #import "XYDChatSettingService.h"
+#import "XYDConversationVCtrl.h"
 
 NSMutableDictionary const *XYDChatInputViewPluginDict = nil;
 NSMutableArray const *XYDChatInputViewPluginArray = nil;
@@ -160,7 +161,7 @@ NSMutableArray const *XYDChatInputViewPluginArray = nil;
 }
 
 - (XYDConversationVCtrl *)conversationViewController {
-    if ([self.inputViewRef.controllerRef isKindOfClass:[XYDChatSettingService class]]) {
+    if ([self.inputViewRef.controllerRef isKindOfClass:[XYDConversationVCtrl class]]) {
         return (XYDConversationVCtrl *)self.inputViewRef.controllerRef;
     } else {
         return nil;
