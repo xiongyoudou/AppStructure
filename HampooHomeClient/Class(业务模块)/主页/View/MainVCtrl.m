@@ -28,9 +28,13 @@
     XYDConversationVCtrl *ctrl = [[XYDConversationVCtrl alloc]initWithPeerId:@"ddd"];
     [self.navigationController pushViewController:ctrl animated:YES];
     
-    [XYDChatInputViewPluginTakePhoto registerSubclass];
-    [XYDChatInputViewPluginPickImage registerSubclass];
-    [XYDChatInputViewPluginLocation registerSubclass];
+    static BOOL isAdd = NO;
+    if (!isAdd) {
+        [XYDChatInputViewPluginTakePhoto registerSubclass];
+        [XYDChatInputViewPluginPickImage registerSubclass];
+        [XYDChatInputViewPluginLocation registerSubclass];
+        isAdd = YES;
+    }
 }
 
 

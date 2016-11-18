@@ -145,7 +145,7 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
                 make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : XYDChatAvatarBottomToMessageContentTop);
                 CGFloat width = [UIApplication sharedApplication].keyWindow.frame.size.width;
                 CGFloat height = [UIApplication sharedApplication].keyWindow.frame.size.height;
-                CGFloat widthLimit = MIN(width, height)/5 * 3;
+                CGFloat widthLimit = MIN(width, height)/10 * 7;
                 
                 make.width.lessThanOrEqualTo(@(widthLimit)).priorityHigh();
                 make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET).priorityLow();
@@ -190,7 +190,7 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
                 make.top.equalTo(self.nickNameLabel.mas_bottom).with.offset(self.showName ? 0 : XYDChatAvatarBottomToMessageContentTop);
                 CGFloat width = [UIApplication sharedApplication].keyWindow.frame.size.width;
                 CGFloat height = [UIApplication sharedApplication].keyWindow.frame.size.height;
-                CGFloat widthLimit = MIN(width, height)/5 * 3;
+                CGFloat widthLimit = MIN(width, height)/10 * 7;
                 make.width.lessThanOrEqualTo(@(widthLimit)).priorityHigh();
                 make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-XYDChat_MSG_CELL_EDGES_OFFSET).priorityLow();
             }];
