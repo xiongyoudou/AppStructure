@@ -8,7 +8,6 @@
 
 #import "XYDConversation.h"
 #import "XYDChatClient.h"
-#import "XYDChatClient_Internal.h"
 
 #import "XYDChatMessage.h"
 #import "XYDChatMessage_Internal.h"

@@ -1091,7 +1091,6 @@
 		49B84ADB1DDAB3850014F219 /* XYDChatSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatSignature.m; sourceTree = "<group>"; };
 		49B84ADD1DDAB4A10014F219 /* XYDChatClientOpenOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatClientOpenOption.h; sourceTree = "<group>"; };
 		49B84ADE1DDAB4A10014F219 /* XYDChatClientOpenOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatClientOpenOption.m; sourceTree = "<group>"; };
-		49B84AE01DDAB6FC0014F219 /* XYDChatClient_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatClient_Internal.h; sourceTree = "<group>"; };
 		49B84AE11DDAD8040014F219 /* XYDChatStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatStatusView.h; sourceTree = "<group>"; };
 		49B84AE21DDAD8040014F219 /* XYDChatStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatStatusView.m; sourceTree = "<group>"; };
 		49B84AE61DDAE4EC0014F219 /* XYDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDWebViewController.h; sourceTree = "<group>"; };
@@ -2879,7 +2878,6 @@
 				49D7FE3D1DD405960096B966 /* XYDChatKit.m */,
 				49B84AD71DDAB2FF0014F219 /* XYDChatClient.h */,
 				49B84AD81DDAB2FF0014F219 /* XYDChatClient.m */,
-				49B84AE01DDAB6FC0014F219 /* XYDChatClient_Internal.h */,
 				49B84ADD1DDAB4A10014F219 /* XYDChatClientOpenOption.h */,
 				49B84ADE1DDAB4A10014F219 /* XYDChatClientOpenOption.m */,
 				49B84ADA1DDAB3850014F219 /* XYDChatSignature.h */,
