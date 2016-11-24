@@ -640,7 +640,7 @@ NSString *const XYDConversationServiceErrorDomain = @"XYDConversationServiceErro
        conversation:(XYDConversation *)conversation
       progressBlock:(XYDChatProgressBlock)progressBlock
            callback:(XYDChatBooleanResultBlock)block {
-//    [self sendMessage:message conversation:conversation options:nil progressBlock:progressBlock callback:block];
+    [self sendMessage:message conversation:conversation options:nil progressBlock:progressBlock callback:block];
 }
 
 - (void)sendMessage:(XYDChatMessage*)message
@@ -648,6 +648,8 @@ NSString *const XYDConversationServiceErrorDomain = @"XYDConversationServiceErro
             options:(XYDChatMessageOption *)options
       progressBlock:(XYDChatProgressBlock)progressBlock
            callback:(XYDChatBooleanResultBlock)block  {
+    
+    /*
     id<XYDChatUserDelegate> currentUser = [[XYDChatUserSystemService sharedInstance] fetchCurrentUser];
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     // 云代码中获取到用户名，来设置推送消息, 老王:今晚约吗？
@@ -664,18 +666,20 @@ NSString *const XYDConversationServiceErrorDomain = @"XYDConversationServiceErro
         [attributes addEntriesFromDictionary:message.attributes];
         message.attributes = attributes;
     }
+     */
     
     // 消息的发送交给XYDConversation类去处理
-    [conversation sendMessage:message option:nil progressBlock:progressBlock callback:block];
+    [conversation sendMessage:message option:options progressBlock:progressBlock callback:block];
 }
 
+// 发送欢迎消息
 - (void)sendWelcomeMessageToPeerId:(NSString *)peerId text:(NSString *)text block:(XYDChatBooleanResultBlock)block {
     [self fecthConversationWithPeerId:peerId callback:^(XYDConversation *conversation, NSError *error) {
         if (error) {
             !block ?: block(NO, error);
         } else {
-//            XYDChatTextMessage *textMessage = [XYDChatTextMessage messageWithText:text attributes:nil];
-//            [self sendMessage:textMessage conversation:conversation progressBlock:nil callback:block];
+            XYDChatMessage *textMessage = [[XYDChatMessage alloc]initWithText:text];
+            [self sendMessage:textMessage conversation:conversation progressBlock:nil callback:block];
         }
     }];
 }
@@ -685,8 +689,8 @@ NSString *const XYDConversationServiceErrorDomain = @"XYDConversationServiceErro
         if (error) {
             !block ?: block(NO, error);
         } else {
-//            XYDChatTextMessage *textMessage = [XYDChatTextMessage messageWithText:text attributes:nil];
-//            [self sendMessage:textMessage conversation:conversation progressBlock:nil callback:block];
+            XYDChatMessage *textMessage = [[XYDChatMessage alloc]initWithText:text];
+            [self sendMessage:textMessage conversation:conversation progressBlock:nil callback:block];
         }
     }];
 }

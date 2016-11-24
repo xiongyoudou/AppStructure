@@ -9,7 +9,6 @@
 #import "XYDChatConstant.h"
 #import <CoreLocation/CoreLocation.h>
 
-@class XYDFile;
 @class XYDGeoPoint;
 
 typedef int8_t XYDChatMessageMediaType;
@@ -67,8 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 非持久化属性，通过其他关键属性计算得出
 
-@property (nonatomic, strong, readonly) id<XYDChatUserDelegate> sender;                 // 发送者用户信息
-@property (nonatomic, copy, readonly) NSString *localDisplayName;                   // 显示发送者的名称
+@property (nonatomic, strong, readonly) id<XYDChatUserDelegate> sender;          // 发送者用户信息
+@property (nonatomic, copy, readonly) NSString *localDisplayName;                // 显示发送者的名称
 
 
 /**
@@ -107,15 +106,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 返回Message model 对象
  */
 - (instancetype)initWithVoicePath:(NSString *)voicePath duration:(float)duration;
-
-/**
- *  初始化语音类型的消息
- *
- *  @param voicePath        目标语音的本地路径
- *
- *  @return 返回Message model 对象
- */
-- (instancetype)initWithVoicePath:(NSString *)voicePath;
 
 // 初始化地理位置消息
 - (instancetype)initWithPostionPhoto:(UIImage *)postionPhoto locations:(CLLocation *)location;

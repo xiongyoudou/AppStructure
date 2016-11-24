@@ -379,7 +379,6 @@ typedef void (^XYDChatFilterMessagesBlock)(XYDConversation *conversation, NSArra
  * @param error 消息为何不允许被发送
  */
 typedef void (^XYDChatSendMessageHookCompletionHandler)(BOOL granted, NSError *error);
-//typedef void (^XYDChatSendMessageHookBlock)(XYDConversationVCtrl *conversationController, AVIMTypedMessage __kindof *message, XYDChatSendMessageHookCompletionHandler completionHandler);
 typedef void (^XYDChatSendMessageHookBlock)(XYDConversationVCtrl *conversationController, XYDChatMessage __kindof *message, XYDChatSendMessageHookCompletionHandler completionHandler);
 
 /*!

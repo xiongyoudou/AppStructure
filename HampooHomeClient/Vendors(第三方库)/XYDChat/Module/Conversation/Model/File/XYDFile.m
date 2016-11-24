@@ -150,6 +150,7 @@ static NSMutableDictionary *downloadingMap = nil;
     return url && url.scheme && url.host;
 }
 
+// 后台异步上传文件
 - (void)saveInBackgroundWithBlock:(XYDChatBooleanResultBlock)resultBlock
                     progressBlock:(XYDChatProgressBlock)progressBlock
 {
@@ -160,14 +161,22 @@ static NSMutableDictionary *downloadingMap = nil;
      * Else, nothing to save, report not found error.
      */
     if (self.objectId) {
-//        [AVUtils callProgressBlock:progressBlock percent:100];
-//        [AVUtils callBooleanResultBlock:resultBlock error:nil];
+        if(progressBlock) {
+            progressBlock (100);
+        }
+        if (resultBlock) {
+            resultBlock(YES,nil);
+        }
     } else if ([self hasLocalFile]) {
+        // 有本地文件
         [self uploadFileWithResultBlock:resultBlock progressBlock:progressBlock];
     } else if ([self hasExternalURL]) {
         [self updateURLWithResultBlock:resultBlock progressBlock:progressBlock];
     } else {
-//        [AVUtils callBooleanResultBlock:resultBlock error:[AVErrorUtils fileNotFoundError]];
+        if (resultBlock) {
+            NSError *error = [NSError fileNotFoundError];
+            resultBlock(error == nil,error);
+        }
     }
 }
 

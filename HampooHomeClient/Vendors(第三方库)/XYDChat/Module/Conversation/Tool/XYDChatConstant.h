@@ -13,6 +13,7 @@
 @class XYDFile;
 @class XYDConversation;
 @class XYDConversationVCtrl;
+@class XYDChatMessage;
 
 #pragma mark - Base ViewController Life Time Block
 ///=============================================================================
@@ -39,6 +40,7 @@ typedef void (^XYDChatObjResultBlock)(id object, NSError *error);
 typedef void (^XYDChatBoolResultBlock)(BOOL succeeded, id object, NSError *error);
 typedef void (^XYDChatRequestAuthorizationBoolResultBlock)(BOOL granted, NSError *error);
 typedef void (^XYDChatConversationResultBlock)(XYDConversation * conversation, NSError * error);
+typedef void (^XYDChatMessageResultBlock)(XYDChatMessage * message, NSError * error);
 
 //Callback with Function object
 typedef void (^XYDChatVoidBlock)(void);

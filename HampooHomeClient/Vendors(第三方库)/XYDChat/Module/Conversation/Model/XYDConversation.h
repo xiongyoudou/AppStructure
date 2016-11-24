@@ -14,6 +14,7 @@
 @class XYDArchivedConversation;
 @class XYDChatClient;
 
+// 处理消息的发送，消息的拉取
 NS_ASSUME_NONNULL_BEGIN
 @interface XYDConversation : NSObject
 
@@ -184,6 +185,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)sendMessage:(XYDChatMessage *)message
       progressBlock:(nullable XYDChatProgressBlock)progressBlock
+           callback:(XYDChatBooleanResultBlock)callback;
+
+- (void)sendMessage:(XYDChatMessage *)message
+            options:(XYDChatMessageOption *)options
+      progressBlock:(XYDChatProgressBlock)progressBlock
            callback:(XYDChatBooleanResultBlock)callback;
 
 /*!

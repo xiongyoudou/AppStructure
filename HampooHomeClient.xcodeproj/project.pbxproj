@@ -449,6 +449,7 @@
 		49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */; };
 		49E5C2B91DD575CD00A32241 /* XYDConversationListVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */; };
 		49E5C2BE1DD59BA500A32241 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E5C2BD1DD59BA500A32241 /* lame.framework */; };
+		49EF550D1DE6D67C00B413F4 /* XYDMessageSendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EF550C1DE6D67C00B413F4 /* XYDMessageSendManager.m */; };
 		B16D84D63A06BF26B235858C /* libPods-HampooHomeClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */; };
 /* End PBXBuildFile section */
 
@@ -1262,6 +1263,9 @@
 		49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDConversationListVCtrl.m; sourceTree = "<group>"; };
 		49E5C2B71DD575CD00A32241 /* XYDConversationListVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYDConversationListVCtrl.xib; sourceTree = "<group>"; };
 		49E5C2BD1DD59BA500A32241 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
+		49EF53121DE6981A00B413F4 /* XYDChatMessage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatMessage_Internal.h; sourceTree = "<group>"; };
+		49EF550B1DE6D67C00B413F4 /* XYDMessageSendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendManager.h; sourceTree = "<group>"; };
+		49EF550C1DE6D67C00B413F4 /* XYDMessageSendManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendManager.m; sourceTree = "<group>"; };
 		61BFDBB61361496476F203DA /* Pods-HampooHomeClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.debug.xcconfig"; sourceTree = "<group>"; };
 		700346F1A669FC6BED2CCA67 /* libPods-HampooHomeClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HampooHomeClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03AB257B03FE963C251CB31 /* Pods-HampooHomeClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HampooHomeClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-HampooHomeClient/Pods-HampooHomeClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -2381,6 +2385,7 @@
 			children = (
 				499709B11DD5C0AF00352E8F /* XYDChatMessage.h */,
 				499709AE1DD5C0A800352E8F /* XYDChatMessage.m */,
+				49EF53121DE6981A00B413F4 /* XYDChatMessage_Internal.h */,
 				499709B21DD5C20A00352E8F /* XYDChatTextMessage.h */,
 				499709B31DD5C20A00352E8F /* XYDChatTextMessage.m */,
 				499709C81DD5CAA900352E8F /* XYDChatSystemMessage.h */,
@@ -2969,6 +2974,8 @@
 				49B84AD51DDAA9DB0014F219 /* XYDSoundManager.m */,
 				49B84B131DDB06490014F219 /* XYDLocationManager.h */,
 				49B84B141DDB06490014F219 /* XYDLocationManager.m */,
+				49EF550B1DE6D67C00B413F4 /* XYDMessageSendManager.h */,
+				49EF550C1DE6D67C00B413F4 /* XYDMessageSendManager.m */,
 				49B84B441DDD3EA10014F219 /* XYDChatErrorUtil.h */,
 				49B84B451DDD3EA10014F219 /* XYDChatErrorUtil.m */,
 			);
@@ -3589,6 +3596,7 @@
 				49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */,
 				49896E1D1DD2C7BE006C50C9 /* NSArray+XYDBlock.m in Sources */,
 				49B087F81DD01032003E6916 /* main.m in Sources */,
+				49EF550D1DE6D67C00B413F4 /* XYDMessageSendManager.m in Sources */,
 				49B84B0A1DDAFDD10014F219 /* XYDChatInputViewPluginChange.m in Sources */,
 				49896E2F1DD2C7BE006C50C9 /* NSDictionary+XYDBlock.m in Sources */,
 				498965FC1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m in Sources */,

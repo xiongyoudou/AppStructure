@@ -7,6 +7,15 @@
 //
 
 #import "XYDConversation.h"
+#import "XYDChatClient.h"
+#import "XYDChatClient_Internal.h"
+
+#import "XYDChatMessage.h"
+#import "XYDChatMessage_Internal.h"
+#import "XYDChatFileMessage.h"
+#import "XYDFile.h"
+
+#import "XYDChatErrorUtil.h"
 
 @implementation XYDConversation
 
@@ -18,13 +27,12 @@
 }
 
 - (NSString *)clientId {
-//    return _imClient.clientId;
-    return nil;
+    return _imClient.clientId;
 }
 
-//- (void)setImClient:(XYDChatClient *)imClient {
-//    _imClient = imClient;
-//}
+- (void)setImClient:(XYDChatClient *)imClient {
+    _imClient = imClient;
+}
 
 - (void)setConversationId:(NSString *)conversationId {
     _conversationId = [conversationId copy];
@@ -325,260 +333,69 @@
     [self sendMessage:message option:nil progressBlock:progressBlock callback:callback];
 }
 
-//- (void)sendMessage:(XYDChatMessage *)message
-//            options:(XYDChatMessageSendOption)options
-//           callback:(XYDChatBooleanResultBlock)callback
-//{
-//    [self sendMessage:message
-//              options:options
-//        progressBlock:nil
-//             callback:callback];
-//}
-//
-//- (void)sendMessage:(XYDChatMessage *)message
-//            options:(XYDChatMessageSendOption)options
-//      progressBlock:(XYDChatProgressBlock)progressBlock
-//           callback:(XYDChatBooleanResultBlock)callback
-//{
-//    XYDChatMessageOption *option = [[XYDChatMessageOption alloc] init];
-//    
-//    if (options & XYDChatMessageSendOptionTransient)
-//        option.transient = YES;
-//    
-//    if (options & XYDChatMessageSendOptionRequestReceipt)
-//        option.receipt = YES;
-//    
-//    [self sendMessage:message option:option progressBlock:progressBlock callback:callback];
-//}
-//
-//- (void)sendMessage:(XYDChatMessage *)message
-//             option:(XYDChatMessageOption *)option
-//      progressBlock:(XYDChatProgressBlock)progressBlock
-//           callback:(XYDChatBooleanResultBlock)callback
-//{
+- (void)sendMessage:(XYDChatMessage *)message
+             option:(XYDChatMessageOption *)option
+      progressBlock:(XYDChatProgressBlock)progressBlock
+           callback:(XYDChatBooleanResultBlock)callback
+{
 //    message.clientId = _imClient.clientId;
-//    message.conversationId = _conversationId;
-//    if (self.imClient.status != XYDChatClientStatusOpened) {
-//        message.status = XYDChatMessageStatusFailed;
-//        NSError *error = [XYDChatErrorUtil errorWithCode:kXYDChatErrorClientNotOpen reason:@"You can only send message when the status of the client is opened."];
-//        [XYDChatBlockHelper callBooleanResultBlock:callback error:error];
-//        return;
-//    }
-//    message.status = XYDChatMessageStatusSending;
-//    
-//    if ([message isKindOfClass:[XYDChatMessage class]]) {
-//        XYDChatMessage *typedMessage = (XYDChatMessage *)message;
-//        
-//        XYDChatFile *file = nil;
-//        
-//        if (typedMessage.file) {
-//            file = typedMessage.file;
-//        } else if (typedMessage.attachedFilePath) {
-//            NSString *attachedFilePath = typedMessage.attachedFilePath;
-//            
-//            if (![[NSFileManager defaultManager] fileExistsAtPath:attachedFilePath]) {
-//                [XYDChatBlockHelper callBooleanResultBlock:callback error:[XYDChatErrorUtils fileNotFoundError]];
-//                return;
-//            }
-//            
-//            NSString *name = [attachedFilePath lastPathComponent];
-//            
-//            file = [XYDChatFile fileWithName:name contentsAtPath:attachedFilePath];
-//        }
-//        
-//        if (file) {
-//            if ([file isDirty]) {
-//                /* File need to be uploaded */
-//                [file sXYDChateInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                    if (succeeded) {
-//                        /* If uploading is success, bind file to message */
-//                        [self fillTypedMessage:typedMessage withFile:file];
-//                        [self fillTypedMessageForLocationIfNeeded:typedMessage];
-//                        [self sendRealMessage:message option:option callback:callback];
-//                    } else {
-//                        message.status = XYDChatMessageStatusFailed;
-//                        [XYDChatBlockHelper callBooleanResultBlock:callback error:error];
-//                    }
-//                } progressBlock:progressBlock];
-//            } else {
-//                /* File has already been uploaded, bind file to message */
-//                [self fillTypedMessage:typedMessage withFile:file];
-//                [self fillTypedMessageForLocationIfNeeded:typedMessage];
-//                [self sendRealMessage:message option:option callback:callback];
-//            }
-//        } else {
-//            [self fillTypedMessageForLocationIfNeeded:typedMessage];
-//            [self sendRealMessage:message option:option callback:callback];
-//        }
-//    } else {
-//        [self sendRealMessage:message option:option callback:callback];
-//    }
-//}
-//
-//- (void)fillTypedMessage:(XYDChatMessage *)typedMessage withFile:(XYDChatFile *)file {
-//    typedMessage.file = file;
-//    
-//    XYDChatGeneralObject *object = [[XYDChatGeneralObject alloc] init];
-//    
-//    object.url = file.url;
-//    object.objId = file.objectId;
-//    
-//    switch (typedMessage.mediaType) {
-//        case kXYDChatMessageMediaTypeImage: {
-//            UIImage *image = [[UIImage alloc] initWithData:[file getData]];
-//            CGFloat width = image.size.width;
-//            CGFloat height = image.size.height;
-//            
-//            XYDChatGeneralObject *metaData = [[XYDChatGeneralObject alloc] init];
-//            metaData.height = height;
-//            metaData.width = width;
-//            metaData.size = file.size;
-//            metaData.format = [file.name pathExtension];
-//            
-//            file.metaData = [[metaData dictionary] mutableCopy];
-//            
-//            object.metaData = metaData;
-//            typedMessage.messageObject._lcfile = [object dictionary];
-//        }
-//            break;
-//            
-//        case kXYDChatMessageMediaTypeAudio:
-//        case kXYDChatMessageMediaTypeVideo: {
-//            NSString *path = file.localPath;
-//            
-//            /* If audio file not found, no meta data */
-//            if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-//                break;
-//            }
-//            
-//            NSURL *fileURL = [NSURL fileURLWithPath:path];
-//            XYDChatURLAsset* audioAsset = [XYDChatURLAsset URLAssetWithURL:fileURL options:nil];
-//            CMTime audioDuration = audioAsset.duration;
-//            float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
-//            
-//            XYDChatGeneralObject *metaData = [[XYDChatGeneralObject alloc] init];
-//            metaData.duration = audioDurationSeconds;
-//            metaData.size = file.size;
-//            metaData.format = [file.name pathExtension];
-//            
-//            file.metaData = [[metaData dictionary] mutableCopy];
-//            
-//            object.metaData = metaData;
-//            typedMessage.messageObject._lcfile = [object dictionary];
-//        }
-//            break;
-//        case kXYDChatMessageMediaTypeFile:
-//        default: {
-//            /* 文件消息或扩展的文件消息 */
-//            object.name = file.name;
-//            /* Compatibility with IM protocol */
-//            object.size = file.size;
-//            
-//            /* Compatibility with XYDChatFile implementation, see [XYDChatFile size] method */
-//            XYDChatGeneralObject *metaData = [[XYDChatGeneralObject alloc] init];
-//            metaData.size = file.size;
-//            object.metaData = metaData;
-//            
-//            typedMessage.messageObject._lcfile = [object dictionary];
-//        }
-//            break;
-//    }
-//}
-//
-//- (void)fillTypedMessageForLocationIfNeeded:(XYDChatMessage *)typedMessage {
-//    XYDChatGeoPoint *location = typedMessage.location;
-//    
-//    if (location) {
-//        XYDChatGeneralObject *object = [[XYDChatGeneralObject alloc] init];
-//        
-//        object.latitude = location.latitude;
-//        object.longitude = location.longitude;
-//        
-//        typedMessage.messageObject._lcloc = [object dictionary];
-//    }
-//}
-//
-//- (void)sendRealMessage:(XYDChatMessage *)message option:(XYDChatMessageOption *)option callback:(XYDChatBooleanResultBlock)callback {
-//    dispatch_async([XYDChatClient imClientQueue], ^{
-//        bool transient = option.transient;
-//        bool requestReceipt = option.receipt;
-//        
-//        if ([message isKindOfClass:[XYDChatMessage class]]) {
-//            XYDChatMessage *typedMessage = (XYDChatMessage *)message;
-//            if (!typedMessage.messageObject._lctext && !typedMessage.messageObject._lcloc && !typedMessage.messageObject._lcfile && !typedMessage.messageObject._lcattrs) {
-//                [NSException raise:NSInternalInconsistencyException format:@"XYDChatMessage should hXYDChate one of text, file, location or attributes not be nil."];
-//            }
-//        }
-//        
-//        XYDChatGenericCommand *genericCommand = [[XYDChatGenericCommand alloc] init];
-//        genericCommand.needResponse = YES;
-//        genericCommand.cmd = XYDChatCommandType_Direct;
-//        
-//        if (option.priority > 0) {
-//            if (self.transient) {
-//                genericCommand.priority = option.priority;
-//            } else {
-//                XYDChatLoggerInfo(XYDChatLoggerDomainIM, @"Message priority has no effect in non-transient conversation.");
-//            }
-//        }
-//        
-//        XYDChatDirectCommand *directCommand = [[XYDChatDirectCommand alloc] init];
-//        [genericCommand XYDChat_addRequiredKeyWithCommand:directCommand];
-//        [genericCommand XYDChat_addRequiredKeyForDirectMessageWithMessage:message transient:NO];
-//        
-//        if (transient) {
-//            directCommand.transient = YES;
-//            genericCommand.needResponse = NO;
-//        }
-//        if (requestReceipt) {
-//            directCommand.r = YES;
-//        }
-//        if (option.pushData) {
-//            if (option.transient || self.transient) {
-//                XYDChatLoggerInfo(XYDChatLoggerDomainIM, @"Push data cannot applied to transient message or transient conversation.");
-//            } else {
-//                NSError *error = nil;
-//                NSData  *data  = [NSJSONSerialization dataWithJSONObject:option.pushData options:0 error:&error];
-//                
-//                if (error) {
-//                    XYDChatLoggerInfo(XYDChatLoggerDomainIM, @"Push data cannot be serialize to JSON string. Error: %@.", error.localizedDescription);
-//                } else {
-//                    directCommand.pushData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//                }
-//            }
-//        }
-//        
-//        [genericCommand setCallback:^(XYDChatGenericCommand *outCommand, XYDChatGenericCommand *inCommand, NSError *error) {
-//            XYDChatDirectCommand *directOutCommand = outCommand.directMessage;
-//            XYDChatMessage *message = outCommand.directMessage.message;
-//            
-//            if (error) {
-//                message.status = XYDChatMessageStatusFailed;
-//            } else {
-//                message.status = XYDChatMessageStatusSent;
-//                
-//                XYDChatAckCommand *ackInCommand = inCommand.ackMessage;
-//                message.sendTimestamp = ackInCommand.t;
-//                message.messageId = ackInCommand.uid;
-//                if (!directCommand.transient && self.imClient.messageQueryCacheEnabled) {
-//                    [[self messageCacheStore] insertMessage:message withBreakpoint:NO];
-//                }
-//                if (!transient && directOutCommand.r) {
-//                    [_imClient addMessage:message];
-//                }
-//            }
-//            [XYDChatBlockHelper callBooleanResultBlock:callback error:error];
-//        }];
-//        
-//        [_imClient sendCommand:genericCommand];
-//    });
-//}
-//
-//#pragma mark -
-//
-//- (NSArray *)takeContinuousMessages:(NSArray *)messages {
-//    NSMutableArray *continuousMessages = [NSMutableArray array];
-//    
+    message.conversationId = _conversationId;
+    if (self.imClient.status != XYDChatClientStatusOpened) {
+        message.status = XYDChatMessageStatusFailed;
+        NSError *error = [XYDChatErrorUtil errorWithCode:kXYDChatErrorClientNotOpen reason:@"You can only send message when the status of the client is opened."];
+        if (callback)callback(error == nil,error);
+        return;
+    }
+    message.status = XYDChatMessageStatusSending;
+    
+    XYDFile *file = nil;
+    if (message.mediaType == XYDChatMessageMediaTypeFile) {
+        file = [(XYDChatFileMessage *)message file];
+        if (!file) {
+            NSString *attachedFilePath = [(XYDChatFileMessage *)message attachedFilePath];
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:attachedFilePath]) {
+                NSError *error = [NSError fileNotFoundError];
+                if (callback)callback(error == nil,error);
+                return;
+            }
+            NSString *name = [attachedFilePath lastPathComponent];
+            file = [XYDFile fileWithName:name contentsAtPath:attachedFilePath];
+        }
+        
+        
+    }
+    if (file) {
+        // 文件是否已上传
+        if ([file isDirty]) {
+            /* File need to be uploaded */
+            // 先上传文件
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    [self sendRealMessage:message option:option callback:callback];
+                } else {
+                    message.status = XYDChatMessageStatusFailed;
+                    if (callback)callback(error == nil,error);
+                }
+            } progressBlock:progressBlock];
+        } else {
+            [self sendRealMessage:message option:option callback:callback];
+        }
+    }else {
+        [self sendRealMessage:message option:option callback:callback];
+    }
+}
+
+// 开始准备发送消息
+- (void)sendRealMessage:(XYDChatMessage *)message option:(XYDChatMessageOption *)option callback:(XYDChatBooleanResultBlock)callback {
+   
+}
+
+#pragma mark -
+
+- (NSArray *)takeContinuousMessages:(NSArray *)messages {
+    NSMutableArray *continuousMessages = [NSMutableArray array];
+    
 //    for (XYDChatMessage *message in messages.reverseObjectEnumerator) {
 //        if (!message.breakpoint) {
 //            [continuousMessages insertObject:message atIndex:0];
@@ -588,14 +405,15 @@
 //    }
 //    
 //    return continuousMessages;
-//}
+    return nil;
+}
 //
 //- (LCIMMessageCache *)messageCache {
 //    NSString *clientId = self.clientId;
 //    
 //    return clientId ? [LCIMMessageCache cacheWithClientId:clientId] : nil;
 //}
-//
+
 //- (LCIMMessageCacheStore *)messageCacheStore {
 //    NSString *clientId = self.clientId;
 //    NSString *conversationId = self.conversationId;
@@ -622,25 +440,25 @@
 //    [self cacheContinuousMessages:cachedMessages withBreakpoint:YES];
 }
 
-//- (void)cacheContinuousMessages:(NSArray *)messages withBreakpoint:(BOOL)breakpoint {
-//    if (breakpoint) {
+- (void)cacheContinuousMessages:(NSArray *)messages withBreakpoint:(BOOL)breakpoint {
+    if (breakpoint) {
 //        [[self messageCache] addContinuousMessages:messages forConversationId:self.conversationId];
 //    } else {
 //        [[self messageCacheStore] insertMessages:messages];
-//    }
-//}
-//
+    }
+}
+
 //- (void)removeCachedConversation {
 //    [[self conversationCache] removeConversationForId:self.conversationId];
 //}
-//
+
 //- (void)removeCachedMessages {
 //    [[self messageCacheStore] cleanCache];
 //}
-//
-//#pragma mark - Message Query
-//
-//- (void)sendACKIfNeeded:(NSArray *)messages {
+
+#pragma mark - Message Query
+
+- (void)sendACKIfNeeded:(NSArray *)messages {
 //    NSDictionary *userOptions = [XYDChatClient userOptions];
 //    BOOL useUnread = [userOptions[XYDChatUserOptionUseUnread] boolValue];
 //    
@@ -660,8 +478,8 @@
 //        [genericCommand XYDChat_addRequiredKeyWithCommand:ackOutCommand];
 //        [client sendCommand:genericCommand];
 //    }
-//}
-//
+}
+
 //- (void)queryMessagesFromServerWithCommand:(XYDChatGenericCommand *)genericCommand
 //                                  callback:(XYDChatArrayResultBlock)callback
 //{
@@ -708,12 +526,12 @@
 //        [_imClient sendCommand:genericCommand];
 //    });
 //}
-//
-//- (void)queryMessagesFromServerBeforeId:(NSString *)messageId
-//                              timestamp:(int64_t)timestamp
-//                                  limit:(NSUInteger)limit
-//                               callback:(XYDChatArrayResultBlock)callback
-//{
+
+- (void)queryMessagesFromServerBeforeId:(NSString *)messageId
+                              timestamp:(int64_t)timestamp
+                                  limit:(NSUInteger)limit
+                               callback:(XYDChatArrayResultBlock)callback
+{
 //    XYDChatGenericCommand *genericCommand = [[XYDChatGenericCommand alloc] init];
 //    genericCommand.needResponse = YES;
 //    genericCommand.cmd = XYDChatCommandType_Logs;
@@ -727,15 +545,15 @@
 //    
 //    [genericCommand XYDChat_addRequiredKeyWithCommand:logsCommand];
 //    [self queryMessagesFromServerWithCommand:genericCommand callback:callback];
-//}
-//
-//- (void)queryMessagesFromServerBeforeId:(NSString *)messageId
-//                              timestamp:(int64_t)timestamp
-//                            toMessageId:(NSString *)toMessageId
-//                            toTimestamp:(int64_t)toTimestamp
-//                                  limit:(NSUInteger)limit
-//                               callback:(XYDChatArrayResultBlock)callback
-//{
+}
+
+- (void)queryMessagesFromServerBeforeId:(NSString *)messageId
+                              timestamp:(int64_t)timestamp
+                            toMessageId:(NSString *)toMessageId
+                            toTimestamp:(int64_t)toTimestamp
+                                  limit:(NSUInteger)limit
+                               callback:(XYDChatArrayResultBlock)callback
+{
 //    XYDChatGenericCommand *genericCommand = [[XYDChatGenericCommand alloc] init];
 //    XYDChatLogsCommand *logsCommand = [[XYDChatLogsCommand alloc] init];
 //    genericCommand.needResponse = YES;
@@ -749,11 +567,11 @@
 //    logsCommand.l      = LCIM_VALID_LIMIT(limit);
 //    [genericCommand XYDChat_addRequiredKeyWithCommand:logsCommand];
 //    [self queryMessagesFromServerWithCommand:genericCommand callback:callback];
-//}
-//
-//- (void)queryMessagesFromServerWithLimit:(NSUInteger)limit
-//                                callback:(XYDChatArrayResultBlock)callback
-//{
+}
+
+- (void)queryMessagesFromServerWithLimit:(NSUInteger)limit
+                                callback:(XYDChatArrayResultBlock)callback
+{
 //    limit = LCIM_VALID_LIMIT(limit);
 //    
 //    [self queryMessagesFromServerBeforeId:nil
@@ -766,16 +584,17 @@
 //         }
 //         [XYDChatBlockHelper callArrayResultBlock:callback array:messages error:error];
 //     }];
-//}
-//
-//- (NSArray *)queryMessagesFromCacheWithLimit:(NSUInteger)limit {
+}
+
+- (NSArray *)queryMessagesFromCacheWithLimit:(NSUInteger)limit {
 //    limit = LCIM_VALID_LIMIT(limit);
 //    NSArray *cachedMessages = [[self messageCacheStore] latestMessagesWithLimit:limit];
 //    [self postprocessMessages:cachedMessages];
 //    
 //    return cachedMessages;
-//}
-//
+    return nil;
+}
+
 - (void)queryMessagesWithLimit:(NSUInteger)limit
                       callback:(XYDChatArrayResultBlock)callback
 {
@@ -952,7 +771,7 @@
 //
 //#pragma mark - Keyed Conversation
 //
-//- (XYDChatKeyedConversation *)keyedConversation {
+- (XYDArchivedConversation *)keyedConversation {
 //    XYDChatKeyedConversation *keyedConversation = [[XYDChatKeyedConversation alloc] init];
 //    
 //    keyedConversation.conversationId = self.conversationId;
@@ -968,9 +787,10 @@
 //    keyedConversation.muted          = self.muted;
 //    
 //    return keyedConversation;
-//}
-//
-//- (void)setKeyedConversation:(XYDChatKeyedConversation *)keyedConversation {
+    return nil;
+}
+
+- (void)setKeyedConversation:(XYDArchivedConversation *)keyedConversation {
 //    self.conversationId    = keyedConversation.conversationId;
 //    self.creator           = keyedConversation.creator;
 //    self.createAt          = keyedConversation.createAt;
@@ -981,7 +801,7 @@
 //    self.attributes        = keyedConversation.attributes;
 //    self.transient         = keyedConversation.transient;
 //    self.muted             = keyedConversation.muted;
-//}
+}
 
 
 @end

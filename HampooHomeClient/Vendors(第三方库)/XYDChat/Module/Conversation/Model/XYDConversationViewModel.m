@@ -504,12 +504,14 @@
             
         };
         
+        // 此处代码的意义在于：在发送一个消息之前，通过一个hook挂钩对该消息做一些检验性的操作，检验成功才让其发送
         XYDChatSendMessageHookBlock sendMessageHookBlock = [[XYDConversationService sharedInstance] sendMessageHookBlock];
         if (!sendMessageHookBlock) {
             sendMessageCallBack();
         } else {
             XYDChatSendMessageHookCompletionHandler completionHandler = ^(BOOL granted, NSError *aError) {
                 if (granted) {
+                    // 检验成功
                     sendMessageCallBack();
                 } else {
                     !failed ?: failed(YES, aError);

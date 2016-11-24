@@ -18,23 +18,11 @@
 #import "XYDChatFileMessage.h"
 #import "XYDChatAudioMessage.h"
 #import "XYDChatVideoMessage.h"
+#import "XYDChatMessage_Internal.h"
 
 NSMutableDictionary const *_typeDict = nil;
 
 @interface XYDChatMessage ()
-
-@property (nonatomic, assign, readwrite) NSTimeInterval timestamp;
-@property (nonatomic, copy, readwrite) NSString *serverMessageId;
-@property (nonatomic, copy, readwrite) NSString *localMessageId;
-@property (nonatomic, assign, getter=isLocalMessage, readwrite) BOOL localMessage;
-@property (nonatomic, copy, readwrite) NSString *senderId;
-@property (nonatomic, copy, readwrite) NSString *conversationId;
-@property (nonatomic, copy, readwrite) NSString *toUserId;
-@property (nonatomic, assign, readwrite) XYDChatMessageSendState sendStatus;
-@property (nonatomic, assign, readwrite) XYDChatMessageOwnerType ownerType;
-@property (nonatomic, assign, readwrite) XYDChatMessageStatus status;
-@property (nonatomic, assign, readwrite) XYDChatMessageMediaType mediaType;
-@property (nonatomic, assign, readwrite) XYDChatMessageReadState messageReadState;
 
 @end
 
