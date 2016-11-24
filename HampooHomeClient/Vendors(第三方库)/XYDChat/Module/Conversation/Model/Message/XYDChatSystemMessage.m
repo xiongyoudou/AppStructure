@@ -10,7 +10,7 @@
 
 @interface XYDChatSystemMessage ()
 @property (nonatomic, copy, readwrite) NSString *systemText;
-@property (nonatomic, assign, getter=isLocalMessage, readwrite) BOOL localMessage;
+//@property (nonatomic, assign, getter=isLocalMessage, readwrite) BOOL localMessage;
 @end
 
 @implementation XYDChatSystemMessage

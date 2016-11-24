@@ -46,6 +46,8 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 }
 
 - (void)initilzer {
+    self.tableView.backgroundColor = COLOR(235, 235, 235, 1.0);
+    self.view.backgroundColor = self.tableView.backgroundColor;
     self.shouldLoadMoreMessagesScrollToTop = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
