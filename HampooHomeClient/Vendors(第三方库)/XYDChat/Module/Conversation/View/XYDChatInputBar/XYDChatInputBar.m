@@ -447,6 +447,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 - (UIView *)inputBarBackgroundView {
     if (_inputBarBackgroundView == nil) {
         UIView *inputBarBackgroundView = [[UIView alloc] init];
+        inputBarBackgroundView.backgroundColor = COLOR(243, 243, 245, 1.0);
         _inputBarBackgroundView = inputBarBackgroundView;
     }
     return _inputBarBackgroundView;

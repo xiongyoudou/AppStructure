@@ -37,6 +37,11 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 //        make.top.and.left.and.width.equalTo(self.view);
         make.top.mas_equalTo(self.view).offset(64);
         make.left.and.width.equalTo(self.view);
+        
+        // 注意，此处明确定义了tableview和底部栏的位置关系。
+        //所以在做底部栏弹出等动画时，不需要重新定义约束，因为tableview和
+        //底部栏约束确定了，底部栏高度增加，从而肯定会伴随着tableview高度减小
+        //（因为tableview与顶部父视图约束也是确定的）
         make.bottom.equalTo(self.chatBar.mas_top);
     }];
     [self.chatBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,7 +52,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 
 - (void)initilzer {
     self.tableView.backgroundColor = COLOR(235, 235, 235, 1.0);
-    self.view.backgroundColor = self.tableView.backgroundColor;
     self.shouldLoadMoreMessagesScrollToTop = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

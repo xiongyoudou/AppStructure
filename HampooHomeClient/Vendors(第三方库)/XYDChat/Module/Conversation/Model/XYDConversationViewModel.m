@@ -14,6 +14,7 @@
 #import "XYDConversation.h"
 #import "XYDConversation+Extionsion.h"
 #import "XYDChatMessageCell.h"
+#import "XYDChatInputBar.h"
 
 #import "XYDChatSessionService.h"
 #import "XYDChatSettingService.h"
@@ -725,8 +726,8 @@
                              allVisibleImages:(NSArray **)allVisibleImages
                              allVisibleThumbs:(NSArray **)allVisibleThumbs
                          selectedMessageIndex:(NSNumber **)selectedMessageIndex {
-    NSMutableArray *allVisibleImages_ = [[NSMutableArray alloc] initWithCapacity:0];
-    NSMutableArray *allVisibleThumbs_ = [[NSMutableArray alloc] initWithCapacity:0];
+//    NSMutableArray *allVisibleImages_ = [[NSMutableArray alloc] initWithCapacity:0];
+//    NSMutableArray *allVisibleThumbs_ = [[NSMutableArray alloc] initWithCapacity:0];
 //    NSUInteger idx = 0;
 //    for (XYDChatMessage *message_ in self.dataArray) {
 //        if ([message_ xydChat_isCustomMessage]) {
@@ -778,7 +779,7 @@
     if (menu.isMenuVisible) {
         [menu setMenuVisible:NO animated:YES];
     }
-//    [self.parentConversationViewController.chatBar endInputing];
+    [self.parentConversationViewController.chatBar endInputing];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -795,8 +796,8 @@
 }
 
 - (UIImage *)imageInBundlePathForImageName:(NSString *)imageName {
-//    UIImage *image = [UIImage xydChat_imageNamed:imageName bundleName:@"Other" bundleForClass:[self class]];
-//    return image;
+    UIImage *image = [XYDChatHelper getImageWithNamed:imageName bundleName:@"Other" bundleForClass:[self class]];
+    return image;
     return nil;
 }
 
