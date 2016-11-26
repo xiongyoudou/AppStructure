@@ -72,7 +72,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     CGFloat offset = 5;
     [self.inputBarBackgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.and.top.mas_equalTo(self);
-        make.bottom.mas_equalTo(self).priorityLow();
+        make.bottom.mas_equalTo(self).offset(-kFunctionViewHeight).priorityLow();
     }];
     
     [self.voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -224,7 +224,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     self.faceButton.selected = self.moreButton.selected = self.voiceButton.selected = NO;
-    [self showemotionView:NO];
+    [self showEmotionView:NO];
     [self showMoreView:NO];
     [self showVoiceView:NO];
     return YES;
@@ -265,10 +265,10 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 
 - (void)updateChatBarKeyBoardConstraints {
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-self.keyboardSize.height);
+        make.bottom.mas_equalTo(-self.keyboardSize.height + kFunctionViewHeight);
     }];
     [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
-        [self layoutIfNeeded];
+        [self.superview layoutIfNeeded];
     } completion:nil];
 }
 
@@ -413,6 +413,8 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     self.keyboardSize = CGSizeZero;
     if (_showType == XYDFunctionViewShowKeyboard) {
         _showType = XYDFunctionViewShowNothing;
+    }else if (_showType == XYDFunctionViewShowMore || _showType == XYDFunctionViewShowFace) {
+        return;
     }
     [self updateChatBarKeyBoardConstraints];
     [self updateChatBarConstraintsIfNeeded];
@@ -526,7 +528,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     //显示对应的View
     [self showMoreView:showType == XYDFunctionViewShowMore && self.moreButton.selected];
     [self showVoiceView:showType == XYDFunctionViewShowVoice && self.voiceButton.selected];
-    [self showemotionView:showType == XYDFunctionViewShowFace && self.faceButton.selected];
+    [self showEmotionView:showType == XYDFunctionViewShowFace && self.faceButton.selected];
     
     switch (showType) {
         case XYDFunctionViewShowNothing: {
@@ -575,29 +577,26 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     self.showType = showType;
 }
 
-- (void)showemotionView:(BOOL)show {
+- (void)showEmotionView:(BOOL)show {
     if (show) {
         [self emotionView];
-        [self.emotionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.and.left.mas_equalTo(self);
-            make.height.mas_equalTo(kFunctionViewHeight);
-            // hide blow screen
-            make.top.mas_equalTo(self.superview.mas_bottom);
-        }];
-        [self.emotionView layoutIfNeeded];
-        
-        [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.superview.mas_bottom).offset(-kFunctionViewHeight);
-        }];
-        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
-            [self.emotionView layoutIfNeeded];
-        } completion:nil];
-        
         [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom);
         }];
-    } else if (self.emotionView.superview) {
-        [self.emotionView removeFromSuperview];
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(self.superview);
+        }];
+        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
+            [self.superview layoutIfNeeded];
+            [self layoutIfNeeded];
+        } completion:nil];
+    } else  {
+        if (self.showType == XYDFunctionViewShowMore) {
+            [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom).offset(kFunctionViewHeight);
+            }];
+            [self layoutIfNeeded];
+        }
     }
 }
 
@@ -608,27 +607,23 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
 - (void)showMoreView:(BOOL)show {
     if (show) {
         [self moreView];
-        [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.and.left.mas_equalTo(self);
-            make.height.mas_equalTo(kFunctionViewHeight);
-            // hide blow screen
-            make.top.mas_equalTo(self.superview.mas_bottom);
-        }];
-        [self.moreView layoutIfNeeded];
-        
-        [self.moreView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.superview.mas_bottom).offset(-kFunctionViewHeight);
-        }];
-        
-        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
-            [self.moreView layoutIfNeeded];
-        } completion:nil];
-        
         [self.moreView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom);
         }];
-    } else if (self.moreView.superview) {
-        [self.moreView removeFromSuperview];
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(self.superview);
+        }];
+        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
+            [self.superview layoutIfNeeded];
+            [self layoutIfNeeded];
+        } completion:nil];
+    } else  {
+        if (self.showType == XYDFunctionViewShowFace) {
+            [self.moreView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom).offset(kFunctionViewHeight);
+            }];
+            [self layoutIfNeeded];
+        }
     }
 }
 
@@ -700,6 +695,12 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         emotionView.delegate = self;
         emotionView.backgroundColor = self.backgroundColor;
         [self addSubview:(_emotionView = emotionView)];
+        [self.emotionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.and.left.mas_equalTo(self);
+            make.height.mas_equalTo(kFunctionViewHeight);
+            make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom).offset(kFunctionViewHeight);
+        }];
+        [self layoutIfNeeded];
     }
     return _emotionView;
 }
@@ -709,6 +710,12 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         XYDChatMoreView *moreView = [[XYDChatMoreView alloc] init];
         moreView.inputViewRef = self;
         [self addSubview:(_moreView = moreView)];
+        [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.and.left.mas_equalTo(self);
+            make.height.mas_equalTo(kFunctionViewHeight);
+            make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom).offset(kFunctionViewHeight);
+        }];
+        [self layoutIfNeeded];
     }
     return _moreView;
 }
