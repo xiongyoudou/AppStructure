@@ -34,9 +34,7 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initilzer];
-//    self.navigationController.navigationBarHidden = YES;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.and.left.and.width.equalTo(self.view);
         make.top.mas_equalTo(self.view).offset(64);
         make.left.and.width.equalTo(self.view);
         
