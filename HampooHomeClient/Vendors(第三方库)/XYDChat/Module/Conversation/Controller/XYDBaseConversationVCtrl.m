@@ -9,6 +9,7 @@
 #import "XYDBaseConversationVCtrl.h"
 #import "XYDChatInputBar.h"
 #import "XYDChatStatusView.h"
+#import "XYDChatMoreView.h"
 #import "NSObject+XYDAssociatedObject.h"
 
 #import "XYDConversationRefreshHeader.h"
@@ -34,7 +35,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     [super viewDidLoad];
     [self initilzer];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.and.left.and.width.equalTo(self.view);
         make.top.mas_equalTo(self.view).offset(64);
         make.left.and.width.equalTo(self.view);
         
@@ -45,8 +45,9 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
         make.bottom.equalTo(self.chatBar.mas_top);
     }];
     [self.chatBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.and.bottom.equalTo(self.view);
-        make.height.mas_greaterThanOrEqualTo(@(kChatBarMinHeight));
+        make.left.and.right.equalTo(self.view);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(kFunctionViewHeight);
+        make.height.mas_greaterThanOrEqualTo(@(kChatBarMinHeight + kFunctionViewHeight));
     }];
 }
 
@@ -64,6 +65,7 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     }];
     // 注册messageCell
     [XYDChatHelper registerChatMessageCellClassForTableView:self.tableView];
+//    [self setTableViewInsetsWithBottomValue:kChatBarMinHeight];
     __weak __typeof(self) weakSelf_ = self;
     self.tableView.mj_header = [XYDConversationRefreshHeader headerWithRefreshingBlock:^{
         if (weakSelf_.shouldLoadMoreMessagesScrollToTop && !weakSelf_.loadingMoreMessage) {

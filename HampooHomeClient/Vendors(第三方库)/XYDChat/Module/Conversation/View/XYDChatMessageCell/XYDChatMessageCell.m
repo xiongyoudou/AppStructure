@@ -294,7 +294,7 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     }
     self.mediaType = [[self class] classMediaType];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = [UIColor clearColor];;
+    self.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - Public Methods

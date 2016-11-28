@@ -277,7 +277,7 @@ static NSString *const XYDChatDidReceiveCustomMessageUserInfoMessageKey = @"rece
 /// @name 自定义UI行为
 ///=============================================================================
 // 通用动画时间
-static CGFloat const XYDChatAnimateDuration = 5.0f;
+static CGFloat const XYDChatAnimateDuration = 0.25f;
 static NSString *const XYDChatCustomConversationViewControllerBackgroundImageNamePrefix = @"CONVERSATION_BACKGROUND_";
 static NSString *const XYDChatDefaultConversationViewControllerBackgroundImageName = @"CONVERSATION_BACKGROUND_ALL";
 
