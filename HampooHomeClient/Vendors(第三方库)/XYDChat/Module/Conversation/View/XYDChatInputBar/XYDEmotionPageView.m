@@ -31,7 +31,7 @@
 
 - (void)setup{
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:({
-        NSString *imageName = @"preview_background";
+        NSString *imageName = @"emoticon_keyboard_magnifier";
         UIImage *image = [UIImage imageNamed:imageName];
         image;})
                                         ];
@@ -53,8 +53,9 @@
         return;
     }
     [self.faceImageView setImage:image];
-    [self.faceImageView sizeToFit];
-    self.faceImageView.center = self.backgroundImageView.center;
+//    [self.faceImageView sizeToFit];
+    self.faceImageView.frame = CGRectMake(0, 0, 45, 45);
+    self.faceImageView.center = CGPointMake(self.backgroundImageView.center.x, self.backgroundImageView.center.y - 13) ;
     [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
         self.faceImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3);
     } completion:^(BOOL finished) {

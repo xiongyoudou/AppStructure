@@ -349,6 +349,8 @@
 		49B0890C1DD0690B003E6916 /* tab_upload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E31DD0690B003E6916 /* tab_upload@3x.png */; };
 		49B0890D1DD0690B003E6916 /* tab_upload_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E41DD0690B003E6916 /* tab_upload_h@2x.png */; };
 		49B0890E1DD0690B003E6916 /* tab_upload_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B088E51DD0690B003E6916 /* tab_upload_h@3x.png */; };
+		49B5E10C1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B5E10A1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png */; };
+		49B5E10D1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B5E10B1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png */; };
 		49B84ABC1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84ABB1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m */; };
 		49B84AC31DDA982F0014F219 /* XYDArchivedConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AC21DDA982F0014F219 /* XYDArchivedConversation.m */; };
 		49B84AC71DDA9B720014F219 /* XYDChatMessageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B84AC61DDA9B720014F219 /* XYDChatMessageOption.m */; };
@@ -1067,6 +1069,8 @@
 		49B088E31DD0690B003E6916 /* tab_upload@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload@3x.png"; sourceTree = "<group>"; };
 		49B088E41DD0690B003E6916 /* tab_upload_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload_h@2x.png"; sourceTree = "<group>"; };
 		49B088E51DD0690B003E6916 /* tab_upload_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_upload_h@3x.png"; sourceTree = "<group>"; };
+		49B5E10A1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emoticon_keyboard_magnifier@2x.png"; sourceTree = "<group>"; };
+		49B5E10B1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emoticon_keyboard_magnifier@3x.png"; sourceTree = "<group>"; };
 		49B84ABA1DDA92E80014F219 /* XYDChatCellIdentifierFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDChatCellIdentifierFactory.h; sourceTree = "<group>"; };
 		49B84ABB1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatCellIdentifierFactory.m; sourceTree = "<group>"; };
 		49B84AC01DDA97970014F219 /* XYDConversation_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDConversation_Internal.h; sourceTree = "<group>"; };
@@ -2718,6 +2722,7 @@
 		49B088B91DD0690B003E6916 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				49B5E1091DEC1426009F5C4C /* Other */,
 				49B088BA1DD0690B003E6916 /* Common */,
 				49B088BB1DD0690B003E6916 /* Intruduction */,
 				49B088D01DD0690B003E6916 /* Launch */,
@@ -2799,6 +2804,15 @@
 			children = (
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		49B5E1091DEC1426009F5C4C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				49B5E10A1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png */,
+				49B5E10B1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		49B84AE51DDAE4D00014F219 /* XYDWebViewController */ = {
@@ -3320,6 +3334,7 @@
 				49B0881E1DD01033003E6916 /* UIBarButtonItemArrowLeft@2x.png in Resources */,
 				49B087F61DD01032003E6916 /* Main.storyboard in Resources */,
 				49D7FA661DD309280096B966 /* Emoji.bundle in Resources */,
+				49B5E10C1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png in Resources */,
 				49B088EE1DD0690B003E6916 /* 2_launch@3x.png in Resources */,
 				49B089031DD0690B003E6916 /* tab_onlinedisk@2x.png in Resources */,
 				49B088FD1DD0690B003E6916 /* LaunchImage-800-667h@2x.png in Resources */,
@@ -3390,6 +3405,7 @@
 				49B088081DD01032003E6916 /* ImageError.png in Resources */,
 				49B088F61DD0690B003E6916 /* 4_launch@3x.png in Resources */,
 				49D7FA691DD309280096B966 /* MBProgressHUD.bundle in Resources */,
+				49B5E10D1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png in Resources */,
 				49B088EA1DD0690B003E6916 /* 1_launch@3x.png in Resources */,
 				49B0882D1DD01033003E6916 /* VideoOverlay@2x.png in Resources */,
 				49D7FA671DD309280096B966 /* LCCKPBLocalizations.bundle in Resources */,

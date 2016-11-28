@@ -169,11 +169,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatMessageCell/XYDChatSystemMessageCell.m"
-            timestampString = "502005759.464905"
+            timestampString = "502011001.440621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-setup"
             landmarkType = "7">
          </BreakpointContent>
@@ -185,11 +185,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HampooHomeClient/Vendors(&#x7b2c;&#x4e09;&#x65b9;&#x5e93;)/XYDChat/Module/Conversation/View/XYDChatMessageCell/XYDChatSystemMessageCell.m"
-            timestampString = "502006172.186801"
+            timestampString = "502011001.440621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-setup"
             landmarkType = "7">
          </BreakpointContent>
