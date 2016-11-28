@@ -100,11 +100,8 @@
             NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint constraintWithItem:templateLayoutCell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:contentViewWidth];
             [templateLayoutCell.contentView addConstraint:widthFenceConstraint];
             // Auto layout engine does its math
-            NSLog(@"dddd");
             fittingSize = [templateLayoutCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            NSLog(@"cccc");
             [templateLayoutCell.contentView removeConstraint:widthFenceConstraint];
-            NSLog(@"eeee");
         }
     }
     
