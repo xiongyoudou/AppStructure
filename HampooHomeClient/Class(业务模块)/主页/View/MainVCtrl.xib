@@ -20,11 +20,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duD-AR-SJx">
-                    <rect key="frame" x="143" y="244" width="46" height="30"/>
+                    <rect key="frame" x="151" y="244" width="31" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="聊天"/>
                     <connections>
                         <action selector="clickBtn:" destination="-1" eventType="touchUpInside" id="UKx-ga-2Db"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-HV-ogm">
+                    <rect key="frame" x="151" y="318" width="31" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="动态"/>
+                    <connections>
+                        <action selector="clickBtn2:" destination="-1" eventType="touchUpInside" id="JAD-FF-ARP"/>
                     </connections>
                 </button>
             </subviews>

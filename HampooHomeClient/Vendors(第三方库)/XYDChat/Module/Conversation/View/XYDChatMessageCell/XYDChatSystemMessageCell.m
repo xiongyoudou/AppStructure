@@ -44,7 +44,9 @@
 - (void)setup {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.systemmessageContentView];
-    [self updateConstraintsIfNeeded];
+    
+//    [self updateConstraintsIfNeeded];
+    
     [super setup];
 }
 

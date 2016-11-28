@@ -9,5 +9,7 @@ pod 'SSKeychain'
 pod 'MJRefresh'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'FMDB'
+
+pod 'YYKit'
 end
 

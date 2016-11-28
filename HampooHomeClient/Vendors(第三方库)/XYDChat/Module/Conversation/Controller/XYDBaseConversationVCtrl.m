@@ -37,7 +37,6 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.view).offset(64);
         make.left.and.width.equalTo(self.view);
-        
         // 注意，此处明确定义了tableview和底部栏的位置关系。
         //所以在做底部栏弹出等动画时，不需要重新定义约束，因为tableview和
         //底部栏约束确定了，底部栏高度增加，从而肯定会伴随着tableview高度减小
@@ -49,6 +48,7 @@ static CGFloat const XYDScrollViewInsetTop = 20.f;
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(kFunctionViewHeight);
         make.height.mas_greaterThanOrEqualTo(@(kChatBarMinHeight + kFunctionViewHeight));
     }];
+//    [self.view layoutIfNeeded];
 }
 
 - (void)initilzer {

@@ -269,7 +269,19 @@ static CGFloat const XYDChat_MSG_CELL_NICKNAME_FONT_SIZE = 12;
     
     self.messageContentView.layer.mask.contents = (__bridge id _Nullable)(self.messageContentBackgroundImageView.image.CGImage);
     [self.contentView insertSubview:self.messageContentBackgroundImageView belowSubview:self.messageContentView];
-    [self updateConstraintsIfNeeded];
+    
+///!!!:此处的一句代码的使用造成的Constraint的警告花费我好几天时间
+/*
+最后只需要一句代码稍作替换即没有警告，不知道为何，留待日后钻研！产生警告的原因是生成了一些如下的无用约束:
+ <NSLayoutConstraint:0x1702864a0 UITableViewCellContentView:0x100b8eb20.height == 44>,
+ <NSAutoresizingMaskLayoutConstraint:0x1702864f0 UITableViewCellContentView:0x100b8eb20.(null) == 0>,
+ <NSAutoresizingMaskLayoutConstraint:0x170286540 UITableViewCellContentView:0x100b8eb20.(null) == 0>,
+ <NSLayoutConstraint:0x170286450 UITableViewCellContentView:0x100b8eb20.width == 320>
+ */
+    
+//    [self updateConstraintsIfNeeded];
+    [self setNeedsUpdateConstraints];
+    
     
     self.messageSendStateView.hidden = YES;
     self.messageReadStateImageView.hidden = YES;

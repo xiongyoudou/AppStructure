@@ -26,7 +26,7 @@
  *  @return 返回创建的tableView
  */
 + (UITableView *)createTableViewWithStyle:(UITableViewStyle)style onCtrl:(UIViewController *)ctrl {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:style];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);

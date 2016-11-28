@@ -24,6 +24,7 @@
     
 }
 
+// 聊天界面
 - (IBAction)clickBtn:(id)sender {
     XYDConversationVCtrl *ctrl = [[XYDConversationVCtrl alloc]initWithPeerId:@"ddd"];
     [self.navigationController pushViewController:ctrl animated:YES];
@@ -37,6 +38,10 @@
     }
 }
 
+// 动态界面
+- (IBAction)clickBtn2:(id)sender {
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
