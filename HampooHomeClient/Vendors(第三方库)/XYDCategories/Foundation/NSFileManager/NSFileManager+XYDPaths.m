@@ -7,9 +7,14 @@
 //
 
 #import "NSFileManager+XYDPaths.h"
-#import "HttpTool.h"
+//#import "HttpTool.h"
 #include <sys/xattr.h>
 #import <CommonCrypto/CommonDigest.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+#define kTempPath NSTemporaryDirectory()
+
 
 @implementation NSFileManager (XYDPaths)
 
@@ -73,16 +78,16 @@
     return MIMEType ? (__bridge_transfer NSString *)MIMEType : @"application/octet-stream";
 }
 
-+ (NSString *)MIMETypeFromPath:(NSString *)fullPath
-{
-    NSURL* fileUrl = [NSURL fileURLWithPath:fullPath];
-    NSURLRequest* fileUrlRequest = [[NSURLRequest alloc] initWithURL:fileUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:.1];
-    NSError* error = nil;
-    NSURLResponse* response = nil;
-    [HttpTool sendSynchronousRequest:fileUrlRequest returningResponse:&response error:&error];
-    NSString* mimeType = [response MIMEType];
-    return mimeType;
-}
+//+ (NSString *)MIMETypeFromPath:(NSString *)fullPath
+//{
+//    NSURL* fileUrl = [NSURL fileURLWithPath:fullPath];
+//    NSURLRequest* fileUrlRequest = [[NSURLRequest alloc] initWithURL:fileUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:.1];
+//    NSError* error = nil;
+//    NSURLResponse* response = nil;
+//    [HttpTool sendSynchronousRequest:fileUrlRequest returningResponse:&response error:&error];
+//    NSString* mimeType = [response MIMEType];
+//    return mimeType;
+//}
 
 +(NSString *)contentTypeForImageData:(NSData *)data {
     uint8_t c;
@@ -408,7 +413,7 @@
         return isExists ? data : nil;
     }else {
         // 如果有该路径，需要将绝对路径替换成每次生成的路径
-        NSString *tempFileName = [MyTool getRearStrOn:localFilePath byDeleteStr:@"/tmp/"];
+        NSString *tempFileName = [self getRearStrOn:localFilePath byDeleteStr:@"/tmp/"];
         localFilePath = [NSString stringWithFormat:@"%@%@",kTempPath,tempFileName];
         [resumeDictionary setValue:localFilePath forKey:@"NSURLSessionResumeInfoLocalPath"];
         NSData *newResumeData = [NSPropertyListSerialization dataWithPropertyList:resumeDictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
@@ -425,5 +430,15 @@
     return [fileAttributes fileModificationDate];
 }
 
+
+// 对字符串进行“指定的字符前面的所有字符”的删除操作，获取指定字符串后一部分
++ (NSString *)getRearStrOn:(NSString *)originStr byDeleteStr:(NSString *)deleteStr {
+    NSString *newUserName = originStr;
+    NSRange range = [originStr rangeOfString:deleteStr];
+    if(range.location != NSNotFound) {
+        newUserName = [originStr substringFromIndex:(range.location + range.length)];
+    }
+    return newUserName;
+}
 
 @end

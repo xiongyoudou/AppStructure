@@ -8,10 +8,11 @@
 
 #import "MainVCtrl.h"
 #import "XYDConversationVCtrl.h"
-
 #import "XYDChatInputViewPluginTakePhoto.h"
 #import "XYDChatInputViewPluginPickImage.h"
 #import "XYDChatInputViewPluginLocation.h"
+
+#import "TimelineVCtrl.h"
 
 @interface MainVCtrl ()
 
@@ -40,7 +41,8 @@
 
 // 动态界面
 - (IBAction)clickBtn2:(id)sender {
-    
+    TimelineVCtrl *ctrl = [TimelineVCtrl new];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

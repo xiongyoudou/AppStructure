@@ -48,4 +48,11 @@
  */
 - (BOOL)xyd_isSpace;
 
+- (NSString *)xyd_stringByAppendingNameScale:(CGFloat)scale;
+- (NSString *)xyd_stringByAppendingPathScale:(CGFloat)scale;
+- (CGFloat)xyd_pathScale;
+- (void)xyd_enumerateRegexMatches:(NSString *)regex
+                          options:(NSRegularExpressionOptions)options
+                       usingBlock:(void (^)(NSString *match, NSRange matchRange, BOOL *stop))block;
+
 @end

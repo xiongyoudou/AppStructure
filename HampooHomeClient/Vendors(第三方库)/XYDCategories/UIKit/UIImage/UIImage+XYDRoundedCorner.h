@@ -7,4 +7,9 @@
 #import <UIKit/UIKit.h>
 @interface UIImage (XYDRoundedCorner)
 - (UIImage *)xyd_roundedCornerImage:(NSInteger)cornerSize borderSize:(NSInteger)borderSize;
+
+- (UIImage *)xyd_imageByRoundCornerRadius:(CGFloat)radius;
+- (UIImage *)xyd_imageByRoundCornerRadius:(CGFloat)radius
+                              borderWidth:(CGFloat)borderWidth
+                              borderColor:(UIColor *)borderColor;
 @end

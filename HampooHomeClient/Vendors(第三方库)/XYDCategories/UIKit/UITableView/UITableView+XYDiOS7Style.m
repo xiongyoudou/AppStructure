@@ -58,4 +58,20 @@
         cell.backgroundView = testView;
     }
 }
+
+// Remove touch delay (since iOS 8)
+- (void)xyd_RemoveTouchDelay {
+    UIView *wrapView = self.subviews.firstObject;
+    // UITableViewWrapperView
+    if (wrapView && [NSStringFromClass(wrapView.class) hasSuffix:@"WrapperView"]) {
+        for (UIGestureRecognizer *gesture in wrapView.gestureRecognizers) {
+            // UIScrollViewDelayedTouchesBeganGestureRecognizer
+            if ([NSStringFromClass(gesture.class) containsString:@"DelayedTouchesBegan"] ) {
+                gesture.enabled = NO;
+                break;
+            }
+        }
+    }
+}
+
 @end

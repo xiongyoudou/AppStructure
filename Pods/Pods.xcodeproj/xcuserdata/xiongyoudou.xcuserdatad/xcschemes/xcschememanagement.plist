@@ -59,60 +59,140 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYAsyncLayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYDispatchQueuePool.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C4DEAEB85487046FEB0BEF3A7E4BCCB</key>
+		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C3A8A5BED39512C46977F6FA6B6C08A</key>
+		<key>103E1B7AE0A7E4208954E85F7DF8E6FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C9E99CC2B5F0FA4FC11C2E24D4EF986</key>
+		<key>15771CDB60DFAA769E27961D321E12C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<key>31AB8AA9F5725BDEB9DBABD2A0338A03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<key>350034F58936CDD575D2139FEC451CBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>37AE95CC9555313E36DFD449610FB34C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<key>3BA570F635515268DA7713AE3E43BB63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B81BCAA4C4A8472614E31366B976E615</key>
+		<key>4B3D5668B24389AE68F95D21CC5716E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
+		<key>5309E2A55E2527350638826F4C62DD6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1EC2572C5166CE2498C72FAF128EABE</key>
+		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7847B00153FDDA43D171BBB9FEB34B5</key>
+		<key>67CD23ED57437AB5ADE70D1880335BB5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74DE6261907AB54ED39086C0A1EA8B18</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFC7BC887160331A66240DD64B2F1AEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE08F700A21507372B0B029A18F6C57A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2C9D37C766D621BE736B615B1F2CC3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E079843C9C79118289CFD9619070B0B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

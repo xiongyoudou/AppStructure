@@ -446,6 +446,26 @@
 		49D7FE581DD418760096B966 /* XYDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE571DD418760096B966 /* XYDAudioPlayer.m */; };
 		49D7FE601DD425790096B966 /* XYDChatMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */; };
 		49D7FE611DD425790096B966 /* XYDMessageSendStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */; };
+		49E0ACA71DED1CCC00275F73 /* TimelineVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0ACA61DED1CCC00275F73 /* TimelineVCtrl.m */; };
+		49E44E9D1DED205500C6BA4B /* TimelineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44E9C1DED205500C6BA4B /* TimelineLayout.m */; };
+		49E44EA01DED211200C6BA4B /* TimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44E9F1DED211200C6BA4B /* TimelineModel.m */; };
+		49E44EA31DED271B00C6BA4B /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EA21DED271B00C6BA4B /* TimelineCell.m */; };
+		49E44EA61DED2D4100C6BA4B /* TimelineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EA51DED2D4100C6BA4B /* TimelineHelper.m */; };
+		49E44EA91DED596800C6BA4B /* UIImage+XYDPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EA81DED596800C6BA4B /* UIImage+XYDPDF.m */; };
+		49E44EAC1DED59BB00C6BA4B /* UIImage+XYDEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EAB1DED59BB00C6BA4B /* UIImage+XYDEmoji.m */; };
+		49E44EAF1DED633700C6BA4B /* XYDCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EAE1DED633700C6BA4B /* XYDCGUtilities.m */; };
+		49E44EB21DED641700C6BA4B /* UIView+ConvertFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EB11DED641700C6BA4B /* UIView+ConvertFrame.m */; };
+		49E44EB51DED664700C6BA4B /* CALayer+XYDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EB41DED664700C6BA4B /* CALayer+XYDExtension.m */; };
+		49E44EB81DED6FA800C6BA4B /* CustomControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EB71DED6FA800C6BA4B /* CustomControl.m */; };
+		49E44EBB1DED704800C6BA4B /* CustomGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44EBA1DED704800C6BA4B /* CustomGestureRecognizer.m */; };
+		49E44EC51DED762300C6BA4B /* weibo_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EBD1DED762300C6BA4B /* weibo_0.json */; };
+		49E44EC61DED762300C6BA4B /* weibo_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EBE1DED762300C6BA4B /* weibo_1.json */; };
+		49E44EC71DED762300C6BA4B /* weibo_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EBF1DED762300C6BA4B /* weibo_2.json */; };
+		49E44EC81DED762300C6BA4B /* weibo_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC01DED762300C6BA4B /* weibo_3.json */; };
+		49E44EC91DED762300C6BA4B /* weibo_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC11DED762300C6BA4B /* weibo_4.json */; };
+		49E44ECA1DED762300C6BA4B /* weibo_5.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC21DED762300C6BA4B /* weibo_5.json */; };
+		49E44ECB1DED762300C6BA4B /* weibo_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC31DED762300C6BA4B /* weibo_6.json */; };
+		49E44ECC1DED762300C6BA4B /* weibo_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC41DED762300C6BA4B /* weibo_7.json */; };
 		49E5C2AD1DD55CE700A32241 /* NSError+XYDErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */; };
 		49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B31DD5734D00A32241 /* XYDConversation.m */; };
 		49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */; };
@@ -1257,6 +1277,38 @@
 		49D7FE5D1DD425790096B966 /* XYDChatMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDChatMenuItem.m; sourceTree = "<group>"; };
 		49D7FE5E1DD425790096B966 /* XYDMessageSendStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDMessageSendStateView.h; sourceTree = "<group>"; };
 		49D7FE5F1DD425790096B966 /* XYDMessageSendStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDMessageSendStateView.m; sourceTree = "<group>"; };
+		49E0ACA51DED1CCC00275F73 /* TimelineVCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVCtrl.h; sourceTree = "<group>"; };
+		49E0ACA61DED1CCC00275F73 /* TimelineVCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVCtrl.m; sourceTree = "<group>"; };
+		49E44E9B1DED205500C6BA4B /* TimelineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineLayout.h; sourceTree = "<group>"; };
+		49E44E9C1DED205500C6BA4B /* TimelineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineLayout.m; sourceTree = "<group>"; };
+		49E44E9E1DED211200C6BA4B /* TimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineModel.h; sourceTree = "<group>"; };
+		49E44E9F1DED211200C6BA4B /* TimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineModel.m; sourceTree = "<group>"; };
+		49E44EA11DED271B00C6BA4B /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
+		49E44EA21DED271B00C6BA4B /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
+		49E44EA41DED2D4100C6BA4B /* TimelineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineHelper.h; sourceTree = "<group>"; };
+		49E44EA51DED2D4100C6BA4B /* TimelineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineHelper.m; sourceTree = "<group>"; };
+		49E44EA71DED596800C6BA4B /* UIImage+XYDPDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XYDPDF.h"; sourceTree = "<group>"; };
+		49E44EA81DED596800C6BA4B /* UIImage+XYDPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XYDPDF.m"; sourceTree = "<group>"; };
+		49E44EAA1DED59BB00C6BA4B /* UIImage+XYDEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XYDEmoji.h"; sourceTree = "<group>"; };
+		49E44EAB1DED59BB00C6BA4B /* UIImage+XYDEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XYDEmoji.m"; sourceTree = "<group>"; };
+		49E44EAD1DED633700C6BA4B /* XYDCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDCGUtilities.h; sourceTree = "<group>"; };
+		49E44EAE1DED633700C6BA4B /* XYDCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDCGUtilities.m; sourceTree = "<group>"; };
+		49E44EB01DED641700C6BA4B /* UIView+ConvertFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ConvertFrame.h"; sourceTree = "<group>"; };
+		49E44EB11DED641700C6BA4B /* UIView+ConvertFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ConvertFrame.m"; sourceTree = "<group>"; };
+		49E44EB31DED664700C6BA4B /* CALayer+XYDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XYDExtension.h"; sourceTree = "<group>"; };
+		49E44EB41DED664700C6BA4B /* CALayer+XYDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XYDExtension.m"; sourceTree = "<group>"; };
+		49E44EB61DED6FA800C6BA4B /* CustomControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomControl.h; sourceTree = "<group>"; };
+		49E44EB71DED6FA800C6BA4B /* CustomControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomControl.m; sourceTree = "<group>"; };
+		49E44EB91DED704800C6BA4B /* CustomGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGestureRecognizer.h; sourceTree = "<group>"; };
+		49E44EBA1DED704800C6BA4B /* CustomGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGestureRecognizer.m; sourceTree = "<group>"; };
+		49E44EBD1DED762300C6BA4B /* weibo_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_0.json; sourceTree = "<group>"; };
+		49E44EBE1DED762300C6BA4B /* weibo_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_1.json; sourceTree = "<group>"; };
+		49E44EBF1DED762300C6BA4B /* weibo_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_2.json; sourceTree = "<group>"; };
+		49E44EC01DED762300C6BA4B /* weibo_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_3.json; sourceTree = "<group>"; };
+		49E44EC11DED762300C6BA4B /* weibo_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_4.json; sourceTree = "<group>"; };
+		49E44EC21DED762300C6BA4B /* weibo_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_5.json; sourceTree = "<group>"; };
+		49E44EC31DED762300C6BA4B /* weibo_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_6.json; sourceTree = "<group>"; };
+		49E44EC41DED762300C6BA4B /* weibo_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_7.json; sourceTree = "<group>"; };
 		49E5C2AB1DD55CE700A32241 /* NSError+XYDErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XYDErrorCode.h"; sourceTree = "<group>"; };
 		49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XYDErrorCode.m"; sourceTree = "<group>"; };
 		49E5C2B11DD56EB900A32241 /* XYDChatServiceDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatServiceDefinition.h; sourceTree = "<group>"; };
@@ -1279,8 +1331,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49B84B3B1DDB100F0014F219 /* libc++.tbd in Frameworks */,
 				49B84B311DDB0FB00014F219 /* SystemConfiguration.framework in Frameworks */,
+				49B84B3B1DDB100F0014F219 /* libc++.tbd in Frameworks */,
 				49B84B2F1DDB0F050014F219 /* CoreTelephony.framework in Frameworks */,
 				49B84B2D1DDB0E950014F219 /* libiconv.tbd in Frameworks */,
 				49B84B2B1DDB0E840014F219 /* libz.tbd in Frameworks */,
@@ -1337,6 +1389,7 @@
 				49845F6E1DD1B24D0060DED5 /* MainVCtrl.h */,
 				49845F6F1DD1B24D0060DED5 /* MainVCtrl.m */,
 				49845F701DD1B24D0060DED5 /* MainVCtrl.xib */,
+				49E0ACA41DED1C9E00275F73 /* Timeline */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1873,6 +1926,8 @@
 				49896D0B1DD2C7BD006C50C9 /* CAMediaTimingFunction */,
 				49896D0E1DD2C7BD006C50C9 /* CAShapeLayer */,
 				49896D111DD2C7BD006C50C9 /* CATransaction */,
+				49E44EAD1DED633700C6BA4B /* XYDCGUtilities.h */,
+				49E44EAE1DED633700C6BA4B /* XYDCGUtilities.m */,
 			);
 			path = QuartzCore;
 			sourceTree = "<group>";
@@ -1893,6 +1948,8 @@
 			children = (
 				49896D091DD2C7BD006C50C9 /* CALayer+XYDBorderColor.h */,
 				49896D0A1DD2C7BD006C50C9 /* CALayer+XYDBorderColor.m */,
+				49E44EB31DED664700C6BA4B /* CALayer+XYDExtension.h */,
+				49E44EB41DED664700C6BA4B /* CALayer+XYDExtension.m */,
 			);
 			path = CALayer;
 			sourceTree = "<group>";
@@ -2102,6 +2159,10 @@
 				49896D681DD2C7BE006C50C9 /* UIImage+XYDCapture.m */,
 				49896D691DD2C7BE006C50C9 /* UIImage+XYDColor.h */,
 				49896D6A1DD2C7BE006C50C9 /* UIImage+XYDColor.m */,
+				49E44EA71DED596800C6BA4B /* UIImage+XYDPDF.h */,
+				49E44EA81DED596800C6BA4B /* UIImage+XYDPDF.m */,
+				49E44EAA1DED59BB00C6BA4B /* UIImage+XYDEmoji.h */,
+				49E44EAB1DED59BB00C6BA4B /* UIImage+XYDEmoji.m */,
 				49896D6B1DD2C7BE006C50C9 /* UIImage+XYDFileName.h */,
 				49896D6C1DD2C7BE006C50C9 /* UIImage+XYDFileName.m */,
 				49896D6D1DD2C7BE006C50C9 /* UIImage+XYDFXImage.h */,
@@ -2308,6 +2369,8 @@
 				49896DD61DD2C7BE006C50C9 /* UIView+XYDAnimation.m */,
 				49896DD71DD2C7BE006C50C9 /* UIView+XYDBlockGesture.h */,
 				49896DD81DD2C7BE006C50C9 /* UIView+XYDBlockGesture.m */,
+				49E44EB01DED641700C6BA4B /* UIView+ConvertFrame.h */,
+				49E44EB11DED641700C6BA4B /* UIView+ConvertFrame.m */,
 				49896DD91DD2C7BE006C50C9 /* UIView+XYDConstraints.h */,
 				49896DDA1DD2C7BE006C50C9 /* UIView+XYDConstraints.m */,
 				49896DDB1DD2C7BE006C50C9 /* UIView+XYDCustomBorder.h */,
@@ -3201,6 +3264,43 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		49E0ACA41DED1C9E00275F73 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				49E0ACA51DED1CCC00275F73 /* TimelineVCtrl.h */,
+				49E0ACA61DED1CCC00275F73 /* TimelineVCtrl.m */,
+				49E44E9B1DED205500C6BA4B /* TimelineLayout.h */,
+				49E44E9C1DED205500C6BA4B /* TimelineLayout.m */,
+				49E44E9E1DED211200C6BA4B /* TimelineModel.h */,
+				49E44E9F1DED211200C6BA4B /* TimelineModel.m */,
+				49E44EA11DED271B00C6BA4B /* TimelineCell.h */,
+				49E44EA21DED271B00C6BA4B /* TimelineCell.m */,
+				49E44EA41DED2D4100C6BA4B /* TimelineHelper.h */,
+				49E44EA51DED2D4100C6BA4B /* TimelineHelper.m */,
+				49E44EB61DED6FA800C6BA4B /* CustomControl.h */,
+				49E44EB71DED6FA800C6BA4B /* CustomControl.m */,
+				49E44EB91DED704800C6BA4B /* CustomGestureRecognizer.h */,
+				49E44EBA1DED704800C6BA4B /* CustomGestureRecognizer.m */,
+				49E44EBC1DED762300C6BA4B /* Json */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		49E44EBC1DED762300C6BA4B /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				49E44EBD1DED762300C6BA4B /* weibo_0.json */,
+				49E44EBE1DED762300C6BA4B /* weibo_1.json */,
+				49E44EBF1DED762300C6BA4B /* weibo_2.json */,
+				49E44EC01DED762300C6BA4B /* weibo_3.json */,
+				49E44EC11DED762300C6BA4B /* weibo_4.json */,
+				49E44EC21DED762300C6BA4B /* weibo_5.json */,
+				49E44EC31DED762300C6BA4B /* weibo_6.json */,
+				49E44EC41DED762300C6BA4B /* weibo_7.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		49E5C2AA1DD55C7400A32241 /* NSError */ = {
 			isa = PBXGroup;
 			children = (
@@ -3309,6 +3409,7 @@
 				49B088521DD02A08003E6916 /* main_badge@2x.png in Resources */,
 				49B088071DD01032003E6916 /* Checkmark@2x.png in Resources */,
 				49B088F41DD0690B003E6916 /* 4_launch-5h@2x.png in Resources */,
+				49E44EC71DED762300C6BA4B /* weibo_2.json in Resources */,
 				49B088101DD01032003E6916 /* ImageSelectedOn@3x.png in Resources */,
 				49B088191DD01033003E6916 /* PlayButtonOverlayLarge@3x.png in Resources */,
 				49B0890A1DD0690B003E6916 /* tab_transferlog_h@3x.png in Resources */,
@@ -3323,6 +3424,7 @@
 				49B089001DD0690B003E6916 /* tab_more@3x.png in Resources */,
 				49B088F71DD0690B003E6916 /* 5_launch-4h@2x.png in Resources */,
 				49B088E71DD0690B003E6916 /* 1_launch-4h@2x.png in Resources */,
+				49E44ECC1DED762300C6BA4B /* weibo_7.json in Resources */,
 				49B0880E1DD01032003E6916 /* ImageSelectedOn.png in Resources */,
 				49B0881D1DD01033003E6916 /* UIBarButtonItemArrowLeft.png in Resources */,
 				49B089011DD0690B003E6916 /* tab_more_h@2x.png in Resources */,
@@ -3332,6 +3434,7 @@
 				49B088151DD01033003E6916 /* ImageSelectedSmallOn@2x.png in Resources */,
 				49D7FA6B1DD309280096B966 /* Other.bundle in Resources */,
 				49B0881E1DD01033003E6916 /* UIBarButtonItemArrowLeft@2x.png in Resources */,
+				49E44ECA1DED762300C6BA4B /* weibo_5.json in Resources */,
 				49B087F61DD01032003E6916 /* Main.storyboard in Resources */,
 				49D7FA661DD309280096B966 /* Emoji.bundle in Resources */,
 				49B5E10C1DEC1426009F5C4C /* emoticon_keyboard_magnifier@2x.png in Resources */,
@@ -3364,7 +3467,9 @@
 				49B088241DD01033003E6916 /* UIBarButtonItemArrowRight.png in Resources */,
 				49B087F51DD01032003E6916 /* LaunchScreen.storyboard in Resources */,
 				49B0881B1DD01033003E6916 /* PlayButtonOverlayLargeTap@2x.png in Resources */,
+				49E44EC81DED762300C6BA4B /* weibo_3.json in Resources */,
 				49B088EB1DD0690B003E6916 /* 2_launch-4h@2x.png in Resources */,
+				49E44EC51DED762300C6BA4B /* weibo_0.json in Resources */,
 				49B0882E1DD01033003E6916 /* VideoOverlay@3x.png in Resources */,
 				49B0880A1DD01032003E6916 /* ImageError@3x.png in Resources */,
 				49B088F31DD0690B003E6916 /* 4_launch-4h@2x.png in Resources */,
@@ -3397,6 +3502,7 @@
 				49D7FA6C1DD309280096B966 /* Placeholder.bundle in Resources */,
 				49B089021DD0690B003E6916 /* tab_more_h@3x.png in Resources */,
 				49D7FA6D1DD309280096B966 /* VoiceMessageSource.bundle in Resources */,
+				49E44ECB1DED762300C6BA4B /* weibo_6.json in Resources */,
 				49B089081DD0690B003E6916 /* tab_transferlog@3x.png in Resources */,
 				49B088291DD01033003E6916 /* UIBarButtonItemGrid@3x.png in Resources */,
 				49B0890C1DD0690B003E6916 /* tab_upload@3x.png in Resources */,
@@ -3407,8 +3513,10 @@
 				49D7FA691DD309280096B966 /* MBProgressHUD.bundle in Resources */,
 				49B5E10D1DEC1426009F5C4C /* emoticon_keyboard_magnifier@3x.png in Resources */,
 				49B088EA1DD0690B003E6916 /* 1_launch@3x.png in Resources */,
+				49E44EC61DED762300C6BA4B /* weibo_1.json in Resources */,
 				49B0882D1DD01033003E6916 /* VideoOverlay@2x.png in Resources */,
 				49D7FA671DD309280096B966 /* LCCKPBLocalizations.bundle in Resources */,
+				49E44EC91DED762300C6BA4B /* weibo_4.json in Resources */,
 				49B0881A1DD01033003E6916 /* PlayButtonOverlayLargeTap.png in Resources */,
 				49B0881F1DD01033003E6916 /* UIBarButtonItemArrowLeft@3x.png in Resources */,
 			);
@@ -3459,7 +3567,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3535,6 +3643,7 @@
 				49896E451DD2C7BE006C50C9 /* NSObject+XYDAutoCoding.m in Sources */,
 				49B087FE1DD01032003E6916 /* MWGridCell.m in Sources */,
 				49896E351DD2C7BE006C50C9 /* NSException+XYDTrace.m in Sources */,
+				49E44EAC1DED59BB00C6BA4B /* UIImage+XYDEmoji.m in Sources */,
 				49896E8B1DD2C7BE006C50C9 /* UIControl+XYDActionBlocks.m in Sources */,
 				49896EBC1DD2C7BE006C50C9 /* UITableView+XYDiOS7Style.m in Sources */,
 				49B84ABC1DDA92E80014F219 /* XYDChatCellIdentifierFactory.m in Sources */,
@@ -3567,6 +3676,7 @@
 				49896E221DD2C7BE006C50C9 /* NSData+XYDDataCache.m in Sources */,
 				49896E701DD2C7BE006C50C9 /* CAMediaTimingFunction+XYDAdditionalEquations.m in Sources */,
 				49896E181DD2C7BE006C50C9 /* NSManagedObjectContext+XYDExtensions.m in Sources */,
+				49E44EAF1DED633700C6BA4B /* XYDCGUtilities.m in Sources */,
 				49896E661DD2C7BE006C50C9 /* NSMutableURLRequest+XYDUpload.m in Sources */,
 				49896E611DD2C7BE006C50C9 /* NSTimer+XYDAddition.m in Sources */,
 				49896E6E1DD2C7BE006C50C9 /* CAAnimation+XYDEasingEquations.m in Sources */,
@@ -3575,6 +3685,7 @@
 				49B0886E1DD05545003E6916 /* DialogTool.m in Sources */,
 				49896EC01DD2C7BE006C50C9 /* UITextField+XYDHistory.m in Sources */,
 				49896E291DD2C7BE006C50C9 /* NSDate+XYDExtension.m in Sources */,
+				49E44EA01DED211200C6BA4B /* TimelineModel.m in Sources */,
 				49896EC11DD2C7BE006C50C9 /* UITextField+XYDSelect.m in Sources */,
 				49B088011DD01032003E6916 /* MWPhotoBrowser.m in Sources */,
 				49B088591DD02A08003E6916 /* XYDTabBarController.m in Sources */,
@@ -3606,6 +3717,7 @@
 				49D7FA721DD309850096B966 /* XYDChatMessageCell.m in Sources */,
 				49896E861DD2C7BE006C50C9 /* UIColor+XYDGradient.m in Sources */,
 				49896E621DD2C7BE006C50C9 /* NSTimer+XYDBlocks.m in Sources */,
+				49E44EBB1DED704800C6BA4B /* CustomGestureRecognizer.m in Sources */,
 				49B84B101DDB059A0014F219 /* XYDChatLocationController.m in Sources */,
 				49B84B401DDC00EB0014F219 /* NSObject+XYDisFirstLaunch.m in Sources */,
 				49896E1D1DD2C7BE006C50C9 /* NSArray+XYDBlock.m in Sources */,
@@ -3618,7 +3730,9 @@
 				49845F711DD1B24D0060DED5 /* MainVCtrl.m in Sources */,
 				49896E831DD2C7BE006C50C9 /* UIButton+XYDMiddleAligning.m in Sources */,
 				49896EC51DD2C7BE006C50C9 /* UITextView+XYDSelect.m in Sources */,
+				49E44EA61DED2D4100C6BA4B /* TimelineHelper.m in Sources */,
 				499709B41DD5C20A00352E8F /* XYDChatTextMessage.m in Sources */,
+				49E44EB81DED6FA800C6BA4B /* CustomControl.m in Sources */,
 				49B088561DD02A08003E6916 /* XYDRoundCircularButton.m in Sources */,
 				49896E251DD2C7BE006C50C9 /* NSData+XYDHash.m in Sources */,
 				49896E631DD2C7BE006C50C9 /* NSURL+XYDParam.m in Sources */,
@@ -3627,6 +3741,7 @@
 				499709C01DD5C27D00352E8F /* XYDChatAudioMessage.m in Sources */,
 				49D7FE521DD40C840096B966 /* XYDChatContentView.m in Sources */,
 				49896E3F1DD2C7BE006C50C9 /* NSNumber+XYDCGFloat.m in Sources */,
+				49E0ACA71DED1CCC00275F73 /* TimelineVCtrl.m in Sources */,
 				49896EC91DD2C7BE006C50C9 /* UIView+XYDCustomBorder.m in Sources */,
 				49B088581DD02A08003E6916 /* XYDTabBarButton.m in Sources */,
 				49B088681DD051CE003E6916 /* IntroductionVCtrl.m in Sources */,
@@ -3679,6 +3794,7 @@
 				49896E941DD2C7BE006C50C9 /* UIImage+XYDAnimatedGIF.m in Sources */,
 				49D7FA5D1DD309280096B966 /* XYDChatMoreView.m in Sources */,
 				49B088771DD05C51003E6916 /* XYDBottomBar.m in Sources */,
+				49E44EA91DED596800C6BA4B /* UIImage+XYDPDF.m in Sources */,
 				49B0887A1DD05C51003E6916 /* XYDBottomBarData.m in Sources */,
 				49896E671DD2C7BE006C50C9 /* NSURLRequest+XYDParamsFromDictionary.m in Sources */,
 				49896E791DD2C7BE006C50C9 /* UIBezierPath+XYDBasicShapes.m in Sources */,
@@ -3692,6 +3808,7 @@
 				49896E601DD2C7BE006C50C9 /* NSString+XYDXMLDictionary.m in Sources */,
 				49896EAF1DD2C7BE006C50C9 /* UINavigationController+XYDStackManager.m in Sources */,
 				499709B71DD5C23000352E8F /* XYDChatImageMessage.m in Sources */,
+				49E44EB51DED664700C6BA4B /* CALayer+XYDExtension.m in Sources */,
 				49D7FE271DD3262B0096B966 /* MLExpressionManager.m in Sources */,
 				49896E711DD2C7BE006C50C9 /* CAShapeLayer+XYDUIBezierPath.m in Sources */,
 				49896E801DD2C7BE006C50C9 /* UIButton+XYDCountDown.m in Sources */,
@@ -3723,6 +3840,7 @@
 				49896E1C1DD2C7BE006C50C9 /* CLLocation+XYDCH1903.m in Sources */,
 				49896E6B1DD2C7BE006C50C9 /* MKMapView+XYDMoveLogo.m in Sources */,
 				49B84B461DDD3EA10014F219 /* XYDChatErrorUtil.m in Sources */,
+				49E44E9D1DED205500C6BA4B /* TimelineLayout.m in Sources */,
 				49896E1A1DD2C7BE006C50C9 /* NSManagedObjectContext+XYDFetchRequestsConstructors.m in Sources */,
 				49896E721DD2C7BE006C50C9 /* CATransaction+XYDAnimateWithDuration.m in Sources */,
 				49896E341DD2C7BE006C50C9 /* NSDictionary+XYDXML.m in Sources */,
@@ -3736,6 +3854,7 @@
 				49D7FE3E1DD405960096B966 /* XYDChatKit.m in Sources */,
 				49896E411DD2C7BE006C50C9 /* NSNumber+XYDRound.m in Sources */,
 				49896E4D1DD2C7BE006C50C9 /* NSRunLoop+XYDPerformBlock.m in Sources */,
+				49E44EB21DED641700C6BA4B /* UIView+ConvertFrame.m in Sources */,
 				49B84ACA1DDA9C560014F219 /* XYDConversationQuery.m in Sources */,
 				49896E521DD2C7BE006C50C9 /* NSString+XYDEmoji.m in Sources */,
 				49B088001DD01032003E6916 /* MWPhoto.m in Sources */,
@@ -3795,6 +3914,7 @@
 				49896ECE1DD2C7BE006C50C9 /* UIView+XYDRecursion.m in Sources */,
 				49896EC31DD2C7BE006C50C9 /* UITextView+XYDPinchZoom.m in Sources */,
 				49896EB31DD2C7BE006C50C9 /* UINavigationItem+XYDMargin.m in Sources */,
+				49E44EA31DED271B00C6BA4B /* TimelineCell.m in Sources */,
 				49B088821DD06616003E6916 /* CustomNavigationCtrl.m in Sources */,
 				49896E3C1DD2C7BE006C50C9 /* NSNotificationCenter+XYDMainThread.m in Sources */,
 				49896E8F1DD2C7BE006C50C9 /* UIDevice+XYDPasscodeStatus.m in Sources */,

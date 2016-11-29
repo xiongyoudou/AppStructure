@@ -16,4 +16,5 @@
  *  @param indexPath indexPath
  */
 -(void)xyd_applyiOS7SettingsStyleGrouping:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)xyd_RemoveTouchDelay;
 @end

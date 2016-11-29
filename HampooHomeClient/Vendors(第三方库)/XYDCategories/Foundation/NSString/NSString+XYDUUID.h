@@ -23,6 +23,4 @@
  */
 + (NSString *)xyd_UUIDTimestamp;
 
-+ (double)xyd_UUIDTimestampDoubleValue;
-
 @end

@@ -19,4 +19,5 @@
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality;
 - (UIImage *)xyd_imageByScalingAspectFillWithLimitSize:(CGSize)limitSize;
++ (UIImage *)xyd_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
 @end

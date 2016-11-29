@@ -11,7 +11,7 @@
 
 #import "NSArray+XYDBlock.h"
 #import "NSArray+XYDSafeAccess.h"
-#import "NSBundle+XYDAppIcon.h"
+#import "NSBundle+XYDExtionsion.h"
 #import "NSData+XYDAPNSToken.h"
 #import "NSData+XYDBase64.h"
 #import "NSData+XYDDataCache.h"

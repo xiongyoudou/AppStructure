@@ -10,6 +10,14 @@ pod 'MJRefresh'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'FMDB'
 
-pod 'YYKit'
+pod 'YYModel'
+pod 'YYCache'
+pod 'YYImage'
+pod 'YYWebImage'
+pod 'YYText'
+pod 'YYKeyboardManager'
+pod 'YYDispatchQueuePool'
+pod 'YYAsyncLayer'
+pod 'YYImage/WebP'
 end
 
