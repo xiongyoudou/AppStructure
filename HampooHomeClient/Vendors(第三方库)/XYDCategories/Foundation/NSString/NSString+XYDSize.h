@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface NSString (XYDSize)
+
+- (CGSize)xyd_sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode;
+- (CGFloat)xyd_widthForFont:(UIFont *)font;
 /**
  *  @brief 计算文字的高度
  *

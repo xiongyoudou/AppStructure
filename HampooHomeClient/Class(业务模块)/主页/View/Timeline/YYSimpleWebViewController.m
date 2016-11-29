@@ -7,7 +7,7 @@
 //
 
 #import "YYSimpleWebViewController.h"
-#import "YYKit.h"
+#import "UIView+XYDFrame.h"
 
 @interface YYSimpleWebViewController () <UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *webView;
@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _webView.frame = self.view.bounds;
-    if (kSystemVersion < 7) _webView.height -= 44;
+    if (KCurrentSyetemVersion < 7) _webView.xyd_height -= 44;
     [self.view addSubview:_webView];
     
     [_webView loadRequest:[NSURLRequest requestWithURL:_url]];

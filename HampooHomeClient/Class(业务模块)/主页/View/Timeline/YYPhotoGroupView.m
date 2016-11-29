@@ -10,9 +10,21 @@
 #import "YYWebImage.h"
 #import "UIView+XYDFrame.h"
 #import "CALayer+XYDExtension.h"
+#import "UIDevice+XYDHardware.h"
+#import "UIView+XYDScreenshot.h"
+#import "UIImage+XYDBlur.h"
+#import "UIImage+XYDColor.h"
+#import "UIView+ConvertFrame.h"
+#import "NSString+XYDSize.h"
+#import "UIScrollView+XYDAddition.h"
+#import "XYDCGUtilities.h"
+#import "UIView+XYDFind.h"
 
 #define kPadding 20
 #define kHiColor [UIColor colorWithRGBHex:0x2dd6b8]
+#ifndef YY_CLAMP // return the clamped value
+#define YY_CLAMP(_x_, _low_, _high_)  (((_x_) > (_high_)) ? (_high_) : (((_x_) < (_low_)) ? (_low_) : (_x_)))
+#endif
 
 
 @interface YYPhotoGroupItem()<NSCopying>
@@ -247,7 +259,7 @@
     _groupItems = groupItems.copy;
     _blurEffectBackground = YES;
     
-    NSString *model = [UIDevice currentDevice].xyd_machineModel;
+    NSString *model = [UIDevice xyd_platform];
     static NSMutableSet *oldDevices;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -337,8 +349,8 @@
     _pager = [[UIPageControl alloc] init];
     _pager.hidesForSinglePage = YES;
     _pager.userInteractionEnabled = NO;
-    _pager.width = self.xyd_width - 36;
-    _pager.height = 10;
+    _pager.xyd_width = self.xyd_width - 36;
+    _pager.xyd_height = 10;
     _pager.center = CGPointMake(self.xyd_width / 2, self.xyd_height - 18);
     _pager.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
@@ -371,28 +383,28 @@
     if (page == -1) page = 0;
     _fromItemIndex = page;
     
-    _snapshotImage = [_toContainerView snapshotImageAfterScreenUpdates:NO];
+    _snapshotImage = [_toContainerView xyd_screenshot];
     BOOL fromViewHidden = fromView.hidden;
     fromView.hidden = YES;
-    _snapshorImageHideFromView = [_toContainerView snapshotImage];
+    _snapshorImageHideFromView = [_toContainerView xyd_screenshot];
     fromView.hidden = fromViewHidden;
     
     _background.image = _snapshorImageHideFromView;
     if (_blurEffectBackground) {
-        _blurBackground.image = [_snapshorImageHideFromView imageByBlurDark]; //Same to UIBlurEffectStyleDark
+        _blurBackground.image = [_snapshorImageHideFromView xyd_darkImage]; //Same to UIBlurEffectStyleDark
     } else {
-        _blurBackground.image = [UIImage imageWithColor:[UIColor blackColor]];
+        _blurBackground.image = [UIImage xyd_imageWithColor:[UIColor blackColor]];
     }
     
-    self.size = _toContainerView.size;
+    self.xyd_size = _toContainerView.xyd_size;
     self.blurBackground.alpha = 0;
     self.pager.alpha = 0;
     self.pager.numberOfPages = self.groupItems.count;
     self.pager.currentPage = page;
     [_toContainerView addSubview:self];
     
-    _scrollView.contentSize = CGSizeMake(_scrollView.width * self.groupItems.count, _scrollView.height);
-    [_scrollView scrollRectToVisible:CGRectMake(_scrollView.width * _pager.currentPage, 0, _scrollView.width, _scrollView.height) animated:NO];
+    _scrollView.contentSize = CGSizeMake(_scrollView.xyd_width * self.groupItems.count, _scrollView.xyd_height);
+    [_scrollView scrollRectToVisible:CGRectMake(_scrollView.xyd_width * _pager.currentPage, 0, _scrollView.xyd_width, _scrollView.xyd_height) animated:NO];
     [self scrollViewDidScroll:_scrollView];
     
     [UIView setAnimationsEnabled:YES];
@@ -417,12 +429,12 @@
     if (item.thumbClippedToTop) {
         CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell];
         CGRect originFrame = cell.imageContainerView.frame;
-        CGFloat scale = fromFrame.size.width / cell.imageContainerView.width;
+        CGFloat scale = fromFrame.size.width / cell.imageContainerView.xyd_width;
         
-        cell.imageContainerView.centerX = CGRectGetMidX(fromFrame);
-        cell.imageContainerView.height = fromFrame.size.height / scale;
-        cell.imageContainerView.layer.transformScale = scale;
-        cell.imageContainerView.centerY = CGRectGetMidY(fromFrame);
+        cell.imageContainerView.xyd_centerX = CGRectGetMidX(fromFrame);
+        cell.imageContainerView.xyd_height = fromFrame.size.height / scale;
+        cell.imageContainerView.layer.xyd_transformScale = scale;
+        cell.imageContainerView.xyd_centerY = CGRectGetMidY(fromFrame);
         
         float oneTime = animated ? 0.25 : 0;
         [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -431,7 +443,7 @@
         
         _scrollView.userInteractionEnabled = NO;
         [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            cell.imageContainerView.layer.transformScale = 1;
+            cell.imageContainerView.layer.xyd_transformScale = 1;
             cell.imageContainerView.frame = originFrame;
             _pager.alpha = 1;
         }completion:^(BOOL finished) {
@@ -457,10 +469,10 @@
         _scrollView.userInteractionEnabled = NO;
         [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
             cell.imageView.frame = cell.imageContainerView.bounds;
-            cell.imageView.layer.transformScale = 1.01;
+            cell.imageView.layer.xyd_transformScale = 1.01;
         }completion:^(BOOL finished) {
             [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
-                cell.imageView.layer.transformScale = 1.0;
+                cell.imageView.layer.xyd_transformScale = 1.0;
                 _pager.alpha = 1;
             }completion:^(BOOL finished) {
                 cell.imageContainerView.clipsToBounds = YES;
@@ -510,12 +522,12 @@
         self.background.image = _snapshotImage;
         [UIView animateWithDuration:animated ? 0.25 : 0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseOut animations:^{
             self.alpha = 0.0;
-            self.scrollView.layer.transformScale = 0.95;
+            self.scrollView.layer.xyd_transformScale = 0.95;
             self.scrollView.alpha = 0;
             self.pager.alpha = 0;
             self.blurBackground.alpha = 0;
         }completion:^(BOOL finished) {
-            self.scrollView.layer.transformScale = 1;
+            self.scrollView.layer.xyd_transformScale = 1;
             [self removeFromSuperview];
             [self cancelAllImageLoad];
             if (completion) completion();
@@ -525,14 +537,14 @@
     
     if (_fromItemIndex != currentPage) {
         _background.image = _snapshotImage;
-        [_background.layer addFadeAnimationWithDuration:0.25 curve:UIViewAnimationCurveEaseOut];
+        [_background.layer xyd_addFadeAnimationWithDuration:0.25 curve:UIViewAnimationCurveEaseOut];
     } else {
         _background.image = _snapshorImageHideFromView;
     }
 
     
     if (isFromImageClipped) {
-        [cell scrollToTopAnimated:NO];
+        [cell xyd_scrollToTopAnimated:NO];
     }
     
     [UIView animateWithDuration:animated ? 0.2 : 0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseOut animations:^{
@@ -541,13 +553,13 @@
         if (isFromImageClipped) {
             
             CGRect fromFrame = [fromView convertRect:fromView.bounds toView:cell];
-            CGFloat scale = fromFrame.size.width / cell.imageContainerView.width * cell.zoomScale;
-            CGFloat height = fromFrame.size.height / fromFrame.size.width * cell.imageContainerView.width;
-            if (isnan(height)) height = cell.imageContainerView.height;
+            CGFloat scale = fromFrame.size.width / cell.imageContainerView.xyd_width * cell.zoomScale;
+            CGFloat height = fromFrame.size.height / fromFrame.size.width * cell.imageContainerView.xyd_width;
+            if (isnan(height)) height = cell.imageContainerView.xyd_height;
             
-            cell.imageContainerView.height = height;
+            cell.imageContainerView.xyd_height = height;
             cell.imageContainerView.center = CGPointMake(CGRectGetMidX(fromFrame), CGRectGetMinY(fromFrame));
-            cell.imageContainerView.layer.transformScale = scale;
+            cell.imageContainerView.layer.xyd_transformScale = scale;
             
         } else {
             CGRect fromFrame = [fromView convertRect:fromView.bounds toView:cell.imageContainerView];
@@ -575,15 +587,15 @@
 
 - (void)cancelAllImageLoad {
     [_cells enumerateObjectsUsingBlock:^(YYPhotoGroupCell *cell, NSUInteger idx, BOOL *stop) {
-        [cell.imageView cancelCurrentImageRequest];
+        [cell.imageView yy_cancelCurrentImageRequest];
     }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self updateCellsForReuse];
     
-    CGFloat floatPage = _scrollView.contentOffset.x / _scrollView.width;
-    NSInteger page = _scrollView.contentOffset.x / _scrollView.width + 0.5;
+    CGFloat floatPage = _scrollView.contentOffset.x / _scrollView.xyd_width;
+    NSInteger page = _scrollView.contentOffset.x / _scrollView.xyd_width + 0.5;
     
     for (NSInteger i = page - 1; i <= page + 1; i++) { // preload left and right cell
         if (i >= 0 && i < self.groupItems.count) {
@@ -591,7 +603,7 @@
             if (!cell) {
                 YYPhotoGroupCell *cell = [self dequeueReusableCell];
                 cell.page = i;
-                cell.left = (self.xyd_width + kPadding) * i + kPadding / 2;
+                cell.xyd_left = (self.xyd_width + kPadding) * i + kPadding / 2;
                 
                 if (_isPresented) {
                     cell.item = self.groupItems[i];
@@ -636,8 +648,8 @@
 - (void)updateCellsForReuse {
     for (YYPhotoGroupCell *cell in _cells) {
         if (cell.superview) {
-            if (cell.left > _scrollView.contentOffset.x + _scrollView.width * 2||
-                cell.right < _scrollView.contentOffset.x - _scrollView.width) {
+            if (cell.xyd_left > _scrollView.contentOffset.x + _scrollView.xyd_width * 2||
+                cell.xyd_right < _scrollView.contentOffset.x - _scrollView.xyd_width) {
                 [cell removeFromSuperview];
                 cell.page = -1;
                 cell.item = nil;
@@ -676,7 +688,7 @@
 }
 
 - (NSInteger)currentPage {
-    NSInteger page = _scrollView.contentOffset.x / _scrollView.width + 0.5;
+    NSInteger page = _scrollView.contentOffset.x / _scrollView.xyd_width + 0.5;
     if (page >= _groupItems.count) page = (NSInteger)_groupItems.count - 1;
     if (page < 0) page = 0;
     return page;
@@ -685,21 +697,21 @@
 - (void)showHUD:(NSString *)msg {
     if (!msg.length) return;
     UIFont *font = [UIFont systemFontOfSize:17];
-    CGSize size = [msg sizeForFont:font size:CGSizeMake(200, 200) mode:NSLineBreakByCharWrapping];
+    CGSize size = [msg xyd_sizeForFont:font size:CGSizeMake(200, 200) mode:NSLineBreakByCharWrapping];
     UILabel *label = [UILabel new];
-    label.size = CGSizePixelCeil(size);
+    label.xyd_size = CGSizePixelCeil(size);
     label.font = font;
     label.text = msg;
     label.textColor = [UIColor whiteColor];
     label.numberOfLines = 0;
     
     UIView *hud = [UIView new];
-    hud.size = CGSizeMake(label.width + 20, label.height + 20);
+    hud.xyd_size = CGSizeMake(label.xyd_width + 20, label.xyd_height + 20);
     hud.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.650];
     hud.clipsToBounds = YES;
     hud.layer.cornerRadius = 8;
     
-    label.center = CGPointMake(hud.width / 2, hud.height / 2);
+    label.center = CGPointMake(hud.xyd_width / 2, hud.xyd_height / 2);
     [hud addSubview:label];
     
     hud.center = CGPointMake(self.xyd_width / 2, self.xyd_height / 2);
@@ -743,7 +755,7 @@
     if (!tile.imageView.image) return;
     
     // try to save original image data if the image contains multi-frame (such as GIF/APNG)
-    id imageItem = [tile.imageView.image imageDataRepresentation];
+    id imageItem = [tile.imageView.image yy_imageDataRepresentation];
     YYImageType type = YYImageDetectType((__bridge CFDataRef)(imageItem));
     if (type != YYImageTypePNG &&
         type != YYImageTypeJPEG &&
@@ -757,8 +769,8 @@
         activityViewController.popoverPresentationController.sourceView = self;
     }
 
-    UIViewController *toVC = self.toContainerView.viewController;
-    if (!toVC) toVC = self.viewController;
+    UIViewController *toVC = self.toContainerView.xyd_viewController;
+    if (!toVC) toVC = self.xyd_viewController;
     [toVC presentViewController:activityViewController animated:YES completion:nil];
 }
 
@@ -775,7 +787,7 @@
             if (_panGestureBeginPoint.x == 0 && _panGestureBeginPoint.y == 0) return;
             CGPoint p = [g locationInView:self];
             CGFloat deltaY = p.y - _panGestureBeginPoint.y;
-            _scrollView.top = deltaY;
+            _scrollView.xyd_top = deltaY;
             
             CGFloat alphaDelta = 160;
             CGFloat alpha = (alphaDelta - fabs(deltaY) + 50) / alphaDelta;
@@ -800,7 +812,7 @@
                 BOOL moveToTop = (v.y < - 50 || (v.y < 50 && deltaY < 0));
                 CGFloat vy = fabs(v.y);
                 if (vy < 1) vy = 1;
-                CGFloat duration = (moveToTop ? _scrollView.bottom : self.xyd_height - _scrollView.top) / vy;
+                CGFloat duration = (moveToTop ? _scrollView.xyd_bottom : self.xyd_height - _scrollView.xyd_top) / vy;
                 duration *= 0.8;
                 duration = YY_CLAMP(duration, 0.05, 0.3);
                 
@@ -808,20 +820,20 @@
                     _blurBackground.alpha = 0;
                     _pager.alpha = 0;
                     if (moveToTop) {
-                        _scrollView.bottom = 0;
+                        _scrollView.xyd_bottom = 0;
                     } else {
-                        _scrollView.top = self.xyd_height;
+                        _scrollView.xyd_top = self.xyd_height;
                     }
                 } completion:^(BOOL finished) {
                     [self removeFromSuperview];
                 }];
                 
                 _background.image = _snapshotImage;
-                [_background.layer addFadeAnimationWithDuration:0.3 curve:UIViewAnimationCurveEaseInOut];
+                [_background.layer xyd_addFadeAnimationWithDuration:0.3 curve:UIViewAnimationCurveEaseInOut];
                 
             } else {
                 [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:v.y / 1000 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState animations:^{
-                    _scrollView.top = 0;
+                    _scrollView.xyd_top = 0;
                     _blurBackground.alpha = 1;
                     _pager.alpha = 1;
                 } completion:^(BOOL finished) {
@@ -831,7 +843,7 @@
             
         } break;
         case UIGestureRecognizerStateCancelled : {
-            _scrollView.top = 0;
+            _scrollView.xyd_top = 0;
             _blurBackground.alpha = 1;
         }
         default:break;
