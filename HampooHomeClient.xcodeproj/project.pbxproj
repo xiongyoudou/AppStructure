@@ -466,6 +466,8 @@
 		49E44ECA1DED762300C6BA4B /* weibo_5.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC21DED762300C6BA4B /* weibo_5.json */; };
 		49E44ECB1DED762300C6BA4B /* weibo_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC31DED762300C6BA4B /* weibo_6.json */; };
 		49E44ECC1DED762300C6BA4B /* weibo_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 49E44EC41DED762300C6BA4B /* weibo_7.json */; };
+		49E44ECF1DED8B5300C6BA4B /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44ECE1DED8B5300C6BA4B /* YYPhotoGroupView.m */; };
+		49E44ED21DED8BEF00C6BA4B /* YYSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E44ED11DED8BEF00C6BA4B /* YYSimpleWebViewController.m */; };
 		49E5C2AD1DD55CE700A32241 /* NSError+XYDErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */; };
 		49E5C2B41DD5734D00A32241 /* XYDConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B31DD5734D00A32241 /* XYDConversation.m */; };
 		49E5C2B81DD575CD00A32241 /* XYDConversationListVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5C2B61DD575CD00A32241 /* XYDConversationListVCtrl.m */; };
@@ -1309,6 +1311,10 @@
 		49E44EC21DED762300C6BA4B /* weibo_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_5.json; sourceTree = "<group>"; };
 		49E44EC31DED762300C6BA4B /* weibo_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_6.json; sourceTree = "<group>"; };
 		49E44EC41DED762300C6BA4B /* weibo_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_7.json; sourceTree = "<group>"; };
+		49E44ECD1DED8B5300C6BA4B /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
+		49E44ECE1DED8B5300C6BA4B /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
+		49E44ED01DED8BEF00C6BA4B /* YYSimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSimpleWebViewController.h; sourceTree = "<group>"; };
+		49E44ED11DED8BEF00C6BA4B /* YYSimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSimpleWebViewController.m; sourceTree = "<group>"; };
 		49E5C2AB1DD55CE700A32241 /* NSError+XYDErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XYDErrorCode.h"; sourceTree = "<group>"; };
 		49E5C2AC1DD55CE700A32241 /* NSError+XYDErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XYDErrorCode.m"; sourceTree = "<group>"; };
 		49E5C2B11DD56EB900A32241 /* XYDChatServiceDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYDChatServiceDefinition.h; sourceTree = "<group>"; };
@@ -3281,6 +3287,10 @@
 				49E44EB71DED6FA800C6BA4B /* CustomControl.m */,
 				49E44EB91DED704800C6BA4B /* CustomGestureRecognizer.h */,
 				49E44EBA1DED704800C6BA4B /* CustomGestureRecognizer.m */,
+				49E44ECD1DED8B5300C6BA4B /* YYPhotoGroupView.h */,
+				49E44ECE1DED8B5300C6BA4B /* YYPhotoGroupView.m */,
+				49E44ED01DED8BEF00C6BA4B /* YYSimpleWebViewController.h */,
+				49E44ED11DED8BEF00C6BA4B /* YYSimpleWebViewController.m */,
 				49E44EBC1DED762300C6BA4B /* Json */,
 			);
 			path = Timeline;
@@ -3716,6 +3726,7 @@
 				49896E7F1DD2C7BE006C50C9 /* UIButton+XYDBlock.m in Sources */,
 				49D7FA721DD309850096B966 /* XYDChatMessageCell.m in Sources */,
 				49896E861DD2C7BE006C50C9 /* UIColor+XYDGradient.m in Sources */,
+				49E44ECF1DED8B5300C6BA4B /* YYPhotoGroupView.m in Sources */,
 				49896E621DD2C7BE006C50C9 /* NSTimer+XYDBlocks.m in Sources */,
 				49E44EBB1DED704800C6BA4B /* CustomGestureRecognizer.m in Sources */,
 				49B84B101DDB059A0014F219 /* XYDChatLocationController.m in Sources */,
@@ -3812,6 +3823,7 @@
 				49D7FE271DD3262B0096B966 /* MLExpressionManager.m in Sources */,
 				49896E711DD2C7BE006C50C9 /* CAShapeLayer+XYDUIBezierPath.m in Sources */,
 				49896E801DD2C7BE006C50C9 /* UIButton+XYDCountDown.m in Sources */,
+				49E44ED21DED8BEF00C6BA4B /* YYSimpleWebViewController.m in Sources */,
 				49896ED91DD2C7BE006C50C9 /* UIWebView+XYDBlocks.m in Sources */,
 				49896EBE1DD2C7BE006C50C9 /* UITableViewCell+XYDNIB.m in Sources */,
 				49B088021DD01032003E6916 /* MWTapDetectingImageView.m in Sources */,
