@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     _titleLabel = [YYLabel new];
     _titleLabel.xyd_size = CGSizeMake(kScreenWidth - 100, self.xyd_height);
-    _titleLabel.xyd_left = kTLCellPadding;
+    _titleLabel.xyd_left = kTLCellLeftPadding;
     _titleLabel.displaysAsynchronously = YES;
     _titleLabel.ignoreCommonProperties = YES;
     _titleLabel.fadeOnHighlight = NO;
@@ -58,7 +58,7 @@
     WEAKSELF
     _avatarView = [UIImageView new];
     _avatarView.xyd_size = CGSizeMake(40, 40);
-    _avatarView.xyd_origin = CGPointMake(kTLCellPadding, kTLCellPadding + 3);
+    _avatarView.xyd_origin = CGPointMake(kTLCellLeftPadding, kTLCellOtherPadding + 3);
     _avatarView.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:_avatarView];
     
@@ -285,7 +285,7 @@
     [_contentView addSubview:_menuButton];
     
     _textLabel = [YYLabel new];
-    _textLabel.xyd_left = kTLCellPadding;
+    _textLabel.xyd_left = kTLCellLeftPadding;
     _textLabel.xyd_width = kTLCellContentWidth;
     _textLabel.textVerticalAlignment = YYTextVerticalAlignmentTop;
     _textLabel.displaysAsynchronously = YES;
@@ -335,7 +335,7 @@
     
     
     _tagView = [TLTagView new];
-    _tagView.xyd_left = kTLCellPadding;
+    _tagView.xyd_left = kTLCellLeftPadding;
     _tagView.hidden = YES;
     [_contentView addSubview:_tagView];
     
@@ -427,15 +427,15 @@
             CGPoint origin = {0};
             switch (picsCount) {
                 case 1: {
-                    origin.x = kTLCellPadding;
+                    origin.x = kTLCellLeftPadding;
                     origin.y = imageTop;
                 } break;
                 case 4: {
-                    origin.x = kTLCellPadding + (i % 2) * (picSize.width + kTLCellPaddingPic);
+                    origin.x = kTLCellLeftPadding + (i % 2) * (picSize.width + kTLCellPaddingPic);
                     origin.y = imageTop + (int)(i / 2) * (picSize.height + kTLCellPaddingPic);
                 } break;
                 default: {
-                    origin.x = kTLCellPadding + (i % 3) * (picSize.width + kTLCellPaddingPic);
+                    origin.x = kTLCellLeftPadding + (i % 3) * (picSize.width + kTLCellPaddingPic);
                     origin.y = imageTop + (int)(i / 3) * (picSize.height + kTLCellPaddingPic);
                 } break;
             }
@@ -533,12 +533,33 @@
     self.backgroundView.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
+    
     _statusView = [TLView new];
     _statusView.cell = self;
     _statusView.titleView.cell = self;
     _statusView.profileView.cell = self;
     _statusView.tagView.cell = self;
     [self.contentView addSubview:_statusView];
+    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectZero];
+    line.backgroundColor = [UIColor lightGrayColor];
+    [self.contentView addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@3);
+        make.top.bottom.equalTo(self);
+        make.left.mas_equalTo(self.mas_left).offset(20);
+    }];
+    
+    UIView *circle = [[UIView alloc]initWithFrame:CGRectZero];
+    circle.layer.cornerRadius = 20/2.0;
+    circle.backgroundColor = [UIColor orangeColor];
+    [self.contentView addSubview:circle];
+    [circle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@20);
+        make.top.equalTo(@30);
+        make.left.mas_equalTo(self.mas_left).offset(11);
+    }];
+    
     return self;
 }
 

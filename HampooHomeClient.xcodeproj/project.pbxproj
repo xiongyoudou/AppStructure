@@ -12,6 +12,9 @@
 		49845F791DD1B3600060DED5 /* MoreVCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F771DD1B3600060DED5 /* MoreVCtrl.m */; };
 		49845F7A1DD1B3600060DED5 /* MoreVCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49845F781DD1B3600060DED5 /* MoreVCtrl.xib */; };
 		49845F8E1DD1C3400060DED5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */; };
+		498686C41DEECE1E009CF0FF /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 498686C11DEECE1E009CF0FF /* EmoticonQQ.bundle */; };
+		498686C51DEECE1E009CF0FF /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 498686C21DEECE1E009CF0FF /* EmoticonWeibo.bundle */; };
+		498686C61DEECE1E009CF0FF /* ResourceWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 498686C31DEECE1E009CF0FF /* ResourceWeibo.bundle */; };
 		498965F31DD2B69A006C50C9 /* XYDImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 498965F21DD2B69A006C50C9 /* XYDImageManager.m */; };
 		498965FC1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 498965FB1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.m */; };
 		498965FF1DD2B8B5006C50C9 /* XYDWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 498965FE1DD2B8B5006C50C9 /* XYDWeakReference.m */; };
@@ -488,6 +491,9 @@
 		49845F781DD1B3600060DED5 /* MoreVCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreVCtrl.xib; sourceTree = "<group>"; };
 		49845F8B1DD1C3400060DED5 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
 		49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		498686C11DEECE1E009CF0FF /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
+		498686C21DEECE1E009CF0FF /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
+		498686C31DEECE1E009CF0FF /* ResourceWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ResourceWeibo.bundle; sourceTree = "<group>"; };
 		498965F11DD2B69A006C50C9 /* XYDImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDImageManager.h; sourceTree = "<group>"; };
 		498965F21DD2B69A006C50C9 /* XYDImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDImageManager.m; sourceTree = "<group>"; };
 		498965FA1DD2B879006C50C9 /* NSMutableDictionary+XYDWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+XYDWeakReference.h"; sourceTree = "<group>"; };
@@ -1451,6 +1457,23 @@
 				49845F8C1DD1C3400060DED5 /* Mp3Recorder.m */,
 			);
 			path = VoiceLib;
+			sourceTree = "<group>";
+		};
+		498686BD1DEEBE0B009CF0FF /* TimelineView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TimelineView;
+			sourceTree = "<group>";
+		};
+		498686C01DEECE1E009CF0FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				498686C11DEECE1E009CF0FF /* EmoticonQQ.bundle */,
+				498686C21DEECE1E009CF0FF /* EmoticonWeibo.bundle */,
+				498686C31DEECE1E009CF0FF /* ResourceWeibo.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		498965F01DD2B69A006C50C9 /* XYDImageManager */ = {
@@ -2599,6 +2622,7 @@
 		49B087AD1DD01032003E6916 /* Vendors(第三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				498686BD1DEEBE0B009CF0FF /* TimelineView */,
 				49B84B161DDB0AC50014F219 /* RedpacketStaticLib */,
 				49B84AE51DDAE4D00014F219 /* XYDWebViewController */,
 				49D7FE331DD3FA0E0096B966 /* XYDSingleton */,
@@ -3291,6 +3315,7 @@
 				49E44ECE1DED8B5300C6BA4B /* YYPhotoGroupView.m */,
 				49E44ED01DED8BEF00C6BA4B /* YYSimpleWebViewController.h */,
 				49E44ED11DED8BEF00C6BA4B /* YYSimpleWebViewController.m */,
+				498686C01DEECE1E009CF0FF /* Resources */,
 				49E44EBC1DED762300C6BA4B /* Json */,
 			);
 			path = Timeline;
@@ -3382,6 +3407,7 @@
 					49B087731DD004E0003E6916 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = H8J36KWCJF;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3430,6 +3456,7 @@
 				49B088261DD01033003E6916 /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				49B0880C1DD01032003E6916 /* ImageSelectedOff@2x.png in Resources */,
 				49B088EF1DD0690B003E6916 /* 3_launch-4h@2x.png in Resources */,
+				498686C61DEECE1E009CF0FF /* ResourceWeibo.bundle in Resources */,
 				49B088F21DD0690B003E6916 /* 3_launch@3x.png in Resources */,
 				49B089001DD0690B003E6916 /* tab_more@3x.png in Resources */,
 				49B088F71DD0690B003E6916 /* 5_launch-4h@2x.png in Resources */,
@@ -3461,6 +3488,7 @@
 				49B0882B1DD01033003E6916 /* UIBarButtonItemGridiOS6@2x.png in Resources */,
 				49B088531DD02A08003E6916 /* main_badge@3x.png in Resources */,
 				49B088791DD05C51003E6916 /* XYDBottomBarCell.xib in Resources */,
+				498686C51DEECE1E009CF0FF /* EmoticonWeibo.bundle in Resources */,
 				49B088231DD01033003E6916 /* UIBarButtonItemArrowOutlineRight@2x.png in Resources */,
 				49D7FA641DD309280096B966 /* ChatKeyboard.bundle in Resources */,
 				49D7FA681DD309280096B966 /* LCCKPhotoBrowser.bundle in Resources */,
@@ -3491,6 +3519,7 @@
 				49B0880D1DD01032003E6916 /* ImageSelectedOff@3x.png in Resources */,
 				49B088121DD01033003E6916 /* ImageSelectedSmallOff@2x.png in Resources */,
 				49B088211DD01033003E6916 /* UIBarButtonItemArrowOutlineLeft@2x.png in Resources */,
+				498686C41DEECE1E009CF0FF /* EmoticonQQ.bundle in Resources */,
 				49B089041DD0690B003E6916 /* tab_onlinedisk@3x.png in Resources */,
 				49B088271DD01033003E6916 /* UIBarButtonItemGrid.png in Resources */,
 				49B088F01DD0690B003E6916 /* 3_launch-5h@2x.png in Resources */,
@@ -4048,6 +4077,7 @@
 			baseConfigurationReference = 61BFDBB61361496476F203DA /* Pods-HampooHomeClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4057,7 +4087,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4095,6 +4125,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.AppStructure1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -4103,6 +4134,7 @@
 			baseConfigurationReference = F03AB257B03FE963C251CB31 /* Pods-HampooHomeClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = H8J36KWCJF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4112,7 +4144,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HampooHomeClient/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "HampooHomeClient/Other(其他)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4150,6 +4182,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hampoo.AppStructure1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -15,7 +15,12 @@
 #import "YYSimpleWebViewController.h"
 #import "NSString+XYDURLEncode.h"
 
-@interface TimelineVCtrl ()<UITableViewDelegate,UITableViewDataSource,TLCellDelegate>
+
+
+@interface TimelineVCtrl ()<UITableViewDelegate,UITableViewDataSource,TLCellDelegate> {
+    UIView *_topLine;
+    UIView *_bottomLine;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *layouts;
@@ -32,6 +37,12 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+    _topLine = [UIView new];
+    _bottomLine = [UIView new];
+    _bottomLine.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:_topLine];
+    [self.view addSubview:_bottomLine];
     
     _layouts = [NSMutableArray new];
     return self;
@@ -58,9 +69,6 @@
                 [_layouts addObject:layout];
             }
         }
-        
-        // 复制一下，让列表长一些，不至于滑两下就到底了
-        [_layouts addObjectsFromArray:_layouts];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.title = [NSString stringWithFormat:@"Weibo (loaded:%d)", (int)_layouts.count];
@@ -92,6 +100,16 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
+}
+
+#pragma mark --important code--
+//根据上下拉动，动态改变 topLine 和 bottomLine 的 y 轴坐标。
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    _topLine.frame = CGRectMake(, extraTimelineMargin, 3, -scrollView.contentOffset.y);
+    CGFloat yOffSet = scrollView.frame.size.height - scrollView.contentSize.height + scrollView.contentOffset.y ;
+    _bottomLine.frame = CGRectMake(extraTimelineMargin, self.view.frame.size.height - yOffSet, 3, self.view.frame.size.height);
+    
 }
 
 #pragma mark - TLCellDelegate

@@ -151,7 +151,7 @@
         _height += _tagHeight;
     } else {
         if (_picHeight > 0 ) {
-            _height += kTLCellPadding;
+            _height += kTLCellOtherPadding;
         }
     }
     _height += _marginBottom;

@@ -13,17 +13,20 @@
 
 #define UIColorHex(_hex_)   [UIColor xyd_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
 
+#define extraTimelineMargin 20
+
 // 宽高
 #define kTLCellTopMargin 8      // cell 顶部灰色留白
 #define kTLCellTitleHeight 36   // cell 标题高度 (例如"仅自己可见")
-#define kTLCellPadding 12       // cell 内边距
+#define kTLCellLeftPadding 12  + extraTimelineMargin     // cell 左内边距
+#define kTLCellOtherPadding 12  // cell 右、上、下内边距
 #define kTLCellPaddingText 10   // cell 文本与其他元素间留白
 #define kTLCellPaddingPic 4     // cell 多张图片中间留白
 #define kTLCellProfileHeight 56 // cell 名片高度
 #define kTLCellCardHeight 70    // cell card 视图高度
 #define kTLCellNamePaddingLeft 14 // cell 名字和 avatar 之间留白
-#define kTLCellContentWidth (kScreenWidth - 2 * kTLCellPadding) // cell 内容宽度
-#define kTLCellNameWidth (kScreenWidth - 110) // cell 名字最宽限制
+#define kTLCellContentWidth (kScreenWidth - kTLCellLeftPadding - kTLCellOtherPadding) // cell 内容宽度
+#define kTLCellNameWidth (kScreenWidth - 110 - extraTimelineMargin) // cell 名字最宽限制
 
 #define kTLCellTagPadding 8         // tag 上下留白
 #define kTLCellTagNormalHeight 16   // 一般 tag 高度
