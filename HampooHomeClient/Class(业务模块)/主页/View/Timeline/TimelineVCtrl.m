@@ -173,7 +173,7 @@
     YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
     [v presentFromImageView:fromView toContainer:self.navigationController.view animated:YES completion:nil];
 }
-
+ 
 /// 点击了 Label 的链接
 - (void)cell:(TLCell *)cell didClickInLabel:(YYLabel *)label textRange:(NSRange)textRange {
     NSAttributedString *text = label.textLayout.text;

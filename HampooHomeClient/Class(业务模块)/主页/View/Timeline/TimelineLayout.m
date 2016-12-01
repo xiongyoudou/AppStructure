@@ -127,7 +127,7 @@
     _profileHeight = 0;
     _textHeight = 0;
     _picHeight = 0;
-    _marginBottom = kTLCellToolbarBottomMargin;
+    _marginBottom = kTLCellBottomMargin;
     
     
     // 文本排版，计算布局
@@ -136,7 +136,6 @@
     [self _layoutPics];
 
     [self _layoutText];
-    [self _layoutTag];
     
     // 计算高度
     _height = 0;
@@ -310,50 +309,6 @@
     
     _picSize = picSize;
     _picHeight = picHeight;
-}
-
-- (void)_layoutTag {
-    _tagType = TLTagTypeNone;
-    _tagHeight = 0;
-    
-    TLTag *tag = _model.tagStruct.firstObject;
-    if (tag.tagName.length == 0) return;
-    
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:tag.tagName];
-    if (tag.tagType == 1) {
-        _tagType = TLTagTypePlace;
-        _tagHeight = 40;
-        text.yy_color = [UIColor colorWithWhite:0.217 alpha:1.000];
-    } else {
-        _tagType = TLTagTypeNormal;
-        _tagHeight = 32;
-        if (tag.urlTypePic) {
-            NSAttributedString *pic = [self _attachmentWithFontSize:kTLCellCardDescFontSize imageURL:tag.urlTypePic.absoluteString shrink:YES];
-            [text insertAttributedString:pic atIndex:0];
-        }
-        // 高亮状态的背景
-        YYTextBorder *highlightBorder = [YYTextBorder new];
-        highlightBorder.insets = UIEdgeInsetsMake(-2, 0, -2, 0);
-        highlightBorder.cornerRadius = 2;
-        highlightBorder.fillColor = kTLCellTextHighlightBackgroundColor;
-        
-        [text yy_setColor:kTLCellTextHighlightColor range:text.yy_rangeOfAll];
-        
-        // 高亮状态
-        YYTextHighlight *highlight = [YYTextHighlight new];
-        [highlight setBackgroundBorder:highlightBorder];
-        // 数据信息，用于稍后用户点击
-        highlight.userInfo = @{kTLLinkTagName : tag};
-        [text yy_setTextHighlight:highlight range:text.yy_rangeOfAll];
-    }
-    text.yy_font = [UIFont systemFontOfSize:kTLCellCardDescFontSize];
-    
-    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(9999, 9999)];
-    _tagTextLayout = [YYTextLayout layoutWithContainer:container text:text];
-    if (!_tagTextLayout) {
-        _tagType = TLTagTypeNone;
-        _tagHeight = 0;
-    }
 }
 
 

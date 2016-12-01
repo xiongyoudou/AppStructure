@@ -24,24 +24,19 @@
 #define kTLCellPaddingText 10   // cell 文本与其他元素间留白
 #define kTLCellPaddingPic 4     // cell 多张图片中间留白
 #define kTLCellProfileHeight 56 // cell 名片高度
-#define kTLCellCardHeight 70    // cell card 视图高度
 #define kTLCellNamePaddingLeft 14 // cell 名字和 avatar 之间留白
 #define kTLCellContentWidth (kScreenWidth - kTLCellLeftPadding - kTLCellOtherPadding) // cell 内容宽度
 #define kTLCellNameWidth (kScreenWidth - 110 - extraTimelineMargin) // cell 名字最宽限制
 
 #define kTLCellTagPadding 8         // tag 上下留白
-#define kTLCellTagNormalHeight 16   // 一般 tag 高度
-#define kTLCellTagPlaceHeight 24    // 地理位置 tag 高度
 
-#define kTLCellToolbarBottomMargin 2 // cell 下方灰色留白
+#define kTLCellBottomMargin 2 // cell 下方灰色留白
 
 // 字体 应该做成动态的，这里只是 Demo，临时写死了。
 #define kTLCellNameFontSize 16      // 名字字体大小
 #define kTLCellSourceFontSize 12    // 来源字体大小
 #define kTLCellTextFontSize 17      // 文本字体大小
 #define kTLCellTextFontRetweetSize 16 // 转发字体大小
-#define kTLCellCardTitleFontSize 16 // 卡片标题文本字体大小
-#define kTLCellCardDescFontSize 12 // 卡片描述文本字体大小
 #define kTLCellTitlebarFontSize 14 // 标题栏字体大小
 
 // 颜色

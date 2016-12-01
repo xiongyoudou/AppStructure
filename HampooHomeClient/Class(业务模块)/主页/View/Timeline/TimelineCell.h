@@ -29,15 +29,6 @@
 @property (nonatomic, weak) TLCell *cell;
 @end
 
-@interface TLTagView : UIView
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) YYLabel *label;
-@property (nonatomic, strong) UIButton *button;
-@property (nonatomic, weak) TLCell *cell;
-@end
-
-
-
 
 @interface TLView : UIView
 @property (nonatomic, strong) UIView *contentView;              // 容器
@@ -45,7 +36,6 @@
 @property (nonatomic, strong) TLProfileView *profileView; // 用户资料
 @property (nonatomic, strong) YYLabel *textLabel;               // 文本
 @property (nonatomic, strong) NSArray<UIView *> *picViews;      // 图片
-@property (nonatomic, strong) TLTagView *tagView;         // 下方Tag
 @property (nonatomic, strong) UIImageView *vipBackgroundView;   // VIP 自定义背景
 @property (nonatomic, strong) UIButton *menuButton;             // 菜单按钮
 @property (nonatomic, strong) UIButton *followButton;           // 关注按钮

@@ -140,76 +140,6 @@
 
 @end
 
-
-@implementation TLTagView
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    WEAKSELF
-    _button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_button setBackgroundImage:[UIImage xyd_imageWithColor:kTLCellBackgroundColor] forState:UIControlStateNormal];
-    [_button setBackgroundImage:[UIImage xyd_imageWithColor:[UIColor colorWithWhite:0.000 alpha:0.200]] forState:UIControlStateHighlighted];
-    [_button xyd_touchUpInside:^{
-        if ([weakSelf.cell.delegate respondsToSelector:@selector(cellDidClickTag:)]) {
-            [weakSelf.cell.delegate cellDidClickTag:weakSelf.cell];
-        }
-    }];
-    _button.hidden = YES;
-    [self addSubview:_button];
-    
-    _label = [YYLabel new];
-    _label.textVerticalAlignment = YYTextVerticalAlignmentCenter;
-    _label.displaysAsynchronously = YES;
-    _label.ignoreCommonProperties = YES;
-    _label.fadeOnHighlight = NO;
-    _label.fadeOnAsynchronouslyDisplay = NO;
-    _label.highlightTapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        if ([weakSelf.cell.delegate respondsToSelector:@selector(cell:didClickInLabel:textRange:)]) {
-            [weakSelf.cell.delegate cell:weakSelf.cell didClickInLabel:(YYLabel *)containerView textRange:range];
-        }
-    };
-    [self addSubview:_label];
-    
-    _imageView = [UIImageView new];
-    _imageView.xyd_size = CGSizeMake(kTLCellTagPlaceHeight, kTLCellTagPlaceHeight);
-    _imageView.image = [TLHelper imageNamed:@"timeline_icon_locate"];
-    _imageView.hidden = YES;
-    [self addSubview:_imageView];
-    
-    _label.xyd_height = kTLCellTagPlaceHeight;
-    _button.xyd_height = kTLCellTagPlaceHeight;
-    self.xyd_height = kTLCellTagPlaceHeight;
-    return self;
-}
-
-- (void)setWithLayout:(TLLayout *)layout {
-    if (layout.tagType == TLTagTypePlace) {
-        _label.xyd_height = kTLCellTagPlaceHeight;
-        _imageView.hidden = NO;
-        _button.hidden = NO;
-        
-        _label.xyd_left = _imageView.xyd_right + 6;
-        _label.xyd_width = layout.tagTextLayout.textBoundingRect.size.width + 6;
-        _label.textLayout = layout.tagTextLayout;
-        _label.userInteractionEnabled = NO;
-        
-        self.xyd_width = _label.xyd_right;
-        _label.xyd_width = self.xyd_width;
-        _button.xyd_width = self.xyd_width;
-    } else if (layout.tagType == TLTagTypeNormal) {
-        _imageView.hidden = YES;
-        _button.hidden = YES;
-        
-        _label.xyd_left = 0;
-        _label.xyd_width = layout.tagTextLayout.textBoundingRect.size.width + 1;
-        _label.userInteractionEnabled = YES;
-        _label.textLayout = layout.tagTextLayout;
-    }
-}
-
-@end
-
-
 @implementation TLView {
 }
 
@@ -333,12 +263,6 @@
     }
     _picViews = picViews;
     
-    
-    _tagView = [TLTagView new];
-    _tagView.xyd_left = kTLCellLeftPadding;
-    _tagView.hidden = YES;
-    [_contentView addSubview:_tagView];
-    
     return self;
 }
 
@@ -397,14 +321,6 @@
     if (layout.picHeight > 0) {
         [self _setImageViewWithTop:top];
     }
-    if (layout.tagHeight > 0) {
-        _tagView.hidden = NO;
-        [_tagView setWithLayout:layout];
-        _tagView.xyd_centerY = _contentView.xyd_height - layout.tagHeight / 2;
-    } else {
-        _tagView.hidden = YES;
-    }
-
 }
 
 - (void)_hideImageViews {
@@ -538,7 +454,6 @@
     _statusView.cell = self;
     _statusView.titleView.cell = self;
     _statusView.profileView.cell = self;
-    _statusView.tagView.cell = self;
     [self.contentView addSubview:_statusView];
     
     UIView *line = [[UIView alloc]initWithFrame:CGRectZero];
