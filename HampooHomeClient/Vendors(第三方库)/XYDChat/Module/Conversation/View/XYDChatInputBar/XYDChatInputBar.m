@@ -441,6 +441,27 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     self.showType = XYDFunctionViewShowKeyboard;
 }
 
+// 聊天框下落
+- (void)inputBarDown {
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.superview).offset(kFunctionViewHeight);
+    }];
+    [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
+        [self.superview layoutIfNeeded];
+        [self layoutIfNeeded];
+    } completion:nil];
+}
+
+// 聊天框上升
+- (void)inputBarUp {
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.superview);
+    }];
+    [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
+        [self.superview layoutIfNeeded];
+    } completion:nil];
+}
+
 /**
  *  lazy load inputBarBackgroundView
  *
@@ -525,17 +546,17 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         return;
     }
     _showType = showType;
+    if (_showType == XYDFunctionViewShowNothing) {
+        [self inputBarDown];
+        return;
+    }
+    
     //显示对应的View
     [self showMoreView:showType == XYDFunctionViewShowMore && self.moreButton.selected];
     [self showVoiceView:showType == XYDFunctionViewShowVoice && self.voiceButton.selected];
     [self showEmotionView:showType == XYDFunctionViewShowFace && self.faceButton.selected];
     
     switch (showType) {
-        case XYDFunctionViewShowNothing: {
-            self.textView.text = self.cachedText;
-            [self.textView resignFirstResponder];
-        }
-            break;
         case XYDFunctionViewShowVoice: {
             self.cachedText = self.textView.text;
             self.textView.text = nil;
@@ -550,6 +571,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         case XYDFunctionViewShowKeyboard:
             self.textView.text = self.cachedText;
             break;
+        default:break;
     }
     [self updateChatBarConstraintsIfNeeded];
 }
@@ -596,6 +618,8 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
                 make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom).offset(kFunctionViewHeight);
             }];
             [self layoutIfNeeded];
+        }else {
+            
         }
     }
 }
@@ -632,6 +656,9 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     self.voiceRecordButton.selected = show;
     self.voiceRecordButton.hidden = !show;
     self.textView.hidden = !self.voiceRecordButton.hidden;
+    if (show) {
+        [self inputBarDown];
+    }
 }
 
 /**
