@@ -605,13 +605,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom);
         }];
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.superview);
-        }];
-        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
-            [self.superview layoutIfNeeded];
-            [self layoutIfNeeded];
-        } completion:nil];
+        [self inputBarUp];
     } else  {
         if (self.showType == XYDFunctionViewShowMore) {
             [self.emotionView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -634,13 +628,7 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
         [self.moreView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.inputBarBackgroundView.mas_bottom);
         }];
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.superview);
-        }];
-        [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
-            [self.superview layoutIfNeeded];
-            [self layoutIfNeeded];
-        } completion:nil];
+        [self inputBarUp];
     } else  {
         if (self.showType == XYDFunctionViewShowFace) {
             [self.moreView mas_updateConstraints:^(MASConstraintMaker *make) {
