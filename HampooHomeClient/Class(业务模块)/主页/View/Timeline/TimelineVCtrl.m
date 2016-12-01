@@ -38,12 +38,6 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _topLine = [UIView new];
-    _bottomLine = [UIView new];
-    _bottomLine.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:_topLine];
-    [self.view addSubview:_bottomLine];
-    
     _layouts = [NSMutableArray new];
     return self;
 }
@@ -58,6 +52,13 @@
     _tableView.backgroundView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_tableView];
     self.view.backgroundColor = kTLCellBackgroundColor;
+    
+    _topLine = [UIView new];
+    _bottomLine = [UIView new];
+    _topLine.backgroundColor = [UIColor orangeColor];
+    _bottomLine.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:_topLine];
+    [self.view addSubview:_bottomLine];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (int i = 0; i <= 7; i++) {
@@ -106,7 +107,7 @@
 //根据上下拉动，动态改变 topLine 和 bottomLine 的 y 轴坐标。
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    _topLine.frame = CGRectMake(, extraTimelineMargin, 3, -scrollView.contentOffset.y);
+    _topLine.frame = CGRectMake(extraTimelineMargin, 0, 3, -scrollView.contentOffset.y);
     CGFloat yOffSet = scrollView.frame.size.height - scrollView.contentSize.height + scrollView.contentOffset.y ;
     _bottomLine.frame = CGRectMake(extraTimelineMargin, self.view.frame.size.height - yOffSet, 3, self.view.frame.size.height);
     

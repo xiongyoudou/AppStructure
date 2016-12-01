@@ -542,21 +542,21 @@
     [self.contentView addSubview:_statusView];
     
     UIView *line = [[UIView alloc]initWithFrame:CGRectZero];
-    line.backgroundColor = [UIColor lightGrayColor];
+    line.backgroundColor = [UIColor orangeColor];
     [self.contentView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@3);
         make.top.bottom.equalTo(self);
-        make.left.mas_equalTo(self.mas_left).offset(20);
+        make.left.mas_equalTo(self.mas_left).offset(extraTimelineMargin);
     }];
     
     UIView *circle = [[UIView alloc]initWithFrame:CGRectZero];
-    circle.layer.cornerRadius = 20/2.0;
+    circle.layer.cornerRadius = extraTimelineMargin/2.0;
     circle.backgroundColor = [UIColor orangeColor];
     [self.contentView addSubview:circle];
     [circle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@20);
-        make.top.equalTo(@30);
+        make.width.height.equalTo(@extraTimelineMargin);
+        make.top.equalTo(@extraTimelineTopMargin);
         make.left.mas_equalTo(self.mas_left).offset(11);
     }];
     

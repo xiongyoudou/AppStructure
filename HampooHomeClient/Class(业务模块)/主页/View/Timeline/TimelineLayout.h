@@ -14,11 +14,12 @@
 #define UIColorHex(_hex_)   [UIColor xyd_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
 
 #define extraTimelineMargin 20
+#define extraTimelineTopMargin 30
 
 // 宽高
 #define kTLCellTopMargin 8      // cell 顶部灰色留白
 #define kTLCellTitleHeight 36   // cell 标题高度 (例如"仅自己可见")
-#define kTLCellLeftPadding 12  + extraTimelineMargin     // cell 左内边距
+#define kTLCellLeftPadding (12  + extraTimelineMargin)     // cell 左内边距
 #define kTLCellOtherPadding 12  // cell 右、上、下内边距
 #define kTLCellPaddingText 10   // cell 文本与其他元素间留白
 #define kTLCellPaddingPic 4     // cell 多张图片中间留白
