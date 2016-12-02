@@ -448,7 +448,6 @@ NSString *const kXYDBatchDeleteTextSuffix = @"kXYDBatchDeleteTextSuffix";
     }];
     [UIView animateWithDuration:XYDChatAnimateDuration animations:^{
         [self.superview layoutIfNeeded];
-        [self layoutIfNeeded];
     } completion:nil];
 }
 
