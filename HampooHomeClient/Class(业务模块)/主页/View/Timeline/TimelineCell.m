@@ -34,6 +34,7 @@
     _titleLabel.fadeOnAsynchronouslyDisplay = NO;
     [self addSubview:_titleLabel];
     
+    // 标题栏部分下面的横线
     CALayer *line = [CALayer layer];
     line.xyd_size = CGSizeMake(self.xyd_width, CGFloatFromPixel(1));
     line.xyd_bottom = self.xyd_height;
@@ -65,17 +66,12 @@
     CALayer *avatarBorder = [CALayer layer];
     avatarBorder.frame = _avatarView.bounds;
     avatarBorder.borderWidth = CGFloatFromPixel(1);
-    avatarBorder.borderColor = [UIColor colorWithWhite:0.000 alpha:0.090].CGColor;
+//    avatarBorder.borderColor = [UIColor colorWithWhite:0.000 alpha:0.090].CGColor;
+    avatarBorder.content = [UIColor redColor].CGColor;
     avatarBorder.cornerRadius = _avatarView.xyd_height / 2;
     avatarBorder.shouldRasterize = YES;
     avatarBorder.rasterizationScale = kScreenScale;
     [_avatarView.layer addSublayer:avatarBorder];
-    
-    _avatarBadgeView = [UIImageView new];
-    _avatarBadgeView.xyd_size = CGSizeMake(14, 14);
-    _avatarBadgeView.center = CGPointMake(_avatarView.xyd_right - 6, _avatarView.xyd_bottom - 6);
-    _avatarBadgeView.contentMode = UIViewContentModeScaleAspectFit;
-    [self addSubview:_avatarBadgeView];
     
     _nameLabel = [YYLabel new];
     _nameLabel.xyd_size = CGSizeMake(kTLCellNameWidth, 24);
@@ -157,34 +153,7 @@
     _contentView.xyd_width = kScreenWidth;
     _contentView.xyd_height = 1;
     _contentView.backgroundColor = [UIColor whiteColor];
-    static UIImage *topLineBG, *bottomLineBG;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        topLineBG = [UIImage xyd_imageWithSize:CGSizeMake(1, 3) drawBlock:^(CGContextRef context) {
-            CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-            CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 0.8, [UIColor colorWithWhite:0 alpha:0.08].CGColor);
-            CGContextAddRect(context, CGRectMake(-2, 3, 4, 4));
-            CGContextFillPath(context);
-        }];
-        bottomLineBG = [UIImage xyd_imageWithSize:CGSizeMake(1, 3) drawBlock:^(CGContextRef context) {
-            CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-            CGContextSetShadowWithColor(context, CGSizeMake(0, 0.4), 2, [UIColor colorWithWhite:0 alpha:0.08].CGColor);
-            CGContextAddRect(context, CGRectMake(-2, -2, 4, 2));
-            CGContextFillPath(context);
-        }];
-    });
-    UIImageView *topLine = [[UIImageView alloc] initWithImage:topLineBG];
-    topLine.xyd_width = _contentView.xyd_width;
-    topLine.xyd_bottom = 0;
-    topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-    [_contentView addSubview:topLine];
     
-    
-    UIImageView *bottomLine = [[UIImageView alloc] initWithImage:bottomLineBG];
-    bottomLine.xyd_width = _contentView.xyd_width;
-    bottomLine.xyd_top = _contentView.xyd_height;
-    bottomLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    [_contentView addSubview:bottomLine];
     [self addSubview:_contentView];
     
     _titleView = [TLTitleView new];
@@ -193,13 +162,6 @@
     
     _profileView = [TLProfileView new];
     [_contentView addSubview:_profileView];
-    
-    _vipBackgroundView = [UIImageView new];
-    _vipBackgroundView.xyd_size = CGSizeMake(kScreenWidth, 14.0);
-    _vipBackgroundView.xyd_top = -2;
-    _vipBackgroundView.contentMode = UIViewContentModeTopRight;
-    [_contentView addSubview:_vipBackgroundView];
-    
     
     _menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _menuButton.xyd_size = CGSizeMake(30, 30);
@@ -299,15 +261,6 @@
     _profileView.xyd_top = top;
     top += layout.profileHeight;
     
-    NSURL *picBg = [TLHelper defaultURLForImageURL:layout.model.picBg];
-    __weak typeof(_vipBackgroundView) vipBackgroundView = _vipBackgroundView;
-    [_vipBackgroundView yy_setImageWithURL:picBg placeholder:nil options:YYWebImageOptionAvoidSetImage completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
-        if (image) {
-            image = [UIImage imageWithCGImage:image.CGImage scale:2.0 orientation:image.imageOrientation];
-            vipBackgroundView.image = image;
-        }
-    }];
-    
     _textLabel.xyd_top = top;
     _textLabel.xyd_height = layout.textHeight;
     _textLabel.textLayout = layout.textLayout;
@@ -316,7 +269,6 @@
     if (layout.picHeight == 0) {
         [self _hideImageViews];
     }
-    
     
     if (layout.picHeight > 0) {
         [self _setImageViewWithTop:top];
