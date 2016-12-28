@@ -66,8 +66,7 @@
     CALayer *avatarBorder = [CALayer layer];
     avatarBorder.frame = _avatarView.bounds;
     avatarBorder.borderWidth = CGFloatFromPixel(1);
-//    avatarBorder.borderColor = [UIColor colorWithWhite:0.000 alpha:0.090].CGColor;
-    avatarBorder.content = [UIColor redColor].CGColor;
+    avatarBorder.borderColor = [UIColor colorWithWhite:0.000 alpha:0.090].CGColor;
     avatarBorder.cornerRadius = _avatarView.xyd_height / 2;
     avatarBorder.shouldRasterize = YES;
     avatarBorder.rasterizationScale = kScreenScale;

@@ -32,11 +32,15 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
 @end
 
 
-@implementation UIApplication (Permissions)
+@implementation UIApplication (XYDPermissions)
+
++ (BOOL)xyd_isAppExtension {
+    return [[[NSBundle mainBundle] executablePath] containsString:@".appex/"];
+}
 
 
 #pragma mark - Check permissions
--(XYDPermissionAccess)hasAccessToBluetoothLE {
+-(XYDPermissionAccess)xyd_hasAccessToBluetoothLE {
     switch ([[[CBCentralManager alloc] init] state]) {
         case CBCentralManagerStateUnsupported:
             return XYDPermissionAccessUnsupported;
@@ -52,7 +56,7 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(XYDPermissionAccess)hasAccessToCalendar {
+-(XYDPermissionAccess)xyd_hasAccessToCalendar {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent]) {
         case EKAuthorizationStatusAuthorized:
             return XYDPermissionAccessGranted;
@@ -72,7 +76,7 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(XYDPermissionAccess)hasAccessToContacts {
+-(XYDPermissionAccess)xyd_hasAccessToContacts {
     switch (ABAddressBookGetAuthorizationStatus()) {
         case kABAuthorizationStatusAuthorized:
             return XYDPermissionAccessGranted;
@@ -92,7 +96,7 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(XYDPermissionAccess)hasAccessToLocation {
+-(XYDPermissionAccess)xyd_hasAccessToLocation {
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusAuthorized:
             return XYDPermissionAccessGranted;
@@ -113,7 +117,7 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
     return XYDPermissionAccessUnknown;
 }
 
--(XYDPermissionAccess)hasAccessToPhotos {
+-(XYDPermissionAccess)xyd_hasAccessToPhotos {
     switch ([ALAssetsLibrary authorizationStatus]) {
         case ALAuthorizationStatusAuthorized:
             return XYDPermissionAccessGranted;
@@ -133,7 +137,7 @@ static char XYDPermissionsLocationBlockFailurePropertyKey;
     }
 }
 
--(XYDPermissionAccess)hasAccessToReminders {
+-(XYDPermissionAccess)xyd_hasAccessToReminders {
     switch ([EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder]) {
         case EKAuthorizationStatusAuthorized:
             return XYDPermissionAccessGranted;

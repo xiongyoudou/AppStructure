@@ -34,6 +34,8 @@ typedef enum {
 
 @interface UIApplication (XYDPermissions)
 
++ (BOOL)xyd_isAppExtension;
+
 //Check permission of service. Cannot check microphone or motion without asking user for permission
 -(XYDPermissionAccess)xyd_hasAccessToBluetoothLE;
 -(XYDPermissionAccess)xyd_hasAccessToCalendar;

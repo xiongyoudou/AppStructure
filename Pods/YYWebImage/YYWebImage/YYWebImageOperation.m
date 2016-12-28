@@ -41,6 +41,7 @@ static UIApplication *_YYSharedApplication() {
 }
 
 /// Returns YES if the right-bottom pixel is filled.
+//最后一个像素没有填充完毕,以为没有下载成功,返回
 static BOOL YYCGImageLastPixelFilled(CGImageRef image) {
     if (!image) return NO;
     size_t width = CGImageGetWidth(image);

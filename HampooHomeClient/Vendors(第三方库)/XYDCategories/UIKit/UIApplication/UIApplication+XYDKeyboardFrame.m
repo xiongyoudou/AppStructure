@@ -8,7 +8,7 @@
 
 #import "UIApplication+XYDKeyboardFrame.h"
 
-@implementation UIApplication (KeyboardFrame)
+@implementation UIApplication (XYDKeyboardFrame)
 static CGRect _xyd_keyboardFrame = (CGRect){ (CGPoint){ 0.0f, 0.0f }, (CGSize){ 0.0f, 0.0f } };
 
 - (CGRect)xyd_keyboardFrame {
