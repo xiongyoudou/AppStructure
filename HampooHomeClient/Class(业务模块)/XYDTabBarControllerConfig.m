@@ -22,6 +22,10 @@
 - (XYDTabBarController *)tabBarController {
     if (_tabBarController == nil) {
         XYDTabBarController *tabBarController = [XYDTabBarController tabBarControllerWithViewControllers:self.viewControllers plusButton:nil tabBarItemsAttributes:self.tabBarItemsAttributesForController];
+        __weak typeof(self)weakSelf = self;
+        tabBarController.clickTabbarItemBlock = ^(NSInteger fromItemIndex,NSInteger toItemIndex){
+            [weakSelf clickTabBarItemIndex:fromItemIndex toIndex:toItemIndex];
+        };
         [self customizeTabBarAppearance:tabBarController];
         _tabBarController = tabBarController;
     }
@@ -138,6 +142,14 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (void)clickTabBarItemIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    if (toIndex != 0){
+        
+    }else {
+        
+    }
 }
 
 - (void)dealloc {

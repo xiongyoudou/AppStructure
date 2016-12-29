@@ -90,8 +90,12 @@ NSString *const XYDTabBarItemSelectedImage = @"XYDTabBarItemSelectedImage";
  */
 - (void)setUpTabBar {
     XYDTabBar *tabBar = [[XYDTabBar alloc] init];
+    __weak typeof(self)weakSelf = self;
     tabBar.clickTabbarItemBlock = ^(NSInteger fromItemIndex,NSInteger toItemIndex) {
-        self.selectedIndex = toItemIndex;
+        weakSelf.selectedIndex = toItemIndex;
+        if (weakSelf.clickTabbarItemBlock) {
+            weakSelf.clickTabbarItemBlock(fromItemIndex,toItemIndex);
+        }
     };
     tabBar.plusButton = self.plusButton;
     tabBar.tabBarController = self;

@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "XYDPlusButton.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXTERN NSString *const XYDTabBarItemTitle;
 FOUNDATION_EXTERN NSString *const XYDTabBarItemImage;
 FOUNDATION_EXTERN NSString *const XYDTabBarItemSelectedImage;
+
+typedef void(^ClickTabbarItemBlock)(NSInteger fromItemIndex,NSInteger toItemIndex);
 
 @interface XYDTabBarController : UITabBarController
 
@@ -40,9 +44,11 @@ FOUNDATION_EXTERN NSString *const XYDTabBarItemSelectedImage;
  */
 @property (nonatomic, readwrite, assign) UIOffset titlePositionAdjustment;
 
-- (instancetype)initWithViewControllers:(nullable NSArray<UIViewController *> *)viewControllers plusButton:(XYDPlusButton<XYDPlusButtonProtocol> *)plusButton tabBarItemsAttributes:(nullable NSArray<NSDictionary *> *)tabBarItemsAttributes;
+@property (nonatomic,copy,nullable) ClickTabbarItemBlock clickTabbarItemBlock;
 
-+ (instancetype)tabBarControllerWithViewControllers:(nullable NSArray<UIViewController *> *)viewControllers plusButton:(XYDPlusButton<XYDPlusButtonProtocol> *)plusButton tabBarItemsAttributes:(nullable NSArray<NSDictionary *> *)tabBarItemsAttributes;
+- (instancetype)initWithViewControllers:(nullable NSArray<UIViewController *> *)viewControllers plusButton:(nullable XYDPlusButton<XYDPlusButtonProtocol> *)plusButton tabBarItemsAttributes:(nullable NSArray<NSDictionary *> *)tabBarItemsAttributes;
+
++ (instancetype)tabBarControllerWithViewControllers:(nullable NSArray<UIViewController *> *)viewControllers plusButton:(nullable XYDPlusButton<XYDPlusButtonProtocol> *)plusButton tabBarItemsAttributes:(nullable NSArray<NSDictionary *> *)tabBarItemsAttributes;
 
 @end
 
@@ -56,3 +62,5 @@ FOUNDATION_EXTERN NSString *const XYDTabBarItemSelectedImage;
 @property (nullable, nonatomic, readonly) XYDTabBarController *xyd_tabBarController;
 
 @end
+
+NS_ASSUME_NONNULL_END
