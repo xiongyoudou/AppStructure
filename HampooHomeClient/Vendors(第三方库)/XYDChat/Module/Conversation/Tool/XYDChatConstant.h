@@ -191,16 +191,6 @@ typedef NS_ENUM(NSUInteger, XYDChatMessageReadState) {
 };
 
 /**
- *  录音消息的状态
- */
-typedef NS_ENUM(NSUInteger, XYDChatVoiceMessageState){
-    XYDChatVoiceMessageStateNormal,/**< 未播放状态 */
-    XYDChatVoiceMessageStateDownloading,/**< 正在下载中 */
-    XYDChatVoiceMessageStatePlaying,/**< 正在播放 */
-    XYDChatVoiceMessageStateCancel,/**< 播放被取消 */
-};
-
-/**
  *  XYDChatChatMessageCell menu对应action类型
  */
 typedef NS_ENUM(NSUInteger, XYDChatChatMessageCellMenuActionType) {
