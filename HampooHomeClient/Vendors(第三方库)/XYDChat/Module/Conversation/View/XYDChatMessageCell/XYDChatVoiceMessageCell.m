@@ -8,7 +8,6 @@
 
 #import "XYDChatVoiceMessageCell.h"
 #import "NSObject+XYDAssociatedObject.h"
-#import "XYDAudioPlayer.h"
 #import "XYDChatHelper.h"
 #import "XYDChatAudioMessage.h"
 

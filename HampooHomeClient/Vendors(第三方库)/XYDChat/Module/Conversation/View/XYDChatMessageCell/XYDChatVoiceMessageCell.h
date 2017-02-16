@@ -7,6 +7,8 @@
 //
 
 #import "XYDChatMessageCell.h"
+#import "XYDAudioPlayer.h"
+
 
 @interface XYDChatVoiceMessageCell : XYDChatMessageCell<XYDChatMessageCellSubclassing>
 
